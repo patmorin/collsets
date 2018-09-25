@@ -40,6 +40,8 @@ urlcolor=linkblue, pdfcreator=Me, pdfproducer=Me}
 \author{Vida Dujmovi\'c\thanks{Department of Computer Science and Electrical Engineering, University of Ottawa}\,\, and 
         Pat Morin\thanks{School of Computer Science, Carleton University}}
 
+\newcommand{\dual}[1]{{#1}^\star}
+\newcommand{\note}[2]{{\color{red}#1:~#2}}
 
 \begin{document}
 \maketitle
@@ -58,11 +60,14 @@ urlcolor=linkblue, pdfcreator=Me, pdfproducer=Me}
 
 \section{Introduction}
 
-For a planar graph $G$, we say that a set $S\subseteq V(G)$ of vertices is
-a \emph{collinear set} if $G$ has a non-crossing straight-line drawing
-in which the vertices of $S$ are all collinear. The \emph{circumference},
- $c(G)$ of a graph $G$ is the length of its longest cycle. We prove the following
-theorem:
+For a planar graph $G$, we say that a set $S\subseteq V(G)$ is
+a \emph{collinear set} if $G$ has a non-crossing straight-line drawing in
+which the vertices of $S$ are all collinear.  The \emph{dual} $\dual{G}$
+of a plane graph $G$ is the graph whose vertex set $V(\dual{G})$ is
+the set of faces in $G$ and in which $f,g\in E(\dual{G})$ if and only
+if the face $f$ and the face $g$ contain at least one common edge.
+The \emph{circumference}, $c(G)$ of a graph $G$ is the length of its
+longest cycle. We prove the following theorem:
 
 \begin{thm}\thmlabel{main}
   Let $T$ be a triangulation of maximum degree $\Delta$ whose dual graph
@@ -71,24 +76,33 @@ theorem:
 \end{thm}
 
 The dual of a triangulation is a 3-connected cubic planar graph.
-The study of the circumference of 3-connected cubic planar graphs has
-a long history beginning with Tait \cite{X}, who conjectured that every
-such graph is Hamiltonian.  This conjecture was disproved by Tutte who
-gave a non-Hamiltonian 46-vertex example. Repeatedly replacing vertices
-of this graph with copies of itself gives a family of graphs in which
-$n$-vertex members have circumference $O(n^a)$, for $a=\log_{44}(45)) <
-n^{0.993}$. The current best upper bound of this type is due to Gr\"unbaum
-and Walther \cite{grunbaum.walther:shortness} who construct a 24-vertex
+The study of the circumference of 3-connected cubic planar graphs
+has a long and rich history going back at least 1884 when Tait
+\cite{tait:listings},conjectured that every such graph is Hamiltonian.  In
+1946, Tait's conjecture was disproved by Tutte who gave a non-Hamiltonian
+46-vertex example \cite{tutte:on}.  Repeatedly replacing vertices of
+this graph with copies of itself gives a family of graphs, $\langle G_i:i\in
+\Z\rangle$ in which $G_i$ has $46\cdot 45^i$ vertices and circumference at
+most $45\cdot44^i$.  Stated another way, $n$-vertex members of the
+family have circumference $O(n^a)$, for $a=\log_{44}(45)) < n^{0.9941}$.
+The current best upper bound of this type is due to Gr\"unbaum and
+Walther \cite{grunbaum.walther:shortness} who construct a 24-vertex
 non-Hamiltonian cubic 3-connected planar graph, resulting in a family
 of graphs in which $n$-vertex members have circumference $O(n^{\alpha})$
-for $\alpha=\log_{23}(22)< 0.985$.
+for $\alpha=\log_{23}(22)< 0.9859$.
 
-A series of results has steadily improved the lower bounds on the length
-of the longest cycle in (not necessarily planar) 3-connected cubic
-graphs \cite{X,X,X}.  The current record is held by Liu, Yu, and Zhang
-\cite{liu.yu.zhang:circumference} who show that $n$-vertex 3-connected
-cubic graph has a cycle of length $\Omega(n^{0.8})$.
-Together with \thmref{main}, this result implies the following corollary:
+A series of results has steadily improved the lower bounds on the
+circumference of $n$-vertex  (not necessarily planar) 3-connected cubic
+graphs.  Barnette \cite{barnette:4} showed that, for every $n$-vertex
+3-connected cubic graph $G$, $c(G)=\Omega(\log n)$.  Bondy and Simonovits
+\cite{bondy.simonovits:7} improved this bound to $e^{\Omega(\sqrt{\log
+n})}$ and conjectured that it can be improved to $\Omega(n^c)$ for $c>0$.
+Jackson \cite{jackson:8} confirmed this bound with $c=\log_2(1+\sqrt{5})-1
+> 0.6942$.  Billinksi \etal\ \cite{billinksi.jacdson.ea:6} improved this
+to the root of $4^{1/c}-3^{1/c}=2$, which is $c>0.7532$.  The current
+record is held by Liu, Yu, and Zhang \cite{liu.yu.zhang:circumference}
+who show that $c>0.8$.  Together with \thmref{main}, this result implies
+the following corollary:
 
 \begin{cor}\corlabel{main}
   Every $n$-vertex triangulation of maximum degree $\Delta$ contains a
@@ -96,14 +110,15 @@ Together with \thmref{main}, this result implies the following corollary:
 \end{cor}
 
 
-A longstanding open problem on circuference is \emph{Barnette's
+A longstanding open problem on circumference is \emph{Barnette's
 Conjecture}, which asserts that every \emph{bipartite} 3-connected cubic
-planar graph is Hamiltonian. Note that, if Barnette's conjecture is
-true, this would imply that every triangulation in which every vertex
-has even degree contains a collinear set of linear size.  
-\comment{TODO: Think
-about whether this even makes sense (for example, the assumption can
-only be true when $n$ is odd).}
+planar graph is Hamiltonian. Note that, if Barnette's conjecture is true,
+this would imply that every triangulation in which every vertex has even
+degree contains a collinear set of linear size.  \note{PM}{Think about
+whether this even makes sense. For example, the assumption can only be
+true when $n$ is odd.  Maybe there's a little trick we can do to make
+it more generally applicable, like when only a small number, $k$, of
+vertices have odd degree.}
 
 
 
@@ -112,10 +127,10 @@ only be true when $n$ is odd).}
 Let $G$ be a plane graph. A \emph{proper good curve} $C$ for $G$ is a
 Jordan curve with the following properties:
 \begin{enumerate}
-  \item For any edge $xy$ of $G$, $C$ either contains $xy$, intersects
+  \item proper: for any edge $xy$ of $G$, $C$ either contains $xy$, intersects
   $xy$ in a single point (possibly an endpoint) or $C$ is disjoint
-  from $xy$.  
-  \item $C$ contains at least one point in the interior of
+  from $xy$; and
+  \item good: $C$ contains at least one point in the interior of
   the outer face of $T$.
 \end{enumerate}
 
@@ -126,7 +141,72 @@ Da Lozzo \etal\ show that proper good curves define collinear sets:
   and only if there is a proper curve for $G$ that contains $S$.
 \end{thm}
 
-To prove \thmref{main}, we will demonstrate a relationship between proper good curves in triangulations and cycles in their duals.  
+For a triangulation $T$, let $v(T)$ denote the size of the largest
+collinear set in $T$.  We will show that, for any triangulation $T$
+whose dual is $T^*$, $v(T)=\Theta(c(\dual{T}))$ by demonstrating a
+relationship between proper good curves in $T$ and cycles in $\dual{T}$.
+
+In one direction, this result is easy, as used by Ravsky and Verbitsky
+\cite{ravsky.verbitsky:on,ravsky.verbitsky:on-arxiv}.  If $T$ is a
+triangulation that has a proper good curve $C$ containing $k$ vertices,
+then a slight deformation of $C$ produces a proper-good curve that
+contains no vertices. This curve intersects a cyclic sequence of faces
+$f_0,\ldots,f_{k'-1}$ of $T$ with $k'\ge k$.  In this sequence, $f_i$ and
+$f_{(i+1)\bmod k'}$ share an edge, for every $i\in\{0,\ldots,k'-1\}$, so
+this sequence is a closed walk in the dual $\dual{T}$ of $T$.  Property~1
+of good curves and the fact that each face of $T$ is a triangle ensures
+that $f_i\neq f_j$ for any $i\neq j$, so this sequence is a cycle in
+the dual of length $k'\ge k$.  Therefore, $c(\dual{T})\ge v(T)$.
+
+Let $C$ be a cycle in $\dual{T}$.  We say that $C$ is non-trivial if it
+is not a single face of $\dual(T)$.   We say that a face $f$ of $\dual{T}$ 
+\begin{enumerate}
+  \item is \emph{touched} by $C$ if $f\cap C\neq \emptyset$;
+  \item is \emph{pinched} by $C$ if $f\cap C$ has more than one connected component;
+  \item is \emph{good} for $C$ if it is touched but not pinched by $C$.
+\end{enumerate}
+
+\begin{lem}
+   Let $T$ be a triangulation and $C$ be a non-trivial cycle in $\dual{T}$ for which $k$ vertices of $\dual{T}$ are good.  Then $T$ has a proper-good curve that contains at least $k/4$ vertices, i.e., $v(T)\ge k/4$.
+\end{lem}
+
+\begin{proof}
+  Let $F$ be the set of faces in $\dual{T}$ that are good for $C$. Each
+  element $u\in F$ corresponds to a vertex of $T$ so we will treat $F$
+  as a set of vertices in $T$.  Consider the subgraph $T[F]$ of $T$
+  induced by $F$.  This graph is planar and has $k$ vertices. Therefore,
+  by the 4-Colour Theorem it contains an independent set $F'\subset F$
+  of size at least $k/4$.
+
+  We claim that $T$ has a proper-good curve that contains all the vertices
+  in $F'$.  To see this, first observe that the cycle $C$ in $\dual{T}$
+  already defines a proper-good curve (that does not contain any vertices
+  of $T$) that we will also call $C$.  We will perform surgery on $C$
+  so that it contains all the elements of $F'$.
+
+  For each vertex $u\in F'$, let $w_0,\ldots,w_{d-1}$ denote the
+  neighbours of $u$ in cyclic order.  The curve $C$ intersects some
+  contiguous subsequence $uw_i,\ldots,uw_j$ of the edges adjacent
+  to $u$.  Since $C$ is non-trivial, this sequence does not contain all
+  edges incident to $u$. In particular, the curve $C$ crosses the edge
+  $w_{i-1}w_i$, then crosses
+  $uw_i,\ldots,uw_j$, and then crosses the edge $w_j w_{j+1}$.  We modify
+  $C$ by removing the portion between the first and last of these crossings
+  and replacing it with a curve that contains $u$ and is contained in the
+  two triangles $w_{i-1}uw_i$ and $w_{j-1}uw_j$.
+
+  After performing this surgery for each $u\in F'$ we have a curve $C'$
+  that contains every vertex $u\in F'$.  All that remains is verify that
+  $C'$ is good and proper for $T$. That $C'$ is good for $T$ is
+  obvious.  That $C'$ is proper for $T$ follows the following two observations:
+  (i)~$C'$ does not contain any two adjacent vertices (since $F'$ is an
+  independent set); and (ii)~if $C'$ contains a vertex $u$, then it does
+  not intersect the interior of any edge incident to $u$.
+\end{proof}
+
+
+
+To prove that $v(T) = \Omega(c(\dual{T}))$ we begin with a 
 
 
 \section{}
