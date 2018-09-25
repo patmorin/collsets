@@ -1,0 +1,147 @@
+\documentclass{patmorin}
+%\usepackage[top=0.85in, bottom=0.85in, left=0.85in, right=0.85in]{geometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{graphicx}
+%\usepackage{xspace}
+%\usepackage{wrapfig}
+\newenvironment{wrapfigure}[9]{\begin{figure}}{\end{figure}}
+\newcommand{\Vspace}[1]{}
+\usepackage{enumerate}
+\usepackage{cite}
+\usepackage{pat}
+\usepackage{paralist}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=linkblue,  anchorcolor=linkblue,
+citecolor=linkblue, filecolor=linkblue, menucolor=linkblue,
+urlcolor=linkblue, pdfcreator=Me, pdfproducer=Me} 
+\setlength{\parskip}{1ex}
+\usepackage{algorithm}
+\usepackage{subfig}
+%\usepackage{subfigure}
+\usepackage{array}
+\usepackage[noend]{algpseudocode}
+\usepackage[usenames]{xcolor}
+\usepackage{stmaryrd} % for lightning-symbol
+\usepackage{mathtools} % for mathclap in \conf-definition
+\usepackage{todonotes}
+%\usepackage{compress}
+%\usepackage{times}
+\usepackage{lineno}
+
+\title{\MakeUppercase{Dual Cycles and Collinear Sets in Triangulations}%
+    \thanks{This work was partly funded by NSERC and MRI.}}
+
+\author{Vida Dujmovi\'c\thanks{Department of Computer Science and Electrical Engineering, University of Ottawa}\,\, and 
+        Pat Morin\thanks{School of Computer Science, Carleton University}}
+
+
+\begin{document}
+\maketitle
+
+
+\begin{abstract}
+   We show that, if a triangulation $T$ of maximum degree $\Delta$
+   has a dual that contains a cycle of length $\ell$, then $T$ has
+   a plane straight-line drawing in which some \emph{collinear set}
+   of $\Omega(\ell/\Delta^2)$ vertices lie on a line.  Using the
+   current lower bounds on the length of longest cycles in 3-regular
+   3-connected graphs, this implies that $T$ contains a collinear set
+   of size $\Omega(n^{0.8}/\Delta^2)$.  Such collinear sets have numerous
+   results in graph drawing.
+\end{abstract}
+
+\section{Introduction}
+
+For a planar graph $G$, we say that a set $S\subseteq V(G)$ of vertices is
+a \emph{collinear set} if $G$ has a non-crossing straight-line drawing
+in which the vertices of $S$ are all collinear. The \emph{circumference},
+ $c(G)$ of a graph $G$ is the length of its longest cycle. We prove the following
+theorem:
+
+\begin{thm}\thmlabel{main}
+  Let $T$ be a triangulation of maximum degree $\Delta$ whose dual graph
+  has circumference $\ell$. Then $T$ has a collinear set of
+  size $\Omega(\ell/\Delta^2)$.
+\end{thm}
+
+The dual of a triangulation is a 3-connected cubic planar graph.
+The study of the circumference of 3-connected cubic planar graphs has
+a long history beginning with Tait \cite{X}, who conjectured that every
+such graph is Hamiltonian.  This conjecture was disproved by Tutte who
+gave a non-Hamiltonian 46-vertex example. Repeatedly replacing vertices
+of this graph with copies of itself gives a family of graphs in which
+$n$-vertex members have circumference $O(n^a)$, for $a=\log_{44}(45)) <
+n^{0.993}$. The current best upper bound of this type is due to Gr\"unbaum
+and Walther \cite{grunbaum.walther:shortness} who construct a 24-vertex
+non-Hamiltonian cubic 3-connected planar graph, resulting in a family
+of graphs in which $n$-vertex members have circumference $O(n^{\alpha})$
+for $\alpha=\log_{23}(22)< 0.985$.
+
+A series of results has steadily improved the lower bounds on the length
+of the longest cycle in (not necessarily planar) 3-connected cubic
+graphs \cite{X,X,X}.  The current record is held by Liu, Yu, and Zhang
+\cite{liu.yu.zhang:circumference} who show that $n$-vertex 3-connected
+cubic graph has a cycle of length $\Omega(n^{0.8})$.
+Together with \thmref{main}, this result implies the following corollary:
+
+\begin{cor}\corlabel{main}
+  Every $n$-vertex triangulation of maximum degree $\Delta$ contains a
+  collinear set of size $\Omega(n^{0.8}/\Delta^2)$.
+\end{cor}
+
+
+A longstanding open problem on circuference is \emph{Barnette's
+Conjecture}, which asserts that every \emph{bipartite} 3-connected cubic
+planar graph is Hamiltonian. Note that, if Barnette's conjecture is
+true, this would imply that every triangulation in which every vertex
+has even degree contains a collinear set of linear size.  
+\comment{TODO: Think
+about whether this even makes sense (for example, the assumption can
+only be true when $n$ is odd).}
+
+
+
+\section{Proof of \thmref{main}}
+
+Let $G$ be a plane graph. A \emph{proper good curve} $C$ for $G$ is a
+Jordan curve with the following properties:
+\begin{enumerate}
+  \item For any edge $xy$ of $G$, $C$ either contains $xy$, intersects
+  $xy$ in a single point (possibly an endpoint) or $C$ is disjoint
+  from $xy$.  
+  \item $C$ contains at least one point in the interior of
+  the outer face of $T$.
+\end{enumerate}
+
+Da Lozzo \etal\ show that proper good curves define collinear sets:
+
+\begin{thm}
+  In a plane graph $G$, a set $S\subseteq V(G)$ is a collinear set if
+  and only if there is a proper curve for $G$ that contains $S$.
+\end{thm}
+
+To prove \thmref{main}, we will demonstrate a relationship between proper good curves in triangulations and cycles in their duals.  
+
+
+\section{}
+
+\newpage
+\bibliographystyle{plain}
+\bibliography{freecoll}
+
+\end{document}
+
+
+
+
+
+
+
+
+
