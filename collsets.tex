@@ -96,12 +96,12 @@ circumference of $n$-vertex  (not necessarily planar) 3-connected cubic
 graphs.  Barnette \cite{barnette:4} showed that, for every $n$-vertex
 3-connected cubic graph $G$, $c(G)=\Omega(\log n)$.  Bondy and Simonovits
 \cite{bondy.simonovits:7} improved this bound to $e^{\Omega(\sqrt{\log
-n})}$ and conjectured that it can be improved to $\Omega(n^c)$ for $c>0$.
-Jackson \cite{jackson:8} confirmed this bound with $c=\log_2(1+\sqrt{5})-1
+n})}$ and conjectured that it can be improved to $\Omega(n^\alpha)$ for $\alpha>0$.
+Jackson \cite{jackson:8} confirmed this bound with $\alpha=\log_2(1+\sqrt{5})-1
 > 0.6942$.  Billinksi \etal\ \cite{billinksi.jacdson.ea:6} improved this
-to the root of $4^{1/c}-3^{1/c}=2$, which is $c>0.7532$.  The current
+to the root of $4^{1/\alpha}-3^{1/\alpha}=2$, which implies $\alpha>0.7532$.  The current
 record is held by Liu, Yu, and Zhang \cite{liu.yu.zhang:circumference}
-who show that $c>0.8$.  Together with \thmref{main}, this result implies
+who show that $\alpha>0.8$.  Together with \thmref{main}, this result implies
 the following corollary:
 
 \begin{cor}\corlabel{main}
@@ -123,21 +123,39 @@ vertices have odd degree.}
 
 \section{Proof of \thmref{main}}
 
-Let $G$ be a plane graph. A \emph{proper good curve} $C$ for $G$ is a
+Let $G$ be a plane graph.  We treat the vertices of $G$ as points,
+the edges of $G$ as closed curves and the faces of $G$ as closed sets
+(so that a face contains all the edges on its boundary and an edge
+contains both its endpoints).  Whenever we consider subgraphs of $G$
+we treat them as having the same embedding as $G$.  Similarly, if we
+consider a graph $\bar{G}$ that is homeomorphic to $G$ then we assume
+that the edges of $\bar{G}$---each of which repreesents a path in $G$
+whose internal vertices all have degree 2---inherit their embedding from
+the paths they represent in $G$.
+
+Finally, if we consider the dual $G^*$ of $G$ then we treat it as a
+plane graph in which each vertex $f$ is represented as a point in the
+interior of the face $f$ of $G$ that it represents.  The edges of $G^*$
+are embedded so that an edge $fg$ is contained in the union of the two
+faces $f$ and $g$ of $G$, it intersects the interior of exactly one
+edge of $G$ that is common to $f$ and $G$, and this intersection
+consists of a single point.
+
+A \emph{proper good curve} $C$ for a plane graph $G$ is a
 Jordan curve with the following properties:
 \begin{enumerate}
   \item proper: for any edge $xy$ of $G$, $C$ either contains $xy$, intersects
   $xy$ in a single point (possibly an endpoint) or $C$ is disjoint
   from $xy$; and
   \item good: $C$ contains at least one point in the interior of
-  the outer face of $T$.
+  the outer face of $G$.
 \end{enumerate}
 
 Da Lozzo \etal\ show that proper good curves define collinear sets:
 
 \begin{thm}
   In a plane graph $G$, a set $S\subseteq V(G)$ is a collinear set if
-  and only if there is a proper curve for $G$ that contains $S$.
+  and only if there is a proper good curve for $G$ that contains $S$.
 \end{thm}
 
 For a triangulation $T$, let $v(T)$ denote the size of the largest
@@ -168,8 +186,15 @@ is not a single face of $\dual(T)$.   We say that a face $f$ of $\dual{T}$
   \item is \emph{good} for $C$ if it is touched but not pinched by $C$.
 \end{enumerate}
 
-\begin{lem}
-   Let $T$ be a triangulation and $C$ be a non-trivial cycle in $\dual{T}$ for which $k$ vertices of $\dual{T}$ are good.  Then $T$ has a proper-good curve that contains at least $k/4$ vertices, i.e., $v(T)\ge k/4$.
+For a non-trivial cycle $C$ in $\dual{T}$, we use $\tau_{\dual{T}}(C)$,
+$\rho_{\dual{T}}(C)$ and $\gamma_{\dual{T}}(C)$ to denote the set of
+faces in $\dual{T}$ that are $\tau$ouched, $\rho$inched, and $\gamma$ood
+for $C$, respectively.
+
+\begin{lem}\lemlabel{cycle-to-curve}
+   Let $T$ be a triangulation and $C$ be a non-trivial cycle in
+   $\dual{T}$.  Then $T$ has a proper-good curve that contains at least
+   $|\gamma(C)|/4$ vertices, i.e., $v(T)\ge |\gamma(C)|/4$.
 \end{lem}
 
 \begin{proof}
@@ -206,9 +231,198 @@ is not a single face of $\dual(T)$.   We say that a face $f$ of $\dual{T}$
   not intersect the interior of any edge incident to $u$.
 \end{proof}
 
+\lemref{cycle-to-curve} reduces the problem to finding a cycle in
+$\dual{T}$ that is good for many faces.  We do this by showing that any
+long cycle in $\dual{T}$ can be transformed into a cycle that is good
+for many good faces of $\dual{T^*}$.  To do this, we will introduce an
+auxilliary graph.
+
+\begin{lem}\lemlabel{one-good}
+   Let $T$ be a triangulation, $C$ be a non-trivial cycle in $\dual{T}$,
+   and let $P$ be a path in $\dual{T}$ whose endpoints in $V(C)$ and whose
+   internal vertices are in the interior of $C$.  Then each of the two
+   internal faces of $P\cup C$ contains at least one face of $\dual{T}$
+   that is good for $C$.
+\end{lem}
+
+\begin{proof}
+   It suffices to consider one of the two faces in question. Let $R$
+   be the face of $P\cup C$ to the right of $P$.  The proof
+   is by induction on the number, $t$, of faces of $\dual{T}$ contained
+   in $R$.  If $t=1$, then $R$ is a face of $\dual{T}$ and it is good
+   for $C$.
+
+   If $t>1$, then consider the face $f$ of $\dual{T}$ that is contained
+   in $R$ and has the first edge of $P$ on its boundary.  Since $t>1$,
+   $X=R\setminus f$ is non-empty. The set $X$ may have several connected
+   components, but each of them has a boundary that contains a path $P'$
+   whose endpoints are vertices of $C$ and whose interior vertices are
+   in the interior of $C$.  We can therefore apply induction on the
+   path $P'$.
+\end{proof}
+
+Let $C$ be a non-trivial cycle in $\dual{T}$ and consider the auxilliary
+graph $H$ with vertex set $V(H)\subseteq V(\dual{T})$ and whose edge set
+consist of the edges of $C$ plus those edges of $\dual{T}$ that belong
+to any face pinched by $C$.  Let $v_0,\ldots,v_{r-1}$ be the cyclic sequence of vertices on some face $f$ of $\dual{T}$ that is pinched by $C$.  
+We identify two kinds of vertices that are \emph{special} with respect to $f$:
+\begin{enumerate}
+  \item A vertex $v_i$ is special of \emph{Type~A} if $v_{i-1}v_i$ is an edge of $C$ and $v_iv_{i+1}$ is not an edge of $C$.
+  \item A vertex $v_i$ is special of \emph{Type~B} if $v_{i-1}v_i$ is not an edge of $C$ and $v_iv_{i+1}$ is an edge of $C$.
+  \item A vertex $v_i$ is special of \emph{Type~Y} if $v_i$ not incident to any edge of $C$ and $v_i$ has degree 3 in $H$.
+\end{enumerate}
+
+We say that a path $v_i,\ldots,v_j$ is a \emph{keeper} with respect to
+$f$ if $v_i$ is special of Type~A, $v_j$ is special of Type~B, and none
+of $v_{i+1},\ldots,v_{j-1}$ are special.  We let $\tilde{H}$ denote the
+subgraph of $H$ containing all the edges of $C$ and all the edges of
+all paths that are special with respect to some face $f$ of $\dual{T}$.
+
+It is worth remarking at this point that, by definition, every keeper
+is contained in the boundary of at least one face $f$ of $\dual{T}$.
+This property will be useful shortly.
+
+Let $\bar{H}$ denote the graph that is homeormophic to $\tilde{H}$ but does not
+contain any degree 2 vertices.  That is, $\bar{H}$ is the minor of $\tilde{H}$
+obtained by repeatedly contracting an edge incident a degree-2 vertex.
+The graph $\bar{H}$ naturally inherits an embedding from the embedding of $\tilde{H}$ (which inherits its embedding from an embedding $H$, which inherits an embedding from $\dual{T})$.  This embedding partitions the edges of $\bar{H}$ into three sets:
+\begin{enumerate}
+  \item The set $B$ of edges that are contained in (the embedding of) $C$;
+  \item The set $E_0$ of edges whose interiors are contained in the interior of (the embedding of) $C$; and
+  \item The set $E_1$ of edges whose interiors are contained in the exterior of (the embedding of) $C$.
+\end{enumerate}
+
+Observe that, for each $i\in\{0,1\}$, the graph $H_i$ whose edges are
+exactly those in $B\cup E_i$ is outerplanar.  Let $T_i$ be the subgraph of
+$\dual{H_i}$ whose edges are all those dual to the edges of $E_i$. From
+the outerplanarity of $H_i$, it follows that $T_i$ is a tree. Note that
+the nodes of $T_i$, which are faces of $\bar{H}$, are subsets of the
+plane obtained by taking the closure of the union of faces in $\dual{T}$.
+In the following, when we say that a node $u$ of $T_i$ contains a face
+$f$ of $\dual{T}$ we mean that $f$ is one of the faces of $\dual{T}$
+whose union makes up $u$.
+
+\note{PM: The following is bullshit! A node u doesn't have Property~Y.}
+For a node $u$ in $T_i$, let $C_u$ denote the cycle in $\dual{T}$ that
+traverses the boundary of $u$.  Such a cycle has a special property that
+we call \emph{Property~Y:} Let $f$ be any face of $\dual{T}$ that is
+pinched by $C_u$ and contained in the interior of $C_u$ and let $P$ be any
+path on the boundary of $f$ whose two endpoints are in $V(C)$ and whose
+interior vertices are disjoint from $V(C)$.  Then $P$ has at least one
+interior vertex $v$ that is on the boundary of two or more bad faces. In
+particular, one of these faces is a bad face that is distinct from $f$.
+
+\begin{lem}\lemlabel{all-good}
+   Let $C_u$ be a cycle in $\dual{T}$ with Property~Y and let $u$ be
+   region bounded by $C_u$.  Then $\gamma(C_u)\cap u= \tau(C_u)\cap u$.
+\end{lem}
+
+\begin{proof}
+   Suppose, for the sake of contradiction, that $u$ contains some face
+   $f$ that is pinched by $C_u$.  The face $f$ contains a chord-path
+   $P$ for $C_u$. The path $P$ partitions $u$ into two sets $u'$ and
+   $u''$ and assume, without loss of generality that $u''$ contains $f$.
+   By Property~Y, $P$ contains an interior vertex that is incident to two
+   pinched faces, one of which, $f'$ is not $f$ and is therefore contained
+   in $u'$.  Now, since $f'$ is pinched, it contains a chord path $P'$
+   for $C_u$ that is disjoint from $f$.  Exactly the same reasoning
+   applied to $P'$ and $f'$ proves the existence of a third bad face $f''$
+   and a third chord path $P''$ that is disjoint from $f$ and $f'$.
+   Repeating this argument \emph{ad infinitum} contradicts the assumption
+   that $\dual{T}$ is finite.
+\end{proof}
+
+To avoid repeated awkward phraseology, the next few lemmas prove
+statements about $T_0$.  However, exactly the same statements apply
+to $T_1$ since, after an appropriate inversion of the plane, the same
+proofs apply.
+
+The following lemma allows us to direct our effort towards proving that
+$T_0$ has many leaves.
+
+\begin{lem}
+   Each leaf $u$ of $T_0$ contains at least one face of $\dual{T}$
+   that is good for $C$.
+\end{lem}
+
+\begin{proof}
+   Without loss of generality, assume $i=0$.  The edge of $T_i$ incident
+   to $u$ corresponds to a chord path $P$. The graph $P\cup C$ has two
+   internal faces, one of which is $u$.  The lemma now follows immediately
+   from \lemref{one-good}.
+\end{proof}
+
+The next lemma shows that a node of $T_0$ that contains many touched
+faces must have high degree or contain many good faces.
+\begin{lem}
+   For each node $u$ of $T_0$,  $\deg_{T_i}(u)+|\gamma(C)\cap u|\ge
+   \beta|\tau(C)\cap u|$.
+\end{lem}
+
+\begin{proof}
+   The boundary of $u$ consists of paths that alternate between
+   \emph{black} paths whose edges are all in $E(C)$ and \emph{red}
+   paths whose endpoints are in $V(C)$ but whose edges are not in
+   $E(C)$.  The value of $\deg_{T_i}(u)$ is the number of red paths.
+   Let $v_0,\ldots,v_{2d-1}$ denote the sequence of vertices on the
+   boundary of $u$ that are are the common endpoint of a red and a black
+   path, labelled so that the path from $v_0$ to $v_1$ is a red path.
+
+   We will consider a sequence of operations that transforms $C$.  Each
+   such operation removes the path in $C$ that with endpoints $v_{2i}$
+   and $v_{2i+1}$ that has no edges in the boundary of $u$.  Let $Q_i$
+   be the red path with endpoints $v_{2i}$ and $v_{2i+1}$ and note that,
+   by construction, there is a single face $f$ of $\dual{T}$ that contains
+   $Q$ on its boundary.   There are then two cases to consider:
+   \begin{enumerate}
+       \item The face $f$ is contained in $u$.  In this case, we complete
+       $C$ by adding the edges of $Q_i$ to $C$.
+       \item The face $f$ is not contained in $u$. In this case,
+       we complete $C$ by adding the path on $f$'s boundary that has
+       $v_{2i}$ and $v_{2i+1}$ as endpoints but is not $Q_i$.
+   \end{enumerate}
+
+   Note that, in either case, this operation increases the number of faces
+   of $u$ that are good for $C$ by at most 1.  This occurs precisely when,
+   in the first case, $f\cap C$ has exactly two components. 
+   
+   By \lemref{all-good} we know that $u$ contains faces that are pinched
+   by $C_u$.  What about the faces that are pinched by $C'$. 
+
+ e
+   We know that $C_u$ contains no faces pinched by $C_u$.  What about faces pinched by $C'$?  
+   We know that $u$ contains no faces that are bad for $C_u$
+
+   Therefore, after performing this operation on each red path $Q_i$,
+   we are left with a cycle $C'$ that contains $u$ and.
+   \[
+       |\gamma(C')\cap u| \le |\gamma(C)\cap u| + \deg_{T_i}(u) \enspace .
+   \]
+   Now, we can think of $C'$ as being created from the boundary of $u$ by gluing at most $\deg_{T_i}(u)$ faces to $u$.  Each such gluing operation introduces a new face and this face is good for $C'$.  At the same time 
+
+ plus at most $\deg_{T_i}(u)$ additional faces.  This implies that the number of faces in the interior of $C'$ is not more than the number of faces in $u$ that are good for $C$ minus the $2\deg_{T_i}(u)$.
+
+\end{proof}
 
 
-To prove that $v(T) = \Omega(c(\dual{T}))$ we begin with a 
+
+
+\begin{thm}
+  Let $T$ be a triangulation of maximum degree $\Delta$ whose dual
+  $\dual{T}$ has a non-trivial cycle $C$ of length $\ell$.  Then
+  $\dual{T}$ has a cycle $C'$ that is good for $\Omega(\ell/\Delta^2)$
+  faces of $\dual{T}$.
+\end{thm}
+
+
+\begin{lem}
+
+\end{lem}
+
+\begin{proof}
+
+\end{proof}
+
 
 
 \section{}
