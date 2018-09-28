@@ -4,7 +4,7 @@ name=collsets
 texsources=collsets.tex 
 
 $(name).pdf : $(texsources) $(name).bib figs/
-	#(cd figs; make)
+	make -C figs
 	latexmk -pdf $(name)
 
 reset : clean $(name).pdf

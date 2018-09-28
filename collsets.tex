@@ -10,7 +10,6 @@
 \usepackage{graphicx}
 %\usepackage{xspace}
 %\usepackage{wrapfig}
-\newenvironment{wrapfigure}[9]{\begin{figure}}{\end{figure}}
 \newcommand{\Vspace}[1]{}
 \usepackage{enumerate}
 \usepackage{cite}
@@ -23,7 +22,6 @@ urlcolor=linkblue, pdfcreator=Me, pdfproducer=Me}
 \setlength{\parskip}{1ex}
 \usepackage{algorithm}
 \usepackage{subfig}
-%\usepackage{subfigure}
 \usepackage{array}
 \usepackage[noend]{algpseudocode}
 \usepackage[usenames]{xcolor}
@@ -145,7 +143,7 @@ A \emph{proper good curve} $C$ for a plane graph $G$ is a
 Jordan curve with the following properties:
 \begin{enumerate}
   \item proper: for any edge $xy$ of $G$, $C$ either contains $xy$, intersects
-  $xy$ in a single point (possibly an endpoint) or $C$ is disjoint
+  $xy$ in a single point (possibly an endpoint), or is disjoint
   from $xy$; and
   \item good: $C$ contains at least one point in the interior of
   the outer face of $G$.
@@ -153,7 +151,7 @@ Jordan curve with the following properties:
 
 Da Lozzo \etal\ show that proper good curves define collinear sets:
 
-\begin{thm}
+\begin{thm}\thmlabel{dalozzo}
   In a plane graph $G$, a set $S\subseteq V(G)$ is a collinear set if
   and only if there is a proper good curve for $G$ that contains $S$.
 \end{thm}
@@ -167,7 +165,7 @@ relationship between proper good curves in $T$ and cycles in $\dual{T}$.
 In one direction, this result is easy, as used by Ravsky and Verbitsky
 \cite{ravsky.verbitsky:on,ravsky.verbitsky:on-arxiv}.  If $T$ is a
 triangulation that has a proper good curve $C$ containing $k$ vertices,
-then a slight deformation of $C$ produces a proper-good curve that
+then a slight deformation of $C$ produces a proper good curve that
 contains no vertices. This curve intersects a cyclic sequence of faces
 $f_0,\ldots,f_{k'-1}$ of $T$ with $k'\ge k$.  In this sequence, $f_i$ and
 $f_{(i+1)\bmod k'}$ share an edge, for every $i\in\{0,\ldots,k'-1\}$, so
@@ -176,40 +174,52 @@ of good curves and the fact that each face of $T$ is a triangle ensures
 that $f_i\neq f_j$ for any $i\neq j$, so this sequence is a cycle in
 the dual of length $k'\ge k$.  Therefore, $c(\dual{T})\ge v(T)$.
 
-\subsection{Faces that are Touched, Pinched, and Good}
+\subsection{Faces that are Touched, Pinched, and Caressed}
 
-Let $C$ be a cycle in $\dual{T}$.  We say that $C$ is non-trivial if it
-is not a single face of $\dual(T)$.   We say that a face $f$ of $\dual{T}$ 
+We say that a cycle $C$ in a plane graph is non-trivial if it is not
+contained in a single face of the graph.  Throughout the remainder of
+this section, $T$ is a triangulation whose dual is $\dual{T}$ and $C$
+is a non-trivial cycle in $\dual{T}$.  Refer to \figref{touched-pinched-caressed}.
+We say that a face $f$ of $\dual{T}$ 
 \begin{enumerate}
   \item is \emph{touched} by $C$ if $f\cap C\neq \emptyset$;
   \item is \emph{pinched} by $C$ if $f\cap C$ has more than one connected component;
-  \item is \emph{good} for $C$ if it is touched but not pinched by $C$.
+  \item is \emph{caressed} by $C$ if it is touched but not pinched by $C$.
 \end{enumerate}
 
-For a non-trivial cycle $C$ in $\dual{T}$, we use $\tau_{\dual{T}}(C)$,
-$\rho_{\dual{T}}(C)$ and $\gamma_{\dual{T}}(C)$ to denote the set of
-faces in $\dual{T}$ that are $\tau$ouched, $\rho$inched, and $\gamma$ood
-for $C$, respectively.
+\begin{figure}
+\begin{center}
+	  \includegraphics{figs/touched-pinched-caressed}
+\end{center}
+	  \caption{Faces of $T^*$ that are pinched and caressed by $C$. Caressed faces are lightly shaded, pinched faces are shaded red, and untouched faces are unshaded.}
+	  \figlabel{touched-pinched-caressed}
+\end{figure}
+
+
+Since $C$ is always the cycle of interest, we will say simply that a face
+$f$ of $\dual{T}$ is touched, pinched, or caressed, without specifically
+mentioning $C$.  We will frequently use the values $\tau$, $\rho$, and
+$\kappa$ to denote the number of faces in some region that $\tau$ouched,
+$\rho$inched or $\kappa$aressed.
 
 \begin{lem}\lemlabel{cycle-to-curve}
-   Let $T$ be a triangulation and $C$ be a non-trivial cycle in
-   $\dual{T}$.  Then $T$ has a proper-good curve that contains at least
-   $|\gamma(C)|/4$ vertices, i.e., $v(T)\ge |\gamma(C)|/4$.
+   If $C$ caresses $\kappa$ faces of $\dual{T}$ then $T$ has a proper good
+	curve that contains at least $\kappa/4$ vertices so, by \thmref{dalozzo}, $v(T)\ge \kappa/4$.
 \end{lem}
 
 \begin{proof}
-  Let $F$ be the set of faces in $\dual{T}$ that are good for $C$. Each
+  Let $F$ be the set of faces in $\dual{T}$ that are caressed by $C$. Each
   element $u\in F$ corresponds to a vertex of $T$ so we will treat $F$
   as a set of vertices in $T$.  Consider the subgraph $T[F]$ of $T$
   induced by $F$.  This graph is planar and has $k$ vertices. Therefore,
   by the 4-Colour Theorem it contains an independent set $F'\subset F$
-  of size at least $k/4$.
+  of size at least $\kappa/4$.
 
-  We claim that $T$ has a proper-good curve that contains all the vertices
+  We claim that $T$ has a proper good curve that contains all the vertices
   in $F'$.  To see this, first observe that the cycle $C$ in $\dual{T}$
-  already defines a proper-good curve (that does not contain any vertices
+  already defines a proper good curve (that does not contain any vertices
   of $T$) that we will also call $C$.  We will perform surgery on $C$
-  so that it contains all the elements of $F'$.
+  so that it contains all the vertices in $F'$.
 
   For each vertex $u\in F'$, let $w_0,\ldots,w_{d-1}$ denote the
   neighbours of $u$ in cyclic order.  The curve $C$ intersects some
@@ -220,7 +230,18 @@ for $C$, respectively.
   $uw_i,\ldots,uw_j$, and then crosses the edge $w_j w_{j+1}$.  We modify
   $C$ by removing the portion between the first and last of these crossings
   and replacing it with a curve that contains $u$ and is contained in the
-  two triangles $w_{i-1}uw_i$ and $w_{j-1}uw_j$.
+  two triangles $w_{i-1}uw_i$ and $w_{j-1}uw_j$. (See \figref{cycle-to-curve}.)
+
+  \begin{figure}
+     \begin{center}
+	\begin{tabular}{cc}
+		\includegraphics{figs/cycle-to-curve-1} &
+		\includegraphics{figs/cycle-to-curve-2}
+	\end{tabular}
+     \end{center}
+     \caption{Transforming the dual cycle $C$ into a proper good curve $C'$ containing $u$.}
+	  \figlabel{cycle-to-curve}
+  \end{figure}
 
   After performing this surgery for each $u\in F'$ we have a curve $C'$
   that contains every vertex $u\in F'$.  All that remains is verify that
@@ -231,46 +252,64 @@ for $C$, respectively.
   not intersect the interior of any edge incident to $u$.
 \end{proof}
 
-\lemref{cycle-to-curve} reduces the problem to finding a cycle in
-$\dual{T}$ that is good for many faces.  We do this by showing that any
-long cycle in $\dual{T}$ can be transformed into a cycle that is good
-for many good faces of $\dual{T^*}$.  To do this, we will introduce an
-auxilliary graph.
+\lemref{cycle-to-curve} reduces our problem to finding a cycle in
+$\dual{T}$ that caresses many faces.  We do this by showing that any
+long cycle in $\dual{T}$ can be transformed into a cycle that caresses
+many faces of $\dual{T}$.  
 
-\begin{lem}\lemlabel{one-good}
-   Let $T$ be a triangulation, $C$ be a non-trivial cycle in $\dual{T}$,
-   and let $P$ be a path in $\dual{T}$ whose endpoints in $V(C)$ and whose
-   internal vertices are in the interior of $C$.  Then each of the two
-   internal faces of $P\cup C$ contains at least one face of $\dual{T}$
-   that is good for $C$.
+We begin with a simple but useful lemma.  A path $P$ in $\dual{T}$ is
+a \emph{chord path} (for $C$) if both endpoints on $P$ are in $V(C)$
+and none of $P$'s edges are in $E(C)$.
+
+\begin{lem}\lemlabel{one-caressed}
+   Let $P$ be a chord path for $C$ and let $L$ and $R$ be the two faces
+   of $P\cup C$ that have $P$ on their boundary. Then each of $L$ and $R$
+   contain at least one face of $\dual{T}$ that is caressed by $C$.
 \end{lem}
 
 \begin{proof}
-   It suffices to consider one of the two faces in question. Let $R$
-   be the face of $P\cup C$ to the right of $P$.  The proof
-   is by induction on the number, $t$, of faces of $\dual{T}$ contained
-   in $R$.  If $t=1$, then $R$ is a face of $\dual{T}$ and it is good
-   for $C$.
+   It suffices to consider $R$, since $L$ is symmetric.  The proof is by
+   induction on the number, $t$, of faces of $\dual{T}$ contained in $R$.
+   If $t=1$, then $R$ is a face of $\dual{T}$ and it is caressed by $C$.
 
    If $t>1$, then consider the face $f$ of $\dual{T}$ that is contained
-   in $R$ and has the first edge of $P$ on its boundary.  Since $t>1$,
+	in $R$ and has the first edge of $P$ on its boundary.  Refer to \figref{one-caressed}. Since $t>1$,
    $X=R\setminus f$ is non-empty. The set $X$ may have several connected
-   components, but each of them has a boundary that contains a path $P'$
-   whose endpoints are vertices of $C$ and whose interior vertices are
-   in the interior of $C$.  We can therefore apply induction on the
-   path $P'$.
+   components $X_1,\ldots,X_k$, but each $X_i$ has a boundary that contains a chord path $P_i$ for $C$.
+	We can therefore apply induction on $P_1$ (or any $P_i$).
+  \begin{figure}
+     \begin{center}
+	\begin{tabular}{cc}
+		\includegraphics{figs/one-caressed-1} &
+		\includegraphics{figs/one-caressed-2}
+	\end{tabular}
+     \end{center}
+	  \caption{The proof of \lemref{one-caressed}.}
+	  \figlabel{one-caressed}
+  \end{figure}
 \end{proof}
 
-Let $C$ be a non-trivial cycle in $\dual{T}$ and consider the auxilliary
+Refer to \figref{auxilliary}. \note{PM}{make \figref{auxilliary} more informative.}
+Consider the auxilliary
 graph $H$ with vertex set $V(H)\subseteq V(\dual{T})$ and whose edge set
 consist of the edges of $C$ plus those edges of $\dual{T}$ that belong
-to any face pinched by $C$.  Let $v_0,\ldots,v_{r-1}$ be the cyclic sequence of vertices on some face $f$ of $\dual{T}$ that is pinched by $C$.  
+to any face pinched by $C$. Let $v_0,\ldots,v_{r-1}$ be the cyclic sequence of vertices on some face $f$ of $\dual{T}$ that is pinched by $C$.  
 We identify two kinds of vertices that are \emph{special} with respect to $f$:
 \begin{enumerate}
   \item A vertex $v_i$ is special of \emph{Type~A} if $v_{i-1}v_i$ is an edge of $C$ and $v_iv_{i+1}$ is not an edge of $C$.
   \item A vertex $v_i$ is special of \emph{Type~B} if $v_{i-1}v_i$ is not an edge of $C$ and $v_iv_{i+1}$ is an edge of $C$.
   \item A vertex $v_i$ is special of \emph{Type~Y} if $v_i$ not incident to any edge of $C$ and $v_i$ has degree 3 in $H$.
 \end{enumerate}
+
+  \begin{figure}
+     \begin{center}
+		\includegraphics{figs/touched-pinched-caressed-1} 
+		\includegraphics{figs/touched-pinched-caressed-2}
+     \end{center}
+	  \caption{The auxilliary graph $H$ and the trees $T_0$ and $T_1$.}
+	  \figlabel{auxilliary}
+  \end{figure}
+
 
 We say that a path $v_i,\ldots,v_j$ is a \emph{keeper} with respect to
 $f$ if $v_i$ is special of Type~A, $v_j$ is special of Type~B, and none
@@ -304,128 +343,120 @@ whose union makes up $u$.
 
 
 The following lemma allows us to direct our effort towards proving that
-$T_0$ has many leaves.
+one of $T_0$ or $T_1$ has many leaves.
 
 \begin{lem}
-   Each leaf $u$ of $T_0$ contains at least one face of $\dual{T}$
-   that is good for $C$.
+   Each leaf $u$ of $T_i$ contains at least one face of $\dual{T}$
+   that is caressed by $C$.
 \end{lem}
 
 \begin{proof}
-   Without loss of generality, assume $i=0$.  The edge of $T_i$ incident
-   to $u$ corresponds to a chord path $P$. The graph $P\cup C$ has two
-   internal faces, one of which is $u$.  The lemma now follows immediately
-   from \lemref{one-good}.
+   The edge of $T_i$ incident to $u$ corresponds to a chord path $P$. The
+   graph $P\cup C$ has two faces with $P$ on its boundary, one of which
+   is $u$.  The lemma now follows immediately from \lemref{one-caressed}.
 \end{proof}
 
 
-\begin{lem}
-   Let $u$ be a node of $T_i$ and let $\rho_u$, $\gamma_u$, and $\delta_u$ denote the number of pinched faces of $\dual{T}$ in $u$, the number of caressed faces of $\dual{T}$ in $u$, and the degree of $u$ in $T_i$, respectively.  Then $\rho_u \le 2(\gamma_u+\delta_u)$.
+\begin{lem}\lemlabel{many-good}
+   Let $u$ be a node of $T_i$ and let $\rho_u$, $\kappa_u$, and $\delta_u$ denote the number of pinched faces of $\dual{T}$ in $u$, the number of caressed faces of $\dual{T}$ in $u$, and the degree of $u$ in $T_i$, respectively.  Then $\rho_u \le 2(\kappa_u+\delta_u)$.
 \end{lem}
 
 \begin{proof}
-   The proof is a discharging argument.  We assign each pinched face of $u$ a single unit of charge, so that the total charge is $\rho_u$.  We then describe a set of discharging rules that preserve the total charge.  After the application of these rules, pinched faces in $u$ have no charge, each caressed face in $u$ has charge at most 2, and each keeper path in $u$ has charge at most 2. 
-Since there is a bijection between keeper paths in $u$ and edges of $T_i$ incident to $u$, this proves the result.
+   The proof is a discharging argument.  We assign each pinched face of
+   $u$ a single unit of charge, so that the total charge is $\rho_u$.
+   We then describe a set of discharging rules that preserve the total
+   charge.  After the application of these rules, pinched faces in $u$
+   have no charge, each caressed face in $u$ has charge at most 2,
+   and each keeper path in $u$ has charge at most 2.  Since there is a
+   bijection between keeper paths in $u$ and edges of $T_i$ incident to
+   $u$, this proves the result.
 
-   We now describe the discharging rules, which are recursive and take as input a chord path $P$ that partitions $u$ into two parts $L$ and $R$.  The chord-path $P$ is contained in the boundaries of $k\ge 1$ pinched faces that are contained in $L$.  The chord-path $P$ has some charge that is at most 1 if $k=1$ and has charge at most $2$ if $k\ge 2$.
+   We now describe the discharging rules, which are recursive and take
+   as input a chord path $P$ that partitions $u$ into two parts $L$
+   and $R$.  We require as a precondition that $P$ is contained in
+   the boundaries of $k\ge 1$ pinched faces that are contained in $L$.
+   During a recursive call, $P$ may have a charge $c\in\{0,1,2\}$. This
+   charge should be at most 1 if $k\ge 1$, but can be 2 if $k=1$.
 
-  To begin with, we choose an arbitrary pinched face $f$ contained in $u$.  The face $f$ contains several chord paths $P_1,\ldots,P_r$, $r\ge 2$.  We discharge $f$ onto $P_1$ and apply the recursive procedure to $P_1$, with a charge of 1 (with $f$ $L$ being the part of $u\setminus P_1$ that contains $f$).  We then recursively apply the discharging procedure on each of $P_2,\ldots,P_r$ with a charge of 0.
+   To initialize the discharging procedure, we choose an arbitrary
+   pinched face $f$ contained in $u$.  The face $f$ contains several
+   chord paths $P_1,\ldots,P_r$, $r\ge 2$.  We discharge $f$ onto $P_1$
+   and apply the recursive procedure to $P_1$, with a charge of 1 (with
+   $f$ $L$ being the part of $u\setminus P_1$ that contains $f$).  We then
+   recursively apply the discharging procedure on each of $P_2,\ldots,P_r$
+   with a charge of 0.
 
-  Next we describe each recursive step at which we are given $P$ with
-  some charge $c\in\{0,1,2\}$.  There are several cases to consider:
+   Next we describe each recursive step at which we are given $P$ with
+	some charge $c\in\{0,1,2\}$.  There are several cases to consider (see \figref{discharging}):
+	\begin{figure}
+		\begin{center}
+		\begin{tabular}{cc}
+			\includegraphics{figs/discharge-A-2} &
+			\includegraphics{figs/discharge-A-3} \\
+			 2.a & 2.b \\[1.5em]
+			\includegraphics{figs/discharge-A-4} &
+			\includegraphics{figs/discharge-A-5} \\
+			 2.c & 3.a \\[1.5em]
+			 \multicolumn{2}{c}{\includegraphics{figs/discharge-A-6} } \\
+			\multicolumn{2}{c}{3.b}
+		\end{tabular}
+		\end{center}
+		\caption{Discharging steps in the proof of \lemref{many-good}.}
+		\figlabel{discharging}
+	\end{figure}
   \begin{enumerate}
-     \item $R$ contains no face of $\dual{T}$ that is pinched by $C$.  This could occur if $R$ is empty, in which case $P$ is a keeper path.  Otherwise, \lemref{one-caressed} ensures that $R$ contains at least one caressed face $f$.  We move the charge of $P$ onto $f$ and we are done.
+     \item $R$ contains no face of $\dual{T}$ that is pinched by $C$.
+     This could occur if $R$ is empty, because $P$ is a keeper path,
+     in which case we leave a charge of $c$ on it and we are done.
+     Otherwise $R$ is non-empty and \lemref{one-caressed}  ensures that
+     $R$ contains at least one caressed face $f$.  We move the charge
+     from $P$ onto $f$ and we are done.
 
-     \item $R$ contains a face $f$ that is pinched by $C$ and that shares an edge with $P$.  We consider three subcases:
+     \item $R$ contains a face $f$ that is pinched by $C$ and that shares
+     at lest one edge with $P$.  We consider three subcases:
      \begin{enumerate}
-        \item $f$ contains neither endpoint of $P$. In this case, $R\setminus f$ has at least three connected components, $A$, $B$, and $C_1,\ldots,C_k$, where $A$ and $B$ each contain an endpoint of $P$ and $C_1,\ldots,C_k$ each have a path in common with $f$.  We recurse on each of these components. When recursing on $A$ we take one unit of charge from $P$ (if needed).  When recursing on $B$ we take the second unit of charge from $P$ (if needed).  When recursing on $C_1$ we the unit of charge from $f$.
-        \item $f$ contains exactly one endpoint of $P$.  In this case, $f$ contains chord paths $P_1,\ldots,P_k$, $k\ge 1$ that are disjoint from $P$.  We t
-        \item $f$ contains both endpoints of $P$.
-     \end{enumerate}
+        \item $f$ contains neither endpoint of $P$. In this case,
+        $R\setminus f$ has at least three connected components, $A$,
+        $B$, and $X_1,\ldots,X_k$, where $A$ and $B$ each contain an
+        endpoint of $P$ and each $X_i$ has a chord path $P_i$ path in
+        common with $f$.  We recurse on each of these components so
+        that each of these components takes the place of $R$ in the
+        recursion. When recursing on $A$ we take one unit of charge
+        from $P$ (if needed).  When recursing on $B$ we take the second
+        unit of charge from $P$ (if needed).  When recursing on $X_1$ we
+        the unit of charge from $f$. When recursing on $X_2,\ldots,X_k$
+        we use no additional charge.
+
+	\item $f$ contains exactly one endpoint of $P$.  In this case,
+	$u\setminus f$ has one connected component $A$ that contains an
+	endpoint of $P$, one or more connected components $X_1,\ldots,X_k$
+	where each $X_i$ has a chord path $P_i$ on the boundary of $f$.
+
+	The path $P$ has a charge $c\le 2$.  When recursing on $X_1$ we
+	assign all of $P$'s charge to the chord path $P_1$, which is contained
+        in the single pinched face $f$.
+		     
+	When recursing on $A$ we assign move the single unit of charge
+	from $f$ to the chord path of $A$.
+
+        \item $f$ contains both endpoints of $P$.  In this case, $P$ must
+        be on the boundary of several pinched faces in $L$. Therefore $P$
+        has at most one unit of charge assigned to it.  Now, $R\setminus
+        f$ has one or more connected components $X_1,\ldots,X_k$ sharing
+        chord paths $P_1,\ldots,P_k$ with $f$ on which we recurse.
+        When recursing on $X_1$ we move the charge from $P$ and the
+        charge from $f$ to $P_1$.  When recursing on the remaining $X_i$,
+        $i\in\{2,\ldots,k\}$ we assign no 	charge to $P_i$.
   \end{enumerate}
-
-
+  \item $R$ contains at least one pinched face, but no pinched face in $R$ shares an edge with $P$.  In this case, consider the face $g$ of $H$ that is contained in $R$ and has $P$ on its boundary. There are one or more pinched faces $f_1,\ldots,f_k$, where each $f_i$ shares a chord path $P_i$ with $f$. There are two cases to consider:
+	  \begin{enumerate}
+		  \item If $P_1$ is a keeper path, then $f_1$ is not contained in $u$, and we assign all of $P$'s charge to $P_1$.
+		  \item If $P_1$ is not a keeper path, then there is a pinched face $f_1'$ in $R$ that shares at least one edge with $P_1$.  The face $f_1$ contains one or more chord paths $P_{1,1},\ldots,P_{1,k}$ that are each disjoint from $P_1$.  The face $f_1'$ contains one or more chord paths $P_{1,1}',\ldots,P_{1,\ell}'$ that are each disjoint from $P_1$.  We will recurse on each of these chord paths, but before doing so we move the charge from $P$ to $P_{1,1}$ and we move the charge from $f$ and $f'$ to $P_{1,1}'$.
+	  \end{enumerate}
+\end{enumerate}
+   This completes the description of the discharging procedure, and the proof.
 \end{proof}
 
-
-\end{document}
-
-The next lemma shows that a node of $T_0$ that contains many touched
-faces must have high degree or contain many good faces.
-\begin{lem}
-   For each node $u$ of $T_0$,  $\deg_{T_i}(u)+|\gamma(C)\cap u|\ge
-   \beta|\tau(C)\cap u|$.
-\end{lem}
-
-\begin{proof}
-   The boundary of $u$ consists of paths that alternate between
-   \emph{black} paths whose edges are all in $E(C)$ and \emph{red}
-   paths whose endpoints are in $V(C)$ but whose edges are not in
-   $E(C)$.  The value of $\deg_{T_i}(u)$ is the number of red paths.
-   Let $v_0,\ldots,v_{2d-1}$ denote the sequence of vertices on the
-   boundary of $u$ that are are the common endpoint of a red and a black
-   path, labelled so that the path from $v_0$ to $v_1$ is a red path.
-
-   We will consider a sequence of operations that transforms $C$.  Each
-   such operation removes the path in $C$ that with endpoints $v_{2i}$
-   and $v_{2i+1}$ that has no edges in the boundary of $u$.  Let $Q_i$
-   be the red path with endpoints $v_{2i}$ and $v_{2i+1}$ and note that,
-   by construction, there is a single face $f$ of $\dual{T}$ that contains
-   $Q$ on its boundary.   There are then two cases to consider:
-   \begin{enumerate}
-       \item The face $f$ is contained in $u$.  In this case, we complete
-       $C$ by adding the edges of $Q_i$ to $C$.
-       \item The face $f$ is not contained in $u$. In this case,
-       we complete $C$ by adding the path on $f$'s boundary that has
-       $v_{2i}$ and $v_{2i+1}$ as endpoints but is not $Q_i$.
-   \end{enumerate}
-
-   Note that, in either case, this operation increases the number of faces
-   of $u$ that are good for $C$ by at most 1.  This occurs precisely when,
-   in the first case, $f\cap C$ has exactly two components. 
-   
-   By \lemref{all-good} we know that $u$ contains faces that are pinched
-   by $C_u$.  What about the faces that are pinched by $C'$. 
-
- e
-   We know that $C_u$ contains no faces pinched by $C_u$.  What about faces pinched by $C'$?  
-   We know that $u$ contains no faces that are bad for $C_u$
-
-   Therefore, after performing this operation on each red path $Q_i$,
-   we are left with a cycle $C'$ that contains $u$ and.
-   \[
-       |\gamma(C')\cap u| \le |\gamma(C)\cap u| + \deg_{T_i}(u) \enspace .
-   \]
-   Now, we can think of $C'$ as being created from the boundary of $u$ by gluing at most $\deg_{T_i}(u)$ faces to $u$.  Each such gluing operation introduces a new face and this face is good for $C'$.  At the same time 
-
- plus at most $\deg_{T_i}(u)$ additional faces.  This implies that the number of faces in the interior of $C'$ is not more than the number of faces in $u$ that are good for $C$ minus the $2\deg_{T_i}(u)$.
-
-\end{proof}
-
-
-
-
-\begin{thm}
-  Let $T$ be a triangulation of maximum degree $\Delta$ whose dual
-  $\dual{T}$ has a non-trivial cycle $C$ of length $\ell$.  Then
-  $\dual{T}$ has a cycle $C'$ that is good for $\Omega(\ell/\Delta^2)$
-  faces of $\dual{T}$.
-\end{thm}
-
-
-\begin{lem}
-
-\end{lem}
-
-\begin{proof}
-
-\end{proof}
-
-
-
-\section{}
-
-\newpage
 \bibliographystyle{plain}
 \bibliography{freecoll}
 
