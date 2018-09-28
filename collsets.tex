@@ -302,40 +302,6 @@ In the following, when we say that a node $u$ of $T_i$ contains a face
 $f$ of $\dual{T}$ we mean that $f$ is one of the faces of $\dual{T}$
 whose union makes up $u$.
 
-\note{PM: The following is bullshit! A node u doesn't have Property~Y.}
-For a node $u$ in $T_i$, let $C_u$ denote the cycle in $\dual{T}$ that
-traverses the boundary of $u$.  Such a cycle has a special property that
-we call \emph{Property~Y:} Let $f$ be any face of $\dual{T}$ that is
-pinched by $C_u$ and contained in the interior of $C_u$ and let $P$ be any
-path on the boundary of $f$ whose two endpoints are in $V(C)$ and whose
-interior vertices are disjoint from $V(C)$.  Then $P$ has at least one
-interior vertex $v$ that is on the boundary of two or more bad faces. In
-particular, one of these faces is a bad face that is distinct from $f$.
-
-\begin{lem}\lemlabel{all-good}
-   Let $C_u$ be a cycle in $\dual{T}$ with Property~Y and let $u$ be
-   region bounded by $C_u$.  Then $\gamma(C_u)\cap u= \tau(C_u)\cap u$.
-\end{lem}
-
-\begin{proof}
-   Suppose, for the sake of contradiction, that $u$ contains some face
-   $f$ that is pinched by $C_u$.  The face $f$ contains a chord-path
-   $P$ for $C_u$. The path $P$ partitions $u$ into two sets $u'$ and
-   $u''$ and assume, without loss of generality that $u''$ contains $f$.
-   By Property~Y, $P$ contains an interior vertex that is incident to two
-   pinched faces, one of which, $f'$ is not $f$ and is therefore contained
-   in $u'$.  Now, since $f'$ is pinched, it contains a chord path $P'$
-   for $C_u$ that is disjoint from $f$.  Exactly the same reasoning
-   applied to $P'$ and $f'$ proves the existence of a third bad face $f''$
-   and a third chord path $P''$ that is disjoint from $f$ and $f'$.
-   Repeating this argument \emph{ad infinitum} contradicts the assumption
-   that $\dual{T}$ is finite.
-\end{proof}
-
-To avoid repeated awkward phraseology, the next few lemmas prove
-statements about $T_0$.  However, exactly the same statements apply
-to $T_1$ since, after an appropriate inversion of the plane, the same
-proofs apply.
 
 The following lemma allows us to direct our effort towards proving that
 $T_0$ has many leaves.
@@ -351,6 +317,38 @@ $T_0$ has many leaves.
    internal faces, one of which is $u$.  The lemma now follows immediately
    from \lemref{one-good}.
 \end{proof}
+
+
+\begin{lem}
+   Let $u$ be a node of $T_i$ and let $\rho_u$, $\gamma_u$, and $\delta_u$ denote the number of pinched faces of $\dual{T}$ in $u$, the number of caressed faces of $\dual{T}$ in $u$, and the degree of $u$ in $T_i$, respectively.  Then $\rho_u \le 2(\gamma_u+\delta_u)$.
+\end{lem}
+
+\begin{proof}
+   The proof is a discharging argument.  We assign each pinched face of $u$ a single unit of charge, so that the total charge is $\rho_u$.  We then describe a set of discharging rules that preserve the total charge.  After the application of these rules, pinched faces in $u$ have no charge, each caressed face in $u$ has charge at most 2, and each keeper path in $u$ has charge at most 2. 
+Since there is a bijection between keeper paths in $u$ and edges of $T_i$ incident to $u$, this proves the result.
+
+   We now describe the discharging rules, which are recursive and take as input a chord path $P$ that partitions $u$ into two parts $L$ and $R$.  The chord-path $P$ is contained in the boundaries of $k\ge 1$ pinched faces that are contained in $L$.  The chord-path $P$ has some charge that is at most 1 if $k=1$ and has charge at most $2$ if $k\ge 2$.
+
+  To begin with, we choose an arbitrary pinched face $f$ contained in $u$.  The face $f$ contains several chord paths $P_1,\ldots,P_r$, $r\ge 2$.  We discharge $f$ onto $P_1$ and apply the recursive procedure to $P_1$, with a charge of 1 (with $f$ $L$ being the part of $u\setminus P_1$ that contains $f$).  We then recursively apply the discharging procedure on each of $P_2,\ldots,P_r$ with a charge of 0.
+
+  Next we describe each recursive step at which we are given $P$ with
+  some charge $c\in\{0,1,2\}$.  There are several cases to consider:
+  \begin{enumerate}
+     \item $R$ contains no face of $\dual{T}$ that is pinched by $C$.  This could occur if $R$ is empty, in which case $P$ is a keeper path.  Otherwise, \lemref{one-caressed} ensures that $R$ contains at least one caressed face $f$.  We move the charge of $P$ onto $f$ and we are done.
+
+     \item $R$ contains a face $f$ that is pinched by $C$ and that shares an edge with $P$.  We consider three subcases:
+     \begin{enumerate}
+        \item $f$ contains neither endpoint of $P$. In this case, $R\setminus f$ has at least three connected components, $A$, $B$, and $C_1,\ldots,C_k$, where $A$ and $B$ each contain an endpoint of $P$ and $C_1,\ldots,C_k$ each have a path in common with $f$.  We recurse on each of these components. When recursing on $A$ we take one unit of charge from $P$ (if needed).  When recursing on $B$ we take the second unit of charge from $P$ (if needed).  When recursing on $C_1$ we the unit of charge from $f$.
+        \item $f$ contains exactly one endpoint of $P$.  In this case, $f$ contains chord paths $P_1,\ldots,P_k$, $k\ge 1$ that are disjoint from $P$.  We t
+        \item $f$ contains both endpoints of $P$.
+     \end{enumerate}
+  \end{enumerate}
+
+
+\end{proof}
+
+
+\end{document}
 
 The next lemma shows that a node of $T_0$ that contains many touched
 faces must have high degree or contain many good faces.
