@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180928155326" modified="D:20180928162254"/>
+<info created="D:20180928155326" modified="D:20180929065820"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -221,13 +221,13 @@ h
 <dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
 <dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
 <textsize name="large" value="\large"/>
+<textsize name="small" value="\small"/>
+<textsize name="tiny" value="\tiny"/>
 <textsize name="Large" value="\Large"/>
 <textsize name="LARGE" value="\LARGE"/>
 <textsize name="huge" value="\huge"/>
 <textsize name="Huge" value="\Huge"/>
-<textsize name="small" value="\small"/>
 <textsize name="footnote" value="\footnotesize"/>
-<textsize name="tiny" value="\tiny"/>
 <textstyle name="center" begin="\begin{center}" end="\end{center}"/>
 <textstyle name="itemize" begin="\begin{itemize}" end="\end{itemize}"/>
 <textstyle name="item" begin="\begin{itemize}\item{}" end="\end{itemize}"/>
@@ -466,52 +466,38 @@ X_1</text>
 267.726 608.764 m
 331.062 608.764 l
 </path>
-<path layer="epsilon" stroke="black" fill="brew8">
-307.723 726.688 m
-307.723 608.764 l
-343.427 608.764 l
-343.427 726.688 l
-h
-</path>
-<text transformations="translations" pos="325.123 670.406" stroke="black" type="label" width="8.54" height="7.143" depth="2.59" valign="baseline" style="math">f_1</text>
-<use name="mark/box(sx)" pos="307.723 672.262" size="large" stroke="black"/>
-<use name="mark/square(sx)" pos="235.455 674.118" size="large" stroke="black"/>
-<path stroke="black" arrow="normal/small">
-235.455 674.118 m
-267.123 691.517
-307.723 672.262 c
-</path>
-<text transformations="translations" pos="264.107 655.326" stroke="black" type="label" width="5.479" height="4.563" depth="2.59" valign="baseline" style="math">g</text>
-<path stroke="black" fill="brew8">
+<use layer="epsilon" name="mark/square(sx)" pos="235.455 674.118" size="large" stroke="black"/>
+<text matrix="1 0 0 1 0 15" transformations="translations" pos="264.107 655.326" stroke="black" type="label" width="5.479" height="4.563" depth="2.59" valign="baseline" style="math">g</text>
+<path matrix="1 0 0 1 11.368 0" stroke="black" fill="brew8">
 266.427 726.688 m
 266.427 696.389 l
 296.355 696.389 l
 296.355 726.688 l
 h
 </path>
-<path stroke="black" fill="brew8">
+<path matrix="1 0 0 1 9.976 0" stroke="black" fill="brew8">
 272.227 608.764 m
 272.227 647.67 l
 297.747 647.67 l
 297.747 608.764 l
 h
 </path>
-<path stroke="black" fill="aliceblue">
+<path matrix="1 0 0 1 9.976 0" stroke="black" fill="aliceblue">
 279.187 608.764 m
 279.187 620.062 l
 289.859 620.062 l
 289.859 608.764 l
 h
 </path>
-<path stroke="black" fill="aliceblue">
+<path matrix="1 0 0 1 11.368 0" stroke="black" fill="aliceblue">
 274.547 726.688 m
 274.547 712.629 l
 286.379 712.629 l
 286.379 726.688 l
 h
 </path>
-<text transformations="translations" pos="277.795 702.421" stroke="black" type="label" width="8.54" height="7.143" depth="2.59" valign="baseline" style="math">f_2</text>
-<text transformations="translations" pos="280.115 630.038" stroke="black" type="label" width="8.54" height="7.143" depth="2.59" valign="baseline" style="math">f_3</text>
+<text matrix="1 0 0 1 11.368 0" transformations="translations" pos="277.795 702.421" stroke="black" type="label" width="8.54" height="7.143" depth="2.59" valign="baseline" style="math">f_2</text>
+<text matrix="1 0 0 1 9.976 0" transformations="translations" pos="280.115 630.038" stroke="black" type="label" width="8.54" height="7.143" depth="2.59" valign="baseline" style="math">f_3</text>
 <path layer="zeta" stroke="black" fill="brew8">
 300.06 726.688 m
 300.06 608.764 l
@@ -555,5 +541,28 @@ h
 305.79 692.965
 313.632 686.933 c
 </path>
+<path layer="epsilon" stroke="black">
+235.455 726.688 m
+241.638 726.688 l
+256 720 l
+256 688 l
+235.455 688.835 l
+h
+</path>
+<text matrix="1 0 0 1 0 5" transformations="translations" pos="240 704" stroke="black" type="label" width="6.207" height="7.143" depth="2.59" valign="baseline" style="math">f</text>
+<use name="mark/box(sx)" pos="247.509 696.21" size="large" stroke="black"/>
+<path stroke="black" arrow="normal/small">
+235.455 674.118 m
+249.967 676.871
+247.509 696.21 c
+</path>
+<path stroke="black" fill="brew8">
+307.723 726.688 m
+307.723 608.764 l
+327.167 608.764 l
+327.167 726.688 l
+h
+</path>
+<text matrix="1 0 0 1 -11 -1" transformations="translations" pos="325.123 670.406" stroke="black" type="label" width="8.54" height="7.143" depth="2.59" valign="baseline" style="math">f_1</text>
 </page>
 </ipe>

@@ -396,9 +396,7 @@ one of $T_0$ or $T_1$ has many leaves.
 			 2.a & 2.b \\[1.5em]
 			\includegraphics{figs/discharge-A-4} &
 			\includegraphics{figs/discharge-A-5} \\
-			 2.c & 3.a \\[1.5em]
-			 \multicolumn{2}{c}{\includegraphics{figs/discharge-A-6} } \\
-			\multicolumn{2}{c}{3.b}
+			 2.c & 3 
 		\end{tabular}
 		\end{center}
 		\caption{Discharging steps in the proof of \lemref{many-good}.}
@@ -448,11 +446,20 @@ one of $T_0$ or $T_1$ has many leaves.
         charge from $f$ to $P_1$.  When recursing on the remaining $X_i$,
         $i\in\{2,\ldots,k\}$ we assign no 	charge to $P_i$.
   \end{enumerate}
-  \item $R$ contains at least one pinched face, but no pinched face in $R$ shares an edge with $P$.  In this case, consider the face $g$ of $H$ that is contained in $R$ and has $P$ on its boundary. There are one or more pinched faces $f_1,\ldots,f_k$, where each $f_i$ shares a chord path $P_i$ with $f$. There are two cases to consider:
-	  \begin{enumerate}
-		  \item If $P_1$ is a keeper path, then $f_1$ is not contained in $u$, and we assign all of $P$'s charge to $P_1$.
-		  \item If $P_1$ is not a keeper path, then there is a pinched face $f_1'$ in $R$ that shares at least one edge with $P_1$.  The face $f_1$ contains one or more chord paths $P_{1,1},\ldots,P_{1,k}$ that are each disjoint from $P_1$.  The face $f_1'$ contains one or more chord paths $P_{1,1}',\ldots,P_{1,\ell}'$ that are each disjoint from $P_1$.  We will recurse on each of these chord paths, but before doing so we move the charge from $P$ to $P_{1,1}$ and we move the charge from $f$ and $f'$ to $P_{1,1}'$.
-	  \end{enumerate}
+  \item $R$ contains at least one pinched face, but no pinched face in $R$
+  shares an edge with $P$.  In this case, consider the face $g$ of $H$
+  that is contained in $R$ and has $P$ on its boundary. By definition,
+  $g$ contains no bad faces of $\dual{T}$, but $g$ is touched by $C$,
+  so $g$ contains at least one good face\footnote{In face $g$ contains at
+  least two good faces, one for each endpoint of $P$.} $f$ of $\dual{T}$.
+  We move the $c$ units of charge from $P$ onto $f$.
+
+  Now, $R$ still contains There are one or more pinched faces
+  $f_1,\ldots,f_k$, where each $f_i$ shares a chord path $P_i$ with $g$.
+  On each such face $f_i$, we run the initialization procedure described
+  above except that we recurse only on the chord paths of $f_i$ that
+  do not share edges with $g$. i.e., we do not recurse on the chord
+  path $P_i$.
 \end{enumerate}
    This completes the description of the discharging procedure, and the proof.
 \end{proof}
