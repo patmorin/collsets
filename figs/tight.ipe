@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180930100449" modified="D:20180930100449"/>
+<info created="D:20180930100449" modified="D:20180930101612"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -265,18 +265,20 @@ h
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<path layer="alpha" stroke="black">
-128 768 m
-128 704 l
-160 704 l
-160 768 l
+<path layer="alpha" fill="brew8">
+64 768 m
+64 704 l
+352 704 l
+352 768 l
 h
+</path>
+<path matrix="1 0 0 1 2 0" stroke="black" fill="aliceblue">
+100 768 m
+100 752
+112 752
+112 768 c
 </path>
 <path stroke="black">
-128 736 m
-144 768 l
-</path>
-<path matrix="1 0 0 1 32 0" stroke="black">
 128 768 m
 128 704 l
 160 704 l
@@ -284,8 +286,11 @@ h
 h
 </path>
 <path matrix="1 0 0 1 32 0" stroke="black">
-128 736 m
-144 768 l
+128 768 m
+128 704 l
+160 704 l
+160 768 l
+h
 </path>
 <path matrix="1 0 0 1 64 0" stroke="black">
 128 768 m
@@ -294,20 +299,12 @@ h
 160 768 l
 h
 </path>
-<path matrix="1 0 0 1 64 0" stroke="black">
-128 736 m
-144 768 l
-</path>
 <path matrix="1 0 0 1 96 0" stroke="black">
 128 768 m
 128 704 l
 160 704 l
 160 768 l
 h
-</path>
-<path matrix="1 0 0 1 96 0" stroke="black">
-128 736 m
-144 768 l
 </path>
 <text transformations="translations" pos="272 736" stroke="black" type="label" width="11.623" height="4.428" depth="0" halign="center" valign="baseline" style="math">\cdots</text>
 <path matrix="1 0 0 1 160 0" stroke="black">
@@ -317,10 +314,6 @@ h
 160 768 l
 h
 </path>
-<path matrix="1 0 0 1 160 0" stroke="black">
-128 736 m
-144 768 l
-</path>
 <path matrix="1 0 0 1 192 0" stroke="black">
 128 768 m
 128 704 l
@@ -328,20 +321,12 @@ h
 160 768 l
 h
 </path>
-<path matrix="1 0 0 1 192 0" stroke="black">
-128 736 m
-144 768 l
-</path>
 <path matrix="1 0 0 1 -32 0" stroke="black">
 128 768 m
 128 704 l
 160 704 l
 160 768 l
 h
-</path>
-<path matrix="1 0 0 1 -32 0" stroke="black">
-128 736 m
-144 768 l
 </path>
 <path stroke="black">
 64 768 m
@@ -368,5 +353,118 @@ h
 16 736
 48 704 c
 </path>
+<path stroke="black">
+96 736 m
+120 736
+120 768 c
+</path>
+<use name="mark/disk(sx)" pos="96 736" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 2 0" name="mark/disk(sx)" pos="100 768" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="96 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 2 0" name="mark/disk(sx)" pos="112 768" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="120 768" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="96 704" size="normal" stroke="black"/>
+<path matrix="1 0 0 1 34 0" stroke="black" fill="aliceblue">
+100 768 m
+100 752
+112 752
+112 768 c
+</path>
+<path matrix="1 0 0 1 32 0" stroke="black">
+96 736 m
+120 736
+120 768 c
+</path>
+<use matrix="1 0 0 1 32 0" name="mark/disk(sx)" pos="96 736" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 34 0" name="mark/disk(sx)" pos="100 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 32 0" name="mark/disk(sx)" pos="96 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 34 0" name="mark/disk(sx)" pos="112 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 32 0" name="mark/disk(sx)" pos="120 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 32 0" name="mark/disk(sx)" pos="96 704" size="normal" stroke="black"/>
+<path matrix="1 0 0 1 66 0" stroke="black" fill="aliceblue">
+100 768 m
+100 752
+112 752
+112 768 c
+</path>
+<path matrix="1 0 0 1 64 0" stroke="black">
+96 736 m
+120 736
+120 768 c
+</path>
+<use matrix="1 0 0 1 64 0" name="mark/disk(sx)" pos="96 736" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 66 0" name="mark/disk(sx)" pos="100 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 64 0" name="mark/disk(sx)" pos="96 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 66 0" name="mark/disk(sx)" pos="112 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 64 0" name="mark/disk(sx)" pos="120 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 64 0" name="mark/disk(sx)" pos="96 704" size="normal" stroke="black"/>
+<path matrix="1 0 0 1 98 0" stroke="black" fill="aliceblue">
+100 768 m
+100 752
+112 752
+112 768 c
+</path>
+<path matrix="1 0 0 1 96 0" stroke="black">
+96 736 m
+120 736
+120 768 c
+</path>
+<use matrix="1 0 0 1 96 0" name="mark/disk(sx)" pos="96 736" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 98 0" name="mark/disk(sx)" pos="100 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 96 0" name="mark/disk(sx)" pos="96 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 98 0" name="mark/disk(sx)" pos="112 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 96 0" name="mark/disk(sx)" pos="120 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 96 0" name="mark/disk(sx)" pos="96 704" size="normal" stroke="black"/>
+<path matrix="1 0 0 1 130 0" stroke="black" fill="aliceblue">
+100 768 m
+100 752
+112 752
+112 768 c
+</path>
+<path matrix="1 0 0 1 128 0" stroke="black">
+96 736 m
+120 736
+120 768 c
+</path>
+<use matrix="1 0 0 1 128 0" name="mark/disk(sx)" pos="96 736" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 130 0" name="mark/disk(sx)" pos="100 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 128 0" name="mark/disk(sx)" pos="96 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 130 0" name="mark/disk(sx)" pos="112 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 128 0" name="mark/disk(sx)" pos="120 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 128 0" name="mark/disk(sx)" pos="96 704" size="normal" stroke="black"/>
+<path matrix="1 0 0 1 194 0" stroke="black" fill="aliceblue">
+100 768 m
+100 752
+112 752
+112 768 c
+</path>
+<path matrix="1 0 0 1 192 0" stroke="black">
+96 736 m
+120 736
+120 768 c
+</path>
+<use matrix="1 0 0 1 192 0" name="mark/disk(sx)" pos="96 736" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 194 0" name="mark/disk(sx)" pos="100 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 192 0" name="mark/disk(sx)" pos="96 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 194 0" name="mark/disk(sx)" pos="112 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 192 0" name="mark/disk(sx)" pos="120 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 192 0" name="mark/disk(sx)" pos="96 704" size="normal" stroke="black"/>
+<path matrix="1 0 0 1 226 0" stroke="black" fill="aliceblue">
+100 768 m
+100 752
+112 752
+112 768 c
+</path>
+<path matrix="1 0 0 1 224 0" stroke="black">
+96 736 m
+120 736
+120 768 c
+</path>
+<use matrix="1 0 0 1 224 0" name="mark/disk(sx)" pos="96 736" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 226 0" name="mark/disk(sx)" pos="100 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 224 0" name="mark/disk(sx)" pos="96 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 226 0" name="mark/disk(sx)" pos="112 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 224 0" name="mark/disk(sx)" pos="120 768" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 224 0" name="mark/disk(sx)" pos="96 704" size="normal" stroke="black"/>
 </page>
 </ipe>
