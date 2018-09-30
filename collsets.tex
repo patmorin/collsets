@@ -357,7 +357,7 @@ one of $T_0$ or $T_1$ has many leaves.
 \end{proof}
 
 
-\begin{lem}\lemlabel{many-good}
+\begin{lem}\lemlabel{many-good-or-high-degree}
    Let $u$ be a node of $T_i$ and let $\rho_u$, $\kappa_u$, and $\delta_u$ denote the number of pinched faces of $\dual{T}$ in $u$, the number of caressed faces of $\dual{T}$ in $u$, and the degree of $u$ in $T_i$, respectively.  Then $\rho_u \le 2(\kappa_u+\delta_u)$.
 \end{lem}
 
@@ -399,7 +399,7 @@ one of $T_0$ or $T_1$ has many leaves.
 			 2.c & 3 
 		\end{tabular}
 		\end{center}
-		\caption{Discharging steps in the proof of \lemref{many-good}.}
+		\caption{Discharging steps in the proof of \lemref{many-good-or-high-degree}.}
 		\figlabel{discharging}
 	\end{figure}
   \begin{enumerate}
@@ -463,6 +463,58 @@ one of $T_0$ or $T_1$ has many leaves.
 \end{enumerate}
    This completes the description of the discharging procedure, and the proof.
 \end{proof}
+
+\note{PM}{The leading constant 2 in \lemref{many-good-or-high-degree} is esentially tight. Make a figure to show this.}
+
+The following lemma says that if $C$ touches many faces then it must caress many faces, or $T_0$ and $T_1$ must have many degree-2 nodes.
+
+\begin{lem}
+  Let $\tau$, $\rho$, and $\kappa$ denote the number of nodes touched,
+  pinched, and caressed by $C$, respectively and let $m_2$ denote the
+  total degree of degree-2 nodes in $T_0$ and $T_1$.  Then $11\kappa +
+  4m_2 \ge \tau$.
+\end{lem}
+
+\begin{proof}
+Since every face touched by $C$ is either pinched or caressed, for any node
+of $T_0$ or $T_1$, we have
+\begin{equation}
+     \kappa_u + \rho_u = \tau_u \enspace . \eqlabel{tpc}
+\end{equation}
+From \lemref{many-good-or-high-degree}, we have 
+\[
+    2(\kappa_u+\delta_u) \ge \rho_u \enspace .
+\]
+Combining the preceding equations and summing over all $u$ in $T_0$
+and $T_1$, we get
+\begin{equation}
+     3\kappa + 2\delta \ge \tau \enspace . \eqlabel{tpc-a}
+\end{equation}
+The total number of edges in $T_0$
+and $T_1$ is at least $\delta/2$ and therefore the total number, $m$,
+of nodes in $T_0$ and $T_1$ is least $\delta/2$. Using the inequality
+$m\ge \delta/2$ in \eqref{tpc-a} we obtain 
+\begin{equation}
+     3\kappa + 4m \ge \tau \enspace .  \eqlabel{tpc-b}
+\end{equation}
+The number, $m_{\ge 3}$ of nodes of degree at least three in $T_0$
+and $T_1$ is less than the number, $m_1\le m/3$, of leaves.  Therefore,
+the number $m_2$ of degree 2 nodes is at least
+\[
+   m_2 = m - m_1 - m_{\ge 3} \ge m-2m_1 \enspace .
+\]
+Using the inequality $m\le m_2+2m_1$  in \eqref{tpc-b}, we obtain:
+\begin{equation}
+     3\kappa + 4(m_2+2m_1) \ge \tau \enspace .  \eqlabel{tpc-c}
+\end{equation}
+By \lemref{one-caressed}, each leaf contains at least one face caressed
+by $C$, so $\kappa \ge m_1$. Using this inequality in \eqref{tpc-c} we obtain
+\begin{equation}
+     3\kappa + 4(m_2+2\kappa) \ge \tau \enspace .  \eqlabel{tpc-c}
+\end{equation}
+which simplifies to $11\kappa + 4m_2 \ge \tau$, as required.
+\end{proof}
+
 
 \bibliographystyle{plain}
 \bibliography{collsets}
