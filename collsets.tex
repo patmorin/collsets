@@ -788,7 +788,8 @@ node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
 
 \subsection{Tree/Cycle Surgery}
 
-At this point we know that if a cycle $C$ of length $\ell$ does not caress $\Omega(\ell/\Delta^2)$ faces of $\dual{T}$, then the vast majority of the nodes in $T_0$ are really bad.  This means that these nodes are degree-2 nodes in $T_0$ containing no caressed faces and they are surrounded by degree-2 nodes (in $T_0$ and $T_1$) also having no caressed faces.
+At this point we are ready to complete the proof of \thmref{main}.
+We know that if a cycle $C$ of length $\ell$ does not caress $\Omega(\ell/\Delta^2)$ faces of $\dual{T}$, then the vast majority of the nodes in $T_0$ are really bad.  This means that these nodes are degree-2 nodes in $T_0$ containing no caressed faces and they are surrounded by degree-2 nodes (in $T_0$ and $T_1$) also having no caressed faces.
 
 
 Consider the subgraph of $T_0$ obtained by removing all nodes of $T_0$
@@ -850,7 +851,11 @@ This operation changes the length of the cycle $C$ by at most $\Delta$
 (the only edges lost from $C$ are on the boundary of $u$ and therefore,
 by \lemref{X} all contained in a single face.
 
-Therefore, if we start with a cycle $C$ of length $\ell$, then we can perform this operation at least $\ell/2\Delta$ times before the length of $C$ decreases toless than $\ell'=\ell/2$. If at some point during this process, the number of really bad nodes in $T_0$ decreases to less than $\alpha_0 n_0some node contains
+Therefore, if we start with a cycle $C$ of length $\ell$, then we can
+perform this operation at least $\ell/2\Delta$ times before the length
+of $C$ decreases to less than $\ell'=\ell/2$. If at some point during
+this process, we are no longer able to perform this operation, it is because $C$ caresses $\Omega(\ell'/\Delta^2)$ faces of $\dual{T}$ and we are done.  By the end of this process, the number of leaves in $T_0$ is at least $\ell/2\Delta=\Omega(\ell/\Delta)$ and we are also done.  This completes the proof of \thmref{main}.
+
 
 
 
