@@ -611,7 +611,7 @@ If $u$ is a bad node then there is a single face $f$ of $\dual{T}$ that is conta
    on the boundary of $u$.  There are a few cases to rule out:
    \begin{enumerate}
        \item $P$ has both endpoints on $C_i$ for some $i\in\{1,2\}$. In
-       this case, $P$ is a chord path and, by \lemref{chord-path}
+       this case, $P$ is a chord path and, by \lemref{one-caressed}
        $u$ contains a face that is caressed by $C$, contradicting the
        assumption that $u$ is a bad node.
 
@@ -626,8 +626,8 @@ If $u$ is a bad node then there is a single face $f$ of $\dual{T}$ that is conta
        is a bad node.
 
        \item $P$ has one endpoint on $C_1$ and one endpoint on $C_2$.
-       The path $P$ is not a keeper, other it would have split $u$ into
-       two parts.  Therefore, it must be the case that $P$ contains
+       The path $P$ is not a keeper, otherwise it would have split $u$
+       into two nodes.  Therefore, it must be the case that $P$ contains
        an internal vertex $w$. Since $\dual{T}$ is 3-regular, $w$ has
        degree 3.  Again, the third edge incident to $w$ implies the
        existence of a chord path with both endpoints on $C_i$, for some
@@ -636,9 +636,52 @@ If $u$ is a bad node then there is a single face $f$ of $\dual{T}$ that is conta
 \end{proof}
 
 We are interested in working with bad nodes of $T_0$ and $T_1$ and how
-these nodes interact.  For a node $u$ of $T_i$, we define $N(u)$ as
-the set of nodes (in $T_0$ and $T_1$) that share an edge of $\dual{T}$
-with $u$.  
+these nodes interact.  The following lemma shows that a node $u$ in $T_0$
+and $w$ in $T_1$ share at most one edge of $C$.
+
+\begin{lem}\lemlabel{one-shared-edge}
+   If $u$ and $w$ are bad nodes that share at least one edge of $C$, then
+   $u$ and $w$ share exactly one edge of $C$.
+\end{lem}
+
+\begin{proof}
+   Suppose $u$ and $w$ share two edges $e_1$ and $e_2$
+   of $C$.  Then, by \lemref{one-face}, there is a common face $f_u$
+   in $u$ that contains $e_1$ and $e_2$, Similarly, there is a common
+   face $f_w$ contained in $w$ that contains both $e_1$ and $e_2$.
+   This means that $e_1$ and $e_2$ form an edge cutset of $\dual{T}$.
+   This is not possible because $\dual{T}$ is 3-connected and 3-regular.
+\end{proof}
+
+For a node $u$ of $T_i$, we define $N(u)$ as the set of nodes (in $T_0$
+and $T_1$) that share an edge of $\dual{T}$ with $u$.  We say that a
+node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
+
+\begin{lem}
+  If $T$ has maximum degree $\Delta$ and, for each $i\in\{0,1\}$, $b_i > (1-\epsilon)n_i$, then $T_0$ has $(1-\alpha\epsilon)n_i/\Delta$ really bad nodes.
+\end{lem}
+
+\begin{proof}
+  Let $A_1$ be the set of nodes in $T_1$ that are not bad.
+  Each node $w$ in $T_1$ is contained in $N(u)$ for at most $\Delta$
+  nodes $u$ in $T_0$.  Therefore, each node $w$ in $T_1$ that is not
+  bad eliminates at most $\Delta\tau_w$ nodes from $T_0$.  
+  Therefore,
+  the number of nodes in $T_0$ that are not really bad is at most
+  \[
+     \sum_{w\in V(T_1)} \Delta\tau_w \le \sum_{w\in V(T_1)} \Delta\tau_w
+  \]
+\end{proof}
+
+
+If
+  If $\kappa < \epsilon \ell/(\Delta-1)^2$, then the number of bad nodes in $T_0$ is at least $(1-\epsilon)m$.
+\end{lem}
+
+\begin{proof}
+  Each non-bad kills at most $\Delta+1$ node.
+\end{proof}
+
 
 %\begin{lem}
 %  If $T$ has maximum degree $\Delta$ then, for any really bad node $u$,
@@ -649,31 +692,7 @@ with $u$.
 %  Suppose, without loss of generality, that $u$ is a node of $T_0$.  Since $u$ has degree 2, $N(u)$ contains at most 2 nodes of $T_0$.  Every other node in $N(u)$ shares at least one edge of $C$ with $u$.  However, \lemref{same-face} implies that all of these edges of $C$ are contained in a common face $f$ of $\dual{T}$. The number of edges on the boundary of $f$ is at most $\Delta$.
 %\end{proof}
 
-\begin{lem}\lemlabel{one-shared-edge}
-   If $u$ is a really bad node, then $u$ shares a most one edge of $C$
-   with each node in $N(u)$.
-\end{lem}
 
-\begin{proof}
-   Suppose two bad nodes $u$ and $w$ share two edges $e_1$ and $e_2$
-   of $C$.  Then, by \lemref{one-face}, there is a common face $f_u$
-   in $u$ that contains $e_1$ and $e_2$, Similarly, there is a common
-   face $f_w$ contained in $w$ that contains both $e_1$ and $e_2$.
-   This means that $e_1$ and $e_2$ form an edge cutset of $\dual{T}$.
-   This is not possible because $\dual{T}$ is 3-connected and 3-regular.
-\end{proof}
-
-
-We say that a node $u$ is \emph{really bad} if every node in
-$\{u\}\cup N(u)$ is bad.
-
-\begin{lem}
-  If $\kappa < \epsilon \ell/(\Delta-1)^2$, then the number of bad nodes in $T_0$ is at least $(1-\epsilon)m$.
-\end{lem}
-
-\begin{proof}
-  Each non-bad kills at most $\Delta+1$ node.
-\end{proof}
 
 
 %
