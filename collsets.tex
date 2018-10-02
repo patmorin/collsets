@@ -383,7 +383,7 @@ one of $T_0$ or $T_1$ has many leaves.
 \end{proof}
 
 
-\begin{lem}\lemlabel{many-good-or-high-degree}
+\begin{lem}\lemlabel{many-caressed-or-high-degree}
    Let $u$ be a node of $T_i$ and let $\rho_u$, $\kappa_u$, and $\delta_u$ denote the number of pinched faces of $\dual{T}$ in $u$, the number of caressed faces of $\dual{T}$ in $u$, and the degree of $u$ in $T_i$, respectively.  Then $\rho_u \le 2(\kappa_u+\delta_u)$.
 \end{lem}
 
@@ -427,7 +427,7 @@ one of $T_0$ or $T_1$ has many leaves.
 			 2.c & 3 
 		\end{tabular}
 		\end{center}
-		\caption{Discharging steps in the proof of \lemref{many-good-or-high-degree}.}
+		\caption{Discharging steps in the proof of \lemref{many-caressed-or-high-degree}.}
 		\figlabel{discharging}
 	\end{figure}
   \begin{enumerate}
@@ -492,7 +492,8 @@ one of $T_0$ or $T_1$ has many leaves.
    This completes the description of the discharging procedure, and the proof.
 \end{proof}
 
-\note{PM}{The leading constant 2 in \lemref{many-good-or-high-degree} is esentially tight. Make a figure to show this.}
+\note{PM}{The leading constant 2 in \lemref{many-caressed-or-high-degree}
+is essentially tight. Make a figure to show this.}
 
 The following lemma says that if $C$ touches many faces then it must caress many faces, or $T_0$ and $T_1$ must have many degree-2 nodes.
 
@@ -504,101 +505,128 @@ The following lemma says that if $C$ touches many faces then it must caress many
 \end{lem}
 
 \begin{proof}
-Since every face of $\dual{T}$ touched by $C$ is either pinched or caressed, for any node $u$
-of $T_0$ or $T_1$, we have
-\begin{equation}
-     \kappa_u + \rho_u = \tau_u \enspace . \eqlabel{tpc}
-\end{equation}
-From \lemref{many-good-or-high-degree}, we have 
-\[
-    2(\kappa_u+\delta_u) \ge \rho_u \enspace .
-\]
-Combining the preceding equations and summing over all $u$ in $T_0$
-and $T_1$, we ge
-\begin{equation}
-     3\kappa + 2\delta \ge \tau \enspace . \eqlabel{tpc-a}
-\end{equation}
-The total number of edges in $T_0$
-and $T_1$ is $\delta/2$ and therefore the total number, $m$,
-of nodes in $T_0$ and $T_1$ is $\delta/2+1$. Using the inequality
-$2m\ge \delta$ in \eqref{tpc-a} we obtain 
-\begin{equation}
-     3\kappa + 4m \ge \tau \enspace .  \eqlabel{tpc-b}
-\end{equation}
-The number, $m_{\ge 3}$ of nodes of degree at least three in $T_0$
-and $T_1$ is less than the number, $m_1$, of leaves.  Therefore,
-the number $m_2$ of degree 2 nodes is at least
-\[
-   m_2 = m - m_1 - m_{\ge 3} \ge m-2m_1 \enspace .
-\]
-Using the inequality $m\le m_2+2m_1$  in \eqref{tpc-b}, we obtain:
-\begin{equation}
-     3\kappa + 4(m_2+2m_1) \ge \tau \enspace .  \eqlabel{tpc-c}
-\end{equation}
-By \lemref{one-caressed}, each leaf contains at least one face caressed
-by $C$, so $\kappa \ge m_1$. Using this inequality in \eqref{tpc-c} we obtain
-\begin{equation}
-     3\kappa + 4(m_2+2\kappa) \ge \tau \enspace .  \eqlabel{tpc-d}
-\end{equation}
-which simplifies to $11\kappa + 4m_2 \ge \tau$, as required.
+  Since every face of $\dual{T}$ touched by $C$ is either pinched or
+  caressed, for any node $u$ of $T_0$ or $T_1$, we have
+  \begin{equation}
+       \kappa_u + \rho_u = \tau_u \enspace . \eqlabel{tpc}
+  \end{equation}
+  From \lemref{many-caressed-or-high-degree}, we have 
+  \[
+      2(\kappa_u+\delta_u) \ge \rho_u \enspace .
+  \]
+  Combining the preceding equations and summing over all $u$ in $T_0$
+  and $T_1$, we ge
+  \begin{equation}
+       3\kappa + 2\delta \ge \tau \enspace . \eqlabel{tpc-a}
+  \end{equation}
+  The total number of edges in $T_0$
+  and $T_1$ is $\delta/2$ and therefore the total number, $m$,
+  of nodes in $T_0$ and $T_1$ is $\delta/2+1$. Using the inequality
+  $2m\ge \delta$ in \eqref{tpc-a} we obtain 
+  \begin{equation}
+       3\kappa + 4m \ge \tau \enspace .  \eqlabel{tpc-b}
+  \end{equation}
+  The number, $m_{\ge 3}$ of nodes of degree at least three in $T_0$
+  and $T_1$ is less than the number, $m_1$, of leaves.  Therefore,
+  the number $m_2$ of degree 2 nodes is at least
+  \[
+     m_2 = m - m_1 - m_{\ge 3} \ge m-2m_1 \enspace .
+  \]
+  Using the inequality $m\le m_2+2m_1$  in \eqref{tpc-b}, we obtain:
+  \begin{equation}
+       3\kappa + 4(m_2+2m_1) \ge \tau \enspace .  \eqlabel{tpc-c}
+  \end{equation}
+  By \lemref{one-caressed}, each leaf contains at least one face caressed
+  by $C$, so $\kappa \ge m_1$. Using this inequality in \eqref{tpc-c}
+  we obtain
+  \begin{equation}
+       3\kappa + 4(m_2+2\kappa) \ge \tau \enspace .  \eqlabel{tpc-d}
+  \end{equation}
+  which simplifies to $11\kappa + 4m_2 \ge \tau$, as required.
 \end{proof}
 
-\subsection{Surgery on $C$}
+\subsection{Bad Nodes}
 
-%Observe that, if $T$ has maximum degree $\Delta$, then each face of
-%$\dual{T}$ has at most $\Delta$ edges on its boundary.  Since $C$
-%is a non-trivial cycle, it can contain at most $\Delta-1$ edges from
-%any face of $\dual{T}$.  Each edge of $C$ is on the boundary of two
-%faces of $\dual{T}$, contained in the interior of $C$ and one in the
-%exterior of $C$.  Therefore, if $C$ has length $\ell$, then it touches
-%at least $\tau\ge 2\ell/(\Delta-1)$ faces of $\dual{T}$. At least
-%$\ell/(\Delta-1)$ of the faces $C$ touches are in the interior of $C$
-%and at least $\ell/(\Delta-1)$ are in the exterior of $C$. 
-%
-%For each $i\in\{0,1\}$, let $\tau_i$, $\rho_i$ and $\kappa_i$ denote
-%the number of touched, pinched, and caressed faces of $\dual{T}$
-%that are contained in nodes of $T_i$.  Let $m_{2,i}$ denote the number
-%of degree-2 nodes in $T_i$. The preceding paragraph argues
-%that $\tau_i\ge \ell/(\Delta-1)$ and the same argument used in \lemref{many-caressed-or-many-degree-2} allows us to conclude that
-%\[
-%    11\kappa_i + 4m_{2,i} \ge \tau_i \ge \ell/(\Delta-1) \enspace .
-%\]
-%
-%We say that a node of $T_i$ is \emph{bad} if it has degree-2 and contains
-%no face of $\dual{T}$ that is caressed by $C$.
-%Let $m_{2,i}'$ denote the number bad nodes in $T_i$.
-%Thus far, we know:
-%\begin{enumerate}
-%   \item If $m_{2,i}\le \tau_i/8$, then $\kappa_i \ge \tau_i/22 \ge \ell/(22(\Delta-1))$ and, by \lemref{cycle-to-curve} $v(T)\ge \ell/(88\Delta-1)$.
-%
-%   \item Otherwise, if $m_{2,i}' \le (1-\epsilon)m_2$, then 
-%\[
-%    m_{2,i}-m_{2,i'} \ge \epsilon m_2 \ge \epsilon\tau_i/8 \ge (\epsilon/8)\ell/(\Delta-1)$ \enspace .
-%\]
-%Therefore, by \lemref{cycle-to-curve} $v(T)\ge \epsilon\ell/(4(\Delta-1))$
-%
-%    \item If $T_i$, contains $\epsilon m_2$\epsilon\ell/(\Delta-1)$ nodes of degree 3 or more, then $T_i$ contains at least $\epsilon\ell/(\Delta-1)$ leaves.  In this case \lemref{one-caressed-leaf} and \lemref{cycle-to-curve} imply that $v(T)\ge \epsilon\ell/(4(\Delta-1))$.
-%\end{enumerate}
-%
-%Therefore, for any $\epsilon \le 1/22$, we conclude that
-%$v(T)\ge\epsilon\ell/(4(\Delta-1))$ or that each of $T_0$ and $T_1$
-%contain at least $(1/8-\epsilon)\ell/(\Delta-1)$ bad nodes.
-%
+From \lemref{many-caressed-or-many-degree-2} we know that $C$ either
+caresses $\tau/22=\Omega(\tau)$ faces, or the total number of degree-2
+nodes in $T_0$ and $T_1$ is at least $\tau/8=\Omega(\tau)$.  This helps
+understand the example in \figref{few-caressed}, in which $C$ caresses
+only 4 faces and each of $T_0$ and $T_1$ is a path, so nearly all their
+nodes are degree-2.
+
+\begin{lem}\lemlabel{few-caressed-implies-many-nodes}
+  Let $\tau_i$, $\rho_i$, and $\kappa_i$ denote the number of faces
+  in $\dual{T}$ contained in nodes of $T_i$ that are touched, pinched,
+  and caressed by $C$ and let $n_i$ denote the number of nodes of $T_i$.
+  If $\kappa_i < \tau_i/6$ then $n_i\ge \tau_i/8$.
+\end{lem}
+
+\begin{proof}
+  Let $\delta_i=2(n_i-1)$ denote the total degree of nodes in $T_i$.
+  Recall the identity $\tau_i = \rho_i+\kappa_i$ and the inequality,
+  from \lemref{many-caressed-or-high-degree}, $2(\kappa_i+\delta_i)
+  \ge \tau_i$. Combining these two, we obtain:
+  \[
+  \tau_i 
+     \le 3\kappa_i + 2\delta_i 
+     = 3\kappa_i + 4(n_i-1) 
+     \le \tau_i/2 + 4n_i \enspace ,
+  \]
+  and reorganizing the terms gives the desired result.
+\end{proof}
 
 We say that a node of $T_i$ is \emph{bad} if it has degree-2 and contains
 no face of $\dual{T}$ that is caressed by $C$.
 
-\begin{lem}\lemlabel{all-bad}
-   Let $n_i$ and $b_i$ denote the number of nodes and bad nodes in $T_i$, respectively.  Then, for any $0 < \epsilon < X$, if $b_i < (1-\epsilon)n_i$, then $v(T)\ge \alpha \epsilon n_i$.
+\begin{lem}\lemlabel{most-nodes-are-bad}
+   Let $n_i$ and $b_i$ denote the number of nodes and bad nodes in
+   $T_i$. For any $0<\epsilon < 1$, if $b_i \le (1-\epsilon)n_i$, then
+   $\kappa_i = \Omega(\epsilon\tau_i)$.
 \end{lem}
 
 \begin{proof}
-Boring....
+   Partition the nodes of $T_i$ into the following sets:
+   \begin{enumerate}
+       \item the set $B$ of bad nodes;
+       \item the set $N_1$ of leaves;
+       \item the set $N_{\ge 3}$ of nodes having degree at least 3;
+       \item the set $N_2$ of nodes having degree 2 that are not bad.
+   \end{enumerate}
+   \begin{align*}
+     b_i & = n_i - |N_1|- |N_{\ge 3}|-|N_2| \\
+         & \ge  n_i - \kappa_i - |N_{\ge 3}|-|N_2| 
+           & \text{by \lemref{one-caressed-leaf}} \\
+          & >  n_i - 2\kappa_i -|N_2| 
+           & \text{since $N_{\ge 3} < N_1$} \\
+           & >  n_i - 3\kappa_i -|N_2| 
+           & \text{since each node in $N_2$ contains a caressed face}
+    \end{align*}
+    Thus, we have
+    \[
+          n_i-3\kappa_i \le b_i \le (1-\epsilon)n_i
+    \]
+    and rewriting gives 
+    \begin{equation}
+      \kappa_i \ge \epsilon n_i/3 \enspace . \eqlabel{blech}
+    \end{equation}
+    If $\kappa_i \ge \tau_i/6$, then the proof is complete.  On the other hand, if $\kappa_i \le \tau_i$ then, by \lemref{few-caressed-implies-many-nodes}, $n_i \ge \tau_i/8$. Combining this with \eqref{blech}  gives
+    \[
+      \kappa_i \ge \epsilon\tau_i/24 = \Omega(\epsilon \tau_i) \enspace .
+    \]
 \end{proof}
+
+\subsection{Interaction Between Bad Nodes}
+
+We have now reached a point in which we know that the vast majority of
+nodes in $T_0$ and $T_1$ are bad nodes, otherwise a constant fraction
+of the faces touched by $C$ are caressed by $C$.  
+At this point, we are ready to study interactions between bad nodes
+of $T_0$ and bad nodes of $T_1$.
 
 
 \begin{lem}\lemlabel{common-face}
-If $u$ is a bad node then there is a single face $f$ of $\dual{T}$ that is contained in $u$ and that contains all edges of $C\cap u$.
+   If $u$ is a bad node then there is a single face $f$ of $\dual{T}$
+   that is contained in $u$ and that contains all edges of $C\cap u$.
 \end{lem}
 
 \begin{proof}
@@ -636,8 +664,8 @@ If $u$ is a bad node then there is a single face $f$ of $\dual{T}$ that is conta
 \end{proof}
 
 We are interested in working with bad nodes of $T_0$ and $T_1$ and how
-these nodes interact.  The following lemma shows that a node $u$ in $T_0$
-and $w$ in $T_1$ share at most one edge of $C$.
+these nodes interact.  The following lemma shows that a bad node $u$ in $T_0$
+and a bad node $w$ in $T_1$ share at most one edge of $C$.
 
 \begin{lem}\lemlabel{one-shared-edge}
    If $u$ and $w$ are bad nodes that share at least one edge of $C$, then
@@ -645,12 +673,41 @@ and $w$ in $T_1$ share at most one edge of $C$.
 \end{lem}
 
 \begin{proof}
-   Suppose $u$ and $w$ share two edges $e_1$ and $e_2$
-   of $C$.  Then, by \lemref{one-face}, there is a common face $f_u$
-   in $u$ that contains $e_1$ and $e_2$, Similarly, there is a common
-   face $f_w$ contained in $w$ that contains both $e_1$ and $e_2$.
-   This means that $e_1$ and $e_2$ form an edge cutset of $\dual{T}$.
-   This is not possible because $\dual{T}$ is 3-connected and 3-regular.
+   Suppose $u$ and $w$ share two edges $e_1$ and $e_2$ of $C$.  Then, by
+   \lemref{one-face}, there is a common face $f_u$ in $u$ that contains
+   $e_1$ and $e_2$, Similarly, there is a common face $f_w$ contained
+   in $w$ that contains both $e_1$ and $e_2$.  This means that $e_1$ and
+   $e_2$ form an edge cutset of $\dual{T}$.  If $\dual{T}$ has at least
+   five vertices, then this implies that $\dual{T}$ has a vertex cutset
+   of size 2.  This is not possible because $\dual{T}$ is 3-connected.
+\end{proof}
+
+
+
+\subsection{Really Bad Nodes}
+
+
+At this point we will start making use of the assumption that the
+triangulation $T$ has maximum degree $\Delta$, which implies that the
+faces of $\dual{T}$ have at most $\Delta$ edges on their boundary.
+
+\begin{obs}\obslabel{degree-touched}
+  If $T$ has maximum degree $\Delta$ and $C$ has length $\ell$, then
+  the number of faces $\tau$ of $\dual{T}$ touched by $C$ is at least $\ge
+  2\ell/(\Delta-1)$.  At least $\ell/(\Delta-1)$ of these faces are in
+  the interior of $C$ and at least $\ell/(\Delta-1)$ of these faces are
+  in the exterior of $C$.
+\end{obs}
+
+\begin{proof}
+  Orient the edges of $C$ counterclockwise so that, for each edge
+  $e$ of $C$, the face of $\dual{T}$ to the left of $e$ is in $C$'s
+  interior and the face of $\dual{T}$ to the right of $e$ is in $C$'s
+  exterior.  Each face of $\dual{T}$ has at most $\Delta$ edges and,
+  since $C$ is non-trivial, $C$ contains at most $\Delta-1$ edges of any
+  face. Therefore, the number of faces to the right of edges in $C$ is
+  at least $\ell/(\Delta-1)$. The same is true for the number of faces
+  of $\dual{T}$ to the left of edges in $C$.
 \end{proof}
 
 For a node $u$ of $T_i$, we define $N(u)$ as the set of nodes (in $T_0$
@@ -658,122 +715,142 @@ and $T_1$) that share an edge of $\dual{T}$ with $u$.  We say that a
 node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
 
 \begin{lem}
-  If $T$ has maximum degree $\Delta$ and, for each $i\in\{0,1\}$, $b_i > (1-\epsilon)n_i$, then $T_0$ has $(1-\alpha\epsilon)n_i/\Delta$ really bad nodes.
+  For every sufficiently small $0<\alpha < 1/2$,  
+  if $T$ has maximum degree $\Delta$, $C$ has length $\ell$, and the number
+  $\kappa$, of faces caressed by $C$ is at most $\alpha\ell/\Delta^2$, then
+  the number of really bad nodes in $T_0$ is at least $n_0-O(\alpha n_0)$.
 \end{lem}
 
 \begin{proof}
-  Let $A_1$ be the set of nodes in $T_1$ that are not bad.
-  Each node $w$ in $T_1$ is contained in $N(u)$ for at most $\Delta$
-  nodes $u$ in $T_0$.  Therefore, each node $w$ in $T_1$ that is not
-  bad eliminates at most $\Delta\tau_w$ nodes from $T_0$.  
-  Therefore,
-  the number of nodes in $T_0$ that are not really bad is at most
-  \[
-     \sum_{w\in V(T_1)} \Delta\tau_w \le \sum_{w\in V(T_1)} \Delta\tau_w
+  Define $\tau_i$, $\kappa_i$, ....
+
+  First consider the tree $T_0$.  From \obsref{degree-touched},
+  we know that $\tau_0\ge \ell/\Delta$.  By assumption,
+  $\kappa_0\le\kappa\le \alpha\ell/\Delta \le \tau_0/6$
+  so, by \lemref{few-caressed-implies-many-nodes}, $n_0 \ge
+  \tau_0/8=\Omega(\ell/\Delta)$.
+  
+  Let $\epsilon=a\alpha/\Delta$ for some $a>0$ to be discussed shortly.
+  By \lemref{most-nodes-are-bad}, if $b_0 < (1-\epsilon) n_0$, then
+  \[ 
+      \kappa \ge \kappa_0 = \Omega(\epsilon\tau_0)
+               = \Omega(\epsilon\ell/\Delta)
+               = \Omega(a\alpha\ell/\Delta^2) 
+               \enspace .
   \]
+  For sufficiently large, constant, $a$ this violates our assumption
+  that $\kappa \le \alpha\ell/\Delta^2$.
+  Therefore, we may assume that $b_0\ge (1-\epsilon)n_0$, i.e., most nodes
+  of $T_0$ are bad.
+
+  We now want to study how many of the bad nodes in $T_0$ are really bad.
+  Each node $w$ of $T_0$ is in $N(u)$ for at most $\delta_w$ bad nodes
+  $u$ in $T_0$.  Let $A$ be the set of nodes in $T_0$ that are not
+  bad and partition $A$ into $A_1$ (leaves), $A_2$ (degree-2 nodes)
+  and $A_{\ge 3}$ (nodes of degree at least 3).  We make use of the
+  following inequality:
+  \[  |A_1| = 2 + \sum_{w\in A_3}(\delta_w-2) \ge \sum_{w\in A_3}(\delta_w-2)
+    \ge \sum_{w\in A_3}3\delta_w \enspace , \] 
+  which is true because $x-2>x/3$ for all $x\ge 3$. 
+  Now we have 
+  \begin{align*}
+   \sum_{w\in A}\delta_w 
+    & = \sum_{w\in A_1}\delta_w 
+         + \sum_{w\in A_2}\delta_w 
+         + \sum_{w\in A_{\ge 3}}\delta_w \\
+    & \le |A_1| + 2|A_2| + 3|A_1| \\
+    & \le 6\kappa & \text{(since $\kappa_w\ge 1$ for each $w\in A'$)}\\
+    & \le 6\alpha\ell/\Delta^2 & \text{(by assumption)}\\
+    & = O(\alpha n_0/\Delta) & \text{(since $n_0=\Omega(\ell/\Delta)$)}\enspace .
+  \end{align*}
+  That is, the set of non-bad nodes in $T_0$ prevents at most $O(\alpha
+  n_0/\Delta)$ bad nodes of $T_0$ from being really bad. Next we account
+  for how nodes in $T_1$ prevent bad nodes in $T_0$ from being really bad.
+
+  Let $A'$ be the set of non-bad nodes in $T_1$.  For two
+  nodes $u$ in $T_0$ and $w$ in $T_1$,  $w\in N(u)$ if and only if $w$
+  and $u$ share an edge of $C$.  The number of edges of $C$ incident to a node $w$ is at most $(\Delta-1)\tau_w < \Delta\tau_w$.  Therefore, we can upper bound the number of bad nodes in $T_0$ that are prevented from being really bad by some node in $T_1$ as
+  \begin{align*}
+   \sum_{w\in A'}\Delta \tau_w  
+    & \le  \sum_{w\in A'}2\Delta(\kappa_w + \delta_w) & \text{(by \lemref{many-caressed-or-high-degree})} \\
+    & \le  2\Delta\kappa + \sum_{w\in A'}2\Delta\delta_w \\
+    & < 2\Delta\kappa + 12\Delta\kappa & \text{(by the same argument as above)}\\
+    & < 10\Delta\kappa & \text{(since $\kappa_w\ge 1$ for each $w\in A'$)} \\
+    & \le 10\alpha\ell/\Delta & \text{(by assumption)}\\
+    & = O(\alpha n_0) & \text{(since $n_0=\Omega(\ell/\Delta)$)}
+  \end{align*}
+  Therefore, the number of bad nodes in $T_0$ is at least
+  $(1-\epsilon)n_0$ and the number of these that are really bad is
+  at least $(1-\epsilon)n_0 - O(\alpha n_0) = n_0-O(\alpha n_0)$,
+  as required.
 \end{proof}
 
 
-If
-  If $\kappa < \epsilon \ell/(\Delta-1)^2$, then the number of bad nodes in $T_0$ is at least $(1-\epsilon)m$.
-\end{lem}
+\subsection{Tree/Cycle Surgery}
 
-\begin{proof}
-  Each non-bad kills at most $\Delta+1$ node.
-\end{proof}
+At this point we know that if a cycle $C$ of length $\ell$ does not caress $\Omega(\ell/\Delta^2)$ faces of $\dual{T}$, then the vast majority of the nodes in $T_0$ are really bad.  This means that these nodes are degree-2 nodes in $T_0$ containing no caressed faces and they are surrounded by degree-2 nodes (in $T_0$ and $T_1$) also having no caressed faces.
 
 
-%\begin{lem}
-%  If $T$ has maximum degree $\Delta$ then, for any really bad node $u$,
-%  $|N(u)|\le\Delta + 2$.
-%\end{lem}
-%
-%\begin{proof}
-%  Suppose, without loss of generality, that $u$ is a node of $T_0$.  Since $u$ has degree 2, $N(u)$ contains at most 2 nodes of $T_0$.  Every other node in $N(u)$ shares at least one edge of $C$ with $u$.  However, \lemref{same-face} implies that all of these edges of $C$ are contained in a common face $f$ of $\dual{T}$. The number of edges on the boundary of $f$ is at most $\Delta$.
-%\end{proof}
+Consider the subgraph of $T_0$ obtained by removing all nodes of $T_0$
+that are not really bad.  This subgraph has at most $O(\alpha n_0)$
+components, each of which is a path and at most one of these components
+has $\Omega(n_0/\alpha)$ nodes.  Setting $\alpha = a/\Delta$ for
+sufficiently small $a$ therefore ensure that one of these components, $X$, has size at least $100\Delta+2$.
 
+Let $N(X)=\bigcup_{u\in V(X)} N(u)$.  And observe that $T_1[N(X)]$ consists of two paths $Y_1$ and $Y_2$ of bad nodes.  By \lemref{one-shared}, each node in $X$ shares at most one edge with each node in $Y_1$ or $Y_2$.  Each node $u$ in $X$ shares an edge with at least one node in each of $Y_1$ and $Y_2$.
+Since $\dual{T}$ is 3-regular, $T$ has maximum degree $\Delta$ and $X$ has length $100\Delta+2$, there must exist some node $u$ in the interior of $X$ such that $N(u)$ consists of at least 5 nodes (refer to \figref{surgery}):
+\begin{enumerate}
+   \item neighbours $x$ and $y$ of $u$ in $T_0$;
+   \item a subpath $a_1,\ldots,a_r$ of $Y_1$, with $r\ge 2$;
+   \item a subpath $b_1,\ldots,b_s$ of $Y_2$, with $r\ge 1$ \enspace .
+\end{enumerate}
+We use the convention that $a_1,b_1\in N(x)$, $a_r,b_s\in N(y)$.
 
+We distinguish between two cases.  At this time it is helpful to think
+of $T_0$, $T_1$, and $C$ as a partition of $\R^2$, where $C$ is the
+boundary between $T_0$ and $T_1$.
+\begin{enumerate}
+   \item The path in $T_1$ from $a_1$ to $b_1$ contains $a_2$.
+     In this case, removing $a_1$ from $T_1$ partitions $T_1$ into two
+     components, one of which contains $a_r$ and the other of which
+     contains $b_1$.
 
+     In this case we move $a_1$ to $T_0$ and $u$ to $T_1$.  Moving $u$
+     to $T_1$ restores a path from $a_r$ to $b_1$.  Moving $a_1$ to $T_0$
+     restores the path from $y$ to $x$.
 
-%
-%\begin{lem}
-%   If $u$ a really bad node, then every edge of $E(C)$ on the boundary
-%   of $u$ is incident to exactly two (bad) nodes, one of which is $u$.
-%\end{lem}
-%
-%\begin{proof}
-%   Let $C_1$ and $C_2$ be the two components of $C\cap u$.  Then, by \lemref{blech}, there is a single face $f$ contained in $u$ that contains $C_1$ and $C_2$.  Since $\dual{T}$ is 3-regular, this implies that $u$ 
-%\end{proof}
-%
-%
-%$u$ is a face of $\dual{T}$.
-%\end{lem}
-%
-%
-%\begin{lem}\lemlabel{u-is-face}
-%   If $u$ is a really bad node, then $u$ is a face of $\dual{T}$.
-%\end{lem}
-%
-%
-%
-%\begin{lem}\lemlabel{u-is-face}
-%   If $u$ is a really bad node, then $u$ is a face of $H$.
-%\end{lem}
-%
-%\begin{proof}
-%A little bit of cases.
-%%   First observe that, since $u$ has degree-2, $C\cap u$ has exactly
-%%   two connected components $C_1$ and and $C_2$. Thus $u$'s boundary
-%%   consists of $C_1$, $C_2$ and two chord paths $P_1$ and $P_2$.
-%%
-%%   Next, note that no edge in the interior of $u$ is incident to $C_1$ or $C_2$.  If there were such an edge $e$ incident to a vertex of $C_1$, say, and this edge began a path $P$ in the interior of $u$ leading to a vertex of $P_1$ or $P_2$, then $P$ along with a subpath of $P_1$ or $P_2$ would create a chord path in $u$ whose endpoints are both $C_1$.  But then \lemref{one-good} would imply that $u$ contains a face caressed by $C$, contradicting the assumption that $u$ is a bad node.  On the other hand, if $e$ began a chord path whose other endpoint was a vertex of $C_2$, then 
-%%
-%%
-%%   The vertices in $N(u)$ are cyclically ordered around $u$ as $u_1,x_1,\ldots,x_r,u_2,y_1,\ldots,y_s$, where $u_1,u_2\in V(T_0)$, $x_1,\ldots,x_r,y_1,\ldots,y_s\in V(T_1)$, and $r,s\ge 2$.
-%%
-%%
-%%If $u$ is not a face of $\dual{T}$, then $\dual{T}$ contains a path $P$ whose endpoints are on the boundary of $u$ and whose internal vertices are contained in the interior of $u$.  
-%\end{proof}
-%
-%\begin{lem}\lemlabel{simple-neighbourhood}
-%  If $u\in V(T_0)$ is a really bad node, then every node in $N(u)\cap V(T_1)$ has exactly one edge in common with $u$.
-%\end{lem}
-%
-%\begin{proof}
-%   Otherwise the two common edges would make an edge-cut of size 2. Since $\dual{T}$ is a 
-%\end{proof}
-%
-%\begin{lem}
-%   Suppose $T$ has maximum degree $\Delta$ and suppose that 
-%  If $T$ has maximum degree $\Delta$ and $T_0$ and $T_1$ are such that $b_i < (1-\epsilon) n_i$ for each $i\in\{0,1\}$, then there exists a cycle $C'$ in $\dual{T}$ such that 
-%\begin{enumerate}
-%    \item $\tau' \ge \tau-\Delta$
-%    \item $m_1'\ge m_1$
-% \end{enumerate}
-%\end{lem}
-%
-%\begin{proof}
-%  Let $U\subseteq V(T_0)$ consist of all nodes $u\in V(T_0)$ such that $u$
-%  is bad and every node in $N_{\dual{\bar{H}}}(u)$ is bad. In words, $u$
-%  is bad and is entirely surrounded by bad nodes. Two of the bad nodes
-%  surrounding $u$ are in $T_0$ and the remainder are in $T_1$.
-%
-%  We claim that $|U|\ge \kappa/(\Delta-1)$.  Indeed
-%
-%
-%
-%  Let $A$ be the subgraph of $\bar{H}$ induced by the following set $U$ of nodes: 
-%  \begin{enumerate}
-%    \item $U$ contains every bad node of $T_0$.
-%    \item $U$ contains every bad node $u$ of $T_1$ such that $N_{A}(u)$ contains only bad nodes.
-%  \end{enumerate}
-%  By assumption, $U$ contains at least $b_0\ge (1-\epsilon)n_0$ nodes of $T_0$.  All these nodes have degree 2 in $T_0$.   
-%
-%
-%\end{proof}
-%
-%
+   \item The path in $T_1$ from $a_1$ to $b_1$ does not contain $a_2$.
+     In this case, removing $a_r$ from $T_1$ partitions $T_1$ into two
+     components, one containing $a_1$ and one containing $b_1$.
 
+     In this case we move $a_r$ to $T_0$ and $u$ to $T_1$. The addition fo
+     $u$ to $T_1$ restores the path from $a_1$ to $b_1$ and the addition
+     of $a_r$ to $T_0$ restores the path from $x$ to $y$.
+\end{enumerate}
+
+It is clear what this operation does to the cycle $C$.  What does
+this operation do to the trees $T_0$ and $T_1$?  We claim that this
+operation increases the number of leaves in each of $T_0$ and $T_1$.
+Specifically, we claim that the faces of $u$ become part of a node $u'$
+in $T_1$ that has degree 3.
+
+In Case~1, the node containing $y$ in $T_0$ has become a leaf, so
+the number of leaves in $T_0$ has increased.  From the node of $T_1$
+containing $u$ there are three disjoint path, one leading to $b_0$,
+one leading to $b_{s+1}$, and one leading to $a_{r+1}$.  Therefore,
+the number of nodes of degree at least three, and hence of the number
+of leaves, in $T_1$ has also increased.
+
+In Case~2, the node containing $x$ in $T_0$ has become a leaf.  From the
+node containing $u$ in $T_1$, there are three disjoint paths from $u$
+to $b_0$, from $u$ to $b_{r+1}$ and from $u$ to $a_1$.  Therefore,
+the number of nodes of degree at least 3 has increased in $T_1$.
+
+This operation changes the length of the cycle $C$ by at most $\Delta$
+(the only edges lost from $C$ are on the boundary of $u$ and therefore,
+by \lemref{X} all contained in a single face.
+
+Therefore, if we start with a cycle $C$ of length $\ell$, then we can perform this operation at least $\ell/2\Delta$ times before the length of $C$ decreases toless than $\ell'=\ell/2$. If at some point during this process, the number of really bad nodes in $T_0$ decreases to less than $\alpha_0 n_0some node contains
 
 
 
