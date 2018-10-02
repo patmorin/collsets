@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180929072549" modified="D:20180929091749"/>
+<info created="D:20180929072549" modified="D:20181001100757"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -221,13 +221,13 @@ h
 <dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
 <dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
 <textsize name="large" value="\large"/>
+<textsize name="small" value="\small"/>
+<textsize name="tiny" value="\tiny"/>
 <textsize name="Large" value="\Large"/>
 <textsize name="LARGE" value="\LARGE"/>
 <textsize name="huge" value="\huge"/>
 <textsize name="Huge" value="\Huge"/>
-<textsize name="small" value="\small"/>
 <textsize name="footnote" value="\footnotesize"/>
-<textsize name="tiny" value="\tiny"/>
 <textstyle name="center" begin="\begin{center}" end="\end{center}"/>
 <textstyle name="itemize" begin="\begin{itemize}" end="\end{itemize}"/>
 <textstyle name="item" begin="\begin{itemize}\item{}" end="\end{itemize}"/>
@@ -253,7 +253,6 @@ h
 <tiling name="rising" angle="30" step="4" width="1"/>
 </ipestyle>
 <ipestyle name="brew">
-<color name="aliceblue" value="0.941 0.973 1"/>
 <color name="brew1" value="0.552 0.827 0.78"/>
 <color name="brew2" value="1 1 0.701"/>
 <color name="brew3" value="0.745 0.729 0.854"/>
@@ -268,7 +267,21 @@ h
 <layer name="tpc0"/>
 <layer name="tpc1"/>
 <view layers="alpha" active="alpha"/>
-<view layers="alpha tpc0 tpc1" active="alpha"/>
+<view layers="alpha tpc0 tpc1" active="tpc0"/>
+<path layer="tpc0" fill="brew8">
+157.019 684.193 m
+158.662 669.125 l
+167.483 669.125 l
+166.924 684.142 l
+h
+</path>
+<path fill="brew8">
+140.6 684.277 m
+143.796 669.125 l
+150.685 669.125 l
+149.324 684.232 l
+h
+</path>
 <path layer="tpc1" fill="brew8">
 165.642 718.589 m
 167.483 669.125 l
@@ -329,21 +342,21 @@ h
 88.1949 686.366 l
 h
 </path>
-<path fill="aliceblue">
+<path fill="brew1">
 99.3124 701.845 m
 133.965 669.125 l
 143.796 669.125 l
 133.419 718.315 l
 h
 </path>
-<path fill="aliceblue">
+<path fill="brew1">
 319.858 653.732 m
 306.78 653.051 l
 306.78 623.08 l
 313.315 623.08 l
 h
 </path>
-<path fill="aliceblue">
+<path fill="brew1">
 314.87 630.366 m
 332.412 624.397 l
 329.213 607.721 l
@@ -351,21 +364,21 @@ h
 313.315 623.08 l
 h
 </path>
-<path fill="aliceblue">
+<path fill="brew1">
 319.858 653.732 m
 338.224 654.689 l
 335.463 640.297 l
 317.482 642.603 l
 h
 </path>
-<path fill="aliceblue">
+<path fill="brew1">
 194.806 659.323 m
 194.806 638.305 l
 210.634 638.525 l
 206.603 666.158 l
 h
 </path>
-<path fill="aliceblue">
+<path fill="brew1">
 194.806 623.286 m
 194.806 594.66 l
 212.922 581.896 l
@@ -374,14 +387,14 @@ h
 246.399 623.08 l
 h
 </path>
-<path fill="aliceblue">
+<path fill="brew1">
 141.611 563.639 m
 138.881 515.968 l
 194.651 560.037 l
 185.194 563.639 l
 h
 </path>
-<path fill="aliceblue">
+<path fill="brew1">
 68.4266 661.053 m
 56.2009 573.078 l
 91.2567 594.66 l
@@ -389,21 +402,21 @@ h
 103.927 639.978 l
 h
 </path>
-<path layer="tpc0" fill="aliceblue">
+<path layer="tpc0" fill="brew1">
 325.439 709.01 m
 324.633 653.981 l
 338.224 654.689 l
 339.043 705.208 l
 h
 </path>
-<path fill="aliceblue">
+<path fill="brew1">
 133.419 718.315 m
 137.021 701.241 l
 166.282 701.393 l
 165.642 718.589 l
 h
 </path>
-<path fill="aliceblue">
+<path fill="brew1">
 246.399 597.464 m
 279.061 562.102 l
 328.94 562.664 l
@@ -412,7 +425,7 @@ h
 313.315 597.464 l
 h
 </path>
-<path fill="aliceblue">
+<path fill="brew1">
 91.2567 594.66 m
 56.2009 573.078 l
 65.6971 526.072 l
@@ -421,7 +434,7 @@ h
 91.2567 563.639 l
 h
 </path>
-<path fill="aliceblue">
+<path fill="brew1">
 194.806 594.66 m
 185.194 594.66 l
 185.194 563.639 l
@@ -429,13 +442,13 @@ h
 212.922 581.896 l
 h
 </path>
-<path fill="aliceblue">
+<path fill="brew1">
 103.927 639.978 m
 103.927 654.954 l
 68.4266 661.053 l
 h
 </path>
-<path fill="aliceblue">
+<path fill="brew1">
 116.216 654.954 m
 88.1949 686.366 l
 99.3124 701.845 l
@@ -444,7 +457,7 @@ h
 124.084 654.954 l
 h
 </path>
-<path fill="aliceblue">
+<path fill="brew1">
 174.271 659.323 m
 174.271 669.125 l
 187.761 694.831 l
@@ -452,14 +465,14 @@ h
 194.806 659.323 l
 h
 </path>
-<path fill="aliceblue">
+<path fill="brew1">
 219.983 691.008 m
 248.929 694.012 l
 248.929 654.744 l
 234.089 654.744 l
 h
 </path>
-<path fill="aliceblue">
+<path fill="brew1">
 259.579 688.277 m
 276.823 674.124 l
 290.941 676.142 l
@@ -555,7 +568,7 @@ h
 99.3124 701.845 m
 133.419 718.315 l
 </path>
-<path layer="tpc1" fill="aliceblue">
+<path layer="tpc1" fill="brew1">
 259.579 688.277 m
 248.929 680.377 l
 248.929 654.744 l
@@ -856,11 +869,6 @@ h
 </path>
 <use name="mark/disk(sx)" pos="306.743 562.414" size="normal" stroke="black"/>
 <path stroke="black">
-54.1509 661.139 m
-68.4266 661.053 l
-56.2009 573.078 l
-</path>
-<path stroke="black">
 91.2567 563.639 m
 84.0035 523.545 l
 </path>
@@ -883,5 +891,19 @@ h
 <use name="mark/disk(sx)" pos="166.282 701.393" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="259.579 688.277" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="248.929 680.377" size="normal" stroke="black"/>
+<path stroke="black">
+149.324 684.232 m
+150.685 669.125 l
+</path>
+<use name="mark/disk(sx)" pos="149.324 684.232" size="normal" stroke="black"/>
+<use name="mark/disk(sx)" pos="150.685 669.125" size="normal" stroke="black"/>
+<path fill="brew8">
+68.4266 661.053 m
+56.2009 573.078 l
+</path>
+<path fill="brew8">
+56.2009 573.078 m
+68.4266 661.053 l
+</path>
 </page>
 </ipe>

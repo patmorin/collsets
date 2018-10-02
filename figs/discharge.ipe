@@ -253,7 +253,7 @@ h
 <tiling name="rising" angle="30" step="4" width="1"/>
 </ipestyle>
 <ipestyle name="brew">
-<color name="aliceblue" value="0.941 0.973 1"/>
+<color name="brew1" value="0.941 0.973 1"/>
 <color name="brew1" value="0.552 0.827 0.78"/>
 <color name="brew2" value="1 1 0.701"/>
 <color name="brew3" value="0.745 0.729 0.854"/>
@@ -276,7 +276,7 @@ h
 <view layers="alpha delta" active="delta"/>
 <view layers="alpha epsilon" active="epsilon"/>
 <view layers="alpha zeta" active="zeta"/>
-<path layer="alpha" fill="aliceblue">
+<path layer="alpha" fill="brew1">
 235.455 726.688 m
 235.455 608.764 l
 343.427 608.764 l
@@ -357,14 +357,14 @@ h
 300.299 663.353
 317.97 671.878 c
 </path>
-<path stroke="black" fill="aliceblue">
+<path stroke="black" fill="brew1">
 277.981 726.688 m
 277.981 701.656 l
 298.791 701.656 l
 298.791 726.688 l
 h
 </path>
-<path stroke="black" fill="aliceblue">
+<path stroke="black" fill="brew1">
 285.219 608.764 m
 285.219 629.875 l
 306.934 629.875 l
@@ -403,14 +403,14 @@ X_1</text>
 273.457 633.495
 317.13 671.28 c
 </path>
-<path matrix="1 0 0 1 3.01556 0.00036376" stroke="black" fill="aliceblue">
+<path matrix="1 0 0 1 3.01556 0.00036376" stroke="black" fill="brew1">
 277.981 726.688 m
 277.981 701.656 l
 298.791 701.656 l
 298.791 726.688 l
 h
 </path>
-<path matrix="1 0 0 1 3.01556 0.00036376" stroke="black" fill="aliceblue">
+<path matrix="1 0 0 1 3.01556 0.00036376" stroke="black" fill="brew1">
 285.219 608.764 m
 285.219 629.875 l
 306.934 629.875 l
@@ -440,14 +440,14 @@ h
 287.933 653.4
 316.887 671.194 c
 </path>
-<path matrix="1 0 0 1 -2.41364 0.00072752" stroke="black" fill="aliceblue">
+<path matrix="1 0 0 1 -2.41364 0.00072752" stroke="black" fill="brew1">
 277.981 726.688 m
 277.981 701.656 l
 298.791 701.656 l
 298.791 726.688 l
 h
 </path>
-<path matrix="1 0 0 1 -2.41364 0.00072752" stroke="black" fill="aliceblue">
+<path matrix="1 0 0 1 -2.41364 0.00072752" stroke="black" fill="brew1">
 285.219 608.764 m
 285.219 629.875 l
 306.934 629.875 l
@@ -482,14 +482,14 @@ h
 297.747 608.764 l
 h
 </path>
-<path matrix="1 0 0 1 9.976 0" stroke="black" fill="aliceblue">
+<path matrix="1 0 0 1 9.976 0" stroke="black" fill="brew1">
 279.187 608.764 m
 279.187 620.062 l
 289.859 620.062 l
 289.859 608.764 l
 h
 </path>
-<path matrix="1 0 0 1 11.368 0" stroke="black" fill="aliceblue">
+<path matrix="1 0 0 1 11.368 0" stroke="black" fill="brew1">
 274.547 726.688 m
 274.547 712.629 l
 286.379 712.629 l
@@ -512,7 +512,7 @@ h
 272.614 658.281 l
 h
 </path>
-<path stroke="black" fill="aliceblue">
+<path stroke="black" fill="brew1">
 292.821 608.764 m
 292.821 627.216 l
 281.361 627.216 l
@@ -524,7 +524,7 @@ h
 <use name="mark/square(sx)" pos="235.455 672.456" size="large" stroke="black"/>
 <use name="mark/box(sx)" pos="313.632 686.933" size="large" stroke="black"/>
 <use name="mark/box(sx)" pos="287.393 627.216" size="large" stroke="black"/>
-<path stroke="black" fill="aliceblue" arrow="normal/small">
+<path stroke="black" fill="brew1" arrow="normal/small">
 235.455 672.456 m
 265.074 651.344
 287.393 627.216 c

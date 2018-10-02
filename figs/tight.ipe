@@ -252,7 +252,7 @@ h
 <tiling name="rising" angle="30" step="4" width="1"/>
 </ipestyle>
 <ipestyle name="brew">
-<color name="aliceblue" value="0.941 0.973 1"/>
+<color name="brew1" value="0.941 0.973 1"/>
 <color name="brew1" value="0.552 0.827 0.78"/>
 <color name="brew2" value="1 1 0.701"/>
 <color name="brew3" value="0.745 0.729 0.854"/>
@@ -272,7 +272,7 @@ h
 352 768 l
 h
 </path>
-<path matrix="1 0 0 1 2 0" stroke="black" fill="aliceblue">
+<path matrix="1 0 0 1 2 0" stroke="black" fill="brew1">
 100 768 m
 100 752
 112 752
@@ -364,7 +364,7 @@ h
 <use matrix="1 0 0 1 2 0" name="mark/disk(sx)" pos="112 768" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="120 768" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="96 704" size="normal" stroke="black"/>
-<path matrix="1 0 0 1 34 0" stroke="black" fill="aliceblue">
+<path matrix="1 0 0 1 34 0" stroke="black" fill="brew1">
 100 768 m
 100 752
 112 752
@@ -381,7 +381,7 @@ h
 <use matrix="1 0 0 1 34 0" name="mark/disk(sx)" pos="112 768" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 32 0" name="mark/disk(sx)" pos="120 768" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 32 0" name="mark/disk(sx)" pos="96 704" size="normal" stroke="black"/>
-<path matrix="1 0 0 1 66 0" stroke="black" fill="aliceblue">
+<path matrix="1 0 0 1 66 0" stroke="black" fill="brew1">
 100 768 m
 100 752
 112 752
@@ -398,7 +398,7 @@ h
 <use matrix="1 0 0 1 66 0" name="mark/disk(sx)" pos="112 768" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 64 0" name="mark/disk(sx)" pos="120 768" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 64 0" name="mark/disk(sx)" pos="96 704" size="normal" stroke="black"/>
-<path matrix="1 0 0 1 98 0" stroke="black" fill="aliceblue">
+<path matrix="1 0 0 1 98 0" stroke="black" fill="brew1">
 100 768 m
 100 752
 112 752
@@ -415,7 +415,7 @@ h
 <use matrix="1 0 0 1 98 0" name="mark/disk(sx)" pos="112 768" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 96 0" name="mark/disk(sx)" pos="120 768" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 96 0" name="mark/disk(sx)" pos="96 704" size="normal" stroke="black"/>
-<path matrix="1 0 0 1 130 0" stroke="black" fill="aliceblue">
+<path matrix="1 0 0 1 130 0" stroke="black" fill="brew1">
 100 768 m
 100 752
 112 752
@@ -432,7 +432,7 @@ h
 <use matrix="1 0 0 1 130 0" name="mark/disk(sx)" pos="112 768" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 128 0" name="mark/disk(sx)" pos="120 768" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 128 0" name="mark/disk(sx)" pos="96 704" size="normal" stroke="black"/>
-<path matrix="1 0 0 1 194 0" stroke="black" fill="aliceblue">
+<path matrix="1 0 0 1 194 0" stroke="black" fill="brew1">
 100 768 m
 100 752
 112 752
@@ -449,7 +449,7 @@ h
 <use matrix="1 0 0 1 194 0" name="mark/disk(sx)" pos="112 768" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 192 0" name="mark/disk(sx)" pos="120 768" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 192 0" name="mark/disk(sx)" pos="96 704" size="normal" stroke="black"/>
-<path matrix="1 0 0 1 226 0" stroke="black" fill="aliceblue">
+<path matrix="1 0 0 1 226 0" stroke="black" fill="brew1">
 100 768 m
 100 752
 112 752

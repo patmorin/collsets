@@ -253,7 +253,7 @@ h
 <tiling name="rising" angle="30" step="4" width="1"/>
 </ipestyle>
 <ipestyle name="brew">
-<color name="aliceblue" value="0.941 0.973 1"/>
+<color name="brew1" value="0.941 0.973 1"/>
 <color name="brew1" value="0.552 0.827 0.78"/>
 <color name="brew2" value="1 1 0.701"/>
 <color name="brew3" value="0.745 0.729 0.854"/>
@@ -268,7 +268,7 @@ h
 <layer name="C"/>
 <view layers="alpha C" active="alpha"/>
 <view layers="C" active="C"/>
-<path layer="alpha" stroke="brew5" fill="aliceblue">
+<path layer="alpha" stroke="brew5" fill="brew1">
 294.015 593.921 m
 261.923 562.696 l
 316.971 539.76 l
@@ -276,7 +276,7 @@ h
 323.087 580.536 l
 h
 </path>
-<path stroke="brew5" fill="aliceblue">
+<path stroke="brew5" fill="brew1">
 392.406 668.714 m
 385.315 645.815 l
 411.651 637 l
@@ -284,7 +284,7 @@ h
 413.304 669.224 l
 h
 </path>
-<path stroke="brew5" fill="aliceblue">
+<path stroke="brew5" fill="brew1">
 336.47 631.458 m
 318.5 617.744 l
 294.015 593.921 l
@@ -292,14 +292,14 @@ h
 344.668 620.062 l
 h
 </path>
-<path stroke="brew5" fill="aliceblue">
+<path stroke="brew5" fill="brew1">
 361.622 597.609 m
 319.776 558.465 l
 316.971 539.76 l
 367.941 589.71 l
 h
 </path>
-<path stroke="brew5" fill="aliceblue">
+<path stroke="brew5" fill="brew1">
 412.109 645.917 m
 411.265 629.467 l
 403.226 603.41 l
@@ -308,7 +308,7 @@ h
 462.235 652.404 l
 h
 </path>
-<path stroke="brew5" fill="aliceblue">
+<path stroke="brew5" fill="brew1">
 361.824 704.393 m
 357.237 647.307 l
 381.631 633.919 l
@@ -316,7 +316,7 @@ h
 380.173 685.534 l
 h
 </path>
-<path stroke="black" fill="aliceblue">
+<path stroke="black" fill="brew1">
 361.824 704.393 m
 380.173 685.534 l
 392.406 668.714 l
@@ -325,7 +325,7 @@ h
 421.969 713.058 l
 h
 </path>
-<path stroke="black" fill="aliceblue">
+<path stroke="black" fill="brew1">
 215.287 686.326 m
 229.117 622.391 l
 257.646 613.802 l
@@ -341,7 +341,7 @@ h
 245.395 699.015 l
 h
 </path>
-<path stroke="black" fill="aliceblue">
+<path stroke="black" fill="brew1">
 239.496 587.162 m
 257.646 613.802 l
 194.609 632.78 l
@@ -590,7 +590,7 @@ h
 <use name="mark/disk(sx)" pos="265.491 677.889" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="361.824 704.393" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="421.969 713.058" size="normal" stroke="black"/>
-<path stroke="brew5" fill="aliceblue">
+<path stroke="brew5" fill="brew1">
 380.173 685.534 m
 368.61 641.065 l
 </path>
