@@ -382,6 +382,24 @@ one of $T_0$ or $T_1$ has many leaves.
    is $u$.  The lemma now follows immediately from \lemref{one-caressed}.
 \end{proof}
 
+Several times, we will make use of the following well-known property of
+3-connected planar graphs.
+
+\begin{lem}\lemlabel{one-shared-edge}
+   If $T$ has $n\ge 4$ vertices then any two faces of $\dual{T}$ share at 
+   most one edge.
+\end{lem}
+
+\begin{proof}
+   Suppose that two faces $f$ and $g$ share two edges $e_1$ and
+   $e_2$. Then $e_1$ and $e_2$ form an edge cutset of $\dual{T}$.
+   If $\dual{T}$ contains at least four nodes, then two of the endpoints
+   of $e_1$ and $e_2$ form a vertex cutset of $\dual{T}$ of size 2,
+   contradicting the fact that $\dual{T}$ is 3-connected.  That $\dual{T}$
+   contains at least 4 nodes follows from Euler's Formula, which gives
+   the number of nodes in $\dual{T}$ as $2n-4\ge 4$ for all $n\ge 4$.
+\end{proof}
+
 
 \begin{lem}\lemlabel{many-caressed-or-high-degree}
    Let $u$ be a node of $T_i$ and let $\rho_u$, $\kappa_u$, and $\delta_u$ denote the number of pinched faces of $\dual{T}$ in $u$, the number of caressed faces of $\dual{T}$ in $u$, and the degree of $u$ in $T_i$, respectively.  Then $\rho_u \le 2(\kappa_u+\delta_u)$.
@@ -465,15 +483,23 @@ one of $T_0$ or $T_1$ has many leaves.
 	When recursing on $A$ we assign move the single unit of charge
 	from $f$ to the chord path of $A$.
 
-        \item $f$ contains both endpoints of $P$.  In this case, $P$ must
-        be on the boundary of more than one pinched faces in $L$, otherwise $P$
-        would be a keeper path. Therefore $P$
-        has at most one unit of charge assigned to it.  Now, $R\setminus
-        f$ has one or more connected components $X_1,\ldots,X_k$ sharing
-        chord paths $P_1,\ldots,P_k$ with $f$ on which we recurse.
-        When recursing on $X_1$ we move the charge from $P$ and the
-        charge from $f$ to $P_1$.  When recursing on the remaining $X_i$,
-        $i\in\{2,\ldots,k\}$ we assign no charge to $P_i$.
+        \item $f$ contains both endpoints of $P$.  We claim that,
+        in this case, $P$ must be on the boundary of more than one
+        pinched faces in $L$, otherwise $P$ would be a keeper path.
+        To see this, observe that the face $f$ contains both the first
+        edge $e_1$ and last edge $e_2$ of $P$. If $e_1=e_2$ because $P$
+        is a single-edge, then it is certainly a keeper. Otherwise, by
+        \lemref{one-shared-edge} $e_1$ and $e_2$ are on the boundary of
+        two different faces in $L$.  By assumption, both of these faces
+        are pinched by $C$.
+
+        Therefore $P$ has at most one unit of charge assigned to it.
+        Now, $R\setminus f$ has one or more connected components
+        $X_1,\ldots,X_k$ sharing chord paths $P_1,\ldots,P_k$ with $f$
+        on which we recurse.  When recursing on $X_1$ we move the charge
+        from $P$ and the charge from $f$ to $P_1$.  When recursing on
+        the remaining $X_i$, $i\in\{2,\ldots,k\}$ we assign no charge
+        to $P_i$.
   \end{enumerate}
   \item $R$ contains at least one pinched face, but no pinched face in $R$
   shares an edge with $P$.  In this case, consider the face $g$ of $H$
@@ -494,66 +520,66 @@ one of $T_0$ or $T_1$ has many leaves.
 \end{proof}
 
 \note{PM}{The leading constant 2 in \lemref{many-caressed-or-high-degree}
-is essentially tight. Make a figure to show this.}
+is essentially tight. Make a figure to show this?}
 
-The following lemma says that if $C$ touches many faces then it must caress many faces, or $T_0$ and $T_1$ must have many degree-2 nodes.
-
-\begin{lem}\lemlabel{many-caressed-or-many-degree-2}
-  Let $\tau$, $\rho$, and $\kappa$ denote the number of nodes touched,
-  pinched, and caressed by $C$, respectively and let $m_2$ denote the
-  total degree of degree-2 nodes in $T_0$ and $T_1$.  Then $11\kappa +
-  4m_2 \ge \tau$.
-\end{lem}
-
-\begin{proof}
-  Since every face of $\dual{T}$ touched by $C$ is either pinched or
-  caressed, for any node $u$ of $T_0$ or $T_1$, we have
-  \begin{equation}
-       \kappa_u + \rho_u = \tau_u \enspace . \eqlabel{tpc}
-  \end{equation}
-  From \lemref{many-caressed-or-high-degree}, we have 
-  \[
-      2(\kappa_u+\delta_u) \ge \rho_u \enspace .
-  \]
-  Combining the preceding equations and summing over all $u$ in $T_0$
-  and $T_1$, we ge
-  \begin{equation}
-       3\kappa + 2\delta \ge \tau \enspace . \eqlabel{tpc-a}
-  \end{equation}
-  The total number of edges in $T_0$
-  and $T_1$ is $\delta/2$ and therefore the total number, $m$,
-  of nodes in $T_0$ and $T_1$ is $\delta/2+1$. Using the inequality
-  $2m\ge \delta$ in \eqref{tpc-a} we obtain 
-  \begin{equation}
-       3\kappa + 4m \ge \tau \enspace .  \eqlabel{tpc-b}
-  \end{equation}
-  The number, $m_{\ge 3}$ of nodes of degree at least three in $T_0$
-  and $T_1$ is less than the number, $m_1$, of leaves.  Therefore,
-  the number $m_2$ of degree 2 nodes is at least
-  \[
-     m_2 = m - m_1 - m_{\ge 3} \ge m-2m_1 \enspace .
-  \]
-  Using the inequality $m\le m_2+2m_1$  in \eqref{tpc-b}, we obtain:
-  \begin{equation}
-       3\kappa + 4(m_2+2m_1) \ge \tau \enspace .  \eqlabel{tpc-c}
-  \end{equation}
-  By \lemref{one-caressed}, each leaf contains at least one face caressed
-  by $C$, so $\kappa \ge m_1$. Using this inequality in \eqref{tpc-c}
-  we obtain
-  \begin{equation}
-       3\kappa + 4(m_2+2\kappa) \ge \tau \enspace .  \eqlabel{tpc-d}
-  \end{equation}
-  which simplifies to $11\kappa + 4m_2 \ge \tau$, as required.
-\end{proof}
+%The following lemma says that if $C$ touches many faces then it must caress many faces, or $T_0$ and $T_1$ must have many degree-2 nodes.
+%
+%\begin{lem}\lemlabel{many-caressed-or-many-degree-2}
+%  Let $\tau$, $\rho$, and $\kappa$ denote the number of nodes touched,
+%  pinched, and caressed by $C$, respectively and let $m_2$ denote the
+%  total degree of degree-2 nodes in $T_0$ and $T_1$.  Then $11\kappa +
+%  4m_2 \ge \tau$.
+%\end{lem}
+%
+%\begin{proof}
+%  Since every face of $\dual{T}$ touched by $C$ is either pinched or
+%  caressed, for any node $u$ of $T_0$ or $T_1$, we have
+%  \begin{equation}
+%       \kappa_u + \rho_u = \tau_u \enspace . \eqlabel{tpc}
+%  \end{equation}
+%  From \lemref{many-caressed-or-high-degree}, we have 
+%  \[
+%      2(\kappa_u+\delta_u) \ge \rho_u \enspace .
+%  \]
+%  Combining the preceding equations and summing over all $u$ in $T_0$
+%  and $T_1$, we ge
+%  \begin{equation}
+%       3\kappa + 2\delta \ge \tau \enspace . \eqlabel{tpc-a}
+%  \end{equation}
+%  The total number of edges in $T_0$
+%  and $T_1$ is $\delta/2$ and therefore the total number, $m$,
+%  of nodes in $T_0$ and $T_1$ is $\delta/2+1$. Using the inequality
+%  $2m\ge \delta$ in \eqref{tpc-a} we obtain 
+%  \begin{equation}
+%       3\kappa + 4m \ge \tau \enspace .  \eqlabel{tpc-b}
+%  \end{equation}
+%  The number, $m_{\ge 3}$ of nodes of degree at least three in $T_0$
+%  and $T_1$ is less than the number, $m_1$, of leaves.  Therefore,
+%  the number $m_2$ of degree 2 nodes is at least
+%  \[
+%     m_2 = m - m_1 - m_{\ge 3} \ge m-2m_1 \enspace .
+%  \]
+%  Using the inequality $m\le m_2+2m_1$  in \eqref{tpc-b}, we obtain:
+%  \begin{equation}
+%       3\kappa + 4(m_2+2m_1) \ge \tau \enspace .  \eqlabel{tpc-c}
+%  \end{equation}
+%  By \lemref{one-caressed}, each leaf contains at least one face caressed
+%  by $C$, so $\kappa \ge m_1$. Using this inequality in \eqref{tpc-c}
+%  we obtain
+%  \begin{equation}
+%       3\kappa + 4(m_2+2\kappa) \ge \tau \enspace .  \eqlabel{tpc-d}
+%  \end{equation}
+%  which simplifies to $11\kappa + 4m_2 \ge \tau$, as required.
+%\end{proof}
 
 \subsection{Bad Nodes}
 
-From \lemref{many-caressed-or-many-degree-2} we know that $C$ either
-caresses $\tau/22=\Omega(\tau)$ faces, or the total number of degree-2
-nodes in $T_0$ and $T_1$ is at least $\tau/8=\Omega(\tau)$.  This helps
-understand the example in \figref{few-caressed}, in which $C$ caresses
-only 4 faces and each of $T_0$ and $T_1$ is a path, so nearly all their
-nodes are degree-2. \note{PM}{\lemref{many-caressed-or-many-degree-2} is only ever used in this paragraph. Delete it?}
+%From \lemref{many-caressed-or-many-degree-2} we know that $C$ either
+%caresses $\tau/22=\Omega(\tau)$ faces, or the total number of degree-2
+%nodes in $T_0$ and $T_1$ is at least $\tau/8=\Omega(\tau)$.  This helps
+%understand the example in \figref{few-caressed}, in which $C$ caresses
+%only 4 faces and each of $T_0$ and $T_1$ is a path, so nearly all their
+%nodes are degree-2. \note{PM}{\lemref{many-caressed-or-many-degree-2} is only ever used in this paragraph. Delete it?}
 
 \begin{lem}\lemlabel{few-caressed-implies-many-nodes}
   Let $\tau_i$, $\rho_i$, and $\kappa_i$ denote the number of faces
@@ -599,7 +625,7 @@ no face of $\dual{T}$ that is caressed by $C$.
            & \text{(by \lemref{one-caressed-leaf})} \\
           & >  n_i - 2\kappa_i -|N_2| 
            & \text{(since $N_{\ge 3} < N_1$)} \\
-           & >  n_i - 3\kappa_i -|N_2| 
+           & >  n_i - 3\kappa_i 
            & \text{(since each node in $N_2$ contains a caressed face)}
     \end{align*}
     Thus, we have
@@ -674,16 +700,25 @@ and a bad node $w$ in $T_1$ share at most one edge of $C$.
 \end{lem}
 
 \begin{proof}
-   Suppose $u$ and $w$ share two edges $e_1$ and $e_2$ of $C$.  Then, by
-   \lemref{common-face}, there is a common face $f_u$ in $u$ that contains
-   $e_1$ and $e_2$, Similarly, there is a common face $f_w$ contained
-   in $w$ that contains both $e_1$ and $e_2$.  This means that $e_1$ and
-   $e_2$ form an edge cutset of $\dual{T}$.  If $\dual{T}$ has at least
-   five vertices, then this implies that $\dual{T}$ has a vertex cutset
-   of size 2.  This is not possible because $\dual{T}$ is 3-connected.
+   Suppose $u$ and $w$ share two edges $e_1$ and $e_2$ of $C$.  Then,
+   by \lemref{common-face}, there is a common face $f_u$ in $u$ that
+   contains $e_1$ and $e_2$, Similarly, there is a common face $f_w$
+   contained in $w$ that contains both $e_1$ and $e_2$.  But this
+   contradicts \lemref{one-shared-edge}.
 \end{proof}
 
 
+\begin{lem}\lemlabel{one-edge-between}
+   If $u$ and $w$ are bad nodes of $T_i$ sharing a common chord path $P$,
+   then $P$ is a single edge.
+\end{lem}
+
+\begin{proof}
+   By \lemref{common-face}, $u$ and $w$ have the first edge of $P$ in
+   common and the last edge of $P$ in common.  \lemref{one-shared-edge}
+   therefore implies that the first and last edge of $P$ are the same,
+   so $P$ has only one edge.
+\end{proof}
 
 \subsection{Really Bad Nodes}
 
@@ -787,25 +822,120 @@ node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
   as required.
 \end{proof}
 
+For a node $u$ of $T_i$, we define $N^0(u) = \{u\}$ and, for any $i\in\N$,
+we define $N^{i}(u)=\bigcup_{w\in N^{i-1}(u)} N(w)$.   We say that a node
+$u$ in $T_i$ is \emph{really$^{i}$ bad} if $u$ is bad and all nodes in
+$N^i(u)$ are bad.  The proof of the following lemma is a straightforward
+generalization of the proof of \lemref{lots-of-really-bad}.
+
+\begin{lem}\lemlabel{lots-of-really-i-bad}
+  For any constant $i\in\N$ and every sufficiently small $0<\alpha < 1/2$,  
+  if $T$ has maximum degree $\Delta$, $C$ has length $\ell$, and the number
+  $\kappa$, of faces caressed by $C$ is at most $\alpha\ell/\Delta^{i+1}$, then
+  the number of really$^i$ bad nodes in $T_0$ is at least $n_0-O(\alpha n_0)$.
+\end{lem}
+
+
+
 
 \subsection{Tree/Cycle Surgery}
 
+We summarize the situation so far.  We are left with the case where
+$C$ has length $\ell$ and therefore touches $\Omega(\ell/\Delta)$
+faces.  To complete the proof of \thmref{main} we must deal with
+the situation where $C$ caresses $o(\ell/\Delta^4)$ faces and
+therefore has $o(\ell/\Delta^4)$ leaves (\lemref{one-caressed-leaf}),
+$\Omega(\ell/\Delta)$ nodes (\lemref{few-caressed-implies-many-nodes}),
+and the fraction of really really bad nodes in $T_0$ and $T_1$ is
+$1-O(1/\Delta^2)$ (\lemref{lots-of-really-i-bad}). \figref{few-caressed}
+illustrates an extreme example of this, in which $C$ caresses only 4
+faces of $\dual{T}$, and $T_0$ and $T_1$ each have only 2 non-bad nodes,
+X non-really bad nodes, and Y non-really$^2$ bad nodes.  
+
+To handle cases like these, the only option is to perform surgery on
+the cycle $C$ to increase the number of caressed nodes. In particular,
+our strategy is to perform modifications to $C$ that increase the number
+of leaves in both $T_0$ and $T_1$.  We need a final lemma that describes
+which nodes of $T_0$ and $T_1$ survive when the cycle $C$ is modified:
+
+\begin{lem}
+   Let $C$ and $C'$ be two cycles in $\dual{T}$ and let, for each $i\in\{0,1\}$, let $T_i$ and $T_i'$ be the resulting trees.  Then a node $u$ in $T_i$ appears in $T_i'$ if the following conditions are satisfied:
+  \begin{compactenum}
+     \item $u\cap C = u\cap C'$; and
+     \item for every node $w$ adjacent to $u$ in $T_i$ and every face $f$ of $\dual{T}$ in $w$, $f$ is pinched by $C$ if and only if $f$ is pinched by $C'$.
+ \end{compactenum}
+\end{lem}
+
+\begin{proof}
+   This proof is just definition checking.
+   The node $u$ appears in $T_i'$ if (i)~each of the keeper paths
+   (for $C$) on the boundary of $u$ are also keeper paths for $C'$ and
+   (ii)~there is no keeper path for $C'$ that contains edges in the
+   interior of $u$.  The latter condition is satisified, since a keeper
+   path is always contained in a single pinched face and, since $u\cap
+   C=u\cap C'$, the set of faces of $\dual{T}$ contained in $u$ that are
+   pinched by $C$ is exactly the same as the set of faces contained in
+   $u$ that are pinched by $C'$.
+
+   Thus, all we need to verify is that the keeper paths for $C$ on the
+   boundary of $u$ are also keeper paths for $C'$.  Every such keeper path
+   $P$ is on the boundary of $u$ and some neighbour $w$ of $u$ in $T_i$.
+   Conditions 1 and 2 of the lemma ensure that every face of $\dual{T}$
+   that shares an edge with $P$ is pinched by $C$ if and only if it is
+   pinched by $C'$.  Therefore $P$ is a keeper path in $C$ if and only
+   if it is a keeper path in $C'$.
+\end{proof}
+
+
 At this point we are ready to complete the proof of \thmref{main}.
-By \lemref{cycle-to-curve}, it suffices to prove the existence of a
-cycle $C$ in $\dual{T}$ that caresses $\Omega(\ell/\Delta^3)$ faces.
-We begin by applying \lemref{lots-of-really-bad} with $\alpha =
-\epsilon/\Delta$.  If $\epsilon$ is a sufficiently small constant, then
-\lemref{lots-of-really-bad} implies that $\kappa = \Omega(\ell/\Delta^3)$
-or the number of nodes in $T_0$ that are not really bad is at most
-$O(n_0/\Delta)$.  In the former case, $C$ caresses $\Omega(\ell/\Delta^3)$
-faces of $\dual{T}$ and we are done.
+
+\begin{proof}[Proof of \thmref{main}]
+By \lemref{cycle-to-curve}, it suffices to prove the existence of
+a cycle $C$ in $\dual{T}$ that caresses $\Omega(\ell/\Delta^4)$
+faces.  We begin by applying \lemref{lots-of-really-i-bad} with
+$i=2$ and $\alpha = \epsilon/\Delta$.  For sufficiently small
+$\epsilon$, \lemref{lots-of-really-i-bad} implies that $\kappa =
+\Omega(\ell/\Delta^4)$ or the number of nodes in $T_0$ that are not really
+really bad is at most $O(\epsilon n_0/\Delta)$.  In the former case,
+$C$ caresses $\Omega(\ell/\Delta^4)$ faces of $\dual{T}$ and we are done.
 
 In the latter case, consider the subgraph of $T_0$ obtained by
 removing all nodes of $T_0$ that are not really bad.  This subgraph has
-$O(\epsilon n_0)$ components, each of which is a path.  At least one of
-these components contains at least $O(1/\epsilon)$ nodes. In particular,
+$O(\epsilon n_0/\Delta)$ components, each of which is a path.  At least one of
+these components contains at least $O(\Delta/\epsilon)$ nodes. In particular,
 for a sufficiently small constant $\epsilon$, one of these components,
 $X$ has at least $100\Delta+2$ nodes.
+
+The nodes in the path $X$ have a particularly simple structure. Each
+node $u$ in $X$ is bad and is adjacent, in $T_0$ to two bad nodes so,
+by \lemref{one-edge-between}, $u$ has exactly two edges $e_1$ and $e_2$
+that are not in $C$.  Furthermore, by \lemref{common-face}, all four
+endpoints of $e_1$, and hence $e_1$ and $e_2$ belong to a common face
+of $\dual{T}$ that also contains all edges of $u\cap C$.  Therefore,
+each node $u$ in $X$ consists of a single face of $\dual{T}$.
+
+Consider some node $u$ in $X$, and let $C_a$ and $C_b$ be the two
+components of $u\cap C$. Observe that $T_1[N(u)]$ consists of two
+paths $a_1,\ldots,a_r$ and $b_1,\ldots,b_s$ of bad nodes where each
+$a_1,\ldots,a_r$ contains an edge of $C_a$ and each of $b_1,\ldots,b_r$
+contains an edge of $C_b$.  It follows from the \lemref{one-shared-edge}
+that among any sequence of $\Delta$ consecutive nodes in $X$, at least
+one node has $|N(u)|\ge 5$ because $r\ge 2$.  Let $u$ be such a node that
+is chosen so that the distance from $u$ to the nearest endpoint of $X$
+is at least $\Delta$.  This is always possible, since $X$ consists of
+at least $3\Delta+2$ nodes.
+
+
+
+
+
+If $r=1$, then redefine $u$ to the be the
+first node $u'$ of $X$ such that neither component of $u'\cap C$ is
+contained in $a_1$.  Note that such a node is guaranteed to exist among
+the first $\Delta$ nodes of $X$ because, by \lemref{one-shared-edge},
+$a_1$ shares at most one edge with each node of $X$.
+
+
 
 Let $N(X)=\bigcup_{u\in V(X)} N(u)$.  And observe that
 $T_1[N(X)]$ consists of two paths $Y_1$ and $Y_2$ of bad nodes.
@@ -814,12 +944,25 @@ with each node in $Y_1$ or $Y_2$.  Each node $u$ in $X$ shares an edge
 with at least one node in each of $Y_1$ and $Y_2$.  Since $\dual{T}$
 is 3-regular, $T$ has maximum degree $\Delta$ and $X$ has length
 $100\Delta+2$, there must exist some node $u$ in the interior of $X$
-such that $N(u)$ consists of at least 5 nodes (refer to \figref{surgery}):
+such that $N(u)$ consists of at least 5 nodes (refer to \figref{surgery}.a):
 \begin{enumerate}
    \item neighbours $x$ and $y$ of $u$ in $T_0$;
    \item a subpath $a_1,\ldots,a_r$ of $Y_1$, with $r\ge 2$; and
    \item a subpath $b_1,\ldots,b_s$ of $Y_2$, with $s\ge 1$ \enspace .
 \end{enumerate}
+\begin{figure}
+   \begin{center}
+   \begin{tabular}{cc}
+    \multicolumn{2}{c}{\includegraphics{figs/surgery}} \\
+    \multicolumn{2}{c}{(a)} \\[2em]
+    \includegraphics{figs/surgery-a-1} & \includegraphics{figs/surgery-a-2} \\ 
+    \multicolumn{2}{c}{(b)} \\[2em]
+    \includegraphics{figs/surgery-a-1} & \includegraphics{figs/surgery-a-2} \\ 
+    \multicolumn{2}{c}{(c)}
+   \end{tabular}
+   \end{center}
+   \caption{Two cases for surgery on the bad node $u$.}
+\end{figure}
 We use the convention that $a_1,b_1\in N(x)$, $a_r,b_s\in N(y)$. We
 also name 4 other nodes of $T_1$: (i)~$a_0$ adjacent to $a_1$;
 (ii)~$a_{r+1}$ adjacent to $a_r$; (iii)~$b_0$ adjacent to $b_1$; and
@@ -833,15 +976,90 @@ of nodes.  The effect such a recolouring has on $T_0$ or $T_1$ may not
 be immediately obvious, but the effect on $C$ is clear: $C$ contains
 every edge contained in the red-blue boundary.
 
+There are two cases to consider:
+
 \begin{enumerate}
-   \item The path in $T_1$ from $a_1$ to $b_1$ contains $a_2$.
-     In this case, removing $a_1$ from $T_1$ partitions $T_1$ into two
-     components, one of which contains $a_r$ and the other of which
-     contains $b_1$.
+   \item The path in $T_1$ from $a_1$ to $b_1$ does not contain $a_2$.
+     In this case, removing $a_1$ from $T_1$ disconnects $T_1$ into
+     two components, one of which contains $a_r$ and the other of which
+     contains $b_1$.  
+
+     The purple boundary $a_1\cap C$ has two components: $C_1$ that
+     contains an edge of $u$ and $C_2$.  Let $z_1,\ldots,z_t$ be the
+     nodes of $T_0$ in $N(a_1)$ that contain an edge of $C_2$. Note
+     that $z_1,\ldots,z_t$ form a path of bad nodes in $T_0$, since $u$
+     is really bad, $a_1\in N(u)$ and $z_1,\ldots,z_t\in N(a_1)$. We
+     order $z_1,\ldots,z_t$ so that $z_1\in N(a_0)$.  Finally, let
+     $z_0,z_{t+1}\not\in\{z_1,\ldots,z_t\}$ be the two nodes of $T_0$
+     adjacent to $z_1$ and $z_t$, respectively. \note{PM}{This is not
+     completely unambiguous in the case $t=1$, but it doesn't matter for
+     what comes next.}  Note that $z_0$ and $z_{t+1}$ are not necessarily
+     bad nodes.
+
+     Removing $u$ from $T_0$ disconnects $T_0$ into two components, one
+     of which contains $x$ and the other contains $y$.  This second
+     component also contains a node $z_0,\ldots,z_{t+1}$.
 
      In this case we move $a_1$ to $T_0$ and $u$ to $T_1$.  Moving $u$
      to $T_1$ restores a path from $a_r$ to $b_1$.  Moving $a_1$ to $T_0$
-     restores the path from $y$ to $x$.
+     restores the path from $y$ to $x$ (through $z$).
+
+     We call the new cycle that results from this operation $C'$
+     and the resulting trees $T_0'$ and $T_1'$.  We claim that every
+     node of $T_0$ and $T_1$ is also present in $T_0'$ and $T_1'$,
+     respectively, except possibly for the following exceptions: $u$,
+     $x$, $y$, $a_1,\ldots,a_{r}$, $b_1,\ldots,b_{s}$, and $z_1,\ldots,z_t$.
+     For most nodes
+
+
+To see why this is the case, observe that any node $w$ not in this list
+
+     We claim that after this surgery every node in the set $Q=(V(T_0)\setminus
+     N(u)\setminus)\cup\{x,y\}$ is also a node of $T_0'$.  To prove this, there are two things we must show:
+     \begin{enumerate} 
+        \item for every node $q\in Q$ and every keeper path $P$ for $C$ on
+        the boundary of $q$, the path $P$ is also a keeper path for $C'$
+        \item for every node $q\in Q$, there is no keeper path in $C'$
+        that contains an edge in the interior of $q$.
+     \end{enumerate}
+     To prove the first condition observe that every edge of $P$ is
+     contained on the boundary of some face $f$ pinched by $C$.  If $P$
+     is a single edge, then there may be another face $g$ pinched by $C$
+     that contains $P$, otherwise $f$ is the only face of $\dual{T}$
+     that contains $P$.  To rule out the fir
+
+
+the edges of every keeper path are contained in the boundary of exactly one or two pinched faces.
+     
+
+
+To see why this is so, consider some keeper
+     path $P$ for $C$.  The path $P$ is a keeper because some face $f$
+     of $\dual{T}$ that contains $P$ is pinched by $C$ and there is no
+     face $g$ of $\dual{T}$ that is pinched by $C$ and contains some, but not all of $P$.  
+
+     Each node of $T_0$ has a boundary made up alternating portions of
+     $C$ and keeper paths.  A keeper path is a keeper because it is on the boundary of a pinched node
+
+     For two nodes $u$ and $w$ of $T_0$ that 
+
+
+     If $P$ is not a keeper path for $C'$, then there are one of two reasons:
+     \begin{enumerate}
+         \item $f$ is not pinched by $C'$; or
+         \item some face $f'$ that contains some, but not all of $P$, is pinched by $C'$.
+     \end{enumerate}
+     The only places where the latter is in danger of happening are at the keeper path on the boundary of $a_k$ and $a_{k+1}$
+
+
+and contains $P$it is completely contained in the boundary of a single pinched face $f_1$ and possibly also completely contained in the boundary of another pinched face $f_2$.
+
+
+, there is a single node
+     $u'$ in $T_1'$ that contains $u$, $a_2,\ldots,a_r$ and
+     $b_1,\ldots,b_s$.  Recall that, by \lemref{common-face} there is a single face $f$ of $\dual{T}$ contained in $u$ that has all edges of $u\cap C$
+     on its boundary.  This face $f$ is pinched by $C'$
+
 
    \item The path in $T_1$ from $a_1$ to $b_1$ does not contain $a_2$.
      In this case, removing $a_r$ from $T_1$ partitions $T_1$ into two
@@ -880,7 +1098,7 @@ of $C$ decreases to less than $\ell'=\ell/2$. If at some point during
 this process, we are no longer able to perform this operation, it is because $C$ caresses $\Omega(\ell'/\Delta^3)=\Omega(\ell/\Delta^3)$ faces of $\dual{T}$ and we are done.  By the end of this process, the number of leaves in $T_0$ is at least $\ell/2\Delta\in\Omega(\ell/\Delta)\subset\Omega(\ell/\Delta^3)$ and we are also done.  This completes the proof of \thmref{main}.
 
 \note{PM}{There's an annoying lopsidedness here. Is there a less brutal way to find the node $u$ we need? All we really need to do this operation is a really bad node (in $T_0$ or $T_1$) of degree at least 5.}
-
+\end{proof}
 
 
 \bibliographystyle{plain}
