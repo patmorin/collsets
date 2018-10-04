@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20181003103123" modified="D:20181004105820"/>
+<info created="D:20181003103123" modified="D:20181004114117"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -342,8 +342,8 @@ h
 320.256 614.33 l
 </path>
 <text layer="disappearing-edges" matrix="0.3773 0 0 0.539 162.184 263.029" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="6.187" height="4.57" depth="0.07" halign="center" valign="center" style="math">u</text>
-<text matrix="0.3773 0 0 0.539 162.576 281.938" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="5.28" height="4.57" depth="0.07" halign="center" valign="center" style="math">x</text>
-<text layer="alpha" matrix="0.3773 0 0 0.539 162.052 246.506" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="5.45" height="4.563" depth="2.71" halign="center" valign="center" style="math">y</text>
+<text matrix="0.3773 0 0 0.539 162.576 281.938" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="9.706" height="4.57" depth="2.1" halign="center" valign="center" style="math">x_0</text>
+<text layer="alpha" matrix="0.3773 0 0 0.539 162.052 246.506" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="9.476" height="4.563" depth="2.71" halign="center" valign="center" style="math">y_0</text>
 <text layer="disappearing-edges" matrix="0.3773 0 0 0.539 141.857 282.122" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="9.496" height="4.57" depth="2.1" halign="center" valign="center" style="math">a_1</text>
 <text matrix="0.3773 0 0 0.539 142.119 250.453" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="8.709" height="4.564" depth="2.1" halign="center" valign="center" style="math">a_r</text>
 <text matrix="0.3773 0 0 0.539 181.591 272.964" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="9.576" height="7.15" depth="2.1" halign="center" valign="center" style="math">b_1</text>
@@ -445,7 +445,7 @@ h
 273.156 612.91 l
 </path>
 <path stroke="black">
-251.391 547.495 m
+250.981 542.552 m
 275.617 542.103 l
 </path>
 <path stroke="black">
@@ -526,5 +526,7 @@ h
 252.056 567.237 m
 273.754 567.237 l
 </path>
+<text layer="alpha" matrix="0.3773 0 0 0.539 162.711 293.433" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="9.706" height="4.57" depth="2.1" halign="center" valign="center" style="math">x_1</text>
+<text matrix="0.3773 0 0 0.539 162.187 234.74" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="9.476" height="4.563" depth="2.71" halign="center" valign="center" style="math">y_1</text>
 </page>
 </ipe>

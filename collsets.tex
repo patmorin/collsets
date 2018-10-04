@@ -39,7 +39,7 @@ urlcolor=linkblue, pdfcreator=Me, pdfproducer=Me}
         Pat Morin\thanks{School of Computer Science, Carleton University}}
 
 \newcommand{\dual}[1]{{#1}^\star}
-\newcommand{\note}[2]{{\color{red}#1:~#2}}
+\newcommand{\note}[2]{{\color{red}[#1:~#2]}}
 
 \begin{document}
 \maketitle
@@ -49,18 +49,21 @@ urlcolor=linkblue, pdfcreator=Me, pdfproducer=Me}
    We show that, if a $n$-vertex triangulation $T$ of maximum degree
    $\Delta$ has a dual that contains a cycle of length $\ell$, then
    $T$ has a plane straight-line drawing in which some \emph{collinear
-   set} of $\Omega(\ell/\Delta^2)$ vertices lie on a line.  Using the
+   set} of $\Omega(\ell/\Delta^4)$ vertices lie on a line.  Using the
    current lower bounds on the length of longest cycles in 3-regular
    3-connected graphs, this implies that $T$ has a collinear set of
-   size $\Omega(n^{0.8}/\Delta^2)$.  Such collinear sets have numerous
+   size $\Omega(n^{0.8}/\Delta^4)$.  Such collinear sets have numerous
    applications in graph drawing and related areas.
 \end{abstract}
 
 \section{Introduction}
 
-For a planar graph $G$, we say that a set $S\subseteq V(G)$ is
-a \emph{collinear set} if $G$ has a non-crossing straight-line drawing in
-which the vertices of $S$ are all collinear.  The \emph{dual} $\dual{G}$
+For a planar graph $G$, we say that a set $S\subseteq V(G)$ is a
+\emph{collinear set} if $G$ has a non-crossing straight-line drawing in
+which the vertices of $S$ are all collinear.  
+
+
+The \emph{dual} $\dual{G}$
 of a plane graph $G$ is the graph whose vertex set $V(\dual{G})$ is
 the set of faces in $G$ and in which $f,g\in E(\dual{G})$ if and only
 if the face $f$ and the face $g$ have at least one edge in common.
@@ -70,13 +73,13 @@ longest cycle. We prove the following theorem:
 \begin{thm}\thmlabel{main}
   Let $T$ be a triangulation of maximum degree $\Delta$ whose dual
   $\dual{T}$ has circumference $\ell$. Then $T$ has a collinear set of
-  size $\Omega(\ell/\Delta^2)$.
+  size $\Omega(\ell/\Delta^4)$.
 \end{thm}
 
 The dual of a triangulation is a 3-connected cubic planar graph.
 The study of the circumference of 3-connected cubic planar graphs
 has a long and rich history going back at least 1884 when Tait
-\cite{tait:listings},conjectured that every such graph is Hamiltonian.  In
+\cite{tait:remarks},conjectured that every such graph is Hamiltonian.  In
 1946, Tait's conjecture was disproved by Tutte who gave a non-Hamiltonian
 46-vertex example \cite{tutte:on}.  Repeatedly replacing vertices of
 this graph with copies of itself gives a family of graphs, $\langle G_i:i\in
@@ -90,21 +93,22 @@ of graphs in which $n$-vertex members have circumference $O(n^{\alpha})$
 for $\alpha=\log_{23}(22)< 0.9859$.
 
 A series of results has steadily improved the lower bounds on the
-circumference of $n$-vertex  (not necessarily planar) 3-connected cubic
-graphs.  Barnette \cite{barnette:4} showed that, for every $n$-vertex
-3-connected cubic graph $G$, $c(G)=\Omega(\log n)$.  Bondy and Simonovits
-\cite{bondy.simonovits:7} improved this bound to $e^{\Omega(\sqrt{\log
-n})}$ and conjectured that it can be improved to $\Omega(n^\alpha)$ for $\alpha>0$.
-Jackson \cite{jackson:8} confirmed this bound with $\alpha=\log_2(1+\sqrt{5})-1
-> 0.6942$.  Billinksi \etal\ \cite{billinksi.jacdson.ea:6} improved this
-to the root of $4^{1/\alpha}-3^{1/\alpha}=2$, which implies $\alpha>0.7532$.  The current
-record is held by Liu, Yu, and Zhang \cite{liu.yu.zhang:circumference}
-who show that $\alpha>0.8$.  Together with \thmref{main}, this result implies
-the following corollary:
+circumference of $n$-vertex  (not necessarily planar) 3-connected
+cubic graphs.  Barnette \cite{barnette:trees} showed that, for
+every $n$-vertex 3-connected cubic graph $G$, $c(G)=\Omega(\log n)$.
+Bondy and Simonovits \cite{bondy.simonovits:longest} improved this bound
+to $e^{\Omega(\sqrt{\log n})}$ and conjectured that it can be improved
+to $\Omega(n^\alpha)$ for $\alpha>0$.  Jackson \cite{jackson:longest}
+confirmed this bound with $\alpha=\log_2(1+\sqrt{5})-1 > 0.6942$.
+Billinksi \etal\ \cite{bilinksi.jackson.ea:circumference} improved
+this to the root of $4^{1/\alpha}-3^{1/\alpha}=2$, which implies
+$\alpha>0.7532$.  The current record is held by Liu, Yu, and Zhang
+\cite{liu.yu.zhang:circumference} who show that $\alpha>0.8$.  Together
+with \thmref{main}, this result implies the following corollary:
 
 \begin{cor}\corlabel{main}
   Every $n$-vertex triangulation of maximum degree $\Delta$ contains a
-  collinear set of size $\Omega(n^{0.8}/\Delta^2)$.
+  collinear set of size $\Omega(n^{0.8}/\Delta^4)$.
 \end{cor}
 
 A longstanding open problem on circumference is \emph{Barnette's
@@ -116,6 +120,22 @@ whether this even makes sense. For example, the assumption can only be
 true when $n$ is odd.  Maybe there's a little trick we can do to make
 it more generally applicable, like when only a small number, $k$, of
 vertices have odd degree.}
+
+It is known \cite{bose.dujmovic.ea:polynomial} that every planar graph $G$
+has a collinear set of size $\Omega(\sqrt{n})$. \corref{main} therefore
+improves on this bound for bounded degree planar graphs and, indeed for
+any planar graph of degree $n^{\alpha}$, with $\alpha < 0.075$.
+
+Recently, Dumovi\'c \etal\ cite{dujmovic.goncalves.ea:every}, have shown
+that every collinear set is \emph{free}. That is, for any any collinear
+set $S$ in a planar graph $G$ and any set $X$ of $|S|$ points in $\R^2$,
+there exists a non-crossing straight-line drawing of $G$ in which
+the vertices of $S$ are drawn on the points of $X$.  Because of this,
+collinear sets have a large number of applications in graph drawing and
+related areas \cite{dujmovic:utility}.  The consequences of \corref{main} are discussed in \secref{discussion}.  
+
+
+
 
 
 
@@ -149,7 +169,8 @@ Jordan curve with the following properties:
   the outer face of $G$.
 \end{enumerate}
 
-Da Lozzo \etal\ show that proper good curves define collinear sets:
+Da Lozzo \etal\ \cite{dalozzo.dujmovic.ea:drawing} show that proper good
+curves define collinear sets:
 
 \begin{thm}\thmlabel{dalozzo}
   In a plane graph $G$, a set $S\subseteq V(G)$ is a collinear set if
@@ -159,7 +180,7 @@ Da Lozzo \etal\ show that proper good curves define collinear sets:
 For a triangulation $T$, let $v(T)$ denote the size of the largest
 collinear set in $T$.  We will show that, for any triangulation $T$
 of maximum degree $\Delta$
-whose dual is $T^*$, $v(T)=\Theta(c(\dual{T})/\Delta^2)$ by demonstrating a
+whose dual is $T^*$, $v(T)=\Theta(c(\dual{T})/\Delta^4)$ by demonstrating a
 relationship between proper good curves in $T$ and cycles in $\dual{T}$.
 
 In one direction, this result is easy, as used by Ravsky and Verbitsky
@@ -211,7 +232,7 @@ mentioning $C$.  We will frequently use the values $\tau$, $\rho$,
 and $\kappa$ to denote the number of faces of $\dual{T}$ in some region
 that are $\tau$ouched, $\rho$inched or $\kappa$aressed.  Observe that,
 since every face that is touched is either pinched or caressed, we will
-have the equation $\tau = \rho + \kappa$.
+have the identity $\tau = \rho + \kappa$.
 
 \begin{lem}\lemlabel{cycle-to-curve}
    If $C$ caresses $\kappa$ faces of $\dual{T}$ then $T$ has a proper
@@ -224,7 +245,7 @@ have the equation $\tau = \rho + \kappa$.
   element $u\in F$ corresponds to a vertex of $T$ so we will treat $F$
   as a set of vertices in $T$.  Consider the subgraph $T[F]$ of $T$
   induced by $F$.  The graph $T[F]$ is planar and has $k$ vertices. Therefore,
-  by the 4-Colour Theorem \cite{seymour.ea:XX} $T[F]$ contains an independent
+  by the 4-Colour Theorem \cite{robertson.seymour.ea:four-colour} $T[F]$ contains an independent
   set $F'\subset F$ of size at least $\kappa/4$.
 
   We claim that $T$ has a proper good curve that contains all the vertices
@@ -694,7 +715,7 @@ We are interested in working with bad nodes of $T_0$ and $T_1$ and how
 these nodes interact.  The following lemma shows that a bad node $u$ in $T_0$
 and a bad node $w$ in $T_1$ share at most one edge of $C$.
 
-\begin{lem}\lemlabel{one-shared-edge}
+\begin{lem}\lemlabel{bad-one-shared-edge}
    If $u$ and $w$ are bad nodes that share at least one edge of $C$, then
    $u$ and $w$ share exactly one edge of $C$.
 \end{lem}
@@ -858,7 +879,7 @@ our strategy is to perform modifications to $C$ that increase the number
 of leaves in both $T_0$ and $T_1$.  We need a final lemma that describes
 which nodes of $T_0$ and $T_1$ survive when the cycle $C$ is modified:
 
-\begin{lem}
+\begin{lem}\lemlabel{survivors}
    Let $C$ and $C'$ be two cycles in $\dual{T}$ and let, for each $i\in\{0,1\}$, let $T_i$ and $T_i'$ be the resulting trees.  Then a node $u$ in $T_i$ appears in $T_i'$ if the following conditions are satisfied:
   \begin{compactenum}
      \item $u\cap C = u\cap C'$; and
@@ -904,91 +925,78 @@ removing all nodes of $T_0$ that are not really bad.  This subgraph has
 $O(\epsilon n_0/\Delta)$ components, each of which is a path.  At least one of
 these components contains at least $O(\Delta/\epsilon)$ nodes. In particular,
 for a sufficiently small constant $\epsilon$, one of these components,
-$X$ has at least $100\Delta+2$ nodes.
+$X$ has at least $5\Delta+2$ nodes.
 
-The nodes in the path $X$ have a particularly simple structure. Each
-node $u$ in $X$ is bad and is adjacent, in $T_0$ to two bad nodes so,
-by \lemref{one-edge-between}, $u$ has exactly two edges $e_1$ and $e_2$
-that are not in $C$.  Furthermore, by \lemref{common-face}, all four
-endpoints of $e_1$, and hence $e_1$ and $e_2$ belong to a common face
-of $\dual{T}$ that also contains all edges of $u\cap C$.  Therefore,
-each node $u$ in $X$ consists of a single face of $\dual{T}$.
+%The nodes in the path $X$ have a particularly simple structure. Each
+%node $u$ in $X$ is bad and is adjacent, in $T_0$ to two bad nodes so,
+%by \lemref{one-edge-between}, $u$ has exactly two edges $e_1$ and $e_2$
+%that are not in $C$.  Furthermore, by \lemref{common-face}, all four
+%endpoints of $e_1$, and hence $e_1$ and $e_2$ belong to a common face
+%of $\dual{T}$ that also contains all edges of $u\cap C$.  Therefore,
+%each node $u$ in $X$ consists of a single face of $\dual{T}$.
 
 Consider some node $u$ in $X$, and let $C_a$ and $C_b$ be the two
 components of $u\cap C$. Observe that $T_1[N(u)]$ consists of two
 paths $a_1,\ldots,a_r$ and $b_1,\ldots,b_s$ of bad nodes where each
 $a_1,\ldots,a_r$ contains an edge of $C_a$ and each of $b_1,\ldots,b_r$
-contains an edge of $C_b$.  It follows from the \lemref{one-shared-edge}
+contains an edge of $C_b$.  It follows from the \lemref{bad-one-shared-edge}
 that among any sequence of $\Delta$ consecutive nodes in $X$, at least
-one node has $|N(u)|\ge 5$ because $r\ge 2$.  Let $u$ be such a node that
-is chosen so that the distance from $u$ to the nearest endpoint of $X$
-is at least $\Delta$.  This is always possible, since $X$ consists of
-at least $3\Delta+2$ nodes.
+one node has $|N(u)|\ge 5$ because $r\ge 2$.  Let $u$ be any such node
+that is not among the first $2\Delta$ or last $2\Delta$ nodes of $X$.
+Such a $u$ always exists because $X$ contains at least $5\Delta$ nodes.
 
-
-
-
-
-If $r=1$, then redefine $u$ to the be the
-first node $u'$ of $X$ such that neither component of $u'\cap C$ is
-contained in $a_1$.  Note that such a node is guaranteed to exist among
-the first $\Delta$ nodes of $X$ because, by \lemref{one-shared-edge},
-$a_1$ shares at most one edge with each node of $X$.
-
-
-
-Let $N(X)=\bigcup_{u\in V(X)} N(u)$.  And observe that
-$T_1[N(X)]$ consists of two paths $Y_1$ and $Y_2$ of bad nodes.
-By \lemref{one-shared-edge}, each node in $X$ shares at most one edge
-with each node in $Y_1$ or $Y_2$.  Each node $u$ in $X$ shares an edge
-with at least one node in each of $Y_1$ and $Y_2$.  Since $\dual{T}$
-is 3-regular, $T$ has maximum degree $\Delta$ and $X$ has length
-$100\Delta+2$, there must exist some node $u$ in the interior of $X$
-such that $N(u)$ consists of at least 5 nodes (refer to \figref{surgery}.a):
+$N(u)$ contains at least 5 nodes (refer to \figref{rrbad}):
 \begin{enumerate}
-   \item neighbours $x$ and $y$ of $u$ in $T_0$;
-   \item a subpath $a_1,\ldots,a_r$ of $Y_1$, with $r\ge 2$; and
-   \item a subpath $b_1,\ldots,b_s$ of $Y_2$, with $s\ge 1$ \enspace .
+   \item the really really bad neighbours $x_1$ and $y_1$ of $u$ in $T_0$;
+   \item a path $a_1,\ldots,a_r$, $r\ge 2$, of really bad nodes in $T_1$, each sharing
+     an edge of $C_a$ with $u$;
+   \item a path $b_1,\ldots,b_s$, $s\ge 1$, of really bad nodes in $T_1$, each sharing an eedge of $C_b$ with $u$.
 \end{enumerate}
 \begin{figure}
    \begin{center}
-   \begin{tabular}{cc}
-    \multicolumn{2}{c}{\includegraphics{figs/surgery}} \\
-    \multicolumn{2}{c}{(a)} \\[2em]
-    \includegraphics{figs/surgery-a-1} & \includegraphics{figs/surgery-a-2} \\ 
-    \multicolumn{2}{c}{(b)} \\[2em]
-    \includegraphics{figs/surgery-a-1} & \includegraphics{figs/surgery-a-2} \\ 
-    \multicolumn{2}{c}{(c)}
-   \end{tabular}
+     \includegraphics{figs/second-try-1}
    \end{center}
-   \caption{Two cases for surgery on the bad node $u$.}
+   \caption{A carefully selected really really bad node $u$.}
+   \figlabel{rrbad}
 \end{figure}
-We use the convention that $a_1,b_1\in N(x)$, $a_r,b_s\in N(y)$. We
-also name 4 other nodes of $T_1$: (i)~$a_0$ adjacent to $a_1$;
-(ii)~$a_{r+1}$ adjacent to $a_r$; (iii)~$b_0$ adjacent to $b_1$; and
-(iv)~$b_{s+1}$ adjacent to $b_s$.
+We use the convention that $a_1,b_1\in N(x)$, $a_r,b_s\in N(y)$. We also
+name some other nodes of $T_1$: ((i)~$a_0$ adjacent to $a_1$; (ii)~$a_{r+1}$
+adjacent to $a_r$; (iii)~$b_0$ adjacent to $b_1$; (iv)~$b_{s+1}$ adjacent
+  to $b_s$; (v)~the path $x_1,\ldots,x_{2\Delta}$ in $T_0$ that does not contain $u$; and (vi)~the
+  path $y_1,\ldots,y_{2\Delta}$ in $T_0$ that does not contain $u$.
+  
+Observe that the path $x_{2\Delta},\ldots,x_1,u,y_1,\ldots,y_{2\Delta}$
+consists entirely of really really bad nodes. The four nodes $a_0$, $a_{r+1}$,
+$b_0$, and $b_{s+1}$ are really bad because the are adjacent to at least
+one of these really really bad nodes.
 
-At this time it is helpful to think of $T_0$, $T_1$, and $C$ as a
+At this point it is helpful to think of $T_0$, $T_1$, and $C$ as a
 partition of $\R^2$, where nodes of $T_0$ are coloured red, nodes of $T_1$
 are coloured blue and $C$ is the (purple) boundary between red and blue.
 To describe our modifications of $C$, we imagine changing the colours
 of nodes.  The effect such a recolouring has on $T_0$ or $T_1$ may not
 be immediately obvious, but the effect on $C$ is clear: $C$ contains
-every edge contained in the red-blue boundary.
+every (purple) edge contained in the red-blue boundary.
 
 There are two cases to consider:
 
 \begin{enumerate}
-   \item The path in $T_1$ from $a_1$ to $b_1$ does not contain $a_2$.
-     In this case, removing $a_1$ from $T_1$ disconnects $T_1$ into
-     two components, one of which contains $a_r$ and the other of which
-     contains $b_1$.  
+   \item The path in $T_1$ from $a_1$ to $b_1$ does not contain $a_2$ or $b_2$.
+     Refer to \figref{case1-surgery}.
+\begin{figure}
+   \begin{center}
+     \includegraphics{figs/second-try-2}
+     \includegraphics{figs/second-try-3}
+   \end{center}
+   \caption{Case 1 of the cycle surgery.}
+   \figlabel{case1-surgery}
+\end{figure}
 
-     The purple boundary $a_1\cap C$ has two components: $C_1$ that
-     contains an edge of $u$ and $C_2$.  Let $z_1,\ldots,z_t$ be the
-     nodes of $T_0$ in $N(a_1)$ that contain an edge of $C_2$. Note
+     The purple boundary $a_1\cap C$ has two connected components: $C_1$
+     that contains an edge of $u$ and $C_2$.  Let $z_1,\ldots,z_t$ be
+     the nodes of $T_0$ in $N(a_1)$ that contain an edge of $C_2$. Note
      that $z_1,\ldots,z_t$ form a path of bad nodes in $T_0$, since $u$
-     is really bad, $a_1\in N(u)$ and $z_1,\ldots,z_t\in N(a_1)$. We
+     is really really bad, $a_1\in N(u)$ and $z_1,\ldots,z_t\in N(a_1)$. We
      order $z_1,\ldots,z_t$ so that $z_1\in N(a_0)$.  Finally, let
      $z_0,z_{t+1}\not\in\{z_1,\ldots,z_t\}$ be the two nodes of $T_0$
      adjacent to $z_1$ and $z_t$, respectively. \note{PM}{This is not
@@ -996,109 +1004,123 @@ There are two cases to consider:
      what comes next.}  Note that $z_0$ and $z_{t+1}$ are not necessarily
      bad nodes.
 
-     Removing $u$ from $T_0$ disconnects $T_0$ into two components, one
-     of which contains $x$ and the other contains $y$.  This second
-     component also contains a node $z_0,\ldots,z_{t+1}$.
+     The forest $T_0-\{u\}$ has two components, one of which contains $x_1$
+     and the other contains $y_1$.  This latter component also contains
+     $z_0,\ldots,z_{t+1}$.  The forest $T_1-\{a_1\}$ has two components
+     one of which contains $a_r$ and the other of which contains $b_1$.
 
-     In this case we move $a_1$ to $T_0$ and $u$ to $T_1$.  Moving $u$
-     to $T_1$ restores a path from $a_r$ to $b_1$.  Moving $a_1$ to $T_0$
-     restores the path from $y$ to $x$ (through $z$).
-
-     We call the new cycle that results from this operation $C'$
-     and the resulting trees $T_0'$ and $T_1'$.  We claim that every
-     node of $T_0$ and $T_1$ is also present in $T_0'$ and $T_1'$,
-     respectively, except possibly for the following exceptions: $u$,
-     $x$, $y$, $a_1,\ldots,a_{r}$, $b_1,\ldots,b_{s}$, and $z_1,\ldots,z_t$.
-     For most nodes
-
-
-To see why this is the case, observe that any node $w$ not in this list
-
-     We claim that after this surgery every node in the set $Q=(V(T_0)\setminus
-     N(u)\setminus)\cup\{x,y\}$ is also a node of $T_0'$.  To prove this, there are two things we must show:
-     \begin{enumerate} 
-        \item for every node $q\in Q$ and every keeper path $P$ for $C$ on
-        the boundary of $q$, the path $P$ is also a keeper path for $C'$
-        \item for every node $q\in Q$, there is no keeper path in $C'$
-        that contains an edge in the interior of $q$.
-     \end{enumerate}
-     To prove the first condition observe that every edge of $P$ is
-     contained on the boundary of some face $f$ pinched by $C$.  If $P$
-     is a single edge, then there may be another face $g$ pinched by $C$
-     that contains $P$, otherwise $f$ is the only face of $\dual{T}$
-     that contains $P$.  To rule out the fir
-
-
-the edges of every keeper path are contained in the boundary of exactly one or two pinched faces.
+     We make the following \emph{surgical modification} to $C$: we move
+     $a_1$ to $T_0$ and we move $u$ to $T_1$.  Moving $u$ to $T_1$
+     restores a path in $T_1$ from $a_r$ to $b_1$.  Moving $a_1$ to
+     $T_0$ restores a path in $T_0$ from $y$ to $x$ (through $z_1$).
+     We call the new cycle that results from this operation $C'$ and
+     the resulting trees $T_0'$ and $T_1'$.
      
+     \begin{clm}
+       Every node of $T_0$ and $T_1$ is also present in $T_0'$ and $T_1'$,
+       respectively, except possibly for the following bad nodes: $u$,
+       $x_1,\ldots,x_{\Delta-1}$, $a_1,\ldots,a_{r}$, $b_1,\ldots,b_{s}$,
+       and $z_1,\ldots,z_t$.
+     \end{clm}
 
-
-To see why this is so, consider some keeper
-     path $P$ for $C$.  The path $P$ is a keeper because some face $f$
-     of $\dual{T}$ that contains $P$ is pinched by $C$ and there is no
-     face $g$ of $\dual{T}$ that is pinched by $C$ and contains some, but not all of $P$.  
-
-     Each node of $T_0$ has a boundary made up alternating portions of
-     $C$ and keeper paths.  A keeper path is a keeper because it is on the boundary of a pinched node
-
-     For two nodes $u$ and $w$ of $T_0$ that 
-
-
-     If $P$ is not a keeper path for $C'$, then there are one of two reasons:
+     \begin{proof}[Proof of Claim]
+     For most nodes $v$ in $T_0$ or $T_1$, this claim follows immediately
+     from \lemref{survivors} since, for most nodes $v\cap C=v\cap C'$
+     and $w\cap C=w\cap C'$ for every $w\in N(v)$.  The nodes requiring special
+     care are the following:
      \begin{enumerate}
-         \item $f$ is not pinched by $C'$; or
-         \item some face $f'$ that contains some, but not all of $P$, is pinched by $C'$.
+       \item[$z_0$:]  For this node $z_0\cap C=z_0\cap C'$ and $w\cap
+       C=w\cap C'$ for all $w\in N(z_0)\setminus z_1$.  Thus, the only
+       question is whether the chord path $P$ separating $z_0$ and $z_1$
+       is a keeper for $C'$.
+
+       We claim that $z_1$ contains of a single face of $\dual{T}$.  By
+       \lemref{common-face}, there is a single face $f$ of $\dual{T}$ in
+       $z_1$ that contains $z_1\cap C$ and, by \lemref{one-edge-between},
+       this face also contains the single edge of $\dual{T}$ separating
+       $z_1$ and $z_2$.  Suppose now, for the sake of contradiction,
+       that $f$ does not contain the chord path $P$ separating $z_0$
+       and $z_1$.  The face $f$ must, however, contain the first and
+       last edge of $P$.  All edges of $f$ are in the auxilliary graph
+       $H$ and therefore $P$ contains an internal node of degree 3.
+       But this contradicts the fact that $P$ is a keeper for $C$.
+
+       Therefore $f$ contains $P$ on its boundary. Furthermore, $f$ is
+       squeezed by $C'$, so $P$ is in the auxilliary graph $H'$ for $C'$.
+       Since the faces of $z_0$ pinched by $C$ and $C'$ are the same and
+       $P$ is a keeper for $C$, it follows that $P$ is a keeper for $C'$.
+
+     \item[$z_{t+1}$:] The node $z_{t+1}$ appears in $T_0'$ for the same
+     reason $z_0$ appears in $T_0'$.
+
+      \item[$y_1$:] The path $u,y_1,y_2,y_3$ consists entire of bad
+      nodes. Therefore, $y_1$ and $y_2$ are
+      faces of $\dual{T}$. The node $y_2$ is pinched by $C'$, therefore
+      the edge $e$ common to $y_1$ and $y_2$ is a keeper. Therefore all
+      edges of $y_1$ are in $C'\cup e$, so $y_1$ is a node of $T_0'$.
+         
+        
+    \item[$x_\Delta$:] That $x_\Delta$ is a node of $T_0'$ follows from
+    the fact that $x_{\Delta}-1,x_{\Delta},x_{\Delta+1}$ is a path of
+         bad nodes in $T_0$ and $x_{\Delta}\cap C=x_{\Delta}\cap C'$.
+
+       \item[$a_0$:] The node $a_0$ appears in $T_1'$ as a leaf for exactly the same reason $y_1$ appears in $T_0'$ as a leaf.
+
+       \item[$b_0,b_{s+1},a_{r+1}$:] The nodes $b_0$, $b_{s+1}$, and $b_{r+1}$ appear in $T_1'$ for the same reasons
+       that $x_\Delta$ appears in $T_0'$.
      \end{enumerate}
-     The only places where the latter is in danger of happening are at the keeper path on the boundary of $a_k$ and $a_{k+1}$
+     This completes the proof of the claim.
+     \end{proof}
+     The key point to take from all of this is that every node of $T_0$
+     and $T_1$ that is not bad is also present in $T_0'$ and $T_1'$.
+     Furthermore, the nodes $y_0$ and $a_0$, which were bad nodes in $T_0$
+     and $T_1$ are now leaves of $T_0'$ and $T_1'$.
+
+   \item The path in $T_1$ from $a_1$ to $b_1$ contains $b_2$ but not $a_2$.
+     Refer to \figref{case2-surgery}.
+   The surgery, and the proof, for this case is \emph{verbatim}
+   the same as Case~1. (Indeed, reread Case~1 while referring to
+   \figref{case2-surgery}.
+
+\begin{figure}
+   \begin{center}
+     \includegraphics{figs/second-try-x-2}
+     \includegraphics{figs/second-try-x-3}
+   \end{center}
+   \caption{Case 2 of the cycle surgery.}
+   \figlabel{case2-surgery}
+\end{figure}
 
 
-and contains $P$it is completely contained in the boundary of a single pinched face $f_1$ and possibly also completely contained in the boundary of another pinched face $f_2$.
+ \item The path in $T_1$ from $a_1$ to $b_1$ contains $a_2$ and $b_2$.  This case is symmetric to Case~1.
 
-
-, there is a single node
-     $u'$ in $T_1'$ that contains $u$, $a_2,\ldots,a_r$ and
-     $b_1,\ldots,b_s$.  Recall that, by \lemref{common-face} there is a single face $f$ of $\dual{T}$ contained in $u$ that has all edges of $u\cap C$
-     on its boundary.  This face $f$ is pinched by $C'$
-
-
-   \item The path in $T_1$ from $a_1$ to $b_1$ does not contain $a_2$.
-     In this case, removing $a_r$ from $T_1$ partitions $T_1$ into two
-     components, one containing $a_1$ and one containing $b_1$.
-
-     In this case we move $a_r$ to $T_0$ and $u$ to $T_1$. The addition fo
-     $u$ to $T_1$ restores the path from $a_1$ to $b_1$ and the addition
-     of $a_r$ to $T_0$ restores the path from $x$ to $y$.
+  \item The path in $T_1$ from $a_1$ to $b_1$ contains $a_2$ but not $b_2$.  This case is symmetric to Case~2.
 \end{enumerate}
 
-It is clear what this operation does to the cycle $C$.  What does
-this operation do to the trees $T_0$ and $T_1$?  We claim that this
-operation increases the number of leaves in each of $T_0$ and $T_1$.
-Specifically, we claim that the faces of $u$ become part of a node $u'$
-in $T_1$ that has degree 3.
+In all four cases, the surgery on $C$ increases the number of leaves in
+both $T_1$ and $T_2$.  Furthermore, the only edges of $C$ that are lost
+in this operation are on the boundary of $u$.  Therefore, this operation
+decreases the length of $C$ by at most $\Delta$.
 
-In Case~1, the node containing $y$ in $T_0$ has become a leaf, so
-the number of leaves in $T_0$ has increased.  From the node of $T_1$
-containing $u$ there are three disjoint path, one leading to $b_0$,
-one leading to $b_{s+1}$, and one leading to $a_{r+1}$.  Therefore,
-the number of nodes of degree at least three, and hence of the number
-of leaves, in $T_1$ has also increased.
-
-In Case~2, the node containing $x$ in $T_0$ has become a leaf.  From the
-node containing $u$ in $T_1$, there are three disjoint paths from $u$
-to $b_0$, from $u$ to $b_{r+1}$ and from $u$ to $a_1$.  Therefore,
-the number of nodes of degree at least 3 has increased in $T_1$.
-
-This operation changes the length of the cycle $C$ by at most $\Delta$
-(the only edges lost from $C$ are on the boundary of $u$ and therefore,
-by \lemref{common-face} all contained in a single face.
-
-Therefore, if we start with a cycle $C$ of length $\ell$, then we can
-perform this operation at least $\ell/(2\Delta)$ times before the length
-of $C$ decreases to less than $\ell'=\ell/2$. If at some point during
-this process, we are no longer able to perform this operation, it is because $C$ caresses $\Omega(\ell'/\Delta^3)=\Omega(\ell/\Delta^3)$ faces of $\dual{T}$ and we are done.  By the end of this process, the number of leaves in $T_0$ is at least $\ell/2\Delta\in\Omega(\ell/\Delta)\subset\Omega(\ell/\Delta^3)$ and we are also done.  This completes the proof of \thmref{main}.
-
-\note{PM}{There's an annoying lopsidedness here. Is there a less brutal way to find the node $u$ we need? All we really need to do this operation is a really bad node (in $T_0$ or $T_1$) of degree at least 5.}
+If we start with a cycle $C$ of length $\ell$, then we can perform
+this operation at least $\ell/(2\Delta)$ times before the length of
+$C$ decreases to less than $\ell'=\ell/2$. If at some point during
+this process, we are no longer able to perform this operation, it is
+because $C$ caresses $\Omega(\ell'/\Delta^4)=\Omega(\ell/\Delta^4)$
+faces of $\dual{T}$ and we are done.  By the end of this process,
+the number of leaves in each of $T_0$ and $T_1$ is at least
+$\ell/2\Delta\in\Omega(\ell/\Delta)\subset\Omega(\ell/\Delta^3)$ and we
+are also done.  This completes the proof of \thmref{main}.
 \end{proof}
+
+\note{PM}{There's an annoying lopsidedness here. We can do surgeries $\Omega(\ell/\Delta)$ times before the length of $C$ really decreases. Unfortunately, we need the number of caressed faces to be $O(\ell/\Delta^4)$ in order to guarantee that we can perform a surgery. There's gotta be a better way\ldots}
+
+
+\section{Discussion}
+\seclabel{discussion}
+
+
+
 
 
 \bibliographystyle{plain}
