@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20181003103123" modified="D:20181004064339"/>
+<info created="D:20181003103123" modified="D:20181004105820"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -272,7 +272,7 @@ h
 <layer name="disappearing-edges"/>
 <layer name="edge-hider"/>
 <view layers="alpha initial background disappearing-edges" active="alpha"/>
-<view layers="alpha initial recolour background outline edge-hider" active="alpha"/>
+<view layers="alpha initial recolour background outline edge-hider" active="edge-hider"/>
 <view layers="alpha initial recolour background outline disappearing-edges edge-hider" active="edge-hider"/>
 <path layer="background" matrix="0.77 0 0 0.539 59.2381 261.951" fill="brew5">
 136.407 714.533 m
@@ -343,8 +343,8 @@ h
 </path>
 <text layer="disappearing-edges" matrix="0.3773 0 0 0.539 162.184 263.029" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="6.187" height="4.57" depth="0.07" halign="center" valign="center" style="math">u</text>
 <text matrix="0.3773 0 0 0.539 162.576 281.938" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="5.28" height="4.57" depth="0.07" halign="center" valign="center" style="math">x</text>
-<text matrix="0.3773 0 0 0.539 162.052 246.506" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="5.45" height="4.563" depth="2.71" halign="center" valign="center" style="math">y</text>
-<text matrix="0.3773 0 0 0.539 141.857 282.122" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="9.496" height="4.57" depth="2.1" halign="center" valign="center" style="math">a_1</text>
+<text layer="alpha" matrix="0.3773 0 0 0.539 162.052 246.506" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="5.45" height="4.563" depth="2.71" halign="center" valign="center" style="math">y</text>
+<text layer="disappearing-edges" matrix="0.3773 0 0 0.539 141.857 282.122" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="9.496" height="4.57" depth="2.1" halign="center" valign="center" style="math">a_1</text>
 <text matrix="0.3773 0 0 0.539 142.119 250.453" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="8.709" height="4.564" depth="2.1" halign="center" valign="center" style="math">a_r</text>
 <text matrix="0.3773 0 0 0.539 181.591 272.964" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="9.576" height="7.15" depth="2.1" halign="center" valign="center" style="math">b_1</text>
 <path matrix="0.77 0 0 0.539 59.2381 261.951" stroke="black">
@@ -418,14 +418,6 @@ h
 278.592 607.753 m
 278.592 566.489 l
 </path>
-<path layer="alpha" matrix="1.1 0 0 1.1 -25.7557 -56.8223" stroke="black">
-233.532 607.786 m
-191.053 617.826 l
-</path>
-<path matrix="1.1 0 0 1.1 -25.7557 -56.8223" stroke="black">
-236.143 582.107 m
-186.663 577.274 l
-</path>
 <text layer="disappearing-edges" matrix="0.3773 0 0 0.539 104.844 272.103" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="7.794" height="4.564" depth="2.1" halign="center" valign="center" style="math">z_t</text>
 <text matrix="0.3773 0 0 0.539 105.457 298.254" transformations="translations" pos="268.075 583.584" stroke="black" type="label" width="8.998" height="4.57" depth="2.1" halign="center" valign="center" style="math">z_1</text>
 <path matrix="1.1 0 0 1.1 -25.7557 -56.8223" stroke="black">
@@ -497,6 +489,42 @@ h
 224.686 552.585
 229.232 540.719
 235.785 538.825 c
+</path>
+<path layer="edge-hider" stroke="black">
+233.906 585.449 m
+252.048 585.303 l
+252.056 589.478 l
+273.754 589.478 l
+</path>
+<path stroke="black">
+231.878 607.413 m
+252.351 606.904 l
+252.236 603.402 l
+273.515 603.247 l
+</path>
+<path layer="alpha" stroke="black">
+184.867 624.019 m
+188.866 620.343
+197.183 620.233
+203.393 620.343
+205.833 617.682
+216.812 614.577
+220.693 616.351
+230.903 612.849 c
+</path>
+<path stroke="black">
+179.629 582.561 m
+190.255 581.07
+195.87 575.695
+205.426 577.964
+217.133 580.712
+224.061 571.275
+230.87 581.309
+234.26 576.889 c
+</path>
+<path layer="edge-hider" stroke="black">
+252.056 567.237 m
+273.754 567.237 l
 </path>
 </page>
 </ipe>
