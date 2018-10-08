@@ -80,10 +80,10 @@ has a long and rich history going back to at least 1884 when Tait
 \cite{tait:remarks} conjectured that every such graph is Hamiltonian.  In
 1946, Tait's conjecture was disproved by Tutte who gave a non-Hamiltonian
 46-vertex example \cite{tutte:on}.  Repeatedly replacing vertices of
-this graph with copies of itself gives a family of graphs, $\langle G_i:i\in
+Tutte's graph with copies of itself gives a family of graphs, $\langle G_i:i\in
 \Z\rangle$ in which $G_i$ has $46\cdot 45^i$ vertices and circumference at
 most $45\cdot44^i$.  Stated another way, $n$-vertex members of the
-family have circumference $O(n^a)$, for $a=\log_{44}(45)) < n^{0.9941}$.
+family have circumference $O(n^a)$, for $a=\log_{44}(45) < 0.9941$.
 The current best upper bound of this type is due to Gr\"unbaum and
 Walther \cite{grunbaum.walther:shortness} who construct a 24-vertex
 non-Hamiltonian cubic 3-connected planar graph, resulting in a family
@@ -125,7 +125,7 @@ improves on this bound for bounded degree planar graphs and, indeed for
 the family of $n$-vertex planar graphs of maximum degree 
 $\Delta\in O(n^{\alpha})$, with $\alpha < 0.075$.
 
-Recently, Dumovi\'c \etal\ \cite{dujmovic.frati.ea:every}, have
+Recently, Dujmovi\'c \etal\ \cite{dujmovic.frati.ea:every}, have
 shown that every collinear set is \emph{free}. That is, for any planar
 graph $G$, any collinear set $S\subseteq V(G)$, and any set $X\subset\R^2$,
 with $|X|=|S|$, there exists a non-crossing straight-line drawing of $G$
@@ -147,12 +147,12 @@ that the edges of $G'$---each of which represents a path in $G$
 whose internal vertices all have degree 2---inherit their embedding from
 the paths they represent in $G$.
 
-Finally, if we consider the dual $G^*$ of $G$ then we treat it as a
-plane graph in which each vertex $f$ is represented as a point in the
-interior of the face $f$ of $G$ that it represents.  The edges of $G^*$
-are embedded so that an edge $fg$ is contained in the union of the two
-faces $f$ and $g$ of $G$, it intersects the interior of exactly one
-edge of $G$ that is common to $f$ and $g$, and this intersection
+Finally, if we consider the dual $\dual{G}$ of $G$ then we treat it
+as a plane graph in which each vertex $f$ is represented as a point in
+the interior of the face $f$ of $G$ that it represents.  The edges of
+$\dual{G}$ are embedded so that an edge $fg$ is contained in the union of
+the two faces $f$ and $g$ of $G$, it intersects the interior of exactly
+one edge of $G$ that is common to $f$ and $g$, and this intersection
 consists of a single point.
 
 A \emph{proper good curve} $C$ for a plane graph $G$ is a
@@ -176,20 +176,23 @@ curves define collinear sets:
 For a triangulation $T$, let $v(T)$ denote the size of the largest
 collinear set in $T$.  We will show that, for any triangulation $T$
 of maximum degree $\Delta$
-whose dual is $T^*$, $v(T)=\Theta(c(\dual{T})/\Delta^4)$ by demonstrating a
+whose dual is $\dual{T}$, $v(T)=\Theta(c(\dual{T})/\Delta^4)$ by demonstrating a
 relationship between proper good curves in $T$ and cycles in $\dual{T}$.
 
-In one direction, this result is easy, as used by Ravsky and Verbitsky
-\cite{ravsky.verbitsky:on,ravsky.verbitsky:on-arxiv}.  If $T$ is a
-triangulation that has a proper good curve $C$ containing $k$ vertices,
-then a slight deformation of $C$ produces a proper good curve that
-contains no vertices. This curve intersects a cyclic sequence of faces
-$f_0,\ldots,f_{k'-1}$ of $T$ with $k'\ge k$.  In this sequence, $f_i$ and
-$f_{(i+1)\bmod k'}$ share an edge, for every $i\in\{0,\ldots,k'-1\}$, so
-this sequence is a closed walk in the dual $\dual{T}$ of $T$.  Property~1
-of good curves and the fact that each face of $T$ is a triangle ensures
-that $f_i\neq f_j$ for any $i\neq j$, so this sequence is a cycle in
-$\dual{T}$ of length $k'\ge k$.  Therefore, $c(\dual{T})\ge v(T)$.
+As shown by Ravsky and Verbitsky
+\cite{ravsky.verbitsky:on,ravsky.verbitsky:on-arxiv}, the inequality
+$v(T) \le c(\dual{T})$ is easy: If $T$ is a triangulation that has a
+proper good curve $C$ containing $k$ vertices, then a slight deformation
+of $C$ produces a proper good curve that contains no vertices. This
+curve intersects a cyclic sequence of faces $f_0,\ldots,f_{k'-1}$ of
+$T$ with $k'\ge k$.  In this sequence, $f_i$ and $f_{(i+1)\bmod k'}$
+share an edge, for every $i\in\{0,\ldots,k'-1\}$, so this sequence is
+a closed walk in the dual $\dual{T}$ of $T$.  Property~1 of good curves
+and the fact that each face of $T$ is a triangle ensures that $f_i\neq
+f_j$ for any $i\neq j$, so this sequence is a cycle in $\dual{T}$ of
+length $k'\ge k$.  Therefore, $c(\dual{T})\ge v(T)$. From the result
+of Gr\"unbaum and Walther described above, this implies that there are
+$n$-vertex triangulations $T$ such that $v(T) = O(n^{0.9859})$.
 
 The other direction, lower-bounding $v(T)$ in terms $c(\dual{T})$
 is more difficult. Not every cycle $C$ of length $\ell$ in $\dual{T}$
@@ -217,7 +220,7 @@ We say that a face $f$ of $\dual{T}$
 \begin{center}
 	  \includegraphics{figs/tpc-2}
 \end{center}
-	  \caption{Faces of $T^*$ that are pinched and caressed by $C$. $C$ is bold, caressed faces are blue, pinched faces are pink, and untouched faces are unshaded.}
+	  \caption{Faces of $\dual{T}$ that are pinched and caressed by $C$. $C$ is bold, caressed faces are blue, pinched faces are pink, and untouched faces are unshaded.}
 	  \figlabel{touched-pinched-caressed}
 \end{figure}
 
@@ -244,11 +247,11 @@ caressed, we have the identity $\tau = \rho + \kappa$.
   by the 4-Colour Theorem \cite{robertson.seymour.ea:four-colour} $T[F]$
   contains an independent set $F'\subseteq F$ of size at least $\kappa/4$.
 
-  We claim that $T$ has a proper good curve that contains all the vertices
-  in $F'$.  To see this, first observe that the cycle $C$ in $\dual{T}$
-  already defines a proper good curve (that does not contain any vertices
-  of $T$) that we will also call $C$.  We will perform local modifications 
-  on $C$ so that it contains all the vertices in $F'$.
+  We claim that there is a proper good curve for $T$ that contains all
+  the vertices in $F'$.  To see this, first observe that the cycle $C$ in
+  $\dual{T}$ already defines a proper good curve (that does not contain
+  any vertices of $T$) that we also call $C$.  We perform
+  local modifications on $C$ so that it contains all the vertices in $F'$.
 
   For any vertex $u\in F'$, let $w_0,\ldots,w_{d-1}$ denote the neighbours
   of $u$ in cyclic order.  The curve $C$ intersects some contiguous
@@ -320,7 +323,7 @@ $C$ or all contained in the exterior of $C$.
 
 \begin{lem}\lemlabel{one-caressed}
    Let $P$ be a chord path for $C$ and let $L$ and $R$ be the two faces
-   of $P\cup C$ that have $P$ on their boundary. Then $R$
+   of $P\cup C$ that each contain $P$ in their boundary. Then $R$
    contains at least one face of $\dual{T}$ that is caressed by $C$.
 \end{lem}
 
@@ -378,7 +381,7 @@ We say that a chord path $v_i,\ldots,v_j$ is a \emph{keeper} with respect to
 $f$ if $v_i$ is special of Type~A, $v_j$ is special of Type~B, and none
 of $v_{i+1},\ldots,v_{j-1}$ are special.  We let $\tilde{H}$ denote the
 subgraph of $H$ containing all the edges of $C$ and all the edges of
-all paths that are special with respect to some face $f$ of $\dual{T}$.
+all paths that are special with respect to some pinched face $f$ of $\dual{T}$.
 
 It is worth emphasizing at this point that, by definition, every keeper is
 entirely contained in the boundary of at least one face $f$ of $\dual{T}$.
@@ -451,7 +454,7 @@ We will repeatedly make use of the following well-known property of
 \end{lem}
 
 \begin{proof}
-   The proof is a discharging argument.  We assign each pinched face of
+   The proof is a discharging argument.  We assign each pinched face in 
    $u$ a single unit of charge, so that the total charge is $\rho_u$.
    We then describe a set of discharging rules that preserve the total
    charge.  After the application of these rules, pinched faces in $u$
@@ -463,7 +466,7 @@ We will repeatedly make use of the following well-known property of
    We now describe the discharging rules, which are recursive and take as
    input a chord path $P$ that partitions $u$ into two parts $L$ and $R$.
    We require as a precondition that there are $m\ge 1$ pinched faces
-   of $T^*$ in $L$, each of which contains at least one edge of $P$ and
+   of $\dual{T}$ in $L$, each of which contains at least one edge of $P$ and
    such that every edge of $P$ is contained in at one of these faces.
    During a recursive call, $P$ may have a charge $c\in\{0,1,2\}$. This
    charge will be at most 1 if $m\ge 1$, but can be 2 if $m=1$.
