@@ -333,11 +333,12 @@ $C$ or all contained in the exterior of $C$.
    If $t=1$, then $R$ is a face of $\dual{T}$ and it is caressed by $C$.
 
    If $t>1$, then consider the face $f$ of $\dual{T}$ that is contained
-	in $R$ and has the first edge of $P$ on its boundary.  Refer to \figref{one-caressed}. Since $t>1$,
-   $X=R\setminus f$ is non-empty. The set $X$ may have several connected
-   components $X_1,\ldots,X_k$, but each $X_i$ has a boundary that contains a chord path $P_i$ for $C$.
-	We can therefore apply induction on $P_1$ (or any $P_i$) using $R=X_1$
-	in the inductive hypothesis.
+   in $R$ and has the first edge of $P$ on its boundary.  Refer to
+   \figref{one-caressed}. Since $t>1$, $X=R\setminus f$ is non-empty. The
+   set $X$ may have several connected components $X_1,\ldots,X_k$, but
+   each $X_i$ has a boundary that contains a chord path $P_i$ for $C$.
+   We can therefore apply induction on $P_1$ (or any $P_i$) using $R=X_1$
+   in the inductive hypothesis.
   \begin{figure}
      \begin{center}
 	\begin{tabular}{cc}
@@ -391,12 +392,14 @@ Let $\tilde{H}'$ denote the graph that is homeormophic to $\tilde{H}$
 but does not contain any degree 2 vertices.  That is, $\tilde{H}'$
 is the minor of $\tilde{H}$ obtained by repeatedly contracting an edge
 incident a degree-2 vertex.  The graph $\tilde{H}'$ naturally inherits an
-embedding from the embedding of $\tilde{H}$.
-This embedding partitions the edges of $\tilde{H}'$ into three sets:
+embedding from the embedding of $\tilde{H}$.  This embedding partitions
+the edges of $\tilde{H}'$ into three sets:
 \begin{enumerate}
   \item The set $B$ of edges that are contained in (the embedding of) $C$;
-  \item The set $E_0$ of edges whose interiors are contained in the interior of (the embedding of) $C$; and
-  \item The set $E_1$ of edges whose interiors are contained in the exterior of (the embedding of) $C$.
+  \item The set $E_0$ of edges whose interiors are contained in the
+  interior of (the embedding of) $C$; and
+  \item The set $E_1$ of edges whose interiors are contained in the
+  exterior of (the embedding of) $C$.
 \end{enumerate}
 
 Observe that, for each $i\in\{0,1\}$, the graph $H_i$ whose edges are
@@ -404,15 +407,16 @@ exactly those in $B\cup E_i$ is outerplanar, since all vertices of $H_i$
 are on a single face, whose boundary is $C$.  Let $\dual{H_i}$ be dual
 of $H_i$ and let $T_i$ be the subgraph of $\dual{H_i}$ whose edges are
 all those dual to the edges of $E_i$. From the outerplanarity of $H_i$,
-it follows that $T_i$ is a tree.
+it follows that $T_i$ is a tree.  
 
 Each vertex of $T_i$ corresponds to a face of $\tilde{H}$.  From this
 point onwards, we will refer to the vertices of $T_i$ as \emph{nodes}
 to highlight this fact, so that a node $u$ of $T_i$ is synonymous with
 the subset of $\R^2$ contained in the corresponding face of $\tilde{H}$.
-In the following, when we say that a node $u$ of $T_i$ contains a face
-$f$ of $\dual{T}$ we mean that $f$ is one of the faces of $\dual{T}$
-whose union makes up $u$.
+In the following, when we say that a node $u$ of $T_i$ contains a face $f$
+of $\dual{T}$ we mean that $f$ is one of the faces of $\dual{T}$ whose
+union makes up $u$.  The degree, $\delta_u$ of any node $u$ in $T_i$
+is exactly equal to the number of keeper paths on the boundary of $u$.
 
 The following lemma allows us to direct our effort towards proving that
 one of $T_0$ or $T_1$ has many leaves.
@@ -453,21 +457,35 @@ We will repeatedly make use of the following well-known property of
    Let $u$ be a node of $T_i$ and let $\rho_u$, $\kappa_u$, and $\delta_u$ denote the number of pinched faces of $\dual{T}$ in $u$, the number of caressed faces of $\dual{T}$ in $u$, and the degree of $u$ in $T_i$, respectively.  Then $\rho_u \le 2(\kappa_u+\delta_u)$.
 \end{lem}
 
+Before proving \lemref{many-caressed-or-high-degree}, we point out that
+the leading constant 2 is tight. \figref{tight} shows an example in
+which all $\rho_u=2k+1$ pinched faces of $\dual{T}$ are contained in a
+single node $u$ of $T_0$ that contains $\kappa_u=0$ caressed faces and
+has degree $\delta_u=k+2$.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics{figs/tight}
+  \end{center}
+  \caption{An example showing the tightness of \lemref{many-caressed-or-high-degree}.}
+  \figlabel{tight}
+\end{figure}
+
 \begin{proof}
    The proof is a discharging argument.  We assign each pinched face in 
    $u$ a single unit of charge, so that the total charge is $\rho_u$.
-   We then describe a set of discharging rules that preserve the total
-   charge.  After the application of these rules, pinched faces in $u$
+   We then describe a discharging procedure that preserve the total
+   charge.  After executing this procedure, pinched faces in $u$
    have no charge, each caressed face in $u$ has charge at most 2,
    and each keeper path in $u$ has charge at most 2.  Since there is a
    bijection between keeper paths in $u$ and edges of $T_i$ incident to
    $u$, this proves the result.
 
-   We now describe the discharging rules, which are recursive and take as
+   We now describe the discharging procedure, which are recursive and take as
    input a chord path $P$ that partitions $u$ into two parts $L$ and $R$.
    We require as a precondition that there are $m\ge 1$ pinched faces
    of $\dual{T}$ in $L$, each of which contains at least one edge of $P$ and
-   such that every edge of $P$ is contained in at one of these faces.
+   such that every edge of $P$ is contained in at least one of these faces.
    During a recursive call, $P$ may have a charge $c\in\{0,1,2\}$. This
    charge will be at most 1 if $m\ge 1$, but can be 2 if $m=1$.
 
@@ -514,11 +532,11 @@ We will repeatedly make use of the following well-known property of
 	with $f$.  We recurse on each of these components so that each
 	of these components takes the place of $R$ in the recursion. When
 	recursing on $A$ we take one unit of charge from $P$ (if needed)
-	$A$'s chord path.  When recursing on $B$ we take the second unit
-	of charge from $P$ (if needed) and place it on $B$'s chord path.
-	When recursing on $X_1$ we move the unit of charge from $f$
-	to $P_1$.  When recursing on $X_2,\ldots,X_k$ we use no charge
-	on $P_2,\ldots,P_k$.
+	and place it on $A$'s chord path.  When recursing on $B$ we take
+	the second unit of charge from $P$ (if needed) and place it on
+	$B$'s chord path.  When recursing on $X_1$ we move the unit of
+	charge from $f$ to $P_1$.  When recursing on $X_2,\ldots,X_k$
+	we use no charge on $P_2,\ldots,P_k$.
 
 	\item $f$ contains exactly one endpoint of $P$.  In this case,
 	$u\setminus f$ has one connected component $A$ that contains
@@ -536,7 +554,8 @@ We will repeatedly make use of the following well-known property of
         pinched faces in $L$, otherwise $P$ would be a keeper path.
         To see this, observe that the face $f$ contains both the first
         edge $e_1$ and last edge $e_2$ of $P$. If $e_1=e_2$ because $P$
-        is a single-edge, then it is certainly a keeper. Otherwise, by
+        is a single-edge, then it is certainly a keeper, which is not
+        possible. Otherwise, by
         \lemref{one-shared-edge}, $e_1$ and $e_2$ are on the boundary of
         two different faces in $L$.  By assumption, both of these faces
         are pinched by $C$.
@@ -567,8 +586,8 @@ We will repeatedly make use of the following well-known property of
    This completes the description of the discharging procedure, and the proof.
 \end{proof}
 
-\note{PM}{The leading constant 2 in \lemref{many-caressed-or-high-degree}
-is tight. Make a figure to show this?}
+
+
 
 %The following lemma says that if $C$ touches many faces then it must caress many faces, or $T_0$ and $T_1$ must have many degree-2 nodes.
 %
@@ -635,7 +654,7 @@ from studying individual nodes of $T_0$ and $T_1$ to studying global
 quantities associated with $T_0$ and $T_1$.  From this point on, for
 each $i\in\{0,1\}$,
 \begin{enumerate}
-  \item $\tau_i$, $\rho_i$, and $\kappa_i$ refer the total numbers of faces contained in nodes of $T_i$ that touched, pinched, and caressed by $C$, respectively; 
+  \item $\tau_i$, $\rho_i$, and $\kappa_i$ refer the total numbers of faces contained in nodes of $T_i$ that are touched, pinched, and caressed by $C$, respectively; 
   \item $n_i$ refers to the number of nodes of $T_i$;
   \item $\delta_i = 2(n_i-1)$ is the total degree of all nodes in $T_i$; and
   \item $b_i$ is the number of bad nodes in $T_i$.
@@ -646,19 +665,18 @@ each $i\in\{0,1\}$,
 %  Let $\tau_i$, $\rho_i$, and $\kappa_i$ denote the number of faces
 %  in $\dual{T}$ contained in nodes of $T_i$ that are touched, pinched,
 %  and caressed by $C$ and let $n_i$ denote the number of nodes of $T_i$.
-  If $\kappa_i \le \tau_i/4$ then $n_i\ge \tau_i/8$.
+  If $\kappa_i \le \tau_i/6$ then $n_i\ge \tau_i/8$.
 \end{lem}
 
 \begin{proof}
-  Let $\delta_i=2(n_i-1)$ denote the total degree of nodes in $T_i$.
-  From \lemref{many-caressed-or-high-degree}, we have
+	From \lemref{many-caressed-or-high-degree} we know $\rho_i \le 2(\kappa_i+\delta_i)$, so
   \[
-  \tau_i 
-     \le 2\kappa_i + 2\delta_i 
-     = 2\kappa_i + 4(n_i-1) 
+  \tau_i  = \kappa_i + \rho_i
+     \le 3\kappa_i + 2\delta_i 
+     = 3\kappa_i + 4(n_i-1) 
      \le \tau_i/2 + 4n_i \enspace ,
   \]
-  and reorganizing the terms gives the desired result.
+  and reorganizing the left- and right-hand sides gives the desired result.
 \end{proof}
 
 \begin{lem}\lemlabel{most-nodes-are-bad}
@@ -692,13 +710,13 @@ each $i\in\{0,1\}$,
     \begin{equation}
       \kappa_i \ge \epsilon n_i/3 \enspace . \eqlabel{blech}
     \end{equation}
-    If $\kappa_i \ge \tau_i/4$, then the proof is complete.  On the other hand, if $\kappa_i \le \tau_i/4$ then, by \lemref{few-caressed-implies-many-nodes}, $n_i \ge \tau_i/8$. Combining this with \eqref{blech}  gives
+    If $\kappa_i \ge \tau_i/6$, then the proof is complete.  On the other hand, if $\kappa_i \le \tau_i/6$ then, by \lemref{few-caressed-implies-many-nodes}, $n_i \ge \tau_i/8$. Combining this with \eqref{blech}  gives
     \[
       \kappa_i \ge \epsilon n_i/3 \ge \epsilon\tau_i/24 = \Omega(\epsilon \tau_i) \enspace . \qedhere
     \]
 \end{proof}
 
-\subsection{Interaction Between Bad Nodes}
+\subsection{Interactions Between Bad Nodes}
 
 We have now reached a point in which we know that the vast
 majority of nodes in $T_0$ and $T_1$ are bad nodes, otherwise
@@ -713,7 +731,7 @@ to study interactions between bad nodes of $T_0$ and bad nodes of $T_1$.
 \end{lem}
 
 \begin{proof}
-   First observe that, since $u$ has degree-2, $C\cap u$ has exactly
+   First observe that, since $u$ has degree 2, $C\cap u$ has exactly
    two connected components $C_1$ and and $C_2$. Thus $u$'s boundary
    consists of $C_1$, $C_2$ and two chord paths $P_1$ and $P_2$.
 
@@ -734,16 +752,21 @@ to study interactions between bad nodes of $T_0$ and bad nodes of $T_1$.
 
        \item $P$ has one endpoint on $P_1$ and one endpoint on $P_2$.
        In this case, $P\cup P_1\cup P_2$ contains a chord path with both
-       endpoints in $C_1$, again contradicting the assumption that $u$
+       endpoints on $C_1$, again contradicting the assumption that $u$
        is a bad node.
 
        \item $P$ has one endpoint on $C_1$ and one endpoint on $C_2$.
        The path $P$ is not a keeper, otherwise it would have split $u$
-       into two nodes.  Therefore, it must be the case that $P$ contains
-       an internal vertex $w$. Since $\dual{T}$ is 3-regular, $w$ has
-       degree 3.  Again, the third edge incident to $w$ implies the
-       existence of a chord path with both endpoints on $C_i$, for some
-       $i\in\{1,2\}$, contradicting the assumption that $u$ is a bad node.
+       into two nodes.	Therefore, it must be the case that $P$ contains
+       an internal vertex.  Let $S_1$ be the set of internal vertices
+       of $P$ and let $S_2$ be the set of vertices on the boundary
+       of $u$, not including the endpoints of $P$.  Since $\dual{T}$
+       is 3-connected, there is a path from $S_1$ to $S_2$ that does
+       not contain any endpoint of $P$.  The shortest such path, $P'$,
+       does not contain any edges of $P$.  Again, using portions of $P$,
+       $P_1$, $P_2$, and $P'$ we can construct a chord path, contained
+       in $u$, with both endpoints on $C_1$ or both endpoints on $C_2$,
+       contradicting the assumption that $u$ is a bad node.
 \end{enumerate}
 \end{proof}
 
@@ -817,7 +840,7 @@ node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
 \begin{proof}
   First consider the tree $T_0$.  From \obsref{degree-touched},
   we know that $\tau_0\ge \ell/\Delta$.  By assumption,
-  $\kappa_0\le\kappa\le \alpha\ell/\Delta^2 \le \tau_0/4$
+  $\kappa_0\le\kappa\le \alpha\ell/\Delta^2 < \tau_0/6$
   so, by \lemref{few-caressed-implies-many-nodes}, $n_0 \ge
   \tau_0/8=\Omega(\ell/\Delta)$.
   
@@ -919,7 +942,7 @@ lemma that describes which nodes of $T_0$ and $T_1$ survive when the
 cycle $C$ is modified:
 
 \begin{lem}\lemlabel{survivors}
-   Let $C$ and $C'$ be two cycles in $\dual{T}$ and let, for each $i\in\{0,1\}$, let $T_i$ and $T_i'$ be the resulting trees.  Then a node $u$ in $T_i$ appears in $T_i'$ if the following conditions are satisfied:
+   Let $C$ and $C'$ be two cycles in $\dual{T}$ and, for each $i\in\{0,1\}$, let $T_i$ and $T_i'$ be the resulting trees.  Then a node $u$ in $T_i$ appears in $T_i'$ if the following conditions are satisfied:
   \begin{compactenum}
      \item $u\cap C = u\cap C'$; and
      \item for every node $w$ adjacent to $u$ in $T_i$ and every face $f$ of $\dual{T}$ in $w$, $f$ is pinched by $C$ if and only if $f$ is pinched by $C'$.
@@ -990,7 +1013,7 @@ $N(u)$ contains at least 5 nodes (refer to \figref{rrbad}):
    \item the really really bad neighbours $x_1$ and $y_1$ of $u$ in $T_0$;
    \item a path $a_1,\ldots,a_r$, $r\ge 2$, of really bad nodes in $T_1$, each sharing
      an edge of $C_a$ with $u$;
-   \item a path $b_1,\ldots,b_s$, $s\ge 1$, of really bad nodes in $T_1$, each sharing an eedge of $C_b$ with $u$.
+   \item a path $b_1,\ldots,b_s$, $s\ge 1$, of really bad nodes in $T_1$, each sharing an edge of $C_b$ with $u$.
 \end{enumerate}
 \begin{figure}
    \begin{center}
@@ -1007,7 +1030,7 @@ adjacent to $a_r$; (iii)~$b_0$ adjacent to $b_1$; (iv)~$b_{s+1}$ adjacent
   
 Observe that the path $x_{2\Delta},\ldots,x_1,u,y_1,\ldots,y_{2\Delta}$
 consists entirely of really really bad nodes. The four nodes $a_0$, $a_{r+1}$,
-$b_0$, and $b_{s+1}$ are really bad because the are adjacent to at least
+$b_0$, and $b_{s+1}$ are really bad because they are adjacent to at least
 one of these really really bad nodes.
 
 At this point it is helpful to think of $T_0$, $T_1$, and $C$ as a
@@ -1079,7 +1102,7 @@ There are several cases to consider:
        question is whether the chord path $P$ separating $z_0$ and $z_1$
        is a keeper for $C'$.
 
-       We claim that $z_1$ contains of a single face of $\dual{T}$.  By
+       We claim that $z_1$ contains a single face of $\dual{T}$.  By
        \lemref{common-face}, there is a single face $f$ of $\dual{T}$ in
        $z_1$ that contains $z_1\cap C$ and, by \lemref{one-edge-between},
        this face also contains the single edge of $\dual{T}$ separating
@@ -1106,7 +1129,7 @@ There are several cases to consider:
          
         
     \item[$x_\Delta$:] That $x_\Delta$ is a node of $T_0'$ follows from
-    the fact that $x_{\Delta}-1,x_{\Delta},x_{\Delta+1}$ is a path of
+    the fact that $x_{\Delta-1},x_{\Delta},x_{\Delta+1}$ is a path of
          bad nodes in $T_0$ and $x_{\Delta}\cap C=x_{\Delta}\cap C'$.
 
        \item[$a_0$:] The node $a_0$ appears in $T_1'$ as a leaf for exactly the same reason $y_1$ appears in $T_0'$ as a leaf.
@@ -1157,7 +1180,7 @@ this process, we are no longer able to perform this operation, it is
 because $C$ caresses $\Omega(\ell'/\Delta^4)=\Omega(\ell/\Delta^4)$
 faces of $\dual{T}$ and we are done.  By the end of this process,
 the number of leaves in each of $T_0$ and $T_1$ is at least
-$\ell/(2\Delta)\in\Omega(\ell/\Delta)\subset\Omega(\ell/\Delta^3)$ and we
+$\ell/(2\Delta)\in\Omega(\ell/\Delta)\subset\Omega(\ell/\Delta^4)$ and we
 are also done.  This completes the proof of \thmref{main}.
 \end{proof}
 
