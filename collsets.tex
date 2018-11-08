@@ -1,6 +1,6 @@
 \documentclass{patmorin}
 %\usepackage[top=0.85in, bottom=0.85in, left=0.85in, right=0.85in]{geometry}
-
+\listfiles
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -133,8 +133,10 @@ graph $G$, any collinear set $S\subseteq V(G)$, and any set $X\subset\R^2$,
 with $|X|=|S|$, there exists a non-crossing straight-line drawing of $G$
 in which the vertices of $S$ are drawn on the points of $X$.  Because of
 this, collinear sets have immediate applications in graph drawing and
-related areas \cite{dujmovic:utility}.  The consequences of \corref{main}
-are discussed in \secref{discussion}.
+related areas.  For applications of \corref{main} the reader is referred to
+Dujmovi\'c \cite{dujmovic:utility}.  
+%The consequences of \corref{main}
+%are discussed in \secref{discussion}.
 
 \section{Proof of \thmref{main}}
 \seclabel{proof}
@@ -1069,9 +1071,11 @@ There are several cases to consider:
      is really really bad, $a_1\in N(u)$ and $z_1,\ldots,z_t\in N(a_1)$. We
      order $z_1,\ldots,z_t$ so that $z_1\in N(a_0)$.  Finally, let
      $z_0,z_{t+1}\not\in\{z_1,\ldots,z_t\}$ be the two nodes of $T_0$
-     adjacent to $z_1$ and $z_t$, respectively. \note{PM}{This is not
-     completely unambiguous in the case $t=1$, but it doesn't matter for
-     what comes next.}  Note that $z_0$ and $z_{t+1}$ are not necessarily
+     adjacent to $z_1$ and $z_t$, respectively. 
+     %\note{PM}{This is not
+     %completely unambiguous in the case $t=1$, but it doesn't matter for
+     %what comes next.}  
+     Note that $z_0$ and $z_{t+1}$ are not necessarily
      bad nodes.
 
      The forest $T_0-\{u\}$ has two components, one of which contains $x_1$
@@ -1186,13 +1190,13 @@ $\ell/(2\Delta)\in\Omega(\ell/\Delta)\subset\Omega(\ell/\Delta^4)$ and we
 are also done.  This completes the proof of \thmref{main}.
 \end{proof}
 
-\note{PM}{There's an annoying lopsidedness here. We can do surgeries $\Omega(\ell/\Delta)$ times before the length of $C$ really decreases. Unfortunately, we need the number of caressed faces to be $O(\ell/\Delta^4)$ in order to guarantee that we can perform a surgery. There's gotta be a better way\ldots}
+%\note{PM}{There's an annoying lopsidedness here. We can do surgeries $\Omega(\ell/\Delta)$ times before the length of $C$ really decreases. Unfortunately, we need the number of caressed faces to be $O(\ell/\Delta^4)$ in order to guarantee that we can perform a surgery. There's gotta be a better way\ldots}
 
 
 \section{Discussion}
 \seclabel{discussion}
 
-\note{PM}{Add a discussion here about the implications.}
+%\note{PM}{Add a discussion here about the implications.}
 
 It remains an open problem to eliminate the dependence of our results
 on the maximum degree, $\Delta$, of $T$.  The next significant step
@@ -1206,7 +1210,10 @@ is to resolve the following conjecture:
 
 \section*{Acknowledgement}
 
-Much of this research took place during the Sixth Workshop on Order and Geometry held in Ciążeń, Poland, September 19--22, 2018.  The authors are grateful to the organizers, Stefan~Felsner and Piotr~Micek, and to the other participants for providing a stimulating research environment.
+Much of this research took place during the Sixth Workshop on Order and
+Geometry held in Ciążeń, Poland, September 19--22, 2018.  The authors
+are grateful to the organizers, Stefan~Felsner and Piotr~Micek, and to
+the other participants for providing a stimulating research environment.
 
 
 \bibliographystyle{plain}
