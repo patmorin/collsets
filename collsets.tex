@@ -1,4 +1,4 @@
-\documentclass{patmorin}
+\documentclass[english]{socg-lipics-v2018}
 %\usepackage[top=0.85in, bottom=0.85in, left=0.85in, right=0.85in]{geometry}
 \listfiles
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -17,13 +17,12 @@
 \usepackage{cite}
 \usepackage{pat}
 \usepackage{paralist}
-\usepackage{hyperref}
-\hypersetup{colorlinks=true, linkcolor=linkblue,  anchorcolor=linkblue,
-citecolor=linkblue, filecolor=linkblue, menucolor=linkblue,
-urlcolor=linkblue, pdfcreator=Me, pdfproducer=Me} 
-\setlength{\parskip}{1ex}
-\usepackage{algorithm}
-\usepackage{subfig}
+%\usepackage{hyperref}
+%\hypersetup{colorlinks=true, linkcolor=linkblue,  anchorcolor=linkblue,
+%citecolor=linkblue, filecolor=linkblue, menucolor=linkblue,
+%urlcolor=linkblue, pdfcreator=Me, pdfproducer=Me} 
+%\setlength{\parskip}{1ex}
+%\usepackage{algorithm}
 \usepackage{array}
 \usepackage[noend]{algpseudocode}
 \usepackage[usenames]{xcolor}
@@ -34,11 +33,23 @@ urlcolor=linkblue, pdfcreator=Me, pdfproducer=Me}
 %\usepackage{times}
 \usepackage{lineno}
 
-\title{\MakeUppercase{Dual Circumference and Collinear Sets}%
-    \thanks{This work was partly funded by NSERC and MRI.}}
+\title{Dual Circumference and Collinear Sets}
+\titlerunning{Dual Circumference and Collinear Sets}
+\authorrunning{V. Dujmovi\'c and P. Morin}
 
-\author{Vida Dujmovi\'c\thanks{Department of Computer Science and Electrical Engineering, University of Ottawa}\,\, and 
-        Pat Morin\thanks{School of Computer Science, Carleton University}}
+\author{Vida Dujmovi\'c}{Department of Computer Science and Electrical Engineering, University of Ottawa}{vida.dujmovic@uottawa.ca}{https://orcid.org/0000-0001-7250-0600}{NSERC and Government of Ontario}
+
+\author{Pat Morin}{School of Computer Science, Carleton University}{morin@scs.carleton.ca}{https://orcid.org/0000-0003-0471-4118}{NSERC}
+
+\Copyright{Vida Dujmovi\'c and Pat Morin}
+
+\subjclass{Human-centered computing~Graph drawings}
+%\author{Vida Dujmovi\'c\thanks{Department of Computer Science and Electrical Engineering, University of Ottawa}\,\, and 
+%        Pat Morin\thanks{School of Computer Science, Carleton University}}
+%
+
+\keywords{Collinear Sets, Free Sets, Graph Circumference, Tait's Conjecture}
+
 
 \newcommand{\dual}[1]{{#1}^\star}
 \newcommand{\note}[2]{{\color{red}[#1:~#2]}}
@@ -47,15 +58,20 @@ urlcolor=linkblue, pdfcreator=Me, pdfproducer=Me}
 \maketitle
 
 
+
 \begin{abstract}
    We show that, if a $n$-vertex triangulation $T$ of maximum degree
-   $\Delta$ has a dual that contains a cycle of length $\ell$, then
-   $T$ has a plane straight-line drawing in which some \emph{collinear
-   set} of $\Omega(\ell/\Delta^4)$ vertices lie on a line.  Using the
-   current lower bounds on the length of longest cycles in 3-regular
-   3-connected graphs, this implies that $T$ has a collinear set of
-   size $\Omega(n^{0.8}/\Delta^4)$.  Such collinear sets have numerous
-   applications in graph drawing and related areas.
+   $\Delta$ has a dual that contains a cycle of length $\ell$, then $T$
+   has a plane straight-line drawing in which some \emph{collinear set}
+   of $\Omega(\ell/\Delta^4)$ vertices lie on a line.  Using the current
+   lower bounds on the length of longest cycles in 3-regular 3-connected
+   graphs, this implies that $T$ has a collinear set of
+   size $\Omega(n^{0.8}/\Delta^4)$.  Very recently, Dujmovi\'c
+   \etal\ (SODA 2019) showed that, if $S$ is a collinear set in a
+   triangulation $T$ then, for any point set $X\subset\R^2$ with
+   $|X|=|S|$, $T$ has a plane straight-line drawing in which the
+   vertices of $S$ are drawn on the points in $X$.  Because of this,
+   collinear sets have numerous applications in graph drawing and related areas.
 \end{abstract}
 
 \section{Introduction}
@@ -127,14 +143,23 @@ improves on this bound for bounded degree planar graphs and, indeed for
 the family of $n$-vertex planar graphs of maximum degree 
 $\Delta\in O(n^{\alpha})$, with $\alpha < 0.075$.
 
-Recently, Dujmovi\'c \etal\ \cite{dujmovic.frati.ea:every}, have
-shown that every collinear set is \emph{free}. That is, for any planar
-graph $G$, any collinear set $S\subseteq V(G)$, and any set $X\subset\R^2$,
-with $|X|=|S|$, there exists a non-crossing straight-line drawing of $G$
-in which the vertices of $S$ are drawn on the points of $X$.  Because of
-this, collinear sets have immediate applications in graph drawing and
-related areas.  For applications of \corref{main} the reader is referred to
-Dujmovi\'c \cite{dujmovic:utility}.  
+Recently, Dujmovi\'c \etal\ \cite{dujmovic.frati.ea:every},
+have shown that every collinear set is \emph{free}. That is,
+for any planar graph $G$, any collinear set $S\subseteq V(G)$,
+and any set $X\subset\R^2$, with $|X|=|S|$, there exists a
+non-crossing straight-line drawing of $G$ in which the vertices of
+$S$ are drawn on the points of $X$.  Because of this, collinear
+sets have immediate applications in graph drawing and related areas.  
+For applications of \corref{main}, including untangling
+\cite{cibulka:untangling,pach.tardos:untangling,watanabe:open,goaoc.kratochvil.ea:untangling,kang.pikhurko.ea:untangling,bose.dujmovic.ea:polynomial,dalozzo.dujmovic.ea:drawing,dujmovic:utility,ravsky.verbitsky:on},
+column planarity~\cite{barba.evans.ea:column,evans.kusters.ea:column,dalozzo.dujmovic.ea:drawing,dujmovic:utility},
+universal point
+subsets~\cite{digiacomo.liotta.ea:how,angelini.binucci.ea:universal,dalozzo.dujmovic.ea:drawing,dujmovic:utility}, and partial
+simultaneous geometric drawings~\cite{dujmovic:utility} the reader is
+referred to Dujmovi\'c \cite{dujmovic:utility}.
+\corref{main}, gives improved bounds for all of these problems for planar graphs of maximum $\Delta\in o(n^{0.075})$.
+
+
 %The consequences of \corref{main}
 %are discussed in \secref{discussion}.
 
@@ -1216,7 +1241,7 @@ are grateful to the organizers, Stefan~Felsner and Piotr~Micek, and to
 the other participants for providing a stimulating research environment.
 
 
-\bibliographystyle{plain}
+\bibliographystyle{plainurl}
 \bibliography{collsets}
 
 \end{document}
