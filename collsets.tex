@@ -37,9 +37,9 @@
 \titlerunning{Dual Circumference and Collinear Sets}
 \authorrunning{V. Dujmovi\'c and P. Morin}
 
-\author{Vida Dujmovi\'c}{Department of Computer Science and Electrical Engineering, University of Ottawa}{vida.dujmovic@uottawa.ca}{https://orcid.org/0000-0001-7250-0600}{NSERC and Government of Ontario}
+\author{Vida Dujmovi\'c}{Department of Computer Science and Electrical Engineering, University of Ottawa}{vida.dujmovic@uottawa.ca}{https://orcid.org/0000-0001-7250-0600}{Partly funded by NSERC and the Government of Ontario.}
 
-\author{Pat Morin}{School of Computer Science, Carleton University}{morin@scs.carleton.ca}{https://orcid.org/0000-0003-0471-4118}{NSERC}
+\author{Pat Morin}{School of Computer Science, Carleton University}{morin@scs.carleton.ca}{https://orcid.org/0000-0003-0471-4118}{Partly funded by NSERC.}
 
 \Copyright{Vida Dujmovi\'c and Pat Morin}
 
@@ -155,7 +155,7 @@ For applications of \corref{main}, including untangling
 column planarity~\cite{barba.evans.ea:column,evans.kusters.ea:column,dalozzo.dujmovic.ea:drawing,dujmovic:utility},
 universal point
 subsets~\cite{digiacomo.liotta.ea:how,angelini.binucci.ea:universal,dalozzo.dujmovic.ea:drawing,dujmovic:utility}, and partial
-simultaneous geometric drawings~\cite{dujmovic:utility} the reader is
+simultaneous geometric drawings~\cite{evans.kusters.ea:column,barba.hoffmann.ea:column,angelini.evans.ea:sefe,blasius.kobourov.ea:simultaneous,dujmovic:utility} the reader is
 referred to Dujmovi\'c \cite{dujmovic:utility}.
 \corref{main}, gives improved bounds for all of these problems for planar graphs of maximum $\Delta\in o(n^{0.075})$.
 
@@ -759,45 +759,47 @@ to study interactions between bad nodes of $T_0$ and bad nodes of $T_1$.
    that is contained in $u$ and that contains all edges of $C\cap u$.
 \end{lem}
 
-\begin{proof}
-   First observe that, since $u$ has degree 2, $C\cap u$ has exactly
-   two connected components $C_1$ and and $C_2$. Thus $u$'s boundary
-   consists of $C_1$, $C_2$ and two chord paths $P_1$ and $P_2$.
+The proof of \lemref{common-face} is deferred to \appref{missing-proofs}.
 
-   If $C\cap u$ is not contained in a single face of $\dual{T}$, then
-   some path $P$ with endpoints on the boundary of $u$ and internal
-   vertices in the interior of $u$ separates two edges of $E(C)$ on the
-   boundary of $u$.  There are a few cases to rule out:
-   \begin{enumerate}
-       \item $P$ has both endpoints on $C_i$ for some $i\in\{1,2\}$. In
-       this case, $P$ is a chord path and, by \lemref{one-caressed}
-       $u$ contains a face that is caressed by $C$, contradicting the
-       assumption that $u$ is a bad node.
-
-       \item $P$ has one endpoint on $C_i$ and one endpoint on $P_j$
-       for some $i,j\in\{1,2\}$.  In this case, $P\cup P_j$ contains a
-       chord path with both endpoints on $C_i$, again contradicting the
-       assumption that $u$ is a bad node.
-
-       \item $P$ has one endpoint on $P_1$ and one endpoint on $P_2$.
-       In this case, $P\cup P_1\cup P_2$ contains a chord path with both
-       endpoints on $C_1$, again contradicting the assumption that $u$
-       is a bad node.
-
-       \item $P$ has one endpoint on $C_1$ and one endpoint on $C_2$.
-       The path $P$ is not a keeper, otherwise it would have split $u$
-       into two nodes.	Therefore, it must be the case that $P$ contains
-       an internal vertex.  Let $S_1$ be the set of internal vertices
-       of $P$ and let $S_2$ be the set of vertices on the boundary
-       of $u$, not including the endpoints of $P$.  Since $\dual{T}$
-       is 3-connected, there is a path from $S_1$ to $S_2$ that does
-       not contain any endpoint of $P$.  The shortest such path, $P'$,
-       does not contain any edges of $P$.  Again, using portions of $P$,
-       $P_1$, $P_2$, and $P'$ we can construct a chord path, contained
-       in $u$, with both endpoints on $C_1$ or both endpoints on $C_2$,
-       contradicting the assumption that $u$ is a bad node.
-\end{enumerate}
-\end{proof}
+%\begin{proof}
+%   First observe that, since $u$ has degree 2, $C\cap u$ has exactly
+%   two connected components $C_1$ and and $C_2$. Thus $u$'s boundary
+%   consists of $C_1$, $C_2$ and two chord paths $P_1$ and $P_2$.
+%
+%   If $C\cap u$ is not contained in a single face of $\dual{T}$, then
+%   some path $P$ with endpoints on the boundary of $u$ and internal
+%   vertices in the interior of $u$ separates two edges of $E(C)$ on the
+%   boundary of $u$.  There are a few cases to rule out:
+%   \begin{enumerate}
+%       \item $P$ has both endpoints on $C_i$ for some $i\in\{1,2\}$. In
+%       this case, $P$ is a chord path and, by \lemref{one-caressed}
+%       $u$ contains a face that is caressed by $C$, contradicting the
+%       assumption that $u$ is a bad node.
+%
+%       \item $P$ has one endpoint on $C_i$ and one endpoint on $P_j$
+%       for some $i,j\in\{1,2\}$.  In this case, $P\cup P_j$ contains a
+%       chord path with both endpoints on $C_i$, again contradicting the
+%       assumption that $u$ is a bad node.
+%
+%       \item $P$ has one endpoint on $P_1$ and one endpoint on $P_2$.
+%       In this case, $P\cup P_1\cup P_2$ contains a chord path with both
+%       endpoints on $C_1$, again contradicting the assumption that $u$
+%       is a bad node.
+%
+%       \item $P$ has one endpoint on $C_1$ and one endpoint on $C_2$.
+%       The path $P$ is not a keeper, otherwise it would have split $u$
+%       into two nodes.	Therefore, it must be the case that $P$ contains
+%       an internal vertex.  Let $S_1$ be the set of internal vertices
+%       of $P$ and let $S_2$ be the set of vertices on the boundary
+%       of $u$, not including the endpoints of $P$.  Since $\dual{T}$
+%       is 3-connected, there is a path from $S_1$ to $S_2$ that does
+%       not contain any endpoint of $P$.  The shortest such path, $P'$,
+%       does not contain any edges of $P$.  Again, using portions of $P$,
+%       $P_1$, $P_2$, and $P'$ we can construct a chord path, contained
+%       in $u$, with both endpoints on $C_1$ or both endpoints on $C_2$,
+%       contradicting the assumption that $u$ is a bad node.
+%\end{enumerate}
+%\end{proof}
 
 The following lemma shows that a bad node $u$ in $T_0$ and a bad node $w$
 in $T_1$ share at most one edge of $C$.
@@ -866,69 +868,71 @@ node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
   the number of really bad nodes in $T_0$ is at least $n_0-O(\alpha n_0)$.
 \end{lem}
 
-\begin{proof}
-  First consider the tree $T_0$.  From \obsref{degree-touched},
-  we know that $\tau_0\ge \ell/\Delta$.  By assumption,
-  $\kappa_0\le\kappa\le \alpha\ell/\Delta^2 < \tau_0/6$
-  so, by \lemref{few-caressed-implies-many-nodes}, $n_0 \ge
-  \tau_0/8=\Omega(\ell/\Delta)$.
-  
-  Let $\epsilon=a\alpha/\Delta$ for some $a>0$ to be discussed shortly.
-  By \lemref{most-nodes-are-bad}, if $b_0 < (1-\epsilon) n_0$, then
-  \[ 
-      \kappa \ge \kappa_0 = \Omega(\epsilon\tau_0)
-               = \Omega(\epsilon\ell/\Delta)
-               = \Omega(a\alpha\ell/\Delta^2) 
-               \enspace .
-  \]
-  For sufficiently large, constant, $a$ this violates our assumption
-  that $\kappa \le \alpha\ell/\Delta^2$.
-  Therefore, we may assume that $b_0\ge (1-\epsilon)n_0$, i.e., most nodes
-  of $T_0$ are bad.
+The proof of \lemref{lots-of-really-bad} is deferred to \appref{missing-proofs}.
 
-  We now want to study how many of the bad nodes in $T_0$ are really bad.
-  Each node $w$ of $T_0$ is in $N(u)$ for at most $\delta_w$ bad nodes
-  $u$ in $T_0$.  Let $A$ be the set of nodes in $T_0$ that are not
-  bad and partition $A$ into $A_1$ (leaves), $A_2$ (degree-2 nodes)
-  and $A_{\ge 3}$ (nodes of degree at least 3).  We make use of the
-  following inequality:
-	\begin{equation}
-		|A_1| = 2 + \sum_{w\in A_3}(\delta_w-2) \ge \sum_{w\in A_3}(\delta_w-2)
-		\ge \sum_{w\in A_3}3\delta_w \enspace ,  \eqlabel{triple}
-	\end{equation}
-  which is true because $x-2>x/3$ for all $x\ge 3$. 
-  Now we have 
-  \begin{align*}
-   \sum_{w\in A}\delta_w 
-    & = \sum_{w\in A_1}\delta_w 
-         + \sum_{w\in A_2}\delta_w 
-         + \sum_{w\in A_{\ge 3}}\delta_w \\
-	  & \le |A_1| + 2|A_2| + 3|A_1| & \text{(by \eqref{triple})}\\
-    & \le 6\kappa & \text{(since $\kappa_w\ge 1$ for each $w\in A_1\cup A_2$)}\\
-    & \le 6\alpha\ell/\Delta^2 & \text{(by assumption)}\\
-    & = O(\alpha n_0/\Delta) & \text{(since $n_0=\Omega(\ell/\Delta)$)}\enspace .
-  \end{align*}
-  That is, the set of non-bad nodes in $T_0$ prevents at most $O(\alpha
-  n_0/\Delta)$ bad nodes of $T_0$ from being really bad. Next we account
-  for how nodes in $T_1$ prevent bad nodes in $T_0$ from being really bad.
-
-  Let $A'$ be the set of non-bad nodes in $T_1$.  For two
-  nodes $u$ in $T_0$ and $w$ in $T_1$,  $w\in N(u)$ if and only if $w$
-  and $u$ share an edge of $C$.  The number of edges of $C$ incident to a node $w$ is at most $(\Delta-1)\tau_w < \Delta\tau_w$.  Therefore, we can upper bound the number of bad nodes in $T_0$ that are prevented from being really bad by some node in $T_1$ as
-  \begin{align*}
-   \sum_{w\in A'}\Delta \tau_w  
-    & \le  \sum_{w\in A'}2\Delta(\kappa_w + \delta_w) & \text{(by \lemref{many-caressed-or-high-degree})} \\
-    & \le  2\Delta\kappa + \sum_{w\in A'}2\Delta\delta_w \\
-    & < 2\Delta\kappa + 12\Delta\kappa & \text{(by the same argument as above)}\\
-    & = 14\Delta\kappa \\
-    & \le 14\alpha\ell/\Delta & \text{(by assumption)}\\
-    & = O(\alpha n_0) & \text{(since $n_0=\Omega(\ell/\Delta)$)}
-  \end{align*}
-  Therefore, the number of bad nodes in $T_0$ is at least
-  $(1-\epsilon)n_0$ and the number of these that are really bad is
-  at least $(1-\epsilon)n_0 - O(\alpha n_0) = n_0-O(\alpha n_0)$,
-  as required.
-\end{proof}
+%\begin{proof}
+%  First consider the tree $T_0$.  From \obsref{degree-touched},
+%  we know that $\tau_0\ge \ell/\Delta$.  By assumption,
+%  $\kappa_0\le\kappa\le \alpha\ell/\Delta^2 < \tau_0/6$
+%  so, by \lemref{few-caressed-implies-many-nodes}, $n_0 \ge
+%  \tau_0/8=\Omega(\ell/\Delta)$.
+%  
+%  Let $\epsilon=a\alpha/\Delta$ for some $a>0$ to be discussed shortly.
+%  By \lemref{most-nodes-are-bad}, if $b_0 < (1-\epsilon) n_0$, then
+%  \[ 
+%      \kappa \ge \kappa_0 = \Omega(\epsilon\tau_0)
+%               = \Omega(\epsilon\ell/\Delta)
+%               = \Omega(a\alpha\ell/\Delta^2) 
+%               \enspace .
+%  \]
+%  For sufficiently large, constant, $a$ this violates our assumption
+%  that $\kappa \le \alpha\ell/\Delta^2$.
+%  Therefore, we may assume that $b_0\ge (1-\epsilon)n_0$, i.e., most nodes
+%  of $T_0$ are bad.
+%
+%  We now want to study how many of the bad nodes in $T_0$ are really bad.
+%  Each node $w$ of $T_0$ is in $N(u)$ for at most $\delta_w$ bad nodes
+%  $u$ in $T_0$.  Let $A$ be the set of nodes in $T_0$ that are not
+%  bad and partition $A$ into $A_1$ (leaves), $A_2$ (degree-2 nodes)
+%  and $A_{\ge 3}$ (nodes of degree at least 3).  We make use of the
+%  following inequality:
+%	\begin{equation}
+%		|A_1| = 2 + \sum_{w\in A_3}(\delta_w-2) \ge \sum_{w\in A_3}(\delta_w-2)
+%		\ge \sum_{w\in A_3}3\delta_w \enspace ,  \eqlabel{triple}
+%	\end{equation}
+%  which is true because $x-2>x/3$ for all $x\ge 3$. 
+%  Now we have 
+%  \begin{align*}
+%   \sum_{w\in A}\delta_w 
+%    & = \sum_{w\in A_1}\delta_w 
+%         + \sum_{w\in A_2}\delta_w 
+%         + \sum_{w\in A_{\ge 3}}\delta_w \\
+%	  & \le |A_1| + 2|A_2| + 3|A_1| & \text{(by \eqref{triple})}\\
+%    & \le 6\kappa & \text{(since $\kappa_w\ge 1$ for each $w\in A_1\cup A_2$)}\\
+%    & \le 6\alpha\ell/\Delta^2 & \text{(by assumption)}\\
+%    & = O(\alpha n_0/\Delta) & \text{(since $n_0=\Omega(\ell/\Delta)$)}\enspace .
+%  \end{align*}
+%  That is, the set of non-bad nodes in $T_0$ prevents at most $O(\alpha
+%  n_0/\Delta)$ bad nodes of $T_0$ from being really bad. Next we account
+%  for how nodes in $T_1$ prevent bad nodes in $T_0$ from being really bad.
+%
+%  Let $A'$ be the set of non-bad nodes in $T_1$.  For two
+%  nodes $u$ in $T_0$ and $w$ in $T_1$,  $w\in N(u)$ if and only if $w$
+%  and $u$ share an edge of $C$.  The number of edges of $C$ incident to a node $w$ is at most $(\Delta-1)\tau_w < \Delta\tau_w$.  Therefore, we can upper bound the number of bad nodes in $T_0$ that are prevented from being really bad by some node in $T_1$ as
+%  \begin{align*}
+%   \sum_{w\in A'}\Delta \tau_w  
+%    & \le  \sum_{w\in A'}2\Delta(\kappa_w + \delta_w) & \text{(by \lemref{many-caressed-or-high-degree})} \\
+%    & \le  2\Delta\kappa + \sum_{w\in A'}2\Delta\delta_w \\
+%    & < 2\Delta\kappa + 12\Delta\kappa & \text{(by the same argument as above)}\\
+%    & = 14\Delta\kappa \\
+%    & \le 14\alpha\ell/\Delta & \text{(by assumption)}\\
+%    & = O(\alpha n_0) & \text{(since $n_0=\Omega(\ell/\Delta)$)}
+%  \end{align*}
+%  Therefore, the number of bad nodes in $T_0$ is at least
+%  $(1-\epsilon)n_0$ and the number of these that are really bad is
+%  at least $(1-\epsilon)n_0 - O(\alpha n_0) = n_0-O(\alpha n_0)$,
+%  as required.
+%\end{proof}
 
 For a node $u$ of $T_i$, we define $N^0(u) = \{u\}$ and, for any $i\in\N$,
 we define $N^{i}(u)=\bigcup_{w\in N^{i-1}(u)} N(w)$.   We say that a node
@@ -1243,6 +1247,119 @@ the other participants for providing a stimulating research environment.
 
 \bibliographystyle{plainurl}
 \bibliography{collsets}
+
+\appendix
+
+\section{Proofs of Lemmas \ref{lem:common-face} and \ref{lem:lots-of-really-bad}}
+\applabel{missing-proofs}
+
+\begin{proof}[Proof of \lemref{common-face}]
+   First observe that, since $u$ has degree 2, $C\cap u$ has exactly
+   two connected components $C_1$ and and $C_2$. Thus $u$'s boundary
+   consists of $C_1$, $C_2$ and two chord paths $P_1$ and $P_2$.
+
+   If $C\cap u$ is not contained in a single face of $\dual{T}$, then
+   some path $P$ with endpoints on the boundary of $u$ and internal
+   vertices in the interior of $u$ separates two edges of $E(C)$ on the
+   boundary of $u$.  There are a few cases to rule out:
+   \begin{enumerate}
+       \item $P$ has both endpoints on $C_i$ for some $i\in\{1,2\}$. In
+       this case, $P$ is a chord path and, by \lemref{one-caressed}
+       $u$ contains a face that is caressed by $C$, contradicting the
+       assumption that $u$ is a bad node.
+
+       \item $P$ has one endpoint on $C_i$ and one endpoint on $P_j$
+       for some $i,j\in\{1,2\}$.  In this case, $P\cup P_j$ contains a
+       chord path with both endpoints on $C_i$, again contradicting the
+       assumption that $u$ is a bad node.
+
+       \item $P$ has one endpoint on $P_1$ and one endpoint on $P_2$.
+       In this case, $P\cup P_1\cup P_2$ contains a chord path with both
+       endpoints on $C_1$, again contradicting the assumption that $u$
+       is a bad node.
+
+       \item $P$ has one endpoint on $C_1$ and one endpoint on $C_2$.
+       The path $P$ is not a keeper, otherwise it would have split $u$
+       into two nodes.	Therefore, it must be the case that $P$ contains
+       an internal vertex.  Let $S_1$ be the set of internal vertices
+       of $P$ and let $S_2$ be the set of vertices on the boundary
+       of $u$, not including the endpoints of $P$.  Since $\dual{T}$
+       is 3-connected, there is a path from $S_1$ to $S_2$ that does
+       not contain any endpoint of $P$.  The shortest such path, $P'$,
+       does not contain any edges of $P$.  Again, using portions of $P$,
+       $P_1$, $P_2$, and $P'$ we can construct a chord path, contained
+       in $u$, with both endpoints on $C_1$ or both endpoints on $C_2$,
+       contradicting the assumption that $u$ is a bad node.
+\end{enumerate}
+\end{proof}
+
+
+\begin{proof}[Proof of \lemref{lots-of-really-bad}]
+  First consider the tree $T_0$.  From \obsref{degree-touched},
+  we know that $\tau_0\ge \ell/\Delta$.  By assumption,
+  $\kappa_0\le\kappa\le \alpha\ell/\Delta^2 < \tau_0/6$
+  so, by \lemref{few-caressed-implies-many-nodes}, $n_0 \ge
+  \tau_0/8=\Omega(\ell/\Delta)$.
+  
+  Let $\epsilon=a\alpha/\Delta$ for some $a>0$ to be discussed shortly.
+  By \lemref{most-nodes-are-bad}, if $b_0 < (1-\epsilon) n_0$, then
+  \[ 
+      \kappa \ge \kappa_0 = \Omega(\epsilon\tau_0)
+               = \Omega(\epsilon\ell/\Delta)
+               = \Omega(a\alpha\ell/\Delta^2) 
+               \enspace .
+  \]
+  For sufficiently large, constant, $a$ this violates our assumption
+  that $\kappa \le \alpha\ell/\Delta^2$.
+  Therefore, we may assume that $b_0\ge (1-\epsilon)n_0$, i.e., most nodes
+  of $T_0$ are bad.
+
+  We now want to study how many of the bad nodes in $T_0$ are really bad.
+  Each node $w$ of $T_0$ is in $N(u)$ for at most $\delta_w$ bad nodes
+  $u$ in $T_0$.  Let $A$ be the set of nodes in $T_0$ that are not
+  bad and partition $A$ into $A_1$ (leaves), $A_2$ (degree-2 nodes)
+  and $A_{\ge 3}$ (nodes of degree at least 3).  We make use of the
+  following inequality:
+	\begin{equation}
+		|A_1| = 2 + \sum_{w\in A_3}(\delta_w-2) \ge \sum_{w\in A_3}(\delta_w-2)
+		\ge \sum_{w\in A_3}3\delta_w \enspace ,  \eqlabel{triple}
+	\end{equation}
+  which is true because $x-2>x/3$ for all $x\ge 3$. 
+  Now we have 
+  \begin{align*}
+   \sum_{w\in A}\delta_w 
+    & = \sum_{w\in A_1}\delta_w 
+         + \sum_{w\in A_2}\delta_w 
+         + \sum_{w\in A_{\ge 3}}\delta_w \\
+	  & \le |A_1| + 2|A_2| + 3|A_1| & \text{(by \eqref{triple})}\\
+    & \le 6\kappa & \text{(since $\kappa_w\ge 1$ for each $w\in A_1\cup A_2$)}\\
+    & \le 6\alpha\ell/\Delta^2 & \text{(by assumption)}\\
+    & = O(\alpha n_0/\Delta) & \text{(since $n_0=\Omega(\ell/\Delta)$)}\enspace .
+  \end{align*}
+  That is, the set of non-bad nodes in $T_0$ prevents at most $O(\alpha
+  n_0/\Delta)$ bad nodes of $T_0$ from being really bad. Next we account
+  for how nodes in $T_1$ prevent bad nodes in $T_0$ from being really bad.
+
+  Let $A'$ be the set of non-bad nodes in $T_1$.  For two
+  nodes $u$ in $T_0$ and $w$ in $T_1$,  $w\in N(u)$ if and only if $w$
+  and $u$ share an edge of $C$.  The number of edges of $C$ incident to a node $w$ is at most $(\Delta-1)\tau_w < \Delta\tau_w$.  Therefore, we can upper bound the number of bad nodes in $T_0$ that are prevented from being really bad by some node in $T_1$ as
+  \begin{align*}
+   \sum_{w\in A'}\Delta \tau_w  
+    & \le  \sum_{w\in A'}2\Delta(\kappa_w + \delta_w) & \text{(by \lemref{many-caressed-or-high-degree})} \\
+    & \le  2\Delta\kappa + \sum_{w\in A'}2\Delta\delta_w \\
+    & < 2\Delta\kappa + 12\Delta\kappa & \text{(by the same argument as above)}\\
+    & = 14\Delta\kappa \\
+    & \le 14\alpha\ell/\Delta & \text{(by assumption)}\\
+    & = O(\alpha n_0) & \text{(since $n_0=\Omega(\ell/\Delta)$)}
+  \end{align*}
+  Therefore, the number of bad nodes in $T_0$ is at least
+  $(1-\epsilon)n_0$ and the number of these that are really bad is
+  at least $(1-\epsilon)n_0 - O(\alpha n_0) = n_0-O(\alpha n_0)$,
+  as required.
+\end{proof}
+
+
+
 
 \end{document}
 
