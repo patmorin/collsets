@@ -37,7 +37,7 @@
 \titlerunning{Dual Circumference and Collinear Sets}
 \authorrunning{V. Dujmovi\'c and P. Morin}
 
-\author{Vida Dujmovi\'c}{Department of Computer Science and Electrical Engineering, University of Ottawa}{vida.dujmovic@uottawa.ca}{https://orcid.org/0000-0001-7250-0600}{Partly funded by NSERC and the Government of Ontario.}
+\author{Vida Dujmovi\'c}{School of Computer Science and Electrical Engineering, University of Ottawa}{vida.dujmovic@uottawa.ca}{https://orcid.org/0000-0001-7250-0600}{Partly funded by NSERC and the Government of Ontario.}
 
 \author{Pat Morin}{School of Computer Science, Carleton University}{morin@scs.carleton.ca}{https://orcid.org/0000-0003-0471-4118}{Partly funded by NSERC.}
 
@@ -62,14 +62,14 @@
 \begin{abstract}
    We show that, if a $n$-vertex triangulation $T$ of maximum degree
    $\Delta$ has a dual that contains a cycle of length $\ell$, then $T$
-   has a plane straight-line drawing in which some \emph{collinear set}
+   has a non-crossing straight-line drawing in which some \emph{collinear set}
    of $\Omega(\ell/\Delta^4)$ vertices lie on a line.  Using the current
    lower bounds on the length of longest cycles in 3-regular 3-connected
    graphs, this implies that $T$ has a collinear set of
    size $\Omega(n^{0.8}/\Delta^4)$.  Very recently, Dujmovi\'c
    \etal\ (SODA 2019) showed that, if $S$ is a collinear set in a
    triangulation $T$ then, for any point set $X\subset\R^2$ with
-   $|X|=|S|$, $T$ has a plane straight-line drawing in which the
+   $|X|=|S|$, $T$ has a non-crossing straight-line drawing in which the
    vertices of $S$ are drawn on the points in $X$.  Because of this,
    collinear sets have numerous applications in graph drawing and related areas.
 \end{abstract}
@@ -79,12 +79,13 @@
 Throughout this paper, all graphs are simple and finite.  For a planar
 graph $G$, we say that a set $S\subseteq V(G)$ is a \emph{collinear set}
 if $G$ has a non-crossing straight-line drawing in which the vertices of
-$S$ are all collinear.  The \emph{dual} $\dual{G}$ of a plane graph $G$
-is the graph whose vertex set $V(\dual{G})$ is the set of faces in $G$
-and in which $f,g\in E(\dual{G})$ if and only if the face $f$ and the face
-$g$ have at least one edge in common.  The \emph{circumference}, $c(G)$,
-of a graph $G$ is the length of its longest cycle. In \secref{proof},
-we prove the following theorem:
+$S$ are all collinear.  A \emph{plane graph} is a planar graph $G$ along with
+a particular non-crossing drawing of $G$.  The \emph{dual} $\dual{G}$
+of a plane graph $G$ is the graph whose vertex set $V(\dual{G})$ is
+the set of faces in $G$ and in which $fg\in E(\dual{G})$ if and only
+if the faces $f$ and $g$ of $G$ have at least one edge in common.
+The \emph{circumference}, $c(G)$, of a graph $G$ is the length of its
+longest cycle. In \secref{proof}, we prove the following theorem:
 
 \begin{thm}\thmlabel{main}
   Let $T$ be a triangulation of maximum degree $\Delta$ whose dual
@@ -119,12 +120,18 @@ confirmed this conjecture with $\alpha=\log_2(1+\sqrt{5})-1 > 0.6942$.
 Billinksi \etal\ \cite{bilinksi.jackson.ea:circumference} improved
 this to the solution of $4^{1/\alpha}-3^{1/\alpha}=2$, which implies
 $\alpha>0.7532$.  The current record is held by Liu, Yu, and Zhang
-\cite{liu.yu.zhang:circumference} who show that $\alpha>0.8$.  Together
-with \thmref{main}, this result implies the following corollary:
+\cite{liu.yu.zhang:circumference} who show that $\alpha>0.8$.  
+
+It is known that any planar graph of maximum degree $\Delta$ can be
+triangulated so that the resulting triangulation has maximum degree
+$\lceil 3\Delta/2\rceil+11$ \cite{kant.bodlaender:triangulating}. This
+fact, together with \thmref{main} and the result of Liu, Yu, and Zhang
+\cite{liu.yu.zhang:circumference}, implies the following corollary:
 
 \begin{cor}\corlabel{main}
-  Every $n$-vertex triangulation of maximum degree $\Delta$ contains a
-  collinear set of size $\Omega(n^{0.8}/\Delta^4)$.
+  There exists a constant $\alpha > 0.8$ such that every $n$-vertex
+  planar graph of maximum degree $\Delta$ contains a collinear set of
+  size $\Omega(n^{\alpha}/\Delta^4)$.
 \end{cor}
 
 %A longstanding open problem on circumference is \emph{Barnette's
@@ -137,27 +144,77 @@ with \thmref{main}, this result implies the following corollary:
 %it more generally applicable, like when only a small number, $k$, of
 %vertices have odd degree.}
 
-It is known \cite{bose.dujmovic.ea:polynomial} that every planar graph $G$
-has a collinear set of size $\Omega(\sqrt{n})$. \corref{main} therefore
-improves on this bound for bounded degree planar graphs and, indeed for
-the family of $n$-vertex planar graphs of maximum degree 
-$\Delta\in O(n^{\alpha})$, with $\alpha < 0.075$.
+It is known that every planar graph $G$ has a collinear set of size
+$\Omega(\sqrt{n})$ \cite{bose.dujmovic.ea:polynomial,dujmovic:utility}
+. \corref{main} therefore improves on this bound for bounded-degree planar
+graphs and, indeed for the family of $n$-vertex planar graphs of maximum
+degree $\Delta\in O(n^{\delta})$, with $\delta < 0.075$.  For example,
+the graphs generated by Gr\"unbaum and Walther's construction have maximum
+degree $\Delta \in O(\log n)$.  Therefore, there exist $n$-vertex planar
+graphs of maximum degree $O(\log n)$ whose largest collinear set has size
+$O(n^{0.9859})$.  \corref{main} implies that every
+$n$-vertex planar graph of maximum degree $O(\log n)$ has a collinear
+set of size $\Omega(n^{0.8})$.
 
-Recently, Dujmovi\'c \etal\ \cite{dujmovic.frati.ea:every},
-have shown that every collinear set is \emph{free}. That is,
-for any planar graph $G$, any collinear set $S\subseteq V(G)$,
-and any set $X\subset\R^2$, with $|X|=|S|$, there exists a
-non-crossing straight-line drawing of $G$ in which the vertices of
-$S$ are drawn on the points of $X$.  Because of this, collinear
-sets have immediate applications in graph drawing and related areas.  
-For applications of \corref{main}, including untangling
+Recently, Dujmovi\'c \etal\ \cite{dujmovic.frati.ea:every} have shown
+that every collinear set is \emph{free}. That is, for any planar graph
+$G$, any collinear set $S\subseteq V(G)$, and any set $X\subset\R^2$,
+with $|X|=|S|$, there exists a non-crossing straight-line drawing of $G$
+in which the vertices of $S$ are drawn on the points of $X$.  Because of
+this, collinear sets have immediate applications in graph drawing and
+related areas.  For applications of \corref{main}, including untangling
 \cite{cibulka:untangling,pach.tardos:untangling,watanabe:open,goaoc.kratochvil.ea:untangling,kang.pikhurko.ea:untangling,bose.dujmovic.ea:polynomial,dalozzo.dujmovic.ea:drawing,dujmovic:utility,ravsky.verbitsky:on},
-column planarity~\cite{barba.evans.ea:column,evans.kusters.ea:column,dalozzo.dujmovic.ea:drawing,dujmovic:utility},
+column
+planarity~\cite{barba.evans.ea:column,evans.kusters.ea:column,dalozzo.dujmovic.ea:drawing,dujmovic:utility},
 universal point
-subsets~\cite{digiacomo.liotta.ea:how,angelini.binucci.ea:universal,dalozzo.dujmovic.ea:drawing,dujmovic:utility}, and partial
-simultaneous geometric drawings~\cite{evans.kusters.ea:column,barba.hoffmann.ea:column,angelini.evans.ea:sefe,blasius.kobourov.ea:simultaneous,dujmovic:utility} the reader is
-referred to Dujmovi\'c \cite{dujmovic:utility}.
-\corref{main}, gives improved bounds for all of these problems for planar graphs of maximum $\Delta\in o(n^{0.075})$.
+subsets~\cite{digiacomo.liotta.ea:how,angelini.binucci.ea:universal,dalozzo.dujmovic.ea:drawing,dujmovic:utility},
+and partial simultaneous geometric
+drawings~\cite{evans.kusters.ea:column,barba.hoffmann.ea:column,angelini.evans.ea:sefe,blasius.kobourov.ea:simultaneous,dujmovic:utility}
+the reader is referred to Dujmovi\'c \cite{dujmovic:utility}
+and Dujmovi\'c \etal\ \cite[Section~1.1]{dujmovic.frati.ea:every}.
+\corref{main} gives improved bounds for all of these problems for planar
+graphs of maximum $\Delta\in o(n^{0.075})$.
+
+%For example \corref{main} implies that every bounded-degree
+%$n$-vertex geometric planar graph can be untangled while keeping
+%$\Omega(n^{0.4})$ vertices fixed. The previous best result for
+%untangling any $n$-vertex geometric planar graphs was $\Omega(n^{0.25})$
+%\cite{bose.dujmovic.ea:polynomial}.  One of the key steps in the proof
+%of the $\Omega(n^{0.25})$ involves applying Dilweth's Theorem twice
+
+For example, it is known that every $n$-vertex planar geometric
+graph can be untangled while keeping $\Omega(n^{0.25})$ vertices fixed
+\cite{bose.dujmovic.ea:polynomial} and that there are $n$-vertex planar
+geometric graphs that cannot be untangled while keeping $O(n^{0.4948})$
+vertices fixed \cite{cano.toth.ea:upper}. Although asymptotically
+tight bounds are known for paths \cite{cibulka:untangling},
+trees \cite{goaoc.kratochvil.ea:untangling}, outerplanar graphs
+\cite{goaoc.kratochvil.ea:untangling}, planar graphs of treewidth
+two \cite{ravsky.verbitsky:on}, and planar graphs of treewidth three
+\cite{dalozzo.dujmovic.ea:drawing}, progress on the general case has
+been stuck for 10 years due to the fact that the exponent $0.25$ comes
+from two applications of Dilwerth's Theorem.  Thus, some substantially
+new idea appears to be needed. By relating collinear/free sets to
+dual circumference, the current paper presents an effective new idea.
+Indeed, \corref{main} implies that every bounded-degree $n$-vertex
+planar geometric graph can be untangled while keeping $\Omega(n^{0.4})$
+vertices fixed.  Note that, even for bounded-degree planar graphs,
+$\Omega(n^{0.25})$ was the best previously-known lower bound.
+
+Our work opens two avenues for further progress:
+
+\begin{enumerate}
+   \item Lower bounds on the circumference of 3-regular
+      3-connected graphs is an active area of research. Indeed,
+      the $\Omega(n^{0.8})$ lower bound of Liu, Yu, and Zhang
+      \cite{liu.yu.zhang:circumference} is less than a year old.  Any
+      further progress on these lower bounds will translate immediately
+      to an improved bound in \corref{main} and all its applications.
+
+   \item It is possible that the dependence on $\Delta$ can be removed
+      from \thmref{main} and \corref{main}, thus making these results
+      applicable to all planar graphs, regardless of maximum degree.
+\end{enumerate}
 
 
 %The consequences of \corref{main}
@@ -165,6 +222,10 @@ referred to Dujmovi\'c \cite{dujmovic:utility}.
 
 \section{Proof of \thmref{main}}
 \seclabel{proof}
+
+Due to the 500 line submission limit, the 
+proofs of \obsref{degree-touched} and Lemmas \ref{lem:one-caressed}, \ref{lem:common-face} and \ref{lem:lots-of-really-bad} are deferred to \appref{missing-proofs}.
+
 
 Let $G$ be a plane graph.  We treat the vertices of $G$ as points,
 the edges of $G$ as closed curves and the faces of $G$ as closed sets
@@ -205,8 +266,7 @@ curves define collinear sets:
 For a triangulation $T$, let $v(T)$ denote the size of the largest
 collinear set in $T$.  We will show that, for any triangulation $T$
 of maximum degree $\Delta$
-whose dual is $\dual{T}$, $v(T)=\Theta(c(\dual{T})/\Delta^4)$ by demonstrating a
-relationship between proper good curves in $T$ and cycles in $\dual{T}$.
+whose dual is $\dual{T}$, $v(T)=\Theta(c(\dual{T})/\Delta^4)$ by relating proper good curves in $T$ to cycles in $\dual{T}$.
 
 As shown by Ravsky and Verbitsky
 \cite{ravsky.verbitsky:on,ravsky.verbitsky:on-arxiv}, the inequality
@@ -216,8 +276,7 @@ of $C$ produces a proper good curve that contains no vertices. This
 curve intersects a cyclic sequence of faces $f_0,\ldots,f_{k'-1}$ of
 $T$ with $k'\ge k$.  In this sequence, $f_i$ and $f_{(i+1)\bmod k'}$
 share an edge, for every $i\in\{0,\ldots,k'-1\}$, so this sequence is
-a closed walk in the dual $\dual{T}$ of $T$.  Property~1 of good curves
-and the fact that each face of $T$ is a triangle ensures that $f_i\neq
+a closed walk in the dual $\dual{T}$ of $T$.  The properness of the original curve and the fact that each face of $T$ is a triangle ensures that $f_i\neq
 f_j$ for any $i\neq j$, so this sequence is a cycle in $\dual{T}$ of
 length $k'\ge k$.  Therefore, $c(\dual{T})\ge v(T)$. From the result
 of Gr\"unbaum and Walther described above, this implies that there are
@@ -249,7 +308,7 @@ We say that a face $f$ of $\dual{T}$
 \begin{center}
 	  \includegraphics{figs/tpc-2}
 \end{center}
-	  \caption{Faces of $\dual{T}$ that are pinched and caressed by $C$. $C$ is bold, caressed faces are blue, pinched faces are pink, and untouched faces are unshaded.}
+	  \caption{Faces of $\dual{T}$ that are pinched and caressed by $C$. $C$ is bold, caressed faces are teal, pinched faces are pink, and untouched faces are unshaded.}
 	  \figlabel{touched-pinched-caressed}
 \end{figure}
 
@@ -272,8 +331,8 @@ caressed, we have the identity $\tau = \rho + \kappa$.
   Let $F$ be the set of faces in $\dual{T}$ that are caressed by $C$. Each
   element $u\in F$ corresponds to a vertex of $T$ so we will treat $F$ as
   a set of vertices in $T$.  Consider the subgraph $T[F]$ of $T$ induced
-  by $F$.  The graph $T[F]$ is planar and has $k$ vertices. Therefore,
-  by the 4-Colour Theorem \cite{robertson.seymour.ea:four-colour} $T[F]$
+  by $F$.  The graph $T[F]$ is planar and has $\kappa$ vertices. Therefore,
+  by the 4-Colour Theorem \cite{robertson.seymour.ea:four-colour}, $T[F]$
   contains an independent set $F'\subseteq F$ of size at least $\kappa/4$.
 
   We claim that there is a proper good curve for $T$ that contains all
@@ -356,30 +415,30 @@ $C$ or all contained in the exterior of $C$.
    contains at least one face of $\dual{T}$ that is caressed by $C$.
 \end{lem}
 
-\begin{proof}
-   The proof is by
-   induction on the number, $t$, of faces of $\dual{T}$ contained in $R$.
-   If $t=1$, then $R$ is a face of $\dual{T}$ and it is caressed by $C$.
-
-   If $t>1$, then consider the face $f$ of $\dual{T}$ that is contained
-   in $R$ and has the first edge of $P$ on its boundary.  Refer to
-   \figref{one-caressed}. Since $t>1$, $X=R\setminus f$ is non-empty. The
-   set $X$ may have several connected components $X_1,\ldots,X_k$, but
-   each $X_i$ has a boundary that contains a chord path $P_i$ for $C$.
-   We can therefore apply induction on $P_1$ (or any $P_i$) using $R=X_1$
-   in the inductive hypothesis.
-  \begin{figure}
-     \begin{center}
-	\begin{tabular}{cc}
-		\includegraphics{figs/one-caressed-1} &
-		\includegraphics{figs/one-caressed-2}
-	\end{tabular}
-     \end{center}
-	  \caption{The proof of \lemref{one-caressed}.}
-	  \figlabel{one-caressed}
-  \end{figure}
-\end{proof}
-
+%\begin{proof}
+%   The proof is by
+%   induction on the number, $t$, of faces of $\dual{T}$ contained in $R$.
+%   If $t=1$, then $R$ is a face of $\dual{T}$ and it is caressed by $C$.
+%
+%   If $t>1$, then consider the face $f$ of $\dual{T}$ that is contained
+%   in $R$ and has the first edge of $P$ on its boundary.  Refer to
+%   \figref{one-caressed}. Since $t>1$, $X=R\setminus f$ is non-empty. The
+%   set $X$ may have several connected components $X_1,\ldots,X_k$, but
+%   each $X_i$ has a boundary that contains a chord path $P_i$ for $C$.
+%   We can therefore apply induction on $P_1$ (or any $P_i$) using $R=X_1$
+%   in the inductive hypothesis.
+%  \begin{figure}
+%     \begin{center}
+%	\begin{tabular}{cc}
+%		\includegraphics{figs/one-caressed-1} &
+%		\includegraphics{figs/one-caressed-2}
+%	\end{tabular}
+%     \end{center}
+%	  \caption{The proof of \lemref{one-caressed}.}
+%	  \figlabel{one-caressed}
+%  \end{figure}
+%\end{proof}
+%
 \subsection{Auxilliary Graphs and Trees: $H$, $\tilde{H}$, $T_0$, and $T_1$}
 
 Refer to \figref{auxilliary}. Consider the auxilliary
@@ -411,7 +470,7 @@ We say that a chord path $v_i,\ldots,v_j$ is a \emph{keeper} with respect to
 $f$ if $v_i$ is special of Type~A, $v_j$ is special of Type~B, and none
 of $v_{i+1},\ldots,v_{j-1}$ are special.  We let $\tilde{H}$ denote the
 subgraph of $H$ containing all the edges of $C$ and all the edges of
-all paths that are special with respect to some pinched face $f$ of $\dual{T}$.
+all paths that are keepers with respect to some pinched face $f$ of $\dual{T}$.
 
 It is worth emphasizing at this point that, by definition, every keeper is
 entirely contained in the boundary of at least one face $f$ of $\dual{T}$.
@@ -462,24 +521,13 @@ one of $T_0$ or $T_1$ has many leaves.
    with $R=u$.
 \end{proof}
 
-We will repeatedly make use of the following well-known property of
+We will make use of the following well-known property of
 3-connected plane graphs.
 
 \begin{lem}\lemlabel{one-shared-edge}
    If $T$ has $n\ge 4$ vertices then any two faces of $\dual{T}$ share at 
    most one edge.
 \end{lem}
-
-\begin{proof}
-   Suppose that two faces $f$ and $g$ share two edges $e_1$ and
-   $e_2$. Then $e_1$ and $e_2$ form an edge cutset of $\dual{T}$.
-   If $\dual{T}$ contains at least four vertices, then two of the
-   endpoints of $e_1$ and $e_2$ form a vertex cutset of $\dual{T}$
-   of size 2, contradicting the fact that $\dual{T}$ is 3-connected.
-   That $\dual{T}$ contains at least 4 vertices follows from Euler's
-   Formula, which gives the number of vertices in $\dual{T}$ as $2n-4\ge
-   4$ for all $n\ge 4$.
-\end{proof}
 
 
 \begin{lem}\lemlabel{many-caressed-or-high-degree}
@@ -489,7 +537,7 @@ We will repeatedly make use of the following well-known property of
 Before proving \lemref{many-caressed-or-high-degree}, we point out that
 the leading constant 2 is tight. \figref{tight} shows an example in
 which all $\rho_u=2k+1$ pinched faces of $\dual{T}$ are contained in a
-single node $u$ of $T_0$ that contains $\kappa_u=0$ caressed faces and
+single (pink) node $u$ of $T_0$ that contains $\kappa_u=0$ caressed faces and
 has degree $\delta_u=k+2$.
 
 \begin{figure}
@@ -510,7 +558,7 @@ has degree $\delta_u=k+2$.
    bijection between keeper paths in $u$ and edges of $T_i$ incident to
    $u$, this proves the result.
 
-   We now describe the discharging procedure, which are recursive and take as
+   We now describe the discharging procedure, which is recursive and take as
    input a chord path $P$ that partitions $u$ into two parts $L$ and $R$.
    We require as a precondition that there are $m\ge 1$ pinched faces
    of $\dual{T}$ in $L$, each of which contains at least one edge of $P$ and
@@ -520,7 +568,7 @@ has degree $\delta_u=k+2$.
 
    To initialize the discharging procedure, we choose an arbitrary pinched
    face $f$ contained in $u$.  The face $f$ begins with one unit of charge
-   and has at least 2 chord paths $P_1,\ldots,P_r$ on its boundary.
+   and has $r\ge 2$ chord paths $P_1,\ldots,P_r$ on its boundary.
    We move the charge from $f$ onto $P_1$ and apply the recursive
    procedure to $P_1$, with a charge of 1 (with $L$ being the component
    of $u\setminus P_1$ that contains $f$).  We then recursively apply the
@@ -557,7 +605,7 @@ has degree $\delta_u=k+2$.
 	\item $f$ contains neither endpoint of $P$. In this case,
 	$R\setminus f$ has at least three connected components, $A$, $B$,
 	and $X_1,\ldots,X_k$, where $A$ and $B$ each contain an endpoint
-	of $P$ and each $X_i$ has a chord path $P_i$ path in common
+	of $P$ and each $X_i$ has a chord path $P_i$ in common
 	with $f$.  We recurse on each of these components so that each
 	of these components takes the place of $R$ in the recursion. When
 	recursing on $A$ we take one unit of charge from $P$ (if needed)
@@ -759,8 +807,6 @@ to study interactions between bad nodes of $T_0$ and bad nodes of $T_1$.
    that is contained in $u$ and that contains all edges of $C\cap u$.
 \end{lem}
 
-The proof of \lemref{common-face} is deferred to \appref{missing-proofs}.
-
 %\begin{proof}
 %   First observe that, since $u$ has degree 2, $C\cap u$ has exactly
 %   two connected components $C_1$ and and $C_2$. Thus $u$'s boundary
@@ -840,22 +886,11 @@ on its boundary.
 
 \begin{obs}\obslabel{degree-touched}
   If $T$ has maximum degree $\Delta$ and $C$ has length $\ell$, then
-  the number of faces $\tau$ of $\dual{T}$ touched by $C$ is at least $\ge
-  2\ell/(\Delta-1)$.  At least $\ell/(\Delta-1)$ of these faces are in
+  the number of faces $\tau$ of $\dual{T}$ touched by $C$ is at least
+  $2\ell/(\Delta-1)$.  At least $\ell/(\Delta-1)$ of these faces are in
   the interior of $C$ and at least $\ell/(\Delta-1)$ of these faces are
   in the exterior of $C$.
 \end{obs}
-
-\begin{proof}
-  Orient the edges of $C$ counterclockwise so that, for each edge
-  $e$ of $C$, the face of $\dual{T}$ to the left of $e$ is in $C$'s
-  interior and the face of $\dual{T}$ to the right of $e$ is in $C$'s
-  exterior.  Each face of $\dual{T}$ has at most $\Delta$ edges and,
-  since $C$ is non-trivial, $C$ contains at most $\Delta-1$ edges of any
-  face. Therefore, the number of faces to the right of edges in $C$ is
-  at least $\ell/(\Delta-1)$. The same is true for the number of faces
-  of $\dual{T}$ to the left of edges in $C$.
-\end{proof}
 
 For a node $u$ of $T_i$, we define $N(u)$ as the set of nodes (in $T_0$
 and $T_1$) that share an edge of $\dual{T}$ with $u$.  We say that a
@@ -868,7 +903,6 @@ node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
   the number of really bad nodes in $T_0$ is at least $n_0-O(\alpha n_0)$.
 \end{lem}
 
-The proof of \lemref{lots-of-really-bad} is deferred to \appref{missing-proofs}.
 
 %\begin{proof}
 %  First consider the tree $T_0$.  From \obsref{degree-touched},
@@ -1250,8 +1284,60 @@ the other participants for providing a stimulating research environment.
 
 \appendix
 
-\section{Proofs of Lemmas \ref{lem:common-face} and \ref{lem:lots-of-really-bad}}
+\section{Proofs of \obsref{degree-touched} and Lemmas \ref{lem:one-caressed}, \ref{lem:common-face} and \ref{lem:lots-of-really-bad}}
 \applabel{missing-proofs}
+
+
+\begin{proof}[Proof of \lemref{one-shared-edge}]
+   Suppose that two faces $f$ and $g$ share two edges $e_1$ and
+   $e_2$. Then $e_1$ and $e_2$ form an edge cutset of $\dual{T}$.
+   If $\dual{T}$ contains at least four vertices, then two of the
+   endpoints of $e_1$ and $e_2$ form a vertex cutset of $\dual{T}$
+   of size 2, contradicting the fact that $\dual{T}$ is 3-connected.
+   That $\dual{T}$ contains at least 4 vertices follows from Euler's
+   Formula, which gives the number of vertices in $\dual{T}$ as $2n-4\ge
+   4$ for all $n\ge 4$.
+\end{proof}
+
+
+\begin{proof}[Proof of \lemref{one-caressed}]
+   The proof is by
+   induction on the number, $t$, of faces of $\dual{T}$ contained in $R$.
+   If $t=1$, then $R$ is a face of $\dual{T}$ and it is caressed by $C$.
+
+   If $t>1$, then consider the face $f$ of $\dual{T}$ that is contained
+   in $R$ and has the first edge of $P$ on its boundary.  Refer to
+   \figref{one-caressed}. Since $t>1$, $X=R\setminus f$ is non-empty. The
+   set $X$ may have several connected components $X_1,\ldots,X_k$, but
+   each $X_i$ has a boundary that contains a chord path $P_i$ for $C$.
+   We can therefore apply induction on $P_1$ (or any $P_i$) using $R=X_1$
+   in the inductive hypothesis.
+  \begin{figure}
+     \begin{center}
+	\begin{tabular}{cc}
+		\includegraphics{figs/one-caressed-1} &
+		\includegraphics{figs/one-caressed-2}
+	\end{tabular}
+     \end{center}
+	  \caption{The proof of \lemref{one-caressed}.}
+	  \figlabel{one-caressed}
+  \end{figure}
+\end{proof}
+
+
+
+\begin{proof}[Proof of \obsref{degree-touched}]
+  Orient the edges of $C$ counterclockwise so that, for each edge
+  $e$ of $C$, the face of $\dual{T}$ to the left of $e$ is in $C$'s
+  interior and the face of $\dual{T}$ to the right of $e$ is in $C$'s
+  exterior.  Each face of $\dual{T}$ has at most $\Delta$ edges and,
+  since $C$ is non-trivial, $C$ contains at most $\Delta-1$ edges of any
+  face. Therefore, the number of faces to the right of edges in $C$ is
+  at least $\ell/(\Delta-1)$. The same is true for the number of faces
+  of $\dual{T}$ to the left of edges in $C$.
+\end{proof}
+
+
 
 \begin{proof}[Proof of \lemref{common-face}]
    First observe that, since $u$ has degree 2, $C\cap u$ has exactly
