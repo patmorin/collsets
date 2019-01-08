@@ -37,8 +37,11 @@ urlcolor=linkblue, pdfcreator=Me, pdfproducer=Me}
 \title{\MakeUppercase{Dual Circumference and Collinear Sets}%
     \thanks{This work was partly funded by NSERC and MRI.}}
 
-\author{Vida Dujmovi\'c\thanks{School of Computer Science and Electrical Engineering, University of Ottawa}\,\, and 
-        Pat Morin\thanks{School of Computer Science, Carleton University}}
+\author{Vida Dujmovi\'c%
+        \thanks{School of Computer Science and Electrical Engineering, 
+                University of Ottawa}\,\, and 
+        Pat Morin%
+        \thanks{School of Computer Science, Carleton University}}
 
 \newcommand{\dual}[1]{{#1}^\star}
 \newcommand{\note}[2]{{\color{red}[#1:~#2]}}
@@ -1000,37 +1003,39 @@ $1-O(1/\Delta^2)$ (\lemref{lots-of-really-i-bad}).
 To handle cases like these, the only option is to perform surgery on
 the cycle $C$ to increase the number of caressed nodes. In particular,
 our strategy is to perform modifications to $C$ that increase the number
-of leaves in both $T_0$ and $T_1$.  Before finishing up, we need a final
-lemma that describes which nodes of $T_0$ and $T_1$ survive when the
-cycle $C$ is modified:
+of leaves in both $T_0$ and $T_1$.  
 
-\begin{lem}\lemlabel{survivors}
-   Let $C$ and $C'$ be two cycles in $\dual{T}$ and, for each $i\in\{0,1\}$, let $T_i$ and $T_i'$ be the resulting trees.  Then a node $u$ in $T_i$ appears in $T_i'$ if the following conditions are satisfied:
-  \begin{compactenum}
-     \item $u\cap C = u\cap C'$; and
-     \item for every node $w$ adjacent to $u$ in $T_i$ and every face $f$ of $\dual{T}$ in $w$, $f$ is pinched by $C$ if and only if $f$ is pinched by $C'$.
- \end{compactenum}
-\end{lem}
-
-\begin{proof}
-   This proof is just definition checking.
-   The node $u$ appears in $T_i'$ if (i)~each of the keeper paths
-   (for $C$) on the boundary of $u$ are also keeper paths for $C'$ and
-   (ii)~there is no keeper path for $C'$ that contains edges in the
-   interior of $u$.  The latter condition is satisified, since a keeper
-   path is always contained in a single pinched face and, since $u\cap
-   C=u\cap C'$, the set of faces of $\dual{T}$ contained in $u$ that are
-   pinched by $C$ is exactly the same as the set of faces contained in
-   $u$ that are pinched by $C'$.
-
-   Thus, all we need to verify is that the keeper paths for $C$ on the
-   boundary of $u$ are also keeper paths for $C'$.  Every such keeper path
-   $P$ is on the boundary of $u$ and some neighbour $w$ of $u$ in $T_i$.
-   Conditions 1 and 2 of the lemma ensure that every face of $\dual{T}$
-   that shares an edge with $P$ is pinched by $C$ if and only if it is
-   pinched by $C'$.  Therefore $P$ is a keeper path in $C$ if and only
-   if it is a keeper path in $C'$.
-\end{proof}
+%Before finishing up, we need a final
+%lemma that describes which nodes of $T_0$ and $T_1$ survive when the
+%cycle $C$ is modified:
+%
+%\begin{lem}\lemlabel{survivors}
+%   Let $C$ and $C'$ be two cycles in $\dual{T}$ and, for each $i\in\{0,1\}$, let $T_i$ and $T_i'$ be the resulting trees.  Then a node $u$ in $T_i$ appears in $T_i'$ if the following conditions are satisfied:
+%  \begin{compactenum}
+%     \item $u\cap C = u\cap C'$; and
+%     \item for every node $w$ adjacent to $u$ in $T_i$ and every face $f$ of $\dual{T}$ in $w$, $f$ is pinched by $C$ if and only if $f$ is pinched by $C'$.
+% \end{compactenum}
+%\end{lem}
+%
+%\begin{proof}
+%   This proof is just definition checking.
+%   The node $u$ appears in $T_i'$ if (i)~each of the keeper paths
+%   (for $C$) on the boundary of $u$ are also keeper paths for $C'$ and
+%   (ii)~there is no keeper path for $C'$ that contains edges in the
+%   interior of $u$.  The latter condition is satisified, since a keeper
+%   path is always contained in a single pinched face and, since $u\cap
+%   C=u\cap C'$, the set of faces of $\dual{T}$ contained in $u$ that are
+%   pinched by $C$ is exactly the same as the set of faces contained in
+%   $u$ that are pinched by $C'$.
+%
+%   Thus, all we need to verify is that the keeper paths for $C$ on the
+%   boundary of $u$ are also keeper paths for $C'$.  Every such keeper path
+%   $P$ is on the boundary of $u$ and some neighbour $w$ of $u$ in $T_i$.
+%   Conditions 1 and 2 of the lemma ensure that every face of $\dual{T}$
+%   that shares an edge with $P$ is pinched by $C$ if and only if it is
+%   pinched by $C'$.  Therefore $P$ is a keeper path in $C$ if and only
+%   if it is a keeper path in $C'$.
+%\end{proof}
 
 
 At this point we are ready to complete the proof of \thmref{main}.
