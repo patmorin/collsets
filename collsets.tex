@@ -1065,11 +1065,13 @@ Consider some node $u$ in $X$, and let $C_a$ and $C_b$ be the two
 components of $u\cap C$. Observe that $T_1[N(u)]$ consists of two
 paths $a_1,\ldots,a_r$ and $b_1,\ldots,b_s$ of bad nodes where each
 $a_1,\ldots,a_r$ contains an edge of $C_a$ and each of $b_1,\ldots,b_r$
-contains an edge of $C_b$.  It follows from \lemref{bad-one-shared-edge}
-that among any sequence of $\Delta$ consecutive nodes in $X$, at least
-one node has $|N(u)|\ge 5$ because $r\ge 2$.  Let $u$ be any such node
-that is not among the first $2\Delta$ or last $2\Delta$ nodes of $X$.
-Such a $u$ always exists because $X$ contains at least $5\Delta$ nodes.
+contains an edge of $C_b$. [At this point we must take some extra care
+because it is possible that $a_i=b_j$ for some values of $i$ and $j$.]
+It follows from \lemref{bad-one-shared-edge} that among any sequence of
+$\Delta$ consecutive nodes in $X$, at least one node has $|N(u)|\ge 5$
+because $r\ge 2$.  Let $u$ be any such node that is not among the first
+$2\Delta$ or last $2\Delta$ nodes of $X$.  Such a $u$ always exists
+because $X$ contains at least $5\Delta$ nodes.
 
 $N(u)$ contains at least 5 nodes (refer to \figref{rrbad}):
 \begin{enumerate}
@@ -1082,171 +1084,329 @@ $N(u)$ contains at least 5 nodes (refer to \figref{rrbad}):
    \begin{center}
      \includegraphics{figs/second-try-1}
    \end{center}
-   \caption{A carefully selected really really bad node $u$.}
+   \caption{A carefully selected really really bad node $u$.  Note,
+    this figure is potentially misleading, we may have $a_i=b_j$ for
+    some values of $i$ and $j$.}
    \figlabel{rrbad}
 \end{figure}
-We use the convention that $a_1,b_1\in N(x_1)$, $a_r,b_s\in N(y_1)$. We also
-name some other nodes of $T_1$: (i)~$a_0$ adjacent to $a_1$; (ii)~$a_{r+1}$
-adjacent to $a_r$; (iii)~$b_0$ adjacent to $b_1$; (iv)~$b_{s+1}$ adjacent
-  to $b_s$; (v)~the path $x_1,\ldots,x_{2\Delta}$ in $T_0$ that does not contain $u$; and (vi)~the
-  path $y_1,\ldots,y_{2\Delta}$ in $T_0$ that does not contain $u$.
-  
-Observe that the path $x_{2\Delta},\ldots,x_1,u,y_1,\ldots,y_{2\Delta}$
-consists entirely of really really bad nodes. The four nodes $a_0$, $a_{r+1}$,
-$b_0$, and $b_{s+1}$ are really bad because they are adjacent to at least
-one of these really really bad nodes.
+We use the convention that $a_1,b_1\in N(x_1)$, $a_r,b_s\in N(y_1)$. 
 
-At this point it is helpful to think of $T_0$, $T_1$, and $C$ as a
-partition of $\R^2$, where nodes of $T_0$ are coloured red, nodes of $T_1$
-are coloured blue and $C$ is the (purple) boundary between red and blue.
-To describe our modifications of $C$, we imagine changing the colours
-of nodes.  The effect such a recolouring has on $C$ is immediately
-obvious: The new cycle $C'$ contains every (purple) edge contained in
-the red-blue boundary. This new cycle $C'$ defines a new pair of trees
-$T_0'$ and $T_1'$.  While the relationship between $C$ and $C'$ is easy
-to understand, the relationship between $(T_0,T_1)$ and $(T_0',T_1')$
-takes more effort to understand.  This difficulty comes from the fact
-that there is no bijection between the nodes in $V(T_0)\cup V(T_1)$
-and the nodes in $V(T_0')\cup V(T_1')$.
+The ``surgery'' we will perform focuses on the nodes $u$ and $a_1$.
+Consider the two components of $C\cap a_1$. One of these components shares
+an edge with $u$ and the other.  By \lemref{bad-one-shared-edge}, the
+other component, $q$, does not share an edge with $u$.  Imagine removing
+$u$ from $T_0$, thereby separating $T_0$ into a component $T_x$ containing
+$x_1$ and a component $T_y$ containing $y_1$.  Equivalently, one can
+think of removing the edges of $u$ from $C$ separating $C$ into two
+paths $C_x$ and $C_y$ on the boundary of $T_x$ and $T_y$, respectively.
+We distinguish between two major cases (see \figref{main-cases}):
 
-There are several cases to consider:
-
+\begin{figure}
+   \begin{center}
+     \begin{tabular}{cc}
+       \includegraphics{figs/final-cases-1} &
+       \includegraphics{figs/final-cases-2} \\
+       (1) & (2)
+     \end{tabular}
+   \end{center}
+   \caption{The cases in the proof of \thmref{main}.}
+   \figlabel{main-cases}
+\end{figure}
 \begin{enumerate}
-   \item The path in $T_1$ from $a_1$ to $b_1$ does not contain $a_2$ or $b_2$.
-     Refer to \figref{case1-surgery}.
-\begin{figure}
-   \begin{center}
-     \includegraphics{figs/second-try-2}
-     \includegraphics{figs/second-try-3}
-   \end{center}
-   \caption{Case 1 of the cycle surgery.}
-   \figlabel{case1-surgery}
-\end{figure}
+   \item $q\subset C_x$.  In this case, we punt. By
+   \lemref{one-edge-between} $a_1-C$ consists of two edges and exactly
+   one of these edges, $e$, is not incident to $u$. Since $x_1$ is the
+   endpoints of a path $x_1,\ldots,x_{2\Delta}$ really really bad nodes in
+   $T_x$, $e$ is incident to some really really bad node $x_i$ of $T_0$,
+   for some $i<\Delta$.  Define $x_0=u$.  At this point, we let $x_i$
+   take the role of $u$, $x_{i+1}$ take the role of $y_1$ and $x_{i-1}$
+   take on the role of $x_1$.  With this change of variables, we find ourselves
+   in Case~2, described below.
 
-     The purple boundary $a_1\cap C$ has two connected components: $C_1$
-     that contains an edge of $u$ and $C_2$.  Let $z_1,\ldots,z_t$ be
-     the nodes of $T_0$ in $N(a_1)$ that contain an edge of $C_2$. Note
-     that $z_1,\ldots,z_t$ form a path of bad nodes in $T_0$, since $u$
-     is really really bad, $a_1\in N(u)$ and $z_1,\ldots,z_t\in N(a_1)$. We
-     order $z_1,\ldots,z_t$ so that $z_1\in N(a_0)$.  Finally, let
-     $z_0,z_{t+1}\not\in\{z_1,\ldots,z_t\}$ be the two nodes of $T_0$
-     adjacent to $z_1$ and $z_t$, respectively. 
-     %\note{PM}{This is not
-     %completely unambiguous in the case $t=1$, but it doesn't matter for
-     %what comes next.}  
-     Note that $z_0$ and $z_{t+1}$ are not necessarily
-     bad nodes.
+   \item $q\subset C_y$.  At this point, consider the component
+   $p$ of $C\cap a_0$ that contains an edge of $u$.  Let
+   $i\in\{1,\ldots,\Delta\}$ be the maximum value such that $p$ contains
+   at least one edge of $x_i$. (This is the same value of $i$ defined
+   in Case~1, above.)  Note that this implies $p$ contains one
+   of the two components of $C\cap x_j$ for each $j\in\{1,\ldots,i-1\}$.
 
-     The forest $T_0-\{u\}$ has two components, one of which contains $x_1$
-     and the other contains $y_1$.  This latter component also contains
-     $z_0,\ldots,z_{t+1}$.  The forest $T_1-\{a_1\}$ has two components
-     one of which contains $a_r$ and the other of which contains $b_1$.
+   At this point it is helpful to think of $T_0$, $T_1$, and $C$ as a
+   partition of $\R^2$, where nodes of $T_0$ are coloured red, nodes of $T_1$
+   are coloured blue and $C$ is the (purple) boundary between red and blue.
+   To describe our modifications of $C$, we imagine changing the colours
+   of nodes.  The effect such a recolouring has on $C$ is immediately
+   obvious: The new cycle $C'$ contains every (purple) edge contained in
+   the red-blue boundary. This new cycle $C'$ defines a new pair of trees
+   $T_0'$ and $T_1'$.  The relationship between $(T_0,T_1)$ and $(T_0',T_1')$
+   takes more effort to understand.  This difficulty comes from the fact
+   that there is no bijection between the nodes in $V(T_0)\cup V(T_1)$
+   and the nodes in $V(T_0')\cup V(T_1')$.
 
-     We make the following \emph{surgical modification} to $C$: we move
-     $a_1$ to $T_0$ and we move $u$ to $T_1$.  Moving $u$ to $T_1$
-     restores a path in $T_1$ from $a_r$ to $b_1$.  Moving $a_1$ to
-     $T_0$ restores a path in $T_0$ from $y$ to $x$ (through $z_t$).
-     We call the new cycle that results from this operation $C'$ and
-     the resulting trees $T_0'$ and $T_1'$.
-     
-     \begin{clm}
-       Every node of $T_0$ and $T_1$ is also present in $T_0'$ and $T_1'$,
-       respectively, except possibly for the following bad nodes: $u$,
-       $x_1,\ldots,x_{\Delta-1}$, $a_1,\ldots,a_{r}$, $b_1,\ldots,b_{s}$,
-       and $z_1,\ldots,z_t$.
-     \end{clm}
+   Refer to \figref{recolouring}.
+   For our modification, we recolour $u,x_1,\ldots,x_{i-1}$ blue and
+   recolour $a_1$ red.  Observe that, because $q\subset C_y$ and $p\cap
+   C_x\ne\emptyset$, this implies that the red set is simply connected
+   and its boundary $C'$ is a simple cycle.  The new trees $T_0'$ and
+   $T_1'$ are therefore well defined.  We now make two claims that will complete our proof.
 
-     \begin{proof}[Proof of Claim]
-     For most nodes $v$ in $T_0$ or $T_1$, this claim follows immediately
-     from \lemref{survivors} since, for most nodes $v\cap C=v\cap C'$
-     and $w\cap C=w\cap C'$ for every $w\in N(v)$.  The only nodes requiring 
-     special consideration are the following:
-     \begin{enumerate}
-       \item[$z_0$:]  For this node $z_0\cap C=z_0\cap C'$ and $w\cap
-       C=w\cap C'$ for all $w\in N(z_0)\setminus z_1$.  Thus, the only
-       question is whether the chord path $P$ separating $z_0$ and $z_1$
-       is a keeper for $C'$.
+   \begin{figure}
+     \begin{center}
+       \begin{tabular}{cc}
+         \includegraphics{figs/final-cases-3} &
+         \includegraphics{figs/final-cases-4} 
+       \end{tabular}{cc}
+     \end{center}
+     \caption{Performing surgery on $C$ to obtain $C'$ that caresses $a_0$.}
+     \figlabel{recolouring}
+   \end{figure}
 
-       We claim that $z_1$ contains a single face of $\dual{T}$.  By
-       \lemref{common-face}, there is a single face $f$ of $\dual{T}$ in
-       $z_1$ that contains $z_1\cap C$ and, by \lemref{one-edge-between},
-       this face also contains the single edge of $\dual{T}$ separating
-       $z_1$ and $z_2$.  Suppose now, for the sake of contradiction,
-       that $f$ does not contain the chord path $P$ separating $z_0$
-       and $z_1$.  The face $f$ must, however, contain the first and last
-       edge of $P$.  All edges of $f$ are in the auxilliary graph $H$ and
-       therefore $P$ contains an internal node that has degree 3 in $H$.
-       But this contradicts the fact that $P$ is a keeper for $C$.
+   \begin{clm}\clmlabel{only-bad}
+      For each $i\in\{0,1\}$, and every node of $w$ $T_i$ that is not bad,
+      $C\cap w=C'\cap w$.  (Equivalently, for every face $f$ of $\dual{T}$
+      that is not a bad node of $T_0$ or $T_1$, $C\cap f=C'\cap f$.)
+   \end{clm}
 
-       Therefore $f$ contains $P$ on its boundary. Furthermore, $f$ is
-       pinched by $C'$, so $P$ is in the auxilliary graph $H'$ for $C'$.
-       Since the faces of $z_0$ pinched by $C$ and $C'$ are the same and
-       $P$ is a keeper for $C$, it follows that $P$ is a keeper for $C'$.
+   \begin{clm}\clmlabel{a1-caressed}
+      The face $a_0$ is caressed by $C'$.
+   \end{clm}
 
-     \item[$z_{t+1}$:] The node $z_{t+1}$ appears in $T_0'$ for the same
-     reason $z_0$ appears in $T_0'$.
+   To see why these two claims complete the proof observe that, together,
+   they imply that $C'$ caresses one more node than $C$.  Indeed, by
+   definition, $C$ did not caress any faces belonging to bad nodes.
+   Therefore, the first claim implies that the faces of $\dual{T}$
+   caressed by $C'$ are a superset of those caressed by $C$.  The face
+   $a_0$ is a bad node of $T_i$ so it is not caressed by $C$ but the
+   second claim states that it is caressed by $C'$.  Therefore $C'$
+   caresses at least one more face than $C$.
 
-      \item[$y_1$:] The path $u,y_1,y_2,y_3$ consists entire of bad
-      nodes. Therefore, $y_1$ and $y_2$ are
-      faces of $\dual{T}$. The node $y_2$ is pinched by $C'$, therefore
-      the edge $e$ common to $y_1$ and $y_2$ is a keeper. Therefore all
-      edges of $y_1$ are in $C'\cup e$, so $y_1$ is a node of $T_0'$.
-         
-        
-    \item[$x_\Delta$:] That $x_\Delta$ is a node of $T_0'$ follows from
-    the fact that $x_{\Delta-1},x_{\Delta},x_{\Delta+1}$ is a path of
-         bad nodes in $T_0$ and $x_{\Delta}\cap C=x_{\Delta}\cap C'$.
+   This surgery recolours at most $\Delta+2$ nodes of $T_0$
+   and $T_1$, so the difference in length between $C$ and $C'$
+   is at most $\Delta^2+2\Delta$.  If we start with a cycle $C$
+   of length $\ell$, then we can perform this recolouring at least
+   $\ell/(4\Delta^2+4\Delta)$ times before the length of $C$ decreases
+   to less than $\ell'=\ell/2$. If at some point during this process,
+   we are no longer able to perform this operation, it is because
+   $C$ caresses $\Omega(\ell'/\Delta^4)=\Omega(\ell/\Delta^4)$
+   faces of $\dual{T}$ and we are done.  By the end of this
+   process, the number of faces caressed by $C$ is at least
+   $\ell/(4\Delta^2+4\Delta)\in\Omega(\ell/\Delta^2)\subset\Omega(\ell/\Delta^4)$
+   and we are also done.
 
-       \item[$a_0$:] The node $a_0$ appears in $T_1'$ as a leaf for exactly the same reason $y_1$ appears in $T_0'$ as a leaf.
+   Thus, all that remains is to prove \clmref{only-bad} and
+   \clmref{a1-caressed}.
 
-       \item[$b_0,b_{s+1},a_{r+1}$:] The nodes $b_0$, $b_{s+1}$, and $b_{r+1}$ appear in $T_1'$ for the same reasons
-       that $x_\Delta$ appears in $T_0'$.
-     \end{enumerate}
-     This completes the proof of the claim.
-     \end{proof}
-     The key point to take from all of this is that every node of $T_0$
-     and $T_1$ that is not bad is also present in $T_0'$ and $T_1'$.
-     %Furthermore, every non-bad node $w$ in $T_i$ has the same degree in $T_i$ and in $T_i'$.  
-     Furthermore, the nodes $y_0$ and $a_0$, which were bad nodes in
-     $T_0$ and $T_1$ are now leaves of $T_0'$ and $T_1'$.  Therefore,
-     for each $i\in\{0,1\}$, the number of leaves in $T_i'$ is greater
-     than the number of leaves in $T_i$.
+   To prove \clmref{only-bad} we observe that $C$ and $C'$ differ only
+   on the boundaries of nodes that are recoloured.  The nodes $u$ and
+   $x_1,\ldots,x_i$ are all really really bad. Therefore the nodes
+   of $T_1$ that share a boundary with these nodes are really bad.
+   Furthermore, $x_{i+1}$ and $y_1$ are really really bad.  Thus, the
+   changes caused by recolouring $u,x_1,\ldots,x_{i-i}$ do not violate
+   the conditions of the lemma.
 
-   \item The path in $T_1$ from $a_1$ to $b_1$ contains $b_2$ but not $a_2$.
-     Refer to \figref{case2-surgery}.
-   The surgery, and the proof, for this case is \emph{verbatim}
-   the same as Case~1. (Indeed, reread Case~1 while referring to
-   \figref{case2-surgery}.
-
-\begin{figure}
-   \begin{center}
-     \includegraphics{figs/second-try-x-2}
-     \includegraphics{figs/second-try-x-3}
-   \end{center}
-   \caption{Case 2 of the cycle surgery.}
-   \figlabel{case2-surgery}
-\end{figure}
+   The node $a_1$ is really bad and its two neighbours $a_0$ and $a_2$
+   in $T_1$ are also really because each of them shares at least one
+   edge with a really really bad node in $T_0$:  $a_0$ shares an edge
+   with $x_i$ and $a_2$ shares an edge with $u$.  Finally, since $a_1$
+   is really bad, the nodes of $T_0$ that share share an edge of $C$
+   with $a_1$ are bad.  Thus, all the nodes whose intersection with
+   $C$ and $C'$ are different are bad nodes. This proves \clmref{only-bad}.
 
 
- \item The path in $T_1$ from $a_1$ to $b_1$ contains $a_2$ and $b_2$.  This case is symmetric to Case~1.
+   To prove \clmref{a1-caressed} we look consider the boundary of $a_0$
+   after the recolouring operation.  After recolouring, this boundary
+   consists of, in cyclic order:
+   \begin{enumerate}
+     \item  An edge shared between $a_0$ and $a_1$.  This edge is in $C'$ since
+ $a_0$ is in $T_1'$ and $a_1$ is in $T_0'$.  
 
-  \item The path in $T_1$ from $a_1$ to $b_1$ contains $a_2$ but not $b_2$.  This case is symmetric to Case~2.
+     \item A path of edges shared with nodes in
+     $x_{i},\ldots,x_{i+\Delta}$. By the choice of $u$, these are (really
+     really bad) nodes that are in $T_0$. Therefore, this part of the
+     bounary of $a_0$ is contained in $C'$.
+
+     \item An edge shared between $a_0$ and another node $a_{-1}$. The
+     node $a_{i-1}$ shares an edge with some really really bad node in
+     $x_{i},\ldots,x_{i+\Delta}$. Therefore $a_{i-1}$ is (really) bad,
+     it is in $T_1$ and $T_1'$ and therefore this edge is not contained in $C'$.
+
+     \item A path of edges that contains at least one edge of $C_y$. If
+     we fix an embedding in which the outer face it some face of $T_1$
+     other than $a_0$, then this path contains a portion of $C$ that
+     is traversed in clockwise order. By \lemref{bad-one-shared-edge}
+     This path does not contain any edge of $x_i$.  Furthermore, this
+     path does not contain any edges of $u,x_1,\ldots,x_{i-1}$ that
+     are not on the outer face of $T_0\cup a_1$.  Therefore, this path
+     consists of a (possibly empty) sequence of edges that are shared with
+     $u,\ldots,x_{i-1}$ followed by a sequence of edges from $C_y$. The
+     former part of this path is shared with nodes in $T_1'$, so these
+     edges are not in $C'$.  The latter part of this path is shared with
+     nodes in $T_y$, which are all contained contained in $T_0'$.
+  \end{enumerate} 
+  Therefore the intersection $C'\cap a_0$ consists of one connected
+  component so $a_0$ is caressed by $C'$
 \end{enumerate}
-
-In all four cases, the surgery on $C$ increases the number of leaves
-in each of $T_1$ and $T_2$.  Furthermore, the only edges of $C$ that
-are removed by this surgery are on the boundary of $u$.  Therefore,
-this operation decreases the length of $C$ by at most $\Delta$.
-
-If we start with a cycle $C$ of length $\ell$, then we can perform
-this operation at least $\ell/(2\Delta)$ times before the length of
-$C$ decreases to less than $\ell'=\ell/2$. If at some point during
-this process, we are no longer able to perform this operation, it is
-because $C$ caresses $\Omega(\ell'/\Delta^4)=\Omega(\ell/\Delta^4)$
-faces of $\dual{T}$ and we are done.  By the end of this process,
-the number of leaves in each of $T_0$ and $T_1$ is at least
-$\ell/(2\Delta)\in\Omega(\ell/\Delta)\subset\Omega(\ell/\Delta^4)$ and we
-are also done.  This completes the proof of \thmref{main}.
+%We also
+%name some other nodes of $T_1$: (i)~$a_0$ adjacent to $a_1$; (ii)~$a_{r+1}$
+%adjacent to $a_r$; (iii)~$b_0$ adjacent to $b_1$; (iv)~$b_{s+1}$ adjacent
+%  to $b_s$; (v)~the path $x_1,\ldots,x_{2\Delta}$ in $T_0$ that does not contain $u$; and (vi)~the
+%  path $y_1,\ldots,y_{2\Delta}$ in $T_0$ that does not contain $u$.
+%  
+%Observe that the path $x_{2\Delta},\ldots,x_1,u,y_1,\ldots,y_{2\Delta}$
+%consists entirely of really really bad nodes. The four nodes $a_0$, $a_{r+1}$,
+%$b_0$, and $b_{s+1}$ are really bad because they are adjacent to at least
+%one of these really really bad nodes.
+%
+%At this point it is helpful to think of $T_0$, $T_1$, and $C$ as a
+%partition of $\R^2$, where nodes of $T_0$ are coloured red, nodes of $T_1$
+%are coloured blue and $C$ is the (purple) boundary between red and blue.
+%To describe our modifications of $C$, we imagine changing the colours
+%of nodes.  The effect such a recolouring has on $C$ is immediately
+%obvious: The new cycle $C'$ contains every (purple) edge contained in
+%the red-blue boundary. This new cycle $C'$ defines a new pair of trees
+%$T_0'$ and $T_1'$.  While the relationship between $C$ and $C'$ is easy
+%to understand, the relationship between $(T_0,T_1)$ and $(T_0',T_1')$
+%takes more effort to understand.  This difficulty comes from the fact
+%that there is no bijection between the nodes in $V(T_0)\cup V(T_1)$
+%and the nodes in $V(T_0')\cup V(T_1')$.
+%
+%There are several cases to consider:
+%
+%\begin{enumerate}
+%   \item The path in $T_1$ from $a_1$ to $b_1$ does not contain $a_2$ or $b_2$.
+%     Refer to \figref{case1-surgery}.
+%\begin{figure}
+%   \begin{center}
+%     \includegraphics{figs/second-try-2}
+%     \includegraphics{figs/second-try-3}
+%   \end{center}
+%   \caption{Case 1 of the cycle surgery.}
+%   \figlabel{case1-surgery}
+%\end{figure}
+%
+%     The purple boundary $a_1\cap C$ has two connected components: $C_1$
+%     that contains an edge of $u$ and $C_2$.  Let $z_1,\ldots,z_t$ be
+%     the nodes of $T_0$ in $N(a_1)$ that contain an edge of $C_2$. Note
+%     that $z_1,\ldots,z_t$ form a path of bad nodes in $T_0$, since $u$
+%     is really really bad, $a_1\in N(u)$ and $z_1,\ldots,z_t\in N(a_1)$. We
+%     order $z_1,\ldots,z_t$ so that $z_1\in N(a_0)$.  Finally, let
+%     $z_0,z_{t+1}\not\in\{z_1,\ldots,z_t\}$ be the two nodes of $T_0$
+%     adjacent to $z_1$ and $z_t$, respectively. 
+%     %\note{PM}{This is not
+%     %completely unambiguous in the case $t=1$, but it doesn't matter for
+%     %what comes next.}  
+%     Note that $z_0$ and $z_{t+1}$ are not necessarily
+%     bad nodes.
+%
+%     The forest $T_0-\{u\}$ has two components, one of which contains $x_1$
+%     and the other contains $y_1$.  This latter component also contains
+%     $z_0,\ldots,z_{t+1}$.  The forest $T_1-\{a_1\}$ has two components
+%     one of which contains $a_r$ and the other of which contains $b_1$.
+%
+%     We make the following \emph{surgical modification} to $C$: we move
+%     $a_1$ to $T_0$ and we move $u$ to $T_1$.  Moving $u$ to $T_1$
+%     restores a path in $T_1$ from $a_r$ to $b_1$.  Moving $a_1$ to
+%     $T_0$ restores a path in $T_0$ from $y$ to $x$ (through $z_t$).
+%     We call the new cycle that results from this operation $C'$ and
+%     the resulting trees $T_0'$ and $T_1'$.
+%     
+%     \begin{clm}
+%       Every node of $T_0$ and $T_1$ is also present in $T_0'$ and $T_1'$,
+%       respectively, except possibly for the following bad nodes: $u$,
+%       $x_1,\ldots,x_{\Delta-1}$, $a_1,\ldots,a_{r}$, $b_1,\ldots,b_{s}$,
+%       and $z_1,\ldots,z_t$.
+%     \end{clm}
+%
+%     \begin{proof}[Proof of Claim]
+%     For most nodes $v$ in $T_0$ or $T_1$, this claim follows immediately
+%     from \lemref{survivors} since, for most nodes $v\cap C=v\cap C'$
+%     and $w\cap C=w\cap C'$ for every $w\in N(v)$.  The only nodes requiring 
+%     special consideration are the following:
+%     \begin{enumerate}
+%       \item[$z_0$:]  For this node $z_0\cap C=z_0\cap C'$ and $w\cap
+%       C=w\cap C'$ for all $w\in N(z_0)\setminus z_1$.  Thus, the only
+%       question is whether the chord path $P$ separating $z_0$ and $z_1$
+%       is a keeper for $C'$.
+%
+%       We claim that $z_1$ contains a single face of $\dual{T}$.  By
+%       \lemref{common-face}, there is a single face $f$ of $\dual{T}$ in
+%       $z_1$ that contains $z_1\cap C$ and, by \lemref{one-edge-between},
+%       this face also contains the single edge of $\dual{T}$ separating
+%       $z_1$ and $z_2$.  Suppose now, for the sake of contradiction,
+%       that $f$ does not contain the chord path $P$ separating $z_0$
+%       and $z_1$.  The face $f$ must, however, contain the first and last
+%       edge of $P$.  All edges of $f$ are in the auxilliary graph $H$ and
+%       therefore $P$ contains an internal node that has degree 3 in $H$.
+%       But this contradicts the fact that $P$ is a keeper for $C$.
+%
+%       Therefore $f$ contains $P$ on its boundary. Furthermore, $f$ is
+%       pinched by $C'$, so $P$ is in the auxilliary graph $H'$ for $C'$.
+%       Since the faces of $z_0$ pinched by $C$ and $C'$ are the same and
+%       $P$ is a keeper for $C$, it follows that $P$ is a keeper for $C'$.
+%
+%     \item[$z_{t+1}$:] The node $z_{t+1}$ appears in $T_0'$ for the same
+%     reason $z_0$ appears in $T_0'$.
+%
+%      \item[$y_1$:] The path $u,y_1,y_2,y_3$ consists entire of bad
+%      nodes. Therefore, $y_1$ and $y_2$ are
+%      faces of $\dual{T}$. The node $y_2$ is pinched by $C'$, therefore
+%      the edge $e$ common to $y_1$ and $y_2$ is a keeper. Therefore all
+%      edges of $y_1$ are in $C'\cup e$, so $y_1$ is a node of $T_0'$.
+%         
+%        
+%    \item[$x_\Delta$:] That $x_\Delta$ is a node of $T_0'$ follows from
+%    the fact that $x_{\Delta-1},x_{\Delta},x_{\Delta+1}$ is a path of
+%         bad nodes in $T_0$ and $x_{\Delta}\cap C=x_{\Delta}\cap C'$.
+%
+%       \item[$a_0$:] The node $a_0$ appears in $T_1'$ as a leaf for exactly the same reason $y_1$ appears in $T_0'$ as a leaf.
+%
+%       \item[$b_0,b_{s+1},a_{r+1}$:] The nodes $b_0$, $b_{s+1}$, and $b_{r+1}$ appear in $T_1'$ for the same reasons
+%       that $x_\Delta$ appears in $T_0'$.
+%     \end{enumerate}
+%     This completes the proof of the claim.
+%     \end{proof}
+%     The key point to take from all of this is that every node of $T_0$
+%     and $T_1$ that is not bad is also present in $T_0'$ and $T_1'$.
+%     %Furthermore, every non-bad node $w$ in $T_i$ has the same degree in $T_i$ and in $T_i'$.  
+%     Furthermore, the nodes $y_0$ and $a_0$, which were bad nodes in
+%     $T_0$ and $T_1$ are now leaves of $T_0'$ and $T_1'$.  Therefore,
+%     for each $i\in\{0,1\}$, the number of leaves in $T_i'$ is greater
+%     than the number of leaves in $T_i$.
+%
+%   \item The path in $T_1$ from $a_1$ to $b_1$ contains $b_2$ but not $a_2$.
+%     Refer to \figref{case2-surgery}.
+%   The surgery, and the proof, for this case is \emph{verbatim}
+%   the same as Case~1. (Indeed, reread Case~1 while referring to
+%   \figref{case2-surgery}.
+%
+%\begin{figure}
+%   \begin{center}
+%     \includegraphics{figs/second-try-x-2}
+%     \includegraphics{figs/second-try-x-3}
+%   \end{center}
+%   \caption{Case 2 of the cycle surgery.}
+%   \figlabel{case2-surgery}
+%\end{figure}
+%
+%
+% \item The path in $T_1$ from $a_1$ to $b_1$ contains $a_2$ and $b_2$.  This case is symmetric to Case~1.
+%
+%  \item The path in $T_1$ from $a_1$ to $b_1$ contains $a_2$ but not $b_2$.  This case is symmetric to Case~2.
+%\end{enumerate}
+%
+%In all four cases, the surgery on $C$ increases the number of leaves
+%in each of $T_1$ and $T_2$.  Furthermore, the only edges of $C$ that
+%are removed by this surgery are on the boundary of $u$.  Therefore,
+%this operation decreases the length of $C$ by at most $\Delta$.
+%
+%If we start with a cycle $C$ of length $\ell$, then we can perform
+%this operation at least $\ell/(2\Delta)$ times before the length of
+%$C$ decreases to less than $\ell'=\ell/2$. If at some point during
+%this process, we are no longer able to perform this operation, it is
+%because $C$ caresses $\Omega(\ell'/\Delta^4)=\Omega(\ell/\Delta^4)$
+%faces of $\dual{T}$ and we are done.  By the end of this process,
+%the number of leaves in each of $T_0$ and $T_1$ is at least
+%$\ell/(2\Delta)\in\Omega(\ell/\Delta)\subset\Omega(\ell/\Delta^4)$ and we
+%are also done.  This completes the proof of \thmref{main}.
 \end{proof}
 
 %\note{PM}{There's an annoying lopsidedness here. We can do surgeries $\Omega(\ell/\Delta)$ times before the length of $C$ really decreases. Unfortunately, we need the number of caressed faces to be $O(\ell/\Delta^4)$ in order to guarantee that we can perform a surgery. There's gotta be a better way\ldots}
