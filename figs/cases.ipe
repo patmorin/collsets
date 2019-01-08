@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20181004123132" modified="D:20190108181912"/>
+<info created="D:20181004123132" modified="D:20190108182922"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -271,9 +271,59 @@ h
 <layer name="small-colours"/>
 <layer name="beta"/>
 <view layers="alpha" active="alpha"/>
-<view layers="alpha z case1-colours" active="alpha"/>
-<view layers="alpha z case1-colours case1-surgery" active="case1-surgery"/>
+<view layers="alpha z" active="alpha"/>
+<view layers="alpha case1-colours case1-surgery" active="case1-surgery"/>
 <view layers="alpha z case1-colours case1-surgery small-colours beta" active="beta"/>
+<path layer="alpha" fill="brew5">
+304 808 m
+304 520 l
+432 520 l
+432 808 l
+h
+</path>
+<path layer="case1-surgery" fill="brew8">
+368 560 m
+368 552 l
+336 552 l
+336 752 l
+320 752 l
+320 528 l
+424 528 l
+424 560 l
+h
+</path>
+<path fill="brew8">
+368 776 m
+368 784 l
+344 784 l
+344 808 l
+424 808 l
+424 776 l
+400 776 l
+h
+</path>
+<path layer="z" fill="brew8">
+368 560 m
+368 552 l
+344 552 l
+344 528 l
+424 528 l
+424 560 l
+h
+</path>
+<path fill="brew8">
+368 776 m
+368 784 l
+336 784 l
+336 624 l
+312 624 l
+312 800 l
+416 800 l
+424 800 l
+424 776 l
+400 776 l
+h
+</path>
 <path layer="alpha" fill="brew8">
 368 776 m
 368 560 l
@@ -404,7 +454,6 @@ h
 <text transformations="translations" pos="384 648" stroke="black" type="label" width="9.706" height="4.57" depth="2.1" halign="center" valign="center" style="math">x_1</text>
 <text matrix="1 0 0 1 0 40" transformations="translations" pos="384 648" stroke="black" type="label" width="8.335" height="4.564" depth="2.1" halign="center" valign="center" style="math">x_i</text>
 <text matrix="1 0 0 1 0 80" transformations="translations" pos="384 648" stroke="black" type="label" width="16.217" height="4.564" depth="4.01" halign="center" valign="center" style="math">x_{i+j}</text>
-<text matrix="1 0 0 1 0 -16" transformations="translations" pos="384 648" stroke="black" type="label" width="26.846" height="4.57" depth="2.1" halign="center" valign="center" style="math">u=x_0</text>
 <text matrix="1 0 0 1 0 -32" transformations="translations" pos="384 648" stroke="black" type="label" width="9.476" height="4.563" depth="2.71" halign="center" valign="center" style="math">y_1</text>
 <text matrix="1 0 0 1 0 -80" transformations="translations" pos="384 648" stroke="black" type="label" width="14.769" height="4.563" depth="2.71" halign="center" valign="center" style="math">y_{2\Delta}</text>
 <path matrix="1 0 0 1 0 72" stroke="black">
@@ -431,5 +480,13 @@ h
 <text matrix="1 0 0 1 0 63" transformations="translations" pos="384 648" stroke="black" type="label" width="2.441" height="15.14" depth="0.07" halign="center" valign="center" style="math">\vdots</text>
 <text matrix="1 0 0 1 0 23" transformations="translations" pos="384 648" stroke="black" type="label" width="2.441" height="15.14" depth="0.07" halign="center" valign="center" style="math">\vdots</text>
 <text matrix="1 0 0 1 0 -53" transformations="translations" pos="384 648" stroke="black" type="label" width="2.441" height="15.14" depth="0.07" halign="center" valign="center" style="math">\vdots</text>
+<path fill="white">
+368 640 m
+368 624 l
+400 624 l
+400 640 l
+h
+</path>
+<text matrix="1 0 0 1 0 -16" transformations="translations" pos="384 648" stroke="black" type="label" width="26.846" height="4.57" depth="2.1" halign="center" valign="center" style="math">u=x_0</text>
 </page>
 </ipe>
