@@ -56,21 +56,23 @@ urlcolor=linkblue, pdfcreator=Me, pdfproducer=Me}
    has a non-crossing straight-line drawing in which some \emph{collinear
    set} of $\Omega(\ell/\Delta^4)$ vertices lie on a line.  Using the
    current lower bounds on the length of longest cycles in 3-regular
-   3-connected graphs, this implies that $T$ has a collinear set of
-   size $\Omega(n^{0.8}/\Delta^4)$.  Very recently, Dujmovi\'c \etal\
-   (SODA 2019) showed that, if $S$ is a collinear set in a triangulation
-   $T$ then, for any point set $X\subset\R^2$ with $|X|=|S|$, $T$ has
-   a non-crossing straight-line drawing in which the vertices of $S$
-   are drawn on the points in $X$.  Because of this, collinear sets have
+   3-connected graphs, this implies that every $n$-vertex planar
+   graph of maximum degree $\Delta$ has a collinear set of size
+   $\Omega(n^{0.8}/\Delta^4)$.  Very recently, Dujmovi\'c \etal\ (SODA
+   2019) showed that, if $S$ is a collinear set in a triangulation $T$
+   then, for any point set $X\subset\R^2$ with $|X|=|S|$, $T$ has a
+   non-crossing straight-line drawing in which the vertices of $S$ are
+   drawn on the points in $X$.  Because of this, collinear sets have
    numerous applications in graph drawing and related areas.
 \end{abstract}
 
 \section{Introduction}
 
-Throughout this paper, all graphs are simple and finite.  For a planar
-graph $G$, we say that a set $S\subseteq V(G)$ is a \emph{collinear set}
-if $G$ has a non-crossing straight-line drawing in which the vertices of
-$S$ are all collinear.  A \emph{plane graph} is a planar graph $G$ along
+Throughout this paper, all graphs are simple and finite and have at least
+4 vertices.  For a planar graph $G$, we say that a set $S\subseteq V(G)$
+is a \emph{collinear set} if $G$ has a non-crossing straight-line drawing
+in which the vertices of $S$ are all collinear.  A \emph{plane graph}
+is a planar graph $G$ along
 with a particular non-crossing drawing of $G$.  The \emph{dual} $\dual{G}$
 of a plane graph $G$ is the graph whose vertex set $V(\dual{G})$
 is the set of faces in $G$ and in which $fg\in E(\dual{G})$ if and
@@ -268,12 +270,12 @@ containing $\Omega(\kappa)$ vertices of $T$.
 
 \subsection{Faces that are Touched, Pinched, and Caressed}
 
-We say that a cycle $C$ in a plane graph is \emph{non-trivial} if it
-is not contained in a single face of the graph.  Throughout the
-remainder of this section, $T$ is a triangulation whose dual is
-$\dual{T}$ and $C$ is a non-trivial cycle in $\dual{T}$.  Refer to
-\figref{touched-pinched-caressed} for the following definitions.
-We say that a face $f$ of $\dual{T}$ 
+We say that a cycle $C$ in a plane graph is \emph{non-trivial}
+if it is not contained the boundary of a single face of the graph.
+Throughout the remainder of this section, $T$ is a triangulation
+whose dual is $\dual{T}$ and $C$ is a non-trivial cycle in $\dual{T}$.
+Refer to \figref{touched-pinched-caressed} for the following definitions.
+We say that a face $f$ of $\dual{T}$
 \begin{enumerate}
   \item is \emph{touched} by $C$ if $f\cap C\neq \emptyset$;
   \item is \emph{pinched} by $C$ if $f\cap C$ has more than one connected
@@ -368,17 +370,18 @@ faces caressed by $C$ are the endpoints $f_0$ and $f_k$ of this sequence.
    \figlabel{few-caressed}
 \end{figure}
 
-Our strategy is to define a tree structure, $T_0$ on groups of
-faces contained in the interior of $C$ and a similar structure, $T_1$ on
-groups of faces in the exterior of $C$.  We will then show that every leaf
-of $T_0$ or $T_1$ contains a face caressed by $C$. In \figref{few-caressed},
+Our strategy is to define a tree structure, $T_0$ on groups of faces
+contained in the interior of $C$ and a similar structure, $T_1$ on groups
+of faces in the exterior of $C$.  We will then show that every leaf of
+$T_0$ or $T_1$ contains a face caressed by $C$. In \figref{few-caressed},
 the tree $T_0$ is the path $f_0,\ldots,f_k$ and, indeed, the leaves $f_0$
 and $f_k$ of this tree are caressed by $C$.  After a non-trivial amount
 of analysis of the trees $T_0$ and $T_1$, we will eventually show that,
-if $C$ does not caress many faces, then it is possible to perform a
-surgery on $C$ that increases the number of leaves in $T_0$ and $T_1$.
-Performing this surgery often enough will ensure that $T_0$ and $T_1$
-have many leaves and therefore $C$ caresses many faces.
+if $C$ does not caress many faces, then $T_0$ and $T_1$ have many nodes,
+but few leaves.  Therefore $T_0$ and $T_1$ have many degree-2 nodes.
+This abundance of degree-2 nodes makes it possible to perform a surgery
+on $C$ that increases the number of caressed faces.  Performing this
+surgery repeatedly will then produce a curve $C$ that caresses many faces.
 
 The following useful lemma shows that the example in \figref{few-caressed}
 is tight.  A path $P=v_1,\ldots,v_r$ in $\dual{T}$ is a \emph{chord
@@ -423,7 +426,7 @@ Refer to \figref{auxilliary}. Consider the auxilliary
 graph $H$ with vertex set $V(H)\subseteq V(\dual{T})$ and whose edge set
 consist of the edges of $C$ plus those edges of $\dual{T}$ that belong
 to any face pinched by $C$. Let $v_0,\ldots,v_{r-1}$ be the cyclic sequence of vertices on some face $f$ of $\dual{T}$ that is pinched by $C$.  
-We identify two kinds of vertices that are \emph{special} with respect to $f$:
+We identify three kinds of vertices that are \emph{special} with respect to $f$:
 \begin{enumerate}
   \item A vertex $v_i$ is special of \emph{Type~A} if $v_{i-1}v_i$ is an edge of $C$ and $v_iv_{i+1}$ is not an edge of $C$.
   \item A vertex $v_i$ is special of \emph{Type~B} if $v_{i-1}v_i$ is not an edge of $C$ and $v_iv_{i+1}$ is an edge of $C$.
@@ -714,7 +717,7 @@ has degree $\delta_u=k+2$.
 %only 4 faces and each of $T_0$ and $T_1$ is a path, so nearly all their
 %nodes are degree-2. \note{PM}{\lemref{many-caressed-or-many-degree-2} is only ever used in this paragraph. Delete it?}
 
-We say that a node of $T_i$ is \emph{bad} if it has degree-2 and
+We say that a node of $T_i$ is \emph{bad} if it has degree 2 and
 contains no face of $\dual{T}$ that is caressed by $C$.  We now move
 from studying individual nodes of $T_0$ and $T_1$ to studying global
 quantities associated with $T_0$ and $T_1$.  From this point on, for
@@ -1169,7 +1172,7 @@ two major cases (see \figref{main-cases}):
       that is not a bad node of $T_0$ or $T_1$, $C\cap f=C'\cap f$.)
    \end{clm}
 
-   \begin{clm}\clmlabel{a1-caressed}
+   \begin{clm}\clmlabel{a0-caressed}
       The face $a_0$ is caressed by $C'$.
    \end{clm}
 
