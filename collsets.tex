@@ -270,16 +270,14 @@ containing $\Omega(\kappa)$ vertices of $T$.
 
 \subsection{Faces that are Touched, Pinched, and Caressed}
 
-We say that a cycle $C$ in a plane graph is \emph{non-trivial}
-if it is not contained the boundary of a single face of the graph.
 Throughout the remainder of this section, $T$ is a triangulation
-whose dual is $\dual{T}$ and $C$ is a non-trivial cycle in $\dual{T}$.
+whose dual is $\dual{T}$ and $C$ is a cycle in $\dual{T}$.
 Refer to \figref{touched-pinched-caressed} for the following definitions.
 We say that a face $f$ of $\dual{T}$
 \begin{enumerate}
   \item is \emph{touched} by $C$ if $f\cap C\neq \emptyset$;
-  \item is \emph{pinched} by $C$ if $f\cap C$ has more than one connected
-    component; and
+  \item is \emph{pinched} by $C$ if $f\cap C$ is a cycle or has more than 
+    one connected component; and
   \item is \emph{caressed} by $C$ if it is touched but not pinched by $C$.
 \end{enumerate}
 
@@ -323,8 +321,8 @@ caressed, we have the identity $\tau = \rho + \kappa$.
 
   For any vertex $u\in F'$, let $w_0,\ldots,w_{d-1}$ denote the neighbours
   of $u$ in cyclic order.  The curve $C$ intersects some contiguous
-  subsequence $uw_i,\ldots,uw_j$ of the edges adjacent to $u$.  Since $C$
-  is non-trivial, this sequence does not contain all edges incident
+  subsequence $uw_i,\ldots,uw_j$ of the edges adjacent to $u$.  Since $u$
+  is caressed, this sequence does not contain all edges incident
   to $u$. Therefore, the curve $C$ crosses the edge $w_{i-1}w_i$, then
   crosses $uw_i,\ldots,uw_j$, and then crosses the edge $w_j w_{j+1}$.
   We modify $C$ by removing the portion between the first and last of
@@ -879,8 +877,8 @@ on its boundary.
 \begin{obs}\obslabel{degree-touched}
   If $T$ has maximum degree $\Delta$ and $C$ has length $\ell$, then
   the number of faces $\tau$ of $\dual{T}$ touched by $C$ is at least 
-  $2\ell/(\Delta-1)$.  At least $\ell/(\Delta-1)$ of these faces are in
-  the interior of $C$ and at least $\ell/(\Delta-1)$ of these faces are
+  $2\ell/\Delta$.  At least $\ell/\Delta$ of these faces are in
+  the interior of $C$ and at least $\ell/\Delta$ of these faces are
   in the exterior of $C$.
 \end{obs}
 
@@ -888,10 +886,9 @@ on its boundary.
   Orient the edges of $C$ counterclockwise so that, for each edge
   $e$ of $C$, the face of $\dual{T}$ to the left of $e$ is in $C$'s
   interior and the face of $\dual{T}$ to the right of $e$ is in $C$'s
-  exterior.  Each face of $\dual{T}$ has at most $\Delta$ edges and,
-  since $C$ is non-trivial, $C$ contains at most $\Delta-1$ edges of any
-  face. Therefore, the number of faces to the right of edges in $C$ is
-  at least $\ell/(\Delta-1)$. The same is true for the number of faces
+  exterior.  Each face of $\dual{T}$ has at most $\Delta$ edges.
+  Therefore, the number of faces to the right of edges in $C$ is
+  at least $\ell/\Delta$. The same is true for the number of faces
   of $\dual{T}$ to the left of edges in $C$.
 \end{proof}
 
@@ -1070,9 +1067,9 @@ Consider some node $u$ in $X$, and let $C_a$ and $C_b$ be the
 two components of $u\cap C$. Observe that $T_1[N(u)]$ consists
 of two paths $a_1,\ldots,a_r$ and $b_1,\ldots,b_s$ of bad nodes
 where each $a_1,\ldots,a_r$ contains an edge of $C_a$ and each of
-$b_1,\ldots,b_r$ contains an edge of $C_b$.\footnote{Note that it is
+$b_1,\ldots,b_r$ contains an edge of $C_b$. Note that it is
 possible that $a_i=b_j$ for some values of $i$ and $j$, but everything
-stated thus far, and subsequently, is still true.} It follows from
+stated thus far, and subsequently, is still true. It follows from
 \lemref{bad-one-shared-edge} that among any sequence of $\Delta$
 consecutive nodes in $X$, at least one node has $|N(u)|\ge 5$ because
 $r\ge 2$.  Let $u$ be any such node that is not among the first $2\Delta$
@@ -1203,24 +1200,13 @@ two major cases (see \figref{main-cases}):
 
    To prove \clmref{only-bad} we observe that $C$ and $C'$ differ only on
    the boundaries of nodes that are recoloured.  Thus, it is sufficient
-   to show that every node of $T_0$ or $T_1$ that shares an edge with one
-   of $x_0,\ldots,x_{i-1}$ or $a_1$ is a bad node.  In the following,
-   when we say that a node is (really$^i$) bad, we mean that it is
-   (really$^i$) bad in $T_0$ or $T_1$.
+   to show that all nodes in $R=\cup\{N(v): v\in\{x_0,\ldots,x_{i-1},a_1\}$
+   are bad.  But this is immediate since $x_0,\ldots,x_{i-1}$ are really
+   really bad and $a_1\in N(x_0)$, so $a_1$ is bad.  Since every node in $R$
+   share an edge with at least one of $\{x_0,\ldots,x_{i-1},a_1\}$, every
+   node in $R$ is therefore bad, as required.
 
-   The nodes $x_0,\ldots,x_i$ are all really really bad. Therefore the
-   nodes of $T_1$ that share a boundary with these nodes are really bad.
-   Furthermore, $x_{i+1}$ and $y_1$ are really really bad.  Thus, all the
-   nodes that share edges with $x_0,\ldots,x_{i-1}$ are bad, as required.
-
-   The node $a_1$ is really bad and its two neighbours $a_0$ and $a_2$
-   in $T_1$ are also really bad because $a_0$ shares an edge with $x_i$
-   and $a_2$ shares an edge with $x_0$.  Finally, since $a_1$ is really
-   bad, the nodes of $T_0$ that share an edge of $C$ with $a_1$ are bad.
-   Thus, all the nodes that share an edge with $a_1$ are also bad.
-   This proves \clmref{only-bad}.
-
-   To prove \clmref{a1-caressed} we consider the boundary of the face
+   To prove \clmref{a0-caressed} we consider the boundary of the face
    $a_0$ of $T^*$ after the recolouring operation.  This boundary
    consists of, in cyclic order:
    \begin{enumerate}
