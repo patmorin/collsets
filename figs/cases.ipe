@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20181004123132" modified="D:20190110110322"/>
+<info created="D:20181004123132" modified="D:20190111071317"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -416,10 +416,6 @@ h
 368 688 m
 336 688 l
 </path>
-<path stroke="black">
-368 632 m
-336 632 l
-</path>
 <path stroke="black" dash="dotted">
 368 720 m
 368 696 l
@@ -594,6 +590,10 @@ h
 424 560 l
 400 560 l
 400 624 l
+</path>
+<path layer="alpha" stroke="black">
+368 632 m
+336 632 l
 </path>
 </page>
 </ipe>
