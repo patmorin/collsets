@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180930100449" modified="D:20181009135246"/>
+<info created="D:20180930100449" modified="D:20190110113634"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -487,5 +487,64 @@ h
 <use name="mark/disk(sx)" pos="368 704" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="352 704" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="352 768" size="normal" stroke="black"/>
+<path matrix="0.5 0 0 0.5 51 384" stroke="black">
+102 768 m
+114 768 l
+</path>
+<use name="mark/disk(sx)" pos="108 768" size="normal" stroke="black"/>
+<path stroke="black">
+108 768 m
+108 776 l
+</path>
+<use matrix="1 0 0 1 32 0" name="mark/disk(sx)" pos="108 768" size="normal" stroke="black"/>
+<path matrix="1 0 0 1 32 0" stroke="black">
+108 768 m
+108 776 l
+</path>
+<use matrix="1 0 0 1 64 0" name="mark/disk(sx)" pos="108 768" size="normal" stroke="black"/>
+<path matrix="1 0 0 1 64 0" stroke="black">
+108 768 m
+108 776 l
+</path>
+<use matrix="1 0 0 1 96 0" name="mark/disk(sx)" pos="108 768" size="normal" stroke="black"/>
+<path matrix="1 0 0 1 96 0" stroke="black">
+108 768 m
+108 776 l
+</path>
+<use matrix="1 0 0 1 128 0" name="mark/disk(sx)" pos="108 768" size="normal" stroke="black"/>
+<path matrix="1 0 0 1 128 0" stroke="black">
+108 768 m
+108 776 l
+</path>
+<use matrix="1 0 0 1 192 0" name="mark/disk(sx)" pos="108 768" size="normal" stroke="black"/>
+<path matrix="1 0 0 1 192 0" stroke="black">
+108 768 m
+108 776 l
+</path>
+<use matrix="1 0 0 1 224 0" name="mark/disk(sx)" pos="108 768" size="normal" stroke="black"/>
+<path matrix="1 0 0 1 224 0" stroke="black">
+108 768 m
+108 776 l
+</path>
+<path stroke="black" pen="ultrafat">
+114 768 m
+338 768 l
+</path>
+<path stroke="black">
+48 768 m
+44 776 l
+</path>
+<path stroke="black">
+48 704 m
+44 696 l
+</path>
+<path stroke="black">
+368 704 m
+372 696 l
+</path>
+<path stroke="black">
+368 768 m
+372 776 l
+</path>
 </page>
 </ipe>

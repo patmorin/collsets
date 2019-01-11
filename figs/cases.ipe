@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20181004123132" modified="D:20190108185638"/>
+<info created="D:20181004123132" modified="D:20190110110322"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -265,15 +265,15 @@ h
 </ipestyle>
 <page>
 <layer name="alpha"/>
-<layer name="z"/>
-<layer name="case1-colours"/>
-<layer name="case1-surgery"/>
-<layer name="small-colours"/>
+<layer name="case1"/>
+<layer name="case2-C"/>
+<layer name="case2"/>
+<layer name="case2-surgery"/>
 <layer name="beta"/>
 <view layers="alpha" active="alpha"/>
-<view layers="alpha z" active="alpha"/>
-<view layers="alpha case1-colours case1-surgery" active="case1-surgery"/>
-<view layers="alpha case1-surgery small-colours" active="small-colours"/>
+<view layers="alpha case1" active="case1"/>
+<view layers="alpha case2-C case2" active="case2-C"/>
+<view layers="alpha case2 case2-surgery" active="case2-surgery"/>
 <path layer="alpha" fill="brew5">
 304 816 m
 304 520 l
@@ -281,7 +281,7 @@ h
 432 816 l
 h
 </path>
-<path layer="case1-surgery" fill="brew8">
+<path layer="case2" fill="brew8">
 368 560 m
 368 552 l
 336 552 l
@@ -302,7 +302,7 @@ h
 400 776 l
 h
 </path>
-<path layer="z" fill="brew8">
+<path layer="case1" fill="brew8">
 368 560 m
 368 552 l
 344 552 l
@@ -487,7 +487,7 @@ h
 h
 </path>
 <text matrix="1 0 0 1 0 -16" transformations="translations" pos="384 648" stroke="black" type="label" width="26.846" height="4.57" depth="2.1" halign="center" valign="center" style="math">u=x_0</text>
-<path layer="small-colours" stroke="black">
+<path layer="case2-surgery" stroke="black">
 336 728 m
 336 688 l
 368 688 l
@@ -502,7 +502,7 @@ h
 h
 </path>
 <text layer="alpha" matrix="1 0 0 1 -32 12" transformations="translations" pos="384 648" stroke="black" type="label" width="9.496" height="4.57" depth="2.1" halign="center" valign="center" style="math">a_1</text>
-<path layer="small-colours" stroke="black" fill="brew5">
+<path layer="case2-surgery" stroke="black" fill="brew5">
 368 680 m
 368 624 l
 400 624 l
@@ -533,6 +533,67 @@ h
 336 752 l
 320 752 l
 h
+</path>
+<path layer="case1" stroke="black">
+400 560 m
+400 776 l
+424 776 l
+424 800 l
+312 800 l
+312 624 l
+336 624 l
+336 784 l
+368 784 l
+368 552 l
+344 552 l
+344 528 l
+424 528 l
+424 560 l
+400 560 l
+</path>
+<path stroke="black" pen="ultrafat" cap="1">
+400 640 m
+400 776 l
+424 776 l
+424 800 l
+312 800 l
+312 624 l
+336 624 l
+336 784 l
+368 784 l
+368 640 l
+</path>
+<path stroke="black" pen="ultrafat" cap="1">
+368 624 m
+368 552 l
+344 552 l
+344 528 l
+424 528 l
+424 560 l
+400 560 l
+400 624 l
+</path>
+<path layer="case2-C" stroke="black" pen="ultrafat" cap="1">
+400 640 m
+400 776 l
+424 776 l
+424 808 l
+344 808 l
+344 784 l
+368 784 l
+368 640 l
+</path>
+<path stroke="black" pen="ultrafat" cap="1">
+368 624 m
+368 552 l
+336 552 l
+336 752 l
+320 752 l
+320 528 l
+424 528 l
+424 560 l
+400 560 l
+400 624 l
 </path>
 </page>
 </ipe>
