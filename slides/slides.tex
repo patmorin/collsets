@@ -1,0 +1,262 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+\usepackage{ods}
+%\usepackage{ods-figs}
+\usepackage[cm]{sfmath}
+\usepackage[utf8]{inputenc}
+%\usepackage{enumitem}
+%\usepackage{enumitem}
+%\setitemize{itemsep=1.5ex}
+%\setlength{\leftmargini}{0pt}
+\usepackage{array}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\dual}[1]{#1^\star}
+\newcommand{\Fary}{F\'ary}
+
+\title{Dual Circumference and Free Sets}
+\author{Vida Dujmović \and Pat Morin}
+\titlegraphic{\includegraphics[height=1em]{by}}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+   \frametitle{The Setup}
+
+   \begin{itemize}
+      \item $G$ is an $n$-vertex plane graph.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Proper Good Curves}
+  
+  \begin{itemize}
+     \item A curve $C$ is 
+     \begin{itemize}
+        \item \emph{good} if it contains a point \emph{in} the outer face of $G$
+        \item \emph{proper} if the intersection of $C$ with each edge of $G$ is
+         \begin{itemize}
+            \item empty; or
+            \item a single point (maybe a vertex); or
+            \item the entire edge.
+         \end{itemize}
+     \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Free Sets}
+
+   \begin{itemize}
+     \item A set $F\subset V(G)$ is \emph{free} if for every
+     $X\subset\R^2$ with $|X|=|F|$, $G$ has a \emph{non-crossing
+     straight-line} drawing in which the vertices of $F$ are drawn on
+     the points of $X$.
+
+     \item Free sets have applications to
+     \begin{itemize}
+        \item untangling, 
+        \item column planarity, 
+        \item universal point subsets, 
+        \item partial simultaneous geometric drawings.
+        \item \ldots
+     \end{itemize}
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+   \frametitle{The Free-Set Theorem}
+   
+   \begin{itemize}
+       \item[]\textbf{Theorem (Dujmovi\'c--Frati--Gon\c{c}alves--M.--Rote 2019):} A set $F\subset V(G)$ is a \emph{free set} if and only if there is a proper good curve that contains $F$.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Proper Good Curves and Dual Cycles} 
+
+  \begin{itemize}[<+->]
+     \item Every proper-good curve containing $k$ vertices gives a dual
+       cycle of length at least $k$.
+     \item What about the other direction?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+   \frametitle{Pause}
+
+   \begin{itemize}
+      \item From this point on $G$ is (wlog) a triangulation.
+      \item $G$ has maximum degree $\Delta$.
+      \item $\dual{G}$ is the dual of $G$, a 3-connected cubic planar
+      graph whose largest face has size at most $\Delta$
+   \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+   \frametitle{Dual Cycles---Circumference}
+
+   \begin{itemize}[<+->]
+      \item The longest cycle in $\dual{G}$ is called its \emph{circumference} 
+      \item Circumference of $n$-vertex 3-connected cubic (planar) $G$
+      \begin{itemize}
+        \item Tait's Conjecture (1884): $\forall \dual{G}: c(\dual{G}) = n$
+        \item Disproved by Tutte (1946): $\exists \dual{G}: c(\dual{G})< n$
+        \item Gr\"unbaum Walther (1973): $\exists \dual{G}: c(\dual{G}) = O(n^{0.9859})$.
+        \item Barnette (XXXX): $\forall \dual{G}: c(\dual{G})=\Omega(\log n)$.
+        \item Bondy and Simonovits (XXXX): $\forall \dual{G}: c(\dual{G})=e^{\Omega(\sqrt{\log n})}$
+        \item Jackson (XXXX): $\forall \dual{G}: c(\dual{G}) = \Omega(n^{0.6942})$
+        \item Billinski et al. (2011): $\forall \dual{G}: c(\dual{G}) = \Omega(n^{0.7532})$
+        \item Liu, Yu, Zhang (2019): $\forall \dual{G}: c(\dual{G}) = \Omega(n^{0.8})$
+      \end{itemize}
+   \end{itemize}
+\end{frame}
+
+\begin{frame}
+   \frametitle{Dual Cycles and Proper Good Curves}
+
+   \begin{itemize}[<+->]
+      \item Every dual cycle defines a proper good curve
+      \item But the curve contains no vertices!
+      \item Can we ``bend'' the curve to pick up some vertices?
+      \item Sometimes yes, sometimes no
+   \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+   \frametitle{Dual Cycles and Proper Good Curves}
+
+   \begin{itemize}[<+->]
+      \item A cycle $C$ in $\dual{G}$
+      \begin{itemize}
+         \item \emph{touches} $f$ if $f\cap C\neq\emptyset$
+         \item \emph{caresses} $f$ if $f\cap C$ is a path
+         \item \emph{pinches} $f$ if $f\cap C$ is a cycle or has more
+               than one connected component.
+      \end{itemize}
+      \item $\tau$ouched, $\rho$inched, $\kappa$aressed
+      \item $\tau = \rho + \kappa$
+   \end{itemize}
+
+   \begin{center}
+      \includegraphics[height=.5\textheight]{figs/t0t1-2}
+   \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Dual Cycles and Proper Good Curves}
+
+  \begin{itemize}[<+->]
+    \item[]\textbf{Theorem:} If $C$ caresses $\kappa$ faces of $\dual{G}$ then there is a proper good curve $\tilde{C}$ that contains at least $\kappa/4$ vertices of $G$.
+    \item[]\textit{Proof:} Take an independent set $\dual{S}$ of caressed faces of $\dual{G}$ and ``bend'' $C$ so that it passes through each vertex of $S$.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Summary So Far}
+
+  
+  \begin{center}
+    \uncover<4->{{\color{blue}cycle in $G$ of length $\ell=c\kappa\Delta^4$ \\ $\Downarrow$} \\}
+    \uncover<1->{cycle in $\dual{G}$ that caresses $\kappa$ faces}\\
+    \uncover<2->{$\Downarrow$ \\
+    proper good curve that contains $\kappa/4$ vertices of $G$}\\
+    \uncover<3->{$\Downarrow$ \\
+    free set of size $\kappa/4$}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Main Theorem}
+
+  \begin{itemize}
+     \item[]\textbf{Theorem:} If $G$ has maximum degree $\Delta$ and $\dual{G}$ has a cycle of length $\ell$, then $\dual{G}$ has a cycle $C'$ that caresses $\kappa=\Omega(\ell/\Delta^4)$ faces.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Proof Ideas}
+
+  
+  \begin{itemize}
+     \item Want to show that $C$ $\kappa$aresses many faces
+     \item $C$ has length $\ell$
+     \item each face of $\dual{G}$ has most $\Delta$ edges
+     \item[$\therefore$] $C$ $\tau$ouches at least $\ell/\Delta$ faces
+     \item Recall $\tau = \kappa + \rho$
+     \item If $\kappa =\Omega(\ell/\Delta)$ we are done
+     \item Otherwise $C$ $\rho$inches at least $\rho = \Omega(\ell/\Delta)$ faces
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A Bad Example}
+
+  \begin{center}
+     \includegraphics[width=.9\textwidth]{figs/two-caressed}
+  \end{center}
+  \begin{itemize}
+    \item $\tau = \kappa + \rho$
+    \item $\tau = 2k+3$, $\kappa = 4$, $\rho = 2k-1$
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Proof Idea}
+
+  \begin{center}
+     \includegraphics[height=.2\textheight]{figs/two-caressed}
+  \end{center}
+  \begin{itemize}
+    \item Define two trees $T_0$ (inside $C$) and $T_1$ (outside $C$)
+    \item Show that:
+    \begin{itemize}
+      \item Each leaf of $T_i$ contains a caressed face
+      \item Each $T_i$ has $\Omega(\ell/\Delta)$ nodes
+    \end{itemize}
+    \item We are done if either $T_i$ has many leaves, so each $T_i$ must have few leaves
+    \item[$\therefore$] each $T_i$ has many degree 2 nodes
+    \item With enough degree-2 nodes, we can perform a \emph{surgery} that increases the number of leaves in $T_0$.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{The Trees $T_0$ and $T_1$}
+
+  
+\end{frame}
+
+
+%      \item For a node $u$ of $T_i$,
+%        \[ \rho_u \le 2(\kappa_u + \delta_u) \Leftrightarrow 
+%           \tau_u \le 3\kappa_u + 2\delta_u \]
+%    \end{itemize}
+%    \item So if $\tau_u$ is big then either
+%    \begin{itemize}
+%       \item $\kappa_u$ is big; or
+%       \item $\delta_u$ is big
+%    \end{itemize}
+%  \end{itemize}
+%\end{frame}
+%
+
+
+
+
+
+
+%\closing
+
+\end{document}
+
