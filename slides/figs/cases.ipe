@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20181004123132" modified="D:20190111071317"/>
+<info created="D:20181004123132" modified="D:20190201063817"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -505,7 +505,7 @@ h
 400 680 l
 h
 </path>
-<path stroke="black" pen="ultrafat">
+<path stroke="red" pen="ultrafat">
 320 528 m
 424 528 l
 424 560 l
@@ -547,7 +547,7 @@ h
 424 560 l
 400 560 l
 </path>
-<path stroke="black" pen="ultrafat" cap="1">
+<path stroke="red" pen="ultrafat" cap="1">
 400 640 m
 400 776 l
 424 776 l
@@ -559,7 +559,7 @@ h
 368 784 l
 368 640 l
 </path>
-<path stroke="black" pen="ultrafat" cap="1">
+<path stroke="red" pen="ultrafat" cap="1">
 368 624 m
 368 552 l
 344 552 l
@@ -569,7 +569,7 @@ h
 400 560 l
 400 624 l
 </path>
-<path layer="case2-C" stroke="black" pen="ultrafat" cap="1">
+<path layer="case2-C" stroke="red" pen="ultrafat" cap="1">
 400 640 m
 400 776 l
 424 776 l
@@ -579,7 +579,7 @@ h
 368 784 l
 368 640 l
 </path>
-<path stroke="black" pen="ultrafat" cap="1">
+<path stroke="red" pen="ultrafat" cap="1">
 368 624 m
 368 552 l
 336 552 l

@@ -191,6 +191,7 @@
      \item $C$ has length $\ell$
      \item each face of $\dual{G}$ has most $\Delta$ edges
      \item[$\therefore$] $C$ $\tau$ouches at least $\ell/\Delta$ faces
+          ($\tau = \Omega(\ell/\Delta)$)
      \item Recall $\tau = \kappa + \rho$
      \item If $\kappa =\Omega(\ell/\Delta)$ we are done
      \item Otherwise $C$ $\rho$inches at least $\rho = \Omega(\ell/\Delta)$ faces
@@ -206,7 +207,7 @@
   \end{center}
   \begin{itemize}
     \item $\tau = \kappa + \rho$
-    \item $\tau = 2k+3$, $\kappa = 4$, $\rho = 2k-1$
+    \item $\tau = 2k+2$, $\kappa = 4$, $\rho = 2k-2$
   \end{itemize}
 \end{frame}
 
@@ -234,7 +235,14 @@
 \begin{frame}
   \frametitle{The Trees $T_0$ and $T_1$}
 
-  
+  \begin{center}
+   \begin{tabular}{cc}
+      \includegraphics[width=.45\textwidth]{figs/t0t1-2} &
+      \includegraphics[width=.45\textwidth]{figs/t0t1-3} \\
+      \includegraphics[width=.45\textwidth]{figs/t0t1-4} & 
+      \includegraphics[width=.45\textwidth]{figs/t0t1-5} \\
+   \end{tabular}
+  \end{center} 
 \end{frame}
 
 
@@ -251,7 +259,80 @@
 %\end{frame}
 %
 
+\begin{frame}
+  \frametitle{Proof Ideas}
+  \begin{itemize}
+    \item Define two trees $T_0$ (inside $C$) and $T_1$ (outside $C$)
+    \item Show that:
+    \begin{itemize}
+      \item \alert{Each leaf of $T_i$ contains a caressed face}
+      \item Each $T_i$ has $\Omega(\ell/\Delta)$ nodes
+    \end{itemize}
+    \item We are done if either $T_i$ has many leaves, so each $T_i$ must have few leaves
+    \item[$\therefore$] each $T_i$ has many degree 2 nodes
+    \item With enough degree-2 nodes, we can perform a \emph{surgery} that increases the number of leaves in $T_0$.
+  \end{itemize}
+\end{frame}
 
+\begin{frame}
+  \frametitle{Every Leaf $\kappa$aresses a Face}
+
+   \noindent\textbf{Lemma:} 
+   Let $P$ be a chord path for $C$ and let $L$ and $R$ be the two faces
+   of $P\cup C$ that each contain $P$ in their boundary. Then $R$
+   contains at least one face of $\dual{T}$ that is caressed by $C$.
+
+  \begin{center}
+      \only<+>{\includegraphics[width=.45\textwidth]{figs/one-caressed-1}}%
+      \only<+->{\includegraphics[width=.45\textwidth]{figs/one-caressed-2}}
+  \end{center}
+
+  \uncover<+->{
+   \noindent\textbf{Lemma:} Every leaf of $T_i$ contains at least one
+   caressed face. 
+  }
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Proof Ideas}
+  \begin{itemize}
+    \item Define two trees $T_0$ (inside $C$) and $T_1$ (outside $C$)
+    \item Show that:
+    \begin{itemize}
+      \item Each leaf of $T_i$ contains a caressed face
+      \item Each $T_i$ has $\Omega(\ell/\Delta)$ nodes
+    \end{itemize}
+    \item We are done if either $T_i$ has many leaves, so each $T_i$ must have few leaves
+    \item[$\therefore$] each $T_i$ has many degree 2 nodes
+    \item \alert{With enough degree-2 nodes, we can perform a \emph{surgery} that increases the number of leaves in $T_0$.}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bad Nodes}
+
+  \begin{itemize}
+    \item A node of $T_i$ is \emph{bad} if its has degree 2 and contains no caressed face.
+    \item[]\textbf{Lemma:} Every bad node contains exactly one face of $\dual{G}$
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Surgery}
+
+  \begin{center}
+    \includegraphics[height=.7\textheight]{figs/cases-3}
+    \uncover<2->{\includegraphics[height=.7\textheight]{figs/cases-4}}
+  \end{center}
+  \begin{itemize}
+     \item[<3->] increases number of leaves in $T_0$ 
+        (see $a_0$)
+     \item decreases length of $C$ by at most $\Delta^2$
+  \end{itemize}
+\end{frame}
 
 
 
