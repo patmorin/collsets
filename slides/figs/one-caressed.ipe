@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180928140858" modified="D:20190201061600"/>
+<info created="D:20180928140858" modified="D:20190201085914"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -266,8 +266,10 @@ h
 <layer name="alpha"/>
 <layer name="beta"/>
 <layer name="gamma"/>
+<layer name="delta"/>
 <view layers="alpha gamma" active="alpha"/>
 <view layers="alpha beta" active="beta"/>
+<view layers="alpha delta" active="delta"/>
 <path layer="alpha" stroke="brew5">
 242.535 775.855 m
 223.697 739.824
@@ -308,6 +310,36 @@ h
 224 688
 320 688
 336 736 u
+</path>
+<use layer="delta" name="mark/square(sx)" pos="272.883 731.566" size="large" stroke="brew7"/>
+<path stroke="brew7" pen="ultrafat">
+274.09 730.962 m
+204.722 742.122 l
+</path>
+<path stroke="brew7" pen="ultrafat">
+204.722 742.122 m
+193.261 756.297 l
+193.261 756.297 l
+</path>
+<path stroke="brew7" pen="ultrafat">
+193.261 756.297 m
+204.42 769.265 l
+</path>
+<path stroke="brew7" pen="ultrafat">
+204.722 742.122 m
+191.452 728.248 l
+</path>
+<path stroke="brew7" pen="ultrafat">
+191.452 728.248 m
+175.467 736.391 l
+</path>
+<path stroke="brew7" pen="ultrafat">
+191.452 728.248 m
+197.484 708.946 l
+</path>
+<path stroke="brew7" pen="ultrafat">
+193.261 756.297 m
+184.515 751.17 l
 </path>
 </page>
 </ipe>
