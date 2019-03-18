@@ -1,37 +1,12 @@
 \documentclass[a4paper,UKenglish]{socg-lipics-v2019}
-%\usepackage[top=0.85in, bottom=0.85in, left=0.85in, right=0.85in]{geometry}
-\listfiles
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Packages
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{graphicx}
-%\usepackage{xspace}
-%\usepackage{wrapfig}
-\newcommand{\Vspace}[1]{}
 \usepackage{enumerate}
-\usepackage{cite}
 \usepackage{pat}
-\usepackage{paralist}
-\usepackage{hyperref}
-%\hypersetup{colorlinks=true, linkcolor=linkblue,  anchorcolor=linkblue,
-%citecolor=linkblue, filecolor=linkblue, menucolor=linkblue,
-%urlcolor=linkblue, pdfcreator=Me, pdfproducer=Me} 
-\setlength{\parskip}{1ex}
-\usepackage{algorithm}
-%\usepackage{subfig}
-\usepackage{array}
-%\usepackage[noend]{algpseudocode}
-\usepackage[usenames]{xcolor}
-%\usepackage{compress}
-%\usepackage{times}
-%\usepackage{lineno}
-
-%\bibliographystyle{plainurl}
 
 \title{Dual Circumference and Collinear Sets}
 
@@ -61,6 +36,15 @@
                 \url{https://arxiv.org/abs/1811.03427}}
 \funding{This work was partly funded by NSERC and MRI.}
 
+\acknowledgements{Much of this research took place during the Sixth
+  Workshop on Order and Geometry held in Ciążeń, Poland, September
+  19--22, 2018.  The authors are grateful to the organizers,
+  Stefan~Felsner and Piotr~Micek, and to the other participants for
+  providing a stimulating research environment.}
+
+\nolinenumbers
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Event-specific LiPiCS stuff
 \EventEditors{Gill Barequet and Yusu Wang}
 \EventNoEds{2}
@@ -73,14 +57,7 @@
 \EventLogo{socg-logo}
 \SeriesVolume{129}
 \ArticleNo{29}  
-
-\acknowledgements{Much of this research took place during the Sixth
-  Workshop on Order and Geometry held in Ciążeń, Poland, September
-  19--22, 2018.  The authors are grateful to the organizers,
-  Stefan~Felsner and Piotr~Micek, and to the other participants for
-  providing a stimulating research environment.}
-
-\nolinenumbers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\dual}[1]{{#1}^\star}
 %\newcommand{\note}[2]{{\color{red}[#1:~#2]}}
@@ -829,6 +806,8 @@ majority of nodes in $T_0$ and $T_1$ are bad nodes, otherwise
 \lemref{most-nodes-are-bad} implies that a constant fraction of the
 faces touched by $C$ are caressed by $C$.  At this point, we are ready
 to study interactions between bad nodes of $T_0$ and bad nodes of $T_1$.
+The proof of the following lemma is ommitted due to space constraints
+but can be found in the full version of the paper.
 
 
 \begin{lem}\lemlabel{common-face}
@@ -836,45 +815,45 @@ to study interactions between bad nodes of $T_0$ and bad nodes of $T_1$.
    that is contained in $u$ and that contains all edges of $C\cap u$.
 \end{lem}
 
-\begin{proof}
-   First observe that, since $u$ has degree 2, $C\cap u$ has exactly
-   two connected components $C_1$ and $C_2$. Thus $u$'s boundary
-   consists of $C_1$, $C_2$ and two chord paths $P_1$ and $P_2$.
-
-   If $C\cap u$ is not contained in a single face of $\dual{T}$, then
-   some path $P$ with endpoints on the boundary of $u$ and internal
-   vertices in the interior of $u$ separates two edges of $E(C)$ on the
-   boundary of $u$.  There are a few cases to rule out:
-   \begin{enumerate}
-       \item $P$ has both endpoints on $C_i$ for some $i\in\{1,2\}$. In
-       this case, $P$ is a chord path and, by \lemref{one-caressed}
-       $u$ contains a face that is caressed by $C$, contradicting the
-       assumption that $u$ is a bad node.
-
-       \item $P$ has one endpoint on $C_i$ and one endpoint on $P_j$
-       for some $i,j\in\{1,2\}$.  In this case, $P\cup P_j$ contains a
-       chord path with both endpoints on $C_i$, again contradicting the
-       assumption that $u$ is a bad node.
-
-       \item $P$ has one endpoint on $P_1$ and one endpoint on $P_2$.
-       In this case, $P\cup P_1\cup P_2$ contains a chord path with both
-       endpoints on $C_1$, again contradicting the assumption that $u$
-       is a bad node.
-
-       \item $P$ has one endpoint on $C_1$ and one endpoint on $C_2$.
-       The path $P$ is not a keeper, otherwise it would have split $u$
-       into two nodes.	Therefore, it must be the case that $P$ contains
-       an internal vertex.  Let $S_1$ be the set of internal vertices
-       of $P$ and let $S_2$ be the set of vertices on the boundary
-       of $u$, not including the endpoints of $P$.  Since $\dual{T}$
-       is 3-connected, there is a path from $S_1$ to $S_2$ that does
-       not contain any endpoint of $P$.  The shortest such path, $P'$,
-       does not contain any edges of $P$.  Again, using portions of $P$,
-       $P_1$, $P_2$, and $P'$ we can construct a chord path, contained
-       in $u$, with both endpoints on $C_1$ or both endpoints on $C_2$,
-       contradicting the assumption that $u$ is a bad node.
-\end{enumerate}
-\end{proof}
+%\begin{proof}
+%   First observe that, since $u$ has degree 2, $C\cap u$ has exactly
+%   two connected components $C_1$ and $C_2$. Thus $u$'s boundary
+%   consists of $C_1$, $C_2$ and two chord paths $P_1$ and $P_2$.
+%
+%   If $C\cap u$ is not contained in a single face of $\dual{T}$, then
+%   some path $P$ with endpoints on the boundary of $u$ and internal
+%   vertices in the interior of $u$ separates two edges of $E(C)$ on the
+%   boundary of $u$.  There are a few cases to rule out:
+%   \begin{enumerate}
+%       \item $P$ has both endpoints on $C_i$ for some $i\in\{1,2\}$. In
+%       this case, $P$ is a chord path and, by \lemref{one-caressed}
+%       $u$ contains a face that is caressed by $C$, contradicting the
+%       assumption that $u$ is a bad node.
+%
+%       \item $P$ has one endpoint on $C_i$ and one endpoint on $P_j$
+%       for some $i,j\in\{1,2\}$.  In this case, $P\cup P_j$ contains a
+%       chord path with both endpoints on $C_i$, again contradicting the
+%       assumption that $u$ is a bad node.
+%
+%       \item $P$ has one endpoint on $P_1$ and one endpoint on $P_2$.
+%       In this case, $P\cup P_1\cup P_2$ contains a chord path with both
+%       endpoints on $C_1$, again contradicting the assumption that $u$
+%       is a bad node.
+%
+%       \item $P$ has one endpoint on $C_1$ and one endpoint on $C_2$.
+%       The path $P$ is not a keeper, otherwise it would have split $u$
+%       into two nodes.	Therefore, it must be the case that $P$ contains
+%       an internal vertex.  Let $S_1$ be the set of internal vertices
+%       of $P$ and let $S_2$ be the set of vertices on the boundary
+%       of $u$, not including the endpoints of $P$.  Since $\dual{T}$
+%       is 3-connected, there is a path from $S_1$ to $S_2$ that does
+%       not contain any endpoint of $P$.  The shortest such path, $P'$,
+%       does not contain any edges of $P$.  Again, using portions of $P$,
+%       $P_1$, $P_2$, and $P'$ we can construct a chord path, contained
+%       in $u$, with both endpoints on $C_1$ or both endpoints on $C_2$,
+%       contradicting the assumption that $u$ is a bad node.
+%\end{enumerate}
+%\end{proof}
 
 The following lemma shows that a bad node $u$ in $T_0$ and a bad node $w$
 in $T_1$ share at most one edge of $C$.
@@ -1462,7 +1441,7 @@ is to resolve the following conjecture:
 
 
 
-\bibliographystyle{plain}
+\bibliographystyle{plainurl}
 \bibliography{collsets}
 
 \end{document}
