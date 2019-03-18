@@ -934,6 +934,7 @@ on its boundary.
 For a node $u$ of $T_i$, we define $N(u)$ as the set of nodes (in $T_0$
 and $T_1$) that share an edge of $\dual{T}$ with $u$.  We say that a
 node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
+The proof of the following lemma---which is similar to that of \lemref{most-nodes-are-bad}---is ommitted due to space constraints.
 
 \begin{lem}\lemlabel{lots-of-really-bad}
   For every sufficiently small $0<\alpha < 1/2$,  
@@ -942,69 +943,69 @@ node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
   the number of really bad nodes in $T_0$ is at least $n_0-O(\alpha n_0)$.
 \end{lem}
 
-\begin{proof}
-  First consider the tree $T_0$.  From \obsref{degree-touched},
-  we know that $\tau_0\ge \ell/\Delta$.  By assumption,
-  $\kappa_0\le\kappa\le \alpha\ell/\Delta^2 < \tau_0/6$
-  so, by \lemref{few-caressed-implies-many-nodes}, $n_0 \ge
-  \tau_0/8=\Omega(\ell/\Delta)$.
-  
-  Let $\epsilon=a\alpha/\Delta$ for some $a>0$ to be discussed shortly.
-  By \lemref{most-nodes-are-bad}, if $b_0 < (1-\epsilon) n_0$, then
-  \[ 
-      \kappa \ge \kappa_0 = \Omega(\epsilon\tau_0)
-               = \Omega(\epsilon\ell/\Delta)
-               = \Omega(a\alpha\ell/\Delta^2) 
-               \enspace .
-  \]
-  For sufficiently large, constant, $a$ this violates our assumption
-  that $\kappa \le \alpha\ell/\Delta^2$.
-  Therefore, we may assume that $b_0\ge (1-\epsilon)n_0$, i.e., most nodes
-  of $T_0$ are bad.
-
-  We now want to study how many of the bad nodes in $T_0$ are really bad.
-  Each node $w$ of $T_0$ is in $N(u)$ for at most $\delta_w$ bad nodes
-  $u$ in $T_0$.  Let $A$ be the set of nodes in $T_0$ that are not
-  bad and partition $A$ into $A_1$ (leaves), $A_2$ (degree-2 nodes)
-  and $A_{\ge 3}$ (nodes of degree at least 3).  We make use of the
-  following inequality:
-	\begin{equation}
-		|A_1| = 2 + \sum_{w\in A_3}(\delta_w-2) \ge \sum_{w\in A_3}(\delta_w-2)
-		\ge \sum_{w\in A_3}3\delta_w \enspace ,  \eqlabel{triple}
-	\end{equation}
-  which is true because $x-2>x/3$ for all $x\ge 3$. 
-  Now we have 
-  \begin{align*}
-   \sum_{w\in A}\delta_w 
-    & = \sum_{w\in A_1}\delta_w 
-         + \sum_{w\in A_2}\delta_w 
-         + \sum_{w\in A_{\ge 3}}\delta_w \\
-	  & \le |A_1| + 2|A_2| + 3|A_1| & \text{(by \eqref{triple})}\\
-    & \le 6\kappa & \text{(since $\kappa_w\ge 1$ for each $w\in A_1\cup A_2$)}\\
-    & \le 6\alpha\ell/\Delta^2 & \text{(by assumption)}\\
-    & = O(\alpha n_0/\Delta) & \text{(since $n_0=\Omega(\ell/\Delta)$)}\enspace .
-  \end{align*}
-  That is, the set of non-bad nodes in $T_0$ prevents at most $O(\alpha
-  n_0/\Delta)$ bad nodes of $T_0$ from being really bad. Next we account
-  for how nodes in $T_1$ prevent bad nodes in $T_0$ from being really bad.
-
-  Let $A'$ be the set of non-bad nodes in $T_1$.  For two
-  nodes $u$ in $T_0$ and $w$ in $T_1$,  $w\in N(u)$ if and only if $w$
-  and $u$ share an edge of $C$.  The number of edges of $C$ incident to a node $w$ is at most $(\Delta-1)\tau_w < \Delta\tau_w$.  Therefore, we can upper bound the number of bad nodes in $T_0$ that are prevented from being really bad by some node in $T_1$ as
-  \begin{align*}
-   \sum_{w\in A'}\Delta \tau_w  
-    & \le  \sum_{w\in A'}2\Delta(\kappa_w + \delta_w) & \text{(by \lemref{many-caressed-or-high-degree})} \\
-    & \le  2\Delta\kappa + \sum_{w\in A'}2\Delta\delta_w \\
-    & < 2\Delta\kappa + 12\Delta\kappa & \text{(by the same argument as above)}\\
-    & = 14\Delta\kappa \\
-    & \le 14\alpha\ell/\Delta & \text{(by assumption)}\\
-    & = O(\alpha n_0) & \text{(since $n_0=\Omega(\ell/\Delta)$)}
-  \end{align*}
-  Therefore, the number of bad nodes in $T_0$ is at least
-  $(1-\epsilon)n_0$ and the number of these that are really bad is
-  at least $(1-\epsilon)n_0 - O(\alpha n_0) = n_0-O(\alpha n_0)$,
-  as required.
-\end{proof}
+%\begin{proof}
+%  First consider the tree $T_0$.  From \obsref{degree-touched},
+%  we know that $\tau_0\ge \ell/\Delta$.  By assumption,
+%  $\kappa_0\le\kappa\le \alpha\ell/\Delta^2 < \tau_0/6$
+%  so, by \lemref{few-caressed-implies-many-nodes}, $n_0 \ge
+%  \tau_0/8=\Omega(\ell/\Delta)$.
+%  
+%  Let $\epsilon=a\alpha/\Delta$ for some $a>0$ to be discussed shortly.
+%  By \lemref{most-nodes-are-bad}, if $b_0 < (1-\epsilon) n_0$, then
+%  \[ 
+%      \kappa \ge \kappa_0 = \Omega(\epsilon\tau_0)
+%               = \Omega(\epsilon\ell/\Delta)
+%               = \Omega(a\alpha\ell/\Delta^2) 
+%               \enspace .
+%  \]
+%  For sufficiently large, constant, $a$ this violates our assumption
+%  that $\kappa \le \alpha\ell/\Delta^2$.
+%  Therefore, we may assume that $b_0\ge (1-\epsilon)n_0$, i.e., most nodes
+%  of $T_0$ are bad.
+%
+%  We now want to study how many of the bad nodes in $T_0$ are really bad.
+%  Each node $w$ of $T_0$ is in $N(u)$ for at most $\delta_w$ bad nodes
+%  $u$ in $T_0$.  Let $A$ be the set of nodes in $T_0$ that are not
+%  bad and partition $A$ into $A_1$ (leaves), $A_2$ (degree-2 nodes)
+%  and $A_{\ge 3}$ (nodes of degree at least 3).  We make use of the
+%  following inequality:
+%	\begin{equation}
+%		|A_1| = 2 + \sum_{w\in A_3}(\delta_w-2) \ge \sum_{w\in A_3}(\delta_w-2)
+%		\ge \sum_{w\in A_3}3\delta_w \enspace ,  \eqlabel{triple}
+%	\end{equation}
+%  which is true because $x-2>x/3$ for all $x\ge 3$. 
+%  Now we have 
+%  \begin{align*}
+%   \sum_{w\in A}\delta_w 
+%    & = \sum_{w\in A_1}\delta_w 
+%         + \sum_{w\in A_2}\delta_w 
+%         + \sum_{w\in A_{\ge 3}}\delta_w \\
+%	  & \le |A_1| + 2|A_2| + 3|A_1| & \text{(by \eqref{triple})}\\
+%    & \le 6\kappa & \text{(since $\kappa_w\ge 1$ for each $w\in A_1\cup A_2$)}\\
+%    & \le 6\alpha\ell/\Delta^2 & \text{(by assumption)}\\
+%    & = O(\alpha n_0/\Delta) & \text{(since $n_0=\Omega(\ell/\Delta)$)}\enspace .
+%  \end{align*}
+%  That is, the set of non-bad nodes in $T_0$ prevents at most $O(\alpha
+%  n_0/\Delta)$ bad nodes of $T_0$ from being really bad. Next we account
+%  for how nodes in $T_1$ prevent bad nodes in $T_0$ from being really bad.
+%
+%  Let $A'$ be the set of non-bad nodes in $T_1$.  For two
+%  nodes $u$ in $T_0$ and $w$ in $T_1$,  $w\in N(u)$ if and only if $w$
+%  and $u$ share an edge of $C$.  The number of edges of $C$ incident to a node $w$ is at most $(\Delta-1)\tau_w < \Delta\tau_w$.  Therefore, we can upper bound the number of bad nodes in $T_0$ that are prevented from being really bad by some node in $T_1$ as
+%  \begin{align*}
+%   \sum_{w\in A'}\Delta \tau_w  
+%    & \le  \sum_{w\in A'}2\Delta(\kappa_w + \delta_w) & \text{(by \lemref{many-caressed-or-high-degree})} \\
+%    & \le  2\Delta\kappa + \sum_{w\in A'}2\Delta\delta_w \\
+%    & < 2\Delta\kappa + 12\Delta\kappa & \text{(by the same argument as above)}\\
+%    & = 14\Delta\kappa \\
+%    & \le 14\alpha\ell/\Delta & \text{(by assumption)}\\
+%    & = O(\alpha n_0) & \text{(since $n_0=\Omega(\ell/\Delta)$)}
+%  \end{align*}
+%  Therefore, the number of bad nodes in $T_0$ is at least
+%  $(1-\epsilon)n_0$ and the number of these that are really bad is
+%  at least $(1-\epsilon)n_0 - O(\alpha n_0) = n_0-O(\alpha n_0)$,
+%  as required.
+%\end{proof}
 
 For a node $u$ of $T_i$, we define $N^0(u) = \{u\}$ and, for any $i\in\N$,
 we define $N^{i}(u)=\bigcup_{w\in N^{i-1}(u)} N(w)$.   We say that a node
