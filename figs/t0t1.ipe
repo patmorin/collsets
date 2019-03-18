@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180929072549" modified="D:20190110120507"/>
+<info created="D:20180929072549" modified="D:20190318124445"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -780,11 +780,6 @@ h
 <use name="mark/disk(sx)" pos="248.929 694.012" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="248.929 654.744" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="272.538 654.744" size="normal" stroke="black"/>
-<path stroke="black">
-174.271 669.125 m
-197.692 681.22 l
-</path>
-<use name="mark/disk(sx)" pos="197.692 681.22" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="194.806 623.286" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="246.399 623.08" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="234.089 623.08" size="normal" stroke="black"/>
@@ -1065,7 +1060,6 @@ h
 <use name="mark/disk(sx)" pos="185.194 594.66" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="174.271 594.66" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="174.271 644.031" size="normal" stroke="black"/>
-<use name="mark/disk(sx)" pos="174.271 669.125" size="normal" stroke="gray"/>
 <use name="mark/disk(sx)" pos="174.271 659.323" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="143.796 669.125" size="normal" stroke="black"/>
 <use name="mark/disk(sx)" pos="133.965 669.125" size="normal" stroke="black"/>
@@ -1180,7 +1174,6 @@ h
 68.4266 661.053 m
 56.2009 573.078 l
 </path>
-<use name="mark/disk(sx)" pos="197.692 681.22" size="normal" stroke="gray"/>
 <path layer="tilde-H" stroke="gray">
 248.929 680.377 m
 259.579 688.277 l
@@ -1428,7 +1421,6 @@ h
 68.4266 661.053 m
 56.2009 573.078 l
 </path>
-<use name="mark/disk(sx)" pos="197.692 681.22" size="normal" stroke="gray"/>
 <path stroke="brew4" pen="ultrafat">
 234.089 654.744 m
 248.929 654.744 l
@@ -1696,5 +1688,6 @@ h
 <use name="mark/disk(sx)" pos="150.685 669.125" size="normal" stroke="gray"/>
 <use name="mark/disk(sx)" pos="167.483 669.125" size="normal" stroke="gray"/>
 <use layer="t0t1" name="mark/square(sx)" pos="153.007 676.198" size="large" stroke="brew5"/>
+<use layer="H" name="mark/disk(sx)" pos="174.271 669.125" size="normal" stroke="black"/>
 </page>
 </ipe>
