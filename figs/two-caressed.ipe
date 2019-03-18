@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20181001095028" modified="D:20190110113131"/>
+<info created="D:20181001095028" modified="D:20190131150206"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -1629,5 +1629,6 @@ h
 96 576 l
 </path>
 <use name="mark/disk(sx)" pos="157.2 606.4" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -28.8 0" name="mark/disk(sx)" pos="157.2 577.6" size="normal" stroke="black"/>
 </page>
 </ipe>

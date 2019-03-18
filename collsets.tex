@@ -1,4 +1,4 @@
-\documentclass{patmorin}
+\documentclass[a4paper,UKenglish]{socg-lipics-v2019}
 %\usepackage[top=0.85in, bottom=0.85in, left=0.85in, right=0.85in]{geometry}
 \listfiles
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -18,33 +18,72 @@
 \usepackage{pat}
 \usepackage{paralist}
 \usepackage{hyperref}
-\hypersetup{colorlinks=true, linkcolor=linkblue,  anchorcolor=linkblue,
-citecolor=linkblue, filecolor=linkblue, menucolor=linkblue,
-urlcolor=linkblue, pdfcreator=Me, pdfproducer=Me} 
+%\hypersetup{colorlinks=true, linkcolor=linkblue,  anchorcolor=linkblue,
+%citecolor=linkblue, filecolor=linkblue, menucolor=linkblue,
+%urlcolor=linkblue, pdfcreator=Me, pdfproducer=Me} 
 \setlength{\parskip}{1ex}
 \usepackage{algorithm}
-\usepackage{subfig}
+%\usepackage{subfig}
 \usepackage{array}
-\usepackage[noend]{algpseudocode}
+%\usepackage[noend]{algpseudocode}
 \usepackage[usenames]{xcolor}
-\usepackage{stmaryrd} % for lightning-symbol
-\usepackage{mathtools} % for mathclap in \conf-definition
-\usepackage{todonotes}
 %\usepackage{compress}
 %\usepackage{times}
-\usepackage{lineno}
+%\usepackage{lineno}
 
-\title{\MakeUppercase{Dual Circumference and Collinear Sets}%
-    \thanks{This work was partly funded by NSERC and MRI.}}
+%\bibliographystyle{plainurl}
 
-\author{Vida Dujmovi\'c%
-        \thanks{School of Computer Science and Electrical Engineering, 
-                University of Ottawa}\,\, and 
-        Pat Morin%
-        \thanks{School of Computer Science, Carleton University}}
+\title{Dual Circumference and Collinear Sets}
+
+\author{Vida Dujmovi\'c}
+       {School of Computer Science and Electrical Engineering, 
+        University of Ottawa, Canada \and \url{https://cglab.ca/~vida/}}
+       {vida.dujmovic@uottawa.ca}
+       {} % orcid url
+       {} % author specific funding
+
+\author{Pat Morin}
+       {School of Computer Science,
+        Carleton University, Canada \and \url{https://cglab.ca/~morin/}}
+       {morin@scs.carleton.ca}
+       {} % orcid url
+       {} % author specific funding
+
+\authorrunning{V. Dujmovi\'c and P. Morin}
+
+\keywords{Planar graphs, collinear sets, untangling, column planarity,
+          universal point subsets, partial simultaneous geometric drawings}
+\Copyright{Vida Dujmovi\'c and Pat Morin}
+\ccsdesc{Mathematics of computing~Graph theory}
+\ccsdesc{Mathematics of computing~Extremal graph theory}
+\ccsdesc{Human-centered computing~Graph drawings}
+\relatedversion{A full version of this paper is available at 
+                \url{https://arxiv.org/abs/1811.03427}}
+\funding{This work was partly funded by NSERC and MRI.}
+
+%% Event-specific LiPiCS stuff
+\EventEditors{Gill Barequet and Yusu Wang}
+\EventNoEds{2}
+\EventLongTitle{35th International Symposium on Computational Geometry (SoCG 2019)}
+\EventShortTitle{SoCG 2019}
+\EventAcronym{SoCG}
+\EventYear{2019}
+\EventDate{June 18--21, 2019}
+\EventLocation{Portland, Oregon, USA}
+\EventLogo{socg-logo}
+\SeriesVolume{129}
+\ArticleNo{29}  
+
+\acknowledgements{Much of this research took place during the Sixth
+  Workshop on Order and Geometry held in Ciążeń, Poland, September
+  19--22, 2018.  The authors are grateful to the organizers,
+  Stefan~Felsner and Piotr~Micek, and to the other participants for
+  providing a stimulating research environment.}
+
+\nolinenumbers
 
 \newcommand{\dual}[1]{{#1}^\star}
-\newcommand{\note}[2]{{\color{red}[#1:~#2]}}
+%\newcommand{\note}[2]{{\color{red}[#1:~#2]}}
 
 \begin{document}
 \maketitle
@@ -1420,13 +1459,6 @@ is to resolve the following conjecture:
   $\ell$, then $\dual{T}$ has a cycle that caresses $\Omega(\ell)$ faces.
 \end{conj}
 
-
-\section*{Acknowledgement}
-
-Much of this research took place during the Sixth Workshop on Order and
-Geometry held in Ciążeń, Poland, September 19--22, 2018.  The authors
-are grateful to the organizers, Stefan~Felsner and Piotr~Micek, and to
-the other participants for providing a stimulating research environment.
 
 
 \bibliographystyle{plain}
