@@ -597,7 +597,7 @@ has degree $\delta_u=k+2$.
         pinched faces in $L$, otherwise $P$ would be a keeper path.
         To see this, observe that the face $f$ contains both the first
         edge $e_1$ and last edge $e_2$ of $P$. If $e_1=e_2$ because $P$
-        is a single-edge, then it is certainly a keeper, which is not
+        is a single edge, then it is certainly a keeper, which is not
         possible. Otherwise, by
         \lemref{one-shared-edge}, $e_1$ and $e_2$ are on the boundary of
         two different faces in $L$.  By assumption, both of these faces
@@ -620,7 +620,7 @@ has degree $\delta_u=k+2$.
   We move the $c$ units of charge from $P$ onto $f$.
 
   Now, $R$ still contains one or more pinched faces
-  $f_1,\ldots,f_k$, where each $f_i$ shares a chord path $P_i$ with $g$.
+  $f_1,\ldots,f_k$, where each $f_i$ shares part of a chord path $P_i$ with $g$.
   On each such face $f_i$, we run the initialization procedure described
   above except that we recurse only on the chord paths of $f_i$ that
   do not share edges with $g$. i.e., we do not recurse on the chord
@@ -817,8 +817,8 @@ The following lemma shows that a bad node $u$ in $T_0$ and a bad node $w$
 in $T_1$ share at most one edge of $C$.
 
 \begin{lem}\lemlabel{bad-one-shared-edge}
-   If $u$ and $w$ are bad nodes that share at least one edge of $C$, then
-   $u$ and $w$ share exactly one edge of $C$.
+   If nodes $u$ in $T_0$ and $w$ in $T_1$ are bad nodes that share at
+   least one edge of $C$, then $u$ and $w$ share exactly one edge of $C$.
 \end{lem}
 
 \begin{proof}
@@ -966,7 +966,8 @@ We summarize the situation so far.  We are left with the case where
 $C$ has length $\ell$ and therefore touches $\Omega(\ell/\Delta)$
 faces.  To complete the proof of \thmref{main} we must deal with
 the situation where $C$ caresses $o(\ell/\Delta^4)$ faces and
-therefore has $o(\ell/\Delta^4)$ leaves (\lemref{one-caressed-leaf}),
+therefore each of $T_0$ and $T_1$ has $o(\ell/\Delta^4)$ leaves 
+(\lemref{one-caressed-leaf}),
 $\Omega(\ell/\Delta)$ nodes (\lemref{few-caressed-implies-many-nodes}),
 and the fraction of really really bad nodes in $T_0$ and $T_1$ is
 $1-O(1/\Delta^2)$ (\lemref{lots-of-really-i-bad}). 
