@@ -554,7 +554,8 @@ has degree $\delta_u=k+2$.
 			 2.c & 3 
 		\end{tabular}
 		\end{center}
-		\caption{Discharging steps in the proof of \lemref{many-caressed-or-high-degree}.}
+		\caption{Discharging steps in the proof of
+		\lemref{many-caressed-or-high-degree}.}
 		\figlabel{discharging}
 	\end{figure}
   \begin{enumerate}
@@ -620,7 +621,8 @@ has degree $\delta_u=k+2$.
   We move the $c$ units of charge from $P$ onto $f$.
 
   Now, $R$ still contains one or more pinched faces
-  $f_1,\ldots,f_k$, where each $f_i$ shares part of a chord path $P_i$ with $g$.
+  $f_1,\ldots,f_k$, where each $f_i$ shares part of a chord path $P_i$ with 
+  $g$.
   On each such face $f_i$, we run the initialization procedure described
   above except that we recurse only on the chord paths of $f_i$ that
   do not share edges with $g$. i.e., we do not recurse on the chord
@@ -870,8 +872,9 @@ on its boundary.
 
 For a node $u$ of $T_i$, we define $N(u)$ as the set of nodes in $T_0$
 and $T_1$ (excluding $u$) that share an edge of $\dual{T}$ with $u$.
-We say that a node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$
-are bad.  
+Note that $N(u)$ contains the neighbours of $u$ in $T_i$ as well as
+nodes of $T_{1-i}$ with which $u$ shares an edge of $C$.  We say that
+a node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
 
 \begin{lem}\lemlabel{lots-of-really-bad}
   For every sufficiently small $0<\alpha < 1/2$,  
@@ -1066,8 +1069,7 @@ $b_1,\ldots,b_r$ contains an edge of $C_b$. Note that it is
 possible that $a_i=b_j$ for some values of $i$ and $j$, but everything
 stated thus far, and subsequently, is still true. It follows from
 \lemref{bad-one-shared-edge} that among any sequence of $\Delta$
-consecutive nodes in $X$, at least one node has $|N(u)|\ge 5$ because
-$r\ge 2$.  Let $u$ be any such node that is not among the first $2\Delta$
+consecutive nodes in $X$, at least one node has $r\ge 2$ and therefore $|N(u)|\ge 5$.  Let $u$ be any such node that is not among the first $2\Delta$
 or last $2\Delta$ nodes of $X$.  Such a $u$ always exists because $X$
 contains at least $5\Delta$ nodes.
 
@@ -1412,7 +1414,9 @@ is to resolve the following conjecture:
 
 \begin{conj}
   If $T$ is a triangulation whose dual $\dual{T}$ has a cycle of length
-  $\ell$, then $\dual{T}$ has a cycle that caresses $\Omega(\ell)$ faces.
+  $\ell$, then $\dual{T}$ has a cycle that caresses $\Omega(\ell)$
+  faces. (Therefore, by \lemref{cycle-to-curve} and \thmref{dalozzo}, 
+  $T$ has a collinear set of size $\Omega(\ell)$.)
 \end{conj}
 
 
