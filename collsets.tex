@@ -97,7 +97,7 @@ fact, together with \thmref{main} and the result of Liu, Yu, and Zhang
 \cite{liu.yu.zhang:circumference}, implies the following corollary:
 
 \begin{cor}\corlabel{main}
-  Every $n$-vertex triangulation of maximum degree $\Delta$ contains a
+  Every $n$-vertex planar graph of maximum degree $\Delta$ contains a
   collinear set of size $\Omega(n^{0.8}/\Delta^4)$.
 \end{cor}
 
@@ -158,14 +158,14 @@ new idea appears to be needed. By relating collinear/free sets to
 dual circumference, the current paper presents an effective new idea.
 Indeed, \corref{main} implies that every bounded-degree $n$-vertex
 planar geometric graph can be untangled while keeping $\Omega(n^{0.4})$
-vertices fixed.  Note that, even for bounded-degree planar graphs,
+vertices fixed.  Even for bounded-degree planar graphs,
 $\Omega(n^{0.25})$ was the best previously-known lower bound.
 
 Our work opens two avenues for further progress:
 
 \begin{enumerate}
-   \item Lower bounds on the circumference of 3-regular
-      3-connected graphs is an active area of research. Indeed,
+   \item Lower bounds on the circumference of 
+      3-connected cubic graphs are an active area of research. Indeed,
       the $\Omega(n^{0.8})$ lower bound of Liu, Yu, and Zhang
       \cite{liu.yu.zhang:circumference} is less than a year old.  Any
       further progress on these lower bounds will translate immediately
@@ -333,7 +333,7 @@ cycle $C$ in $\dual{T}$ may caress only four faces, two inside $C$ and
 two outside of $C$.  In this example, there is an obvious sequence of
 faces $f_0,\ldots,f_k$, all contained in the interior of $C$ where $f_i$
 shares an edge with $f_{i+1}$ for each $i\in\{0,\ldots,k-1\}$.  The only
-faces caressed by $C$ are the endpoints $f_0$ and $f_k$ of this sequence.
+caressed faces in the interior of $C$ are the endpoints $f_0$ and $f_k$ of this sequence.
 
 \begin{figure}
    \begin{center}
@@ -490,7 +490,7 @@ We will make use of the following well-known property of
    If $\dual{T}$ contains at least four vertices, then two of the
    endpoints of $e_1$ and $e_2$ form a vertex cutset of $\dual{T}$
    of size 2, contradicting the fact that $\dual{T}$ is 3-connected.
-   That $\dual{T}$ contains at least 4 vertices follows from Euler's
+   That $\dual{T}$ contains at least four vertices follows from Euler's
    Formula, which gives the number of vertices in $\dual{T}$ as $2n-4\ge
    4$ for all $n\ge 4$.
 \end{proof}
@@ -566,7 +566,7 @@ has degree $\delta_u=k+2$.
      $R$ contains at least one caressed face $f$.  We move the charge
      from $P$ onto $f$ and we are done.
 
-     \item $R$ contains a face $f$ that is pinched by $C$ and that shares
+     \item $R$ contains a face $f$ of $\dual{T}$ that is pinched by $C$ and that shares
      at least one edge with $P$.  We consider three subcases:
      \begin{enumerate}
 	\item $f$ contains neither endpoint of $P$. In this case,
@@ -595,7 +595,7 @@ has degree $\delta_u=k+2$.
 
         \item $f$ contains both endpoints of $P$.  We claim that,
         in this case, $P$ must be on the boundary of more than one
-        pinched faces in $L$, otherwise $P$ would be a keeper path.
+        pinched face in $L$, otherwise $P$ would be a keeper path.
         To see this, observe that the face $f$ contains both the first
         edge $e_1$ and last edge $e_2$ of $P$. If $e_1=e_2$ because $P$
         is a single edge, then it is certainly a keeper, which is not
@@ -865,7 +865,7 @@ on its boundary.
   of $\dual{T}$ to the left of edges in $C$.
 \end{proof}
 
-For a node $u$ of $T_i$, we define $N(u)$ as the set of nodes in $T_0$
+For each node $u$ of $T_i$, we define $N(u)$ as the set of nodes in $T_0$
 and $T_1$ (excluding $u$) that share an edge of $\dual{T}$ with $u$.
 Note that $N(u)$ contains the neighbours of $u$ in $T_i$ as well as
 nodes of $T_{1-i}$ with which $u$ shares an edge of $C$.  We say that
@@ -1030,7 +1030,7 @@ $O(\epsilon n_0/\Delta)$
 components.  To see why this is so, let $L$ be the set of leaves in $T_i$
 and let $S$ be the set of non-leaf nodes in $T_i$ that are not really
 really bad.  Observe that it is sufficient to upper bound the number, 
-$k$ of components in $T_i-S$.
+$k$, of components in $T_i-S$.
 
 We have
 $|L|\le |S|+|L|=  O(\epsilon n_0/\Delta)$ and
@@ -1088,7 +1088,7 @@ Let $x_0=u$. We now describe some of the nodes in the vicinity of $u$ (refer to 
 \end{figure}
 
 The surgery we perform focuses on the nodes $u$ and $a_1$.  Consider
-the two components of $C\cap a_1$. One of these components, $p$, shares
+the two components of $C\cap a_1$. At least of these components, $p$, shares
 an edge with $u$.  By \lemref{bad-one-shared-edge}, the other component,
 $q$, does not share an edge with $u$.  Imagine removing $u$ from $T_0$,
 thereby separating $T_0$ into a component $T_x$ containing $x_1$ and a
@@ -1116,7 +1116,7 @@ two major cases (see \figref{main-cases}):
    incident to    $x_i$.  We set $u'=x_i$, $x_1'=x_{i-1}$, $y_1'=x_{i+1}$,
    and $a_1'=a_1$. Observe that $a_1'$ connects the two components of
    $T_0-u'$ and shares edges with $u'$ and $x_1'$. This is exactly the
-   situation considered in Case~2.
+   situation considered in Case~2, next.
 
    \item $q\subset C_y$.  At this point it is helpful to think of
    $T_0$, $T_1$, and $C$ as a partition of $\R^2$, where nodes of $T_0$
@@ -1136,9 +1136,9 @@ two major cases (see \figref{main-cases}):
 
    Refer to the right two thirds of \figref{main-cases} for a simple
    (and misleading) example of what follows. For a full example,
-   refer to \figref{recolouring}.  The surgery we perform, recolours
+   refer to \figref{recolouring}.  The surgery we perform recolours
    $x_0,x_1,\ldots,x_{i-1}$ blue and recolours $a_1$ red.  Observe that,
-   because $q\subset C_y$ and $p$ contain an edge of $x_1$, this implies
+   because $q\subset C_y$ and $p$ contain an edge of $x_i$, this implies
    that the red subset of $\R^2$ is simply-connected and its boundary $C'$
    is a simple cycle consisting of edges of $T^*$.  The new trees $T_0'$
    and $T_1'$ are therefore well defined.  We now make two claims that
@@ -1194,8 +1194,7 @@ two major cases (see \figref{main-cases}):
    the boundaries of nodes that are recoloured.  Thus, it is sufficient
    to show that all nodes in $R=\cup\{N(v): v\in\{x_0,\ldots,x_{i-1},a_1\}$
    are bad.  But this is immediate since $x_0,\ldots,x_{i-1}$ are really
-   really bad and $a_1\in N(x_0)$, so $a_1$ is bad.  Since every node in $R$
-   share an edge with at least one of $\{x_0,\ldots,x_{i-1},a_1\}$, every
+   really bad and $a_1\in N(x_0)$, so $a_1$ is really bad.  Since every node in $R$ share an edge with at least one of $\{x_0,\ldots,x_{i-1},a_1\}$, every
    node in $R$ is therefore bad, as required.
 
    To prove \clmref{a0-caressed} we consider the boundary of the face
@@ -1210,10 +1209,10 @@ two major cases (see \figref{main-cases}):
       $x_0,\ldots,x_{i-1}$, so these nodes are in $T_0'$.
       Therefore, this part of the bounary of $a_0$ is contained in $C'$.
 
-     \item An edge shared between $a_0$ and another node $a_{-1}=\neq
+     \item An edge shared between $a_0$ and another node $a_{-1}\neq
      a_1$ of $T_1$. The faces of $a_{-1}$ are in $T_1'$ because $a_1$
-     is the only face that moves from $T_1$ to $T_0'$. ($T_1'$ is the
-     only face whose colour goes from blue to red.)
+     is the only face that moves from $T_1$ to $T_0'$. ($a_1$ is the
+     only face whose colour goes from blue to red.)  This edge is therefore not contained in $C'$.
 
      \item A path of edges that contains at least one edge of $C_y$. If
      we fix an embedding in which the outer face is some face of $T_1$

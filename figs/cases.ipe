@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20181004123132" modified="D:20190111071317"/>
+<info created="D:20181004123132" modified="D:20190523160915"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -253,6 +253,7 @@ h
 <tiling name="rising" angle="30" step="4" width="1"/>
 </ipestyle>
 <ipestyle name="brew">
+<pen name="fattyfatfat" value="4"/>
 <color name="aliceblue" value="0.941 0.973 1"/>
 <color name="brew1" value="0.552 0.827 0.78"/>
 <color name="brew2" value="1 1 0.701"/>
@@ -270,10 +271,12 @@ h
 <layer name="case2"/>
 <layer name="case2-surgery"/>
 <layer name="beta"/>
-<view layers="alpha" active="alpha"/>
-<view layers="alpha case1" active="case1"/>
-<view layers="alpha case2-C case2" active="case2-C"/>
-<view layers="alpha case2 case2-surgery" active="case2-surgery"/>
+<layer name="C"/>
+<layer name="pq"/>
+<view layers="alpha beta" active="alpha"/>
+<view layers="alpha case1 C pq" active="pq"/>
+<view layers="alpha case2-C case2 pq" active="case2-C"/>
+<view layers="alpha case2 case2-surgery pq" active="case2-surgery"/>
 <path layer="alpha" fill="brew5">
 304 816 m
 304 520 l
@@ -505,7 +508,7 @@ h
 400 680 l
 h
 </path>
-<path stroke="black" pen="ultrafat">
+<path stroke="brew4" pen="fattyfatfat" opacity="75%">
 320 528 m
 424 528 l
 424 560 l
@@ -530,6 +533,83 @@ h
 320 752 l
 h
 </path>
+<path layer="case1" stroke="black" cap="1">
+400 640 m
+400 776 l
+424 776 l
+424 800 l
+312 800 l
+312 624 l
+336 624 l
+336 784 l
+368 784 l
+368 640 l
+</path>
+<path stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
+368 624 m
+368 552 l
+344 552 l
+344 528 l
+424 528 l
+424 560 l
+400 560 l
+400 624 l
+</path>
+<path layer="case2-C" stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
+400 640 m
+400 776 l
+424 776 l
+424 808 l
+344 808 l
+344 784 l
+368 784 l
+368 640 l
+</path>
+<path stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
+368 624 m
+368 552 l
+336 552 l
+336 752 l
+320 752 l
+320 528 l
+424 528 l
+424 560 l
+400 560 l
+400 624 l
+</path>
+<path layer="alpha" stroke="black">
+368 632 m
+336 632 l
+</path>
+<path layer="case2-C" stroke="black">
+368 784 m
+344 784 l
+344 808 l
+424 808 l
+424 776 l
+400 776 l
+400 560 l
+424 560 l
+424 528 l
+320 528 l
+320 752 l
+336 752 l
+336 552 l
+368 552 l
+368 784 l
+</path>
+<path layer="C" stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
+400 640 m
+400 776 l
+424 776 l
+424 800 l
+312 800 l
+312 624 l
+336 624 l
+336 784 l
+368 784 l
+368 640 l
+</path>
 <path layer="case1" stroke="black">
 400 560 m
 400 776 l
@@ -547,53 +627,49 @@ h
 424 560 l
 400 560 l
 </path>
-<path stroke="black" pen="ultrafat" cap="1">
-400 640 m
-400 776 l
-424 776 l
-424 800 l
-312 800 l
-312 624 l
-336 624 l
-336 784 l
+<path layer="case2-surgery" stroke="black">
+368 688 m
 368 784 l
-368 640 l
-</path>
-<path stroke="black" pen="ultrafat" cap="1">
-368 624 m
-368 552 l
-344 552 l
-344 528 l
-424 528 l
-424 560 l
-400 560 l
-400 624 l
-</path>
-<path layer="case2-C" stroke="black" pen="ultrafat" cap="1">
-400 640 m
-400 776 l
-424 776 l
-424 808 l
-344 808 l
 344 784 l
-368 784 l
-368 640 l
-</path>
-<path stroke="black" pen="ultrafat" cap="1">
-368 624 m
-368 552 l
+344 808 l
+424 808 l
+424 776 l
+400 776 l
+400 680 l
+368 680 l
+368 632 l
+336 632 l
 336 552 l
-336 752 l
-320 752 l
-320 528 l
-424 528 l
-424 560 l
-400 560 l
+368 552 l
+368 624 l
 400 624 l
+400 560 l
+424 560 l
+424 528 l
+320 528 l
+320 752 l
+336 752 l
+336 688 l
+368 688 l
+368 784 l
 </path>
-<path layer="alpha" stroke="black">
-368 632 m
+<path layer="beta" stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
+368 776 m
+368 560 l
+</path>
+<path matrix="1 0 0 1 32 0" stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
+368 776 m
+368 560 l
+</path>
+<path layer="pq" stroke="brew7" pen="fattyfatfat" cap="1" opacity="75%">
+336 688 m
 336 632 l
 </path>
+<path stroke="brew7" pen="fattyfatfat" cap="1" opacity="75%">
+368 688 m
+368 632 l
+</path>
+<text matrix="1 0 0 1 5 0" transformations="translations" pos="328.338 662.098" stroke="darkgreen" type="label" width="5.141" height="4.563" depth="2.59" halign="right" valign="baseline" style="math">q</text>
+<text matrix="1 0 0 1 36.8228 10.1524" transformations="translations" pos="328.338 662.098" stroke="darkgreen" type="label" width="5.579" height="4.563" depth="2.59" halign="right" valign="baseline" style="math">p</text>
 </page>
 </ipe>

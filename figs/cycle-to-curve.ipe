@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180928134052" modified="D:20180928134738"/>
+<info created="D:20180928134052" modified="D:20190523154752"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -221,13 +221,13 @@ h
 <dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
 <dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
 <textsize name="large" value="\large"/>
+<textsize name="small" value="\small"/>
+<textsize name="tiny" value="\tiny"/>
 <textsize name="Large" value="\Large"/>
 <textsize name="LARGE" value="\LARGE"/>
 <textsize name="huge" value="\huge"/>
 <textsize name="Huge" value="\Huge"/>
-<textsize name="small" value="\small"/>
 <textsize name="footnote" value="\footnotesize"/>
-<textsize name="tiny" value="\tiny"/>
 <textstyle name="center" begin="\begin{center}" end="\end{center}"/>
 <textstyle name="itemize" begin="\begin{itemize}" end="\end{itemize}"/>
 <textstyle name="item" begin="\begin{itemize}\item{}" end="\end{itemize}"/>
@@ -253,7 +253,7 @@ h
 <tiling name="rising" angle="30" step="4" width="1"/>
 </ipestyle>
 <ipestyle name="brew">
-<color name="brew1" value="0.941 0.973 1"/>
+<pen name="fattyfatfat" value="4"/>
 <color name="brew1" value="0.552 0.827 0.78"/>
 <color name="brew2" value="1 1 0.701"/>
 <color name="brew3" value="0.745 0.729 0.854"/>
@@ -262,6 +262,7 @@ h
 <color name="brew6" value="0.992 0.705 0.384"/>
 <color name="brew7" value="0.701 0.87 0.411"/>
 <color name="brew8" value="0.988 0.803 0.898"/>
+<color name="aliceblue" value="0.941 0.973 1"/>
 </ipestyle>
 <page>
 <layer name="alpha"/>
@@ -328,7 +329,7 @@ h
 365.76 641.436 l
 </path>
 <text matrix="0.7 0 0 0.7 123.838 183.926" transformations="translations" pos="395.224 556.989" stroke="black" type="label" width="6.187" height="4.57" depth="0.07" halign="right" valign="top" style="math">u</text>
-<path layer="beta" matrix="0.7 0 0 0.7 121.038 174.126" stroke="brew4" pen="fat" cap="1">
+<path layer="beta" matrix="0.7 0 0 0.7 121.038 174.126" stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
 293.84 607.565 m
 321.912 594.573
 356.016 583.205
@@ -341,18 +342,11 @@ h
 513.079 601.765 c
 </path>
 <text matrix="0.7 0 0 0.7 111.538 173.326" transformations="translations" pos="307.528 610.349" stroke="black" type="label" width="7.422" height="6.928" depth="0.15" valign="baseline" style="math">C</text>
-<path layer="gamma" matrix="0.7 0 0 0.7 121.038 174.126" stroke="brew4" pen="fat">
-293.84 607.565 m
-339.544 589.701
-372.72 583.437
-400 576 c
-</path>
-<path matrix="0.7 0 0 0.7 121.038 174.126" stroke="brew4" pen="fat">
-400 576 m
-438.607 579.957
-470.623 587.381
-499.855 592.949
-513.079 601.765 c
+<path layer="gamma" stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
+326.726 599.422 m
+365.057 572.451
+425.228 569.765
+480.193 595.361 c
 </path>
 <text layer="alpha" matrix="0.7 0 0 0.7 123.838 173.426" transformations="translations" pos="329.104 612.669" stroke="black" type="label" width="10.497" height="4.564" depth="2.1" halign="right" valign="baseline" style="math">w_i</text>
 <text matrix="0.7 0 0 0.7 113.87 150.092" transformations="translations" pos="329.104 612.669" stroke="black" type="label" width="19.25" height="4.57" depth="2.1" halign="right" valign="baseline" style="math">w_{i-1}</text>

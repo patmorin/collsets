@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20181004123132" modified="D:20190110110553"/>
+<info created="D:20181004123132" modified="D:20190523161601"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -253,6 +253,7 @@ h
 <tiling name="rising" angle="30" step="4" width="1"/>
 </ipestyle>
 <ipestyle name="brew">
+<pen name="fattyfatfat" value="4"/>
 <color name="aliceblue" value="0.941 0.973 1"/>
 <color name="brew1" value="0.552 0.827 0.78"/>
 <color name="brew2" value="1 1 0.701"/>
@@ -438,11 +439,11 @@ h
 <text matrix="1 0 0 1 0 63" transformations="translations" pos="384 648" stroke="black" type="label" width="2.441" height="15.14" depth="0.07" halign="center" valign="center" style="math">\vdots</text>
 <text matrix="1 0 0 1 0 23" transformations="translations" pos="384 648" stroke="black" type="label" width="2.441" height="15.14" depth="0.07" halign="center" valign="center" style="math">\vdots</text>
 <text matrix="1 0 0 1 0 -53" transformations="translations" pos="384 648" stroke="black" type="label" width="2.441" height="15.14" depth="0.07" halign="center" valign="center" style="math">\vdots</text>
-<path stroke="black" pen="ultrafat" cap="1">
+<path stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
 368 552 m
 368 784 l
 </path>
-<path stroke="black" pen="ultrafat" cap="1">
+<path stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
 400 552 m
 400 784 l
 </path>

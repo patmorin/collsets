@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20181004123132" modified="D:20190108184301"/>
+<info created="D:20181004123132" modified="D:20190523161438"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -253,6 +253,7 @@ h
 <tiling name="rising" angle="30" step="4" width="1"/>
 </ipestyle>
 <ipestyle name="brew">
+<pen name="fattyfatfat" value="4"/>
 <color name="aliceblue" value="0.941 0.973 1"/>
 <color name="brew1" value="0.552 0.827 0.78"/>
 <color name="brew2" value="1 1 0.701"/>
@@ -272,8 +273,8 @@ h
 <layer name="beta"/>
 <view layers="alpha C" active="alpha"/>
 <view layers="alpha z C-prime" active="C-prime"/>
-<view layers="alpha z C C-prime" active="C-prime"/>
-<view layers="alpha z C C-prime small-colours beta" active="beta"/>
+<view layers="alpha z C-prime" active="C-prime"/>
+<view layers="alpha z C-prime small-colours beta" active="beta"/>
 <path layer="alpha" fill="brew5">
 288 816 m
 288 480 l
@@ -510,7 +511,7 @@ h
 h
 </path>
 <text matrix="1 0 0 1 -32 60" transformations="translations" pos="384 648" stroke="black" type="label" width="9.496" height="4.57" depth="2.1" halign="center" valign="center" style="math">a_0</text>
-<path layer="C" stroke="black" pen="ultrafat">
+<path layer="C" stroke="brew4" pen="fattyfatfat" opacity="75%">
 368 560 m
 344 560 l
 344 528 l
@@ -525,7 +526,7 @@ h
 368 776 l
 h
 </path>
-<path layer="C-prime" stroke="black" pen="ultrafat">
+<path layer="C-prime" stroke="brew4" pen="fattyfatfat" opacity="75%">
 424 808 m
 344 808 l
 344 776 l
@@ -552,5 +553,18 @@ h
 424 776 l
 h
 </path>
+<path stroke="brew7" pen="fattyfatfat" cap="1" opacity="75%">
+368 688 m
+368 632 l
+</path>
+<text matrix="1 0 0 1 6 0" transformations="translations" pos="359.077 673.264" stroke="darkgreen" type="label" width="5.579" height="4.563" depth="2.59" halign="right" valign="baseline" style="math">p</text>
+<path stroke="brew7" pen="fattyfatfat" cap="1" opacity="75%">
+400 592 m
+400 560 l
+424 560 l
+424 528 l
+384 528 l
+</path>
+<text matrix="1 0 0 1 62.625 -129.865" transformations="translations" pos="359.077 673.264" stroke="darkgreen" type="label" width="5.141" height="4.563" depth="2.59" halign="right" valign="baseline" style="math">q</text>
 </page>
 </ipe>
