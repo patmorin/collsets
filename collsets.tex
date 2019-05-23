@@ -612,18 +612,13 @@ has degree $\delta_u=k+2$.
         the remaining $X_i$, $i\in\{2,\ldots,k\}$ we assign no charge
         to $P_i$.
   \end{enumerate}
-  \item $R$ contains at least one pinched face, but no pinched face in $R$
-  shares an edge with $P$.  In this case, consider the face $g$ of $H$
-  that is contained in $R$ and has $P$ on its boundary. By definition,
-  $g$ contains no pinched faces of $\dual{T}$, but $g$ is touched by $C$,
-  so $g$ contains at least one caressed face\footnote{In fact $g$ contains at
-  least two caressed faces, one for each endpoint of $P$.} $f$ of $\dual{T}$.
-  We move the $c$ units of charge from $P$ onto $f$.
+  \item $R$ contains at least one pinched face of $\dual{T}$, but no pinched face in $R$ shares an edge with $P$.  We claim that there is a single face $g$ of $H$, contained in $R$, that contains all of $P$ on its boundary. Indeed, edges of $\dual{T}$ not in $C$ are included in $H$ only if they are on the boundary of some pinched face of $\dual{T}$.  Since no pinched face of $\dual{T}$ in $R$ shares an edge with $P$, all of $P$ must be contained in the boundary of a single face $g$ of $H$ that is contained in $R$.
+  
+  Let $f$ be the face of $\dual{T}$ that is contained in $R$ and that contains the first endpoint of $P$.  Then $f$ also contains the first edge of $P$ and is therefore caressed by $C$.  We move the $c$ units of charge from $P$ onto $f$.
 
   Now, $R$ still contains one or more pinched faces
-  $f_1,\ldots,f_k$, where each $f_i$ shares part of a chord path $P_i$ with 
-  $g$.
-  On each such face $f_i$, we run the initialization procedure described
+  $f_1,\ldots,f_k$, such that each $f_i$ shares part of a chord path $P_i$ with 
+  $g$.  On each such face $f_i$, we run the initialization procedure described
   above except that we recurse only on the chord paths of $f_i$ that
   do not share edges with $g$. i.e., we do not recurse on the chord
   path $P_i$.
@@ -1432,12 +1427,3 @@ the other participants for providing a stimulating research environment.
 \bibliography{collsets}
 
 \end{document}
-
-
-
-
-
-
-
-
-
