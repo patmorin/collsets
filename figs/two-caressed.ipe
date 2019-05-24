@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20181001095028" modified="D:20190110113131"/>
+<info created="D:20181001095028" modified="D:20190524133131"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -253,6 +253,7 @@ h
 <tiling name="rising" angle="30" step="4" width="1"/>
 </ipestyle>
 <ipestyle name="brew">
+<pen name="fattyfatfat" value="4"/>
 <color name="brew1" value="0.552 0.827 0.78"/>
 <color name="brew2" value="1 1 0.701"/>
 <color name="brew3" value="0.745 0.729 0.854"/>
@@ -261,10 +262,12 @@ h
 <color name="brew6" value="0.992 0.705 0.384"/>
 <color name="brew7" value="0.701 0.87 0.411"/>
 <color name="brew8" value="0.988 0.803 0.898"/>
+<color name="aliceblue" value="0.941 0.973 1"/>
 </ipestyle>
 <page>
 <layer name="alpha"/>
-<view layers="alpha" active="alpha"/>
+<layer name="C"/>
+<view layers="alpha C" active="C"/>
 <path layer="alpha" fill="brew1">
 430.8 606.4 m
 430.8 578.4 l
@@ -1621,7 +1624,7 @@ h
 126 613.6 m
 150 613.6 l
 </path>
-<path matrix="0.9 0 0 0.9 27.6 59.2" stroke="black" pen="ultrafat">
+<path matrix="0.9 0 0 0.9 27.6 59.2" stroke="black">
 96 576 m
 128 608 l
 448 608 l
@@ -1629,5 +1632,12 @@ h
 96 576 l
 </path>
 <use name="mark/disk(sx)" pos="157.2 606.4" size="normal" stroke="black"/>
+<path layer="C" matrix="0.9 0 0 0.9 27.6 59.2" stroke="brew4" pen="fattyfatfat" opacity="75%">
+96 576 m
+128 608 l
+448 608 l
+416 576 l
+96 576 l
+</path>
 </page>
 </ipe>
