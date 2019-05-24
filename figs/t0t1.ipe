@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180929072549" modified="D:20190523154321"/>
+<info created="D:20180929072549" modified="D:20190524131901"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -1187,7 +1187,7 @@ h
 72.5239 668.07 l
 h
 </path>
-<path stroke="black" pen="ultrafat">
+<path stroke="black">
 88.1949 686.366 m
 99.3124 701.845 l
 133.965 669.125 l

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180928134052" modified="D:20190523154752"/>
+<info created="D:20180928134052" modified="D:20190524131550"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -266,10 +266,10 @@ h
 </ipestyle>
 <page>
 <layer name="alpha"/>
-<layer name="beta"/>
-<layer name="gamma"/>
-<view layers="alpha beta" active="alpha"/>
-<view layers="alpha gamma" active="beta"/>
+<layer name="original"/>
+<layer name="deformed"/>
+<view layers="alpha original" active="alpha"/>
+<view layers="alpha deformed" active="original"/>
 <use layer="alpha" matrix="0.7 0 0 0.7 121.038 174.126" name="mark/disk(sx)" pos="400 576" size="normal" stroke="black"/>
 <use matrix="0.7 0 0 0.7 121.038 174.126" name="mark/disk(sx)" pos="336 608" size="normal" stroke="black"/>
 <use matrix="0.7 0 0 0.7 121.038 174.126" name="mark/disk(sx)" pos="321.68 579.725" size="normal" stroke="black"/>
@@ -329,7 +329,7 @@ h
 365.76 641.436 l
 </path>
 <text matrix="0.7 0 0 0.7 123.838 183.926" transformations="translations" pos="395.224 556.989" stroke="black" type="label" width="6.187" height="4.57" depth="0.07" halign="right" valign="top" style="math">u</text>
-<path layer="beta" matrix="0.7 0 0 0.7 121.038 174.126" stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
+<path layer="original" matrix="0.7 0 0 0.7 121.038 174.126" stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
 293.84 607.565 m
 321.912 594.573
 356.016 583.205
@@ -342,16 +342,21 @@ h
 513.079 601.765 c
 </path>
 <text matrix="0.7 0 0 0.7 111.538 173.326" transformations="translations" pos="307.528 610.349" stroke="black" type="label" width="7.422" height="6.928" depth="0.15" valign="baseline" style="math">C</text>
-<path layer="gamma" stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
-326.726 599.422 m
-365.057 572.451
-425.228 569.765
-480.193 595.361 c
-</path>
 <text layer="alpha" matrix="0.7 0 0 0.7 123.838 173.426" transformations="translations" pos="329.104 612.669" stroke="black" type="label" width="10.497" height="4.564" depth="2.1" halign="right" valign="baseline" style="math">w_i</text>
 <text matrix="0.7 0 0 0.7 113.87 150.092" transformations="translations" pos="329.104 612.669" stroke="black" type="label" width="19.25" height="4.57" depth="2.1" halign="right" valign="baseline" style="math">w_{i-1}</text>
 <text matrix="0.7 0 0 0.7 116.838 173.426" transformations="translations" pos="479.903 616.148" stroke="black" type="label" width="10.883" height="4.564" depth="4.01" valign="baseline" style="math">w_j</text>
 <text matrix="0.7 0 0 0.7 121.038 174.126" transformations="translations" pos="482.223 571.141" stroke="black" type="label" width="19.75" height="4.564" depth="4.01" valign="baseline" style="math">w_{j+1}</text>
-<text layer="gamma" matrix="0.7 0 0 0.7 111.538 173.326" transformations="translations" pos="307.528 610.349" stroke="black" type="label" width="10.328" height="7.412" depth="0.15" valign="baseline" style="math">C&apos;</text>
+<text layer="deformed" matrix="0.7 0 0 0.7 111.538 173.326" transformations="translations" pos="307.528 610.349" stroke="black" type="label" width="10.328" height="7.412" depth="0.15" valign="baseline" style="math">C&apos;</text>
+<path stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
+326.726 599.421 m
+346.376 590.327
+369.463 584.728
+383.21 582.531
+401.465 575.657
+410.986 580.334
+428.734 581.799
+446.594 584.39
+480.193 595.361 c
+</path>
 </page>
 </ipe>

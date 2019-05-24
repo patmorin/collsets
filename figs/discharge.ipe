@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180928155326" modified="D:20180929065820"/>
+<info created="D:20180928155326" modified="D:20190524132749"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -253,7 +253,7 @@ h
 <tiling name="rising" angle="30" step="4" width="1"/>
 </ipestyle>
 <ipestyle name="brew">
-<color name="brew1" value="0.941 0.973 1"/>
+<pen name="fattyfatfat" value="4"/>
 <color name="brew1" value="0.552 0.827 0.78"/>
 <color name="brew2" value="1 1 0.701"/>
 <color name="brew3" value="0.745 0.729 0.854"/>
@@ -262,6 +262,7 @@ h
 <color name="brew6" value="0.992 0.705 0.384"/>
 <color name="brew7" value="0.701 0.87 0.411"/>
 <color name="brew8" value="0.988 0.803 0.898"/>
+<color name="aliceblue" value="0.941 0.973 1"/>
 </ipestyle>
 <page>
 <layer name="alpha"/>
@@ -270,12 +271,13 @@ h
 <layer name="delta"/>
 <layer name="epsilon"/>
 <layer name="zeta"/>
-<view layers="alpha" active="alpha"/>
-<view layers="alpha beta" active="beta"/>
-<view layers="alpha gamma" active="gamma"/>
-<view layers="alpha delta" active="delta"/>
-<view layers="alpha epsilon" active="epsilon"/>
-<view layers="alpha zeta" active="zeta"/>
+<layer name="C"/>
+<view layers="alpha C" active="C"/>
+<view layers="alpha beta C" active="beta"/>
+<view layers="alpha gamma C" active="gamma"/>
+<view layers="alpha delta C" active="delta"/>
+<view layers="alpha epsilon C" active="epsilon"/>
+<view layers="alpha zeta C" active="zeta"/>
 <path layer="alpha" fill="brew1">
 235.455 726.688 m
 235.455 608.764 l
@@ -564,5 +566,46 @@ h
 h
 </path>
 <text matrix="1 0 0 1 -11 -1" transformations="translations" pos="325.123 670.406" stroke="black" type="label" width="8.54" height="7.143" depth="2.59" valign="baseline" style="math">f_1</text>
+<group layer="C">
+<path matrix="2 0 0 2 -229.273 -726.688" stroke="brew4" fill="brew8" pen="fattyfatfat" cap="1" opacity="75%">
+223.09 726.688 m
+235.455 726.688 l
+</path>
+<path matrix="2 0 0 2 -229.273 -844.612" stroke="brew4" fill="brew8" pen="fattyfatfat" cap="1" opacity="75%">
+223.09 726.688 m
+235.455 726.688 l
+</path>
+<path stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
+241.638 726.688 m
+248.122 739.959
+256.567 739.054
+262.297 726.688 c
+</path>
+<path stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
+319.299 726.688 m
+329.252 733.625
+354.888 731.212
+355.19 722.466
+356.094 655.813
+353.38 600.922
+342.824 597.604
+332.871 600.319
+331.062 608.764 c
+</path>
+<path stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
+241.637 608.764 m
+245.408 597.604
+258.678 597.906
+267.726 608.764 c
+</path>
+<path stroke="brew4" fill="brew8" pen="fattyfatfat" cap="1" opacity="75%">
+262.297 726.688 m
+319.299 726.688 l
+</path>
+<path stroke="brew4" fill="brew8" pen="fattyfatfat" cap="1" opacity="75%">
+267.726 608.764 m
+331.062 608.764 l
+</path>
+</group>
 </page>
 </ipe>

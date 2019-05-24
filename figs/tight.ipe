@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180930100449" modified="D:20190110113634"/>
+<info created="D:20180930100449" modified="D:20190524132516"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -252,6 +252,7 @@ h
 <tiling name="rising" angle="30" step="4" width="1"/>
 </ipestyle>
 <ipestyle name="brew">
+<pen name="fattyfatfat" value="4"/>
 <color name="brew1" value="0.552 0.827 0.78"/>
 <color name="brew2" value="1 1 0.701"/>
 <color name="brew3" value="0.745 0.729 0.854"/>
@@ -260,10 +261,12 @@ h
 <color name="brew6" value="0.992 0.705 0.384"/>
 <color name="brew7" value="0.701 0.87 0.411"/>
 <color name="brew8" value="0.988 0.803 0.898"/>
+<color name="aliceblue" value="0.941 0.973 1"/>
 </ipestyle>
 <page>
 <layer name="alpha"/>
-<view layers="alpha" active="alpha"/>
+<layer name="C"/>
+<view layers="alpha C" active="C"/>
 <path layer="alpha" fill="brew1">
 352 768 m
 352 704 l
@@ -348,20 +351,20 @@ h
 96 768 l
 h
 </path>
-<path stroke="black" pen="ultrafat">
+<path stroke="black">
 48 768 m
 368 768 l
 </path>
-<path stroke="black" pen="ultrafat">
+<path stroke="black">
 48 704 m
 368 704 l
 </path>
-<path stroke="black" fill="brew1" pen="ultrafat">
+<path stroke="black" fill="brew1">
 368 704 m
 400 736
 368 768 c
 </path>
-<path stroke="black" fill="brew1" pen="ultrafat">
+<path stroke="black" fill="brew1">
 48 768 m
 16 736
 48 704 c
@@ -526,10 +529,6 @@ h
 108 768 m
 108 776 l
 </path>
-<path stroke="black" pen="ultrafat">
-114 768 m
-338 768 l
-</path>
 <path stroke="black">
 48 768 m
 44 776 l
@@ -545,6 +544,24 @@ h
 <path stroke="black">
 368 768 m
 372 776 l
+</path>
+<path layer="C" stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
+48 768 m
+368 768 l
+</path>
+<path stroke="brew4" pen="fattyfatfat" cap="1" opacity="75%">
+48 704 m
+368 704 l
+</path>
+<path stroke="brew4" fill="brew1" pen="fattyfatfat" cap="1" opacity="75%">
+368 704 m
+400 736
+368 768 c
+</path>
+<path stroke="brew4" fill="brew1" pen="fattyfatfat" cap="1" opacity="75%">
+48 768 m
+16 736
+48 704 c
 </path>
 </page>
 </ipe>
