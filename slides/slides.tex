@@ -64,7 +64,7 @@
   \frametitle{Free Sets}
 
    \begin{itemize}[<+->]
-     \item A set $F\subset V(G)$ is \emph{free} if for every
+     \item A set $F\subseteq V(G)$ is \emph{free} if for every
      $X\subset\R^2$ with $|X|=|F|$, $G$ has a \emph{non-crossing
      straight-line} drawing in which the vertices of $F$ are drawn on
      the points of $X$.
@@ -84,17 +84,24 @@
    \frametitle{The Free-Set Theorem}
    
    \begin{itemize}
-       \item[]\textbf{Theorem (Dujmovi\'c--Frati--Gon\c{c}alves--M.--Rote 2019):} A set $F\subset V(G)$ is a \emph{free set} if and only if there is a proper good curve that contains $F$.
+       \item[]\textbf{Theorem (Dujmovi\'c--Frati--Gon\c{c}alves--M.--Rote 2019):} A set $F\subseteq V(G)$ is a \emph{free set} if and only if there is a proper good curve that contains $F$.
    \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Proper Good Curves and Dual Cycles} 
 
-  \begin{itemize}[<+->]
+  \begin{itemize}
      \item Every proper-good curve containing $k$ vertices gives a dual
        cycle of length at least $k$.
-     \item What about the other direction?
+       \begin{center}
+         \only<1>{\includegraphics{figs/curve-cycle-1}}%
+         \only<2>{\includegraphics{figs/curve-cycle-2}}%
+         \only<3>{\includegraphics{figs/curve-cycle-3}}%
+         \only<4->{\includegraphics{figs/curve-cycle-4}}
+       \end{center}
+     \item<5-> What about the other direction?
+     \item<6-> Can we get a proper good curve containing many vertices from long dual cycle?
   \end{itemize}
 \end{frame}
 
@@ -138,6 +145,13 @@
       \item But the curve contains no vertices!
       \item Can we ``bend'' the curve to pick up some vertices?
       \item Sometimes yes, sometimes no
+      \begin{center}
+        \only<1-4>{\includegraphics{figs/cycle-to-curve-1}}%
+        \only<5>{\includegraphics{figs/cycle-to-curve-2}}%
+        \only<6>{\includegraphics{figs/cycle-to-curve-3}}%
+        \only<7>{\includegraphics{figs/cycle-to-curve-4}}%
+        \only<8->{\includegraphics{figs/cycle-to-curve-5}}
+      \end{center}
    \end{itemize}
 
 \end{frame}
@@ -481,4 +495,3 @@ Let $u$ be a node of $T_i$ {\color{gray}and let $\rho_u$, $\kappa_u$, and $\delt
 %\closing
 
 \end{document}
-
