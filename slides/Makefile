@@ -1,16 +1,16 @@
 
 name=collsets
 
-texsources=collsets.tex 
+texsource=slides-socg.tex 
 
-$(name).pdf : $(texsources) $(name).bib figs/
+slides-socg.pdf : $(texsource) figs/ images/
 	make -C figs
-	latexmk -pdf $(name)
+	latexmk -pdf $(texsource)
 
 reset : clean $(name).pdf
 
 clean :
-	rm -f $(name).pdf
+	rm -f $(texsource).pdf
 
-install: $(name).pdf
-	scp $< cglab.ca:public_html/publications/drafts/$(name)/$(name)-`date --iso`.pdf
+install: slides-socg.pdf
+	scp $< cglab.ca:public_html/publications/drafts/$(name)/slides-socg.pdf
