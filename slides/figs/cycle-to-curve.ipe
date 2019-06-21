@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180928134052" modified="D:20190619140853"/>
+<info created="D:20180928134052" modified="D:20190620220718"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -265,14 +265,16 @@ h
 <page>
 <layer name="alpha"/>
 <layer name="cycle-1"/>
+<layer name="cycle-bad"/>
 <layer name="pgc-1"/>
 <layer name="pgc-bad"/>
 <layer name="X"/>
 <layer name="check"/>
 <view layers="alpha cycle-1" active="cycle-1"/>
 <view layers="alpha pgc-1" active="pgc-1"/>
-<view layers="alpha pgc-1 check" active="check"/>
-<view layers="alpha pgc-bad" active="pgc-bad"/>
+<view layers="alpha pgc-1 check" active="cycle-bad"/>
+<view layers="alpha cycle-bad" active="cycle-bad"/>
+<view layers="alpha pgc-bad" active="X"/>
 <view layers="alpha pgc-bad X" active="X"/>
 <use layer="alpha" matrix="0.7 0 0 0.7 121.038 174.126" name="mark/disk(sx)" pos="400 576" size="normal" stroke="black"/>
 <use matrix="0.7 0 0 0.7 121.038 174.126" name="mark/disk(sx)" pos="336 608" size="normal" stroke="black"/>
@@ -510,6 +512,40 @@ h
 400.418 548.737 m
 402.909 559.699
 410.217 568.999 c
+</path>
+<path layer="cycle-bad" stroke="brew7" pen="ultrafat" cap="1">
+320.767 599.188 m
+365.111 586.233 l
+376.902 601.015 l
+397.496 608.986 l
+422.575 601.513 l
+438.85 584.406 l
+478.378 592.544 l
+</path>
+<path stroke="brew7" pen="ultrafat">
+320.767 599.188 m
+311.232 602.381
+306.416 584.113
+309.406 538.772
+336.809 522.663
+365.375 514.359
+374.909 532.423 c
+</path>
+<path stroke="brew7" pen="ultrafat">
+478.377 592.545 m
+492.759 592.251
+494.752 583.448
+490.6 549.402
+481.798 527.313
+470.172 515.189
+432.472 509.376
+419.585 526.278 c
+</path>
+<path stroke="brew7" pen="ultrafat" cap="1">
+374.909 532.423 m
+385.871 555.841 l
+416.097 552.519 l
+419.585 526.278 l
 </path>
 </page>
 </ipe>
