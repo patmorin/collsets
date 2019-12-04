@@ -10,6 +10,10 @@
 %\setlength{\leftmargini}{0pt}
 \usepackage{array}
 
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
 \newcommand{\caressed}{$\kappa$aressed}
 \newcommand{\caresses}{$\kappa$aresses}
 \newcommand{\R}{\mathbb{R}}
@@ -36,6 +40,7 @@
 
 \begin{frame}
   \frametitle{Proper Good Curves}
+  \framesubtitle{(Topology)}
   
   \begin{itemize}
      \item A Jordan curve $C$ is 
@@ -62,6 +67,7 @@
 
 \begin{frame}
   \frametitle{Free Sets}
+  \framesubtitle{(Geometry)}
 
    \begin{itemize}[<+->]
      \item A set $F\subseteq V(G)$ is \emph{free} if for every
@@ -82,6 +88,7 @@
 
 \begin{frame}
    \frametitle{The Free-Set Theorem}
+   \framesubtitle{Geometry $\Leftrightarrow$ Topology}
    
    \begin{itemize}
        \item[]\textbf{Theorem (Dujmovi\'c--Frati--Gon\c{c}alves--M.--Rote 2019):} A set $F\subseteq V(G)$ is a \emph{free set} if and only if there is a proper good curve that contains $F$.
@@ -90,7 +97,7 @@
 
 \begin{frame}
   \frametitle{Proper Good Curves and Dual Cycles} 
-
+  \framesubtitle{Topology $\stackrel{?}{\Leftrightarrow}$ Graph Theory}
   \begin{itemize}
      \item $k$-vertex proper-good curve $\Rightarrow$ dual
        cycle of length $\Omega(k)$
@@ -163,7 +170,8 @@
     \begin{tabular}{c@{\hspace{.1\textwidth}}c}
       $\kappa$aress & $\rho$inch \\
       \includegraphics[height=.3\textheight]{images/caress} &
-      \includegraphics[height=.3\textheight]{images/pinch} 
+      \includegraphics[height=.3\textheight]{images/pinch} \\
+      {\color{green}\cmark} & {\color{red}\xmark}
     \end{tabular}
   \end{center}
 \end{frame}
@@ -211,7 +219,7 @@
 
   
   \begin{center}
-    \uncover<4->{{\color{blue}cycle in $G$ of length $\ell=c\kappa\Delta^4$ \\ $\Downarrow$} \\}
+    \uncover<4->{{\color{blue}cycle in $\dual{G}$ of length $\ell=c\kappa\Delta^4$ \\ $\Downarrow$} \\}
     \uncover<1->{cycle in $\dual{G}$ that \caresses\ $\kappa$ faces}\\
     \uncover<2->{$\Downarrow$ \\
     proper good curve that contains $\kappa/4$ vertices of $G$}\\
@@ -490,7 +498,7 @@
     \item Show that:
     \begin{itemize}
       \item[$\checkmark$] Each leaf of $T_i$ contains a \caressed\ face
-      \only<1>{\item Each $T_i$ has $\Omega(\ell/\Delta)$ nodes}
+      \only<1>{\item Each $T_i$ has $\Omega(\ell/\Delta)$ nodes} 
       \only<2->{\item[$\checkmark$] Each $T_i$ has $\Omega(\ell/\Delta)$ nodes} (skipped---discharging argument)
     \end{itemize}
     \item We are done if either $T_i$ has many leaves, so each $T_i$ must have few leaves
@@ -498,20 +506,26 @@
       \item[$\therefore$] each $T_i$ has many \emph{bad nodes} \\ (degree-2 and containing no caressed faces)
     \end{itemize}
     \item[$\checkmark$] With enough bad nodes, we can perform a \emph{surgery} that increases the number of leaves in $T_0$.
+    \item<3->[QED]
   \end{itemize}
+  
 \end{frame}
 
 \begin{frame}
   \frametitle{Conclusion}
   
   \begin{itemize}
-    \item[]\textbf{Theorem:} If $\dual{G}$ has a cycle of lenth $\ell$, then $\dual{G}$ has a cycle $C'$ that caresses $\Omega(\ell/\Delta^4)$ faces. \\[1em]
+    \item[]\textbf{Theorem:} If $\dual{G}$ has a cycle of lenth $\ell$, then $\dual{G}$ has a cycle $C'$ that caresses $\Omega(\ell/\Delta^4)$ faces. (Graph Theory) \\[1em]
 
-    \item[]\textbf{Consequence:} Every $n$-vertex planar graph of maximum degree $\Delta$ has a free set of size $\Omega(n^{0.8}/\Delta^4)$. \\[1em]
+    \item[]\textbf{Consequence:} Every $n$-vertex planar graph of maximum degree $\Delta$ has a free set of size $\Omega(n^{0.8}/\Delta^4)$. 
+    (Geometry) \\[1em]
 
     \item[]\textbf{Open Problem:} Eliminate the dependence on $\Delta$.\\[2em]
     
-    \item<2->[] \centerline{\Huge \color{red}T\color{orange}h\color{yellow}a\color{green}n\color{blue}k\color{purple}s\color{violet}!}
+    \item<2->[] \centerline{\Huge
+    %  \color{red}T\color{orange}h\color{yellow}a\color{green}n\color{blue}k\color{purple}s\color{violet}!}\\
+    % \centerline{\Huge
+    \color{violet}T\color{purple}h\color{blue}a\color{green}n\color{yellow}k\color{orange}s\color{red}!}
   \end{itemize}
 \end{frame}
 
