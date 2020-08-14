@@ -1,0 +1,87 @@
+We would like to thank Reviewer #1 for their careful reading, editing, and constructive criticism.  Below are the reviwer's comments along with our replies.
+
+--
+R: 2,59: "is less than a year old" - please change to fit the publication time, or better state it in a time-independent way
+
+A: We have prefixed this with "At the time of writing"
+--
+R: 5,37: "All that remains is verify" - "to" is missing
+
+A: This has been corrected.
+--
+R: 5,56: "After a non-trivial amount of analysis"  - I would drop the "amount"
+
+A: This change has been implemented.
+--
+R: 6,42: "two faces of P\cap C" - I suggest to add "the graph formed by P and C", otherwise may not be immediately clear
+
+A: This change has been implemented.
+--
+R: 7,36: "with keeper paths  highlighted" - I think highlighting the keeper paths in red, while also having the cycle C in red does not help the perception
+
+A: We have changed the colour to black.
+--
+R: 7,39-46: I needed to sketch to understand the case distinction and the definition of the keeper path - so I suggest to include such an illustration into the paper
+
+A: We have added such a figure.
+--
+R: (proof of Lemma 5) In general I had difficulties understanding the proof. While the intuition on page 8 is excellent, the proof itself is not clearly written. I will try to point out places that could be improved, but I suggest the authors do a thorough work on making the proof simpler and clearer.
+
+R:  9,20-21: "We require as a precondition that there are m>=1 pinched faces..." - why does this hold? Is it an invariant? Please clarify.
+
+R: 9,25-33: I realize that this paragraph explain in which order the faces are processed by the discharging procedure, but I still could not understand it. Please elaborate.
+
+R: 9,43-... please refer to the subfigures in the case distinction
+
+A: We have greatly expanded the exposition of this proof, being careful to separate the "initialization procedure" and the "recursive procedure" and also carefully spelling out the preconditions and postconditions of the recursive procedure.  This has made the proof somewhat longer but hopefully easier to understand.
+--
+R: 13 (proof of Lemma 8) - I needed an illustration for the case distinction. Please add one to the paper.
+
+A: TODO
+--
+R: 13,45: "By Lemma 8, u and w have the first edge of P in common..." This sentence does not make sense to me. By the statement of Lemma 10, u and w share the path P. For me this sounds like they share all of its edges. Please elaborate.
+
+A: Indeed, this was badly worded and has been fixed.
+--
+
+14,22: \alpha\ell/\delta^2<\tau_0/6 - what implies this inequality?
+
+14,46: since k_w>=1 - is k_w defined?
+
+14,46: <=6k, since k_w>=1 for each w\in A_1\cup A_2 - how and from which Lemma does this follow?
+
+14,57: is \tau_w defined?
+
+15,13: (by the same argument as above) -this is a very vague explanation. Please elaborate.
+
+15, Lemma 12: Does this Lemma also hold for T_1?
+
+15,36-41: This a nice discussion explaining the current state of the proof. However, it was not so easy to follow. I generally suggest to expand it. For instance you could recall what you want to prove first and then recall Lemma 1. The last two implications, the one of Lemma 6 and of Lemma 12, are also hard to grasp. A small expansion on this would greatly help the reader.
+
+15, 42-46: the sentences "to handle cases like this..." and "in particular, our strategy ...." seem to partially repeat each other.
+
+16,6: |S| + |L|=O(en_0/\Delta) - please explain how this holds?
+
+16,8: The second inequality: |L|>\summ... - explain how it holds, in particular the "-2" in the summ
+
+16,8: the next equality: \sum...=|S|+\sum..., should not this be -|S|?
+
+16,19: T_1[N(u)] - probably the square brockets mean "induced by" -the notation which was used in the beginning of the paper in some proof. But please better explain it here.
+
+16,19-20: The sentence "Observe that T_1[N(u)] consists of two paths ... and ... of bad nodes where each ... contains and edge of C_a and each of ... contains an edge of C_b" - I do not understand why this holds.
+
+16,22-23: "It follows from Lemma 9 that among any sequence of \Delta consecutive nodes in X, at least one node has r>=2 and therefore |N(u)|>=5" why does this hold?
+
+16,27-38: I could not understand how the authors came to the conclusion that this is the remaining configuration.
+
+16,42: "At least of these components" -> "at least one of these components"
+
+16,50: "punt" - could you please substitute by a more common word?
+
+17,Claim 1: "every node of w T_i" - probably you have meant "every node w of T_i"
+
+20,14 : maybe add comma after "To prove Claim 1", same on line 20.
+
+20,36: "By Lemma 9 This path" - change "This" to "this" and I would add comma after "Lemma 9"
+
+__

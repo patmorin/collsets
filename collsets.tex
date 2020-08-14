@@ -8,6 +8,7 @@
 \usepackage{enumerate}
 \usepackage{pat}
 \usepackage{hyperref}
+\usepackage{paralist}
 \listfiles
 
 \title{\MakeUppercase{Dual Circumference and Collinear Sets}%
@@ -400,6 +401,7 @@ graph $H$ with vertex set $V(H)\subseteq V(\dual{T})$ and whose edge set
 consist of the edges of $C$ plus those edges of $\dual{T}$ that belong
 to any face pinched by $C$. Let $v_0,\ldots,v_{r-1}$ be the clockwise cyclic sequence of vertices on some face $f$ of $\dual{T}$ that is pinched by $C$.
 We identify three kinds of vertices that are \emph{special} with respect to $f$:
+(see \figref{keepers}).
 \begin{enumerate}
   \item A vertex $v_i$ is special of \emph{Type~A} if $v_{i-1}v_i$ is an edge of $C$ and $v_iv_{i+1}$ is not an edge of $C$.
   \item A vertex $v_i$ is special of \emph{Type~B} if $v_{i-1}v_i$ is not an edge of $C$ and $v_iv_{i+1}$ is an edge of $C$.
@@ -419,12 +421,22 @@ We identify three kinds of vertices that are \emph{special} with respect to $f$:
 	  \figlabel{auxilliary}
   \end{figure}
 
-
 We say that a chord path $v_i,\ldots,v_j$ is a \emph{keeper} with respect to
 $f$ if $v_i$ is special of Type~A, $v_j$ is special of Type~B, and none
 of $v_{i+1},\ldots,v_{j-1}$ are special.  We let $\tilde{H}$ denote the
 subgraph of $H$ containing all the edges of $C$ and all the edges of
 all paths that are keepers with respect to some pinched face $f$ of $\dual{T}$.
+
+\begin{figure}
+   \begin{center}\begin{tabular}{ccc}
+        \includegraphics{figs/keepers-1} &
+        \includegraphics{figs/keepers-2} &
+        \includegraphics{figs/keepers-3} \\
+        $\dual{T}$ & $H$ & $\hat{H}$
+   \end{tabular}\end{center}
+    \caption{The graphs $\dual{T}$, $H$, and $\hat{H}$ and the classification of special vertices of types $A$, $B$, and $Y$.}
+    \figlabel{keepers}
+\end{figure}
 
 It is worth emphasizing at this point that, by definition, every keeper is
 entirely contained in the boundary of at least one face $f$ of $\dual{T}$.
@@ -517,31 +529,31 @@ has degree $\delta_u=k+2$.
    The proof is a discharging argument.  We assign each pinched face in
    $u$ a single unit of charge, so that the total charge is $\rho_u$.
    We then describe a discharging procedure that preserves the total
-   charge.  After executing this procedure, pinched faces in $u$
-   have no charge, each caressed face in $u$ has charge at most 2,
-   and each keeper path in $u$ has charge at most 2.  Since there is a
-   bijection between keeper paths in $u$ and edges of $T_i$ incident to
-   $u$, this proves the result.
+   charge and such that, after executing this procedure, the folowing conditions are satisfied:
+   \begin{compactenum}[(Post1)]
+        \item Each pinched face has no charge.
+        \item Each caressed face has charge at most 2.
+        \item Each keeper path has charge at most 2.
+    \end{compactenum}
+    Since there is a bijection between keeper paths in $u$ and edges of $T_i$ incident to $u$, this proves the result.
 
-   We now describe the discharging procedure, which is recursive and takes as
-   input a chord path $P$ that partitions $u$ into two parts $L$ and $R$.
-   We require as a precondition that there are $m\ge 1$ pinched faces
-   of $\dual{T}$ in $L$, each of which contains at least one edge of $P$ and
-   such that every edge of $P$ is contained in at least one of these faces.
-   During a recursive call, $P$ may have a charge $c\in\{0,1,2\}$. This
-   charge will be at most 1 if $m> 1$, but can be 2 if $m=1$.
+    The discharging procedure is made up of two routines, an \emph{initialization procedure} and a \emph{recursive procedure}.  The recursive procedure takes a pair of inputs $(P,c)$ where $P$ is a chord path that partitions $u$ into two parts $L$ and $R$ and $c\in\{0,1,2\}$ is a charge that we think of as sitting on $P$.  The pair $(P,c)$ must satisfy the following conditions:
+   \begin{compactenum}[(Pre1)]
+        \item Each face of $\dual{T}$ in $L$ that shares an edge with $P$
+        is pinched.
+        \item If $c=2$ then $P$ is contained in the boundary of a single face of $\dual{T}$ that is contained in $L$.
+    \end{compactenum}
+    The procedure guarantees that, after its completion, the faces contained in $R$ satisfy (Post1)--(Post3).
 
-   To initialize the discharging procedure, we choose an arbitrary pinched
-   face $f$ contained in $u$.  The face $f$ begins with one unit of charge
-   and has $r\ge 2$ chord paths $P_1,\ldots,P_r$ on its boundary.
-   We move the charge from $f$ onto $P_1$ and apply the recursive
-   procedure to $P_1$, with a charge of 1 (with $L$ being the component
-   of $u\setminus P_1$ that contains $f$).  We then recursively apply the
-   discharging procedure on each of $P_2,\ldots,P_r$ with a charge of 0.
+    Before defining the recursive procedure itself, we will show how it is used by the iniitalization procedure.  This initialization procedure takes an arbitrary pinched face $f$ contained in $u$.  Since $f$ is pinched, it has $r\ge 2$ chord paths $P_1,\ldots,P_r$ on its boundary and $u\setminus f$ has components $R_1,\ldots,R_r$ where $P_i$ separates $R_i$ from $f$, for each $i\in\{1,\ldots,r\}$.  This initialization procedure guarantees that, after it runs, all the faces and chord paths in $u\setminus R_1$ satisfy (Post1)--(Post3).  The initialization procedure does not have any affect on $R_1$.
 
-   Next we describe each recursive step, during which we are given $P$
-   with some charge $c\in\{0,1,2\}$.  There are several cases to consider
-   (see \figref{discharging}):
+    The initialization procedure works as follows: Since $f$ is pinched it has a charge of 1 so we move the charge from $f$ onto $P_2$ and apply the recursive procedure to $P_2$, with a charge of $c=1$, with $L=L_2=u\setminus R_2$.  Since $f$ is a pinched face, this satisifies the (Pre1) and since $c=1$ this satisfies (Pre2).  Once the recursive procedure is complete conditions (Post1)--(Post2) are satisfied for all faces in $f\cup R_2$.
+
+    Next, we apply the recursive procedure on each of $P_3,\ldots,P_r$ with a charge of $c=0$.  When calling the procedure on $P_i$, $L=L_i$ is the component of $u\setminus P$ that contains $f$ and $R=R_i=u\setminus L_i$.  Since $f$ is a pinched face, this satisifies (Pre1) and since $c=0$ this satisfies (Pre2).  Once the recursive procedure is complete conditions (Post1)--(Post2) are satisfied for all faces in $f\cup R_i$.
+
+    Since every face and keeper path contained in $u$ is contained in $R_i$ for at most one $i$, the initialization procedure produces a distribution of charges that satisifies (Post1)--(Post3) for $u\setminus R_1$, as required.
+
+    Next we describe the recursive discharging procedure that takes $(P,c)$ satisifying (Pre1) and (Pre2) and moves charges in $R$ so that they satisfy (Post1)--(Post3).  There are several cases to consider (see \figref{discharging}):
 	\begin{figure}
 		\begin{center}
 		\begin{tabular}{cc}
@@ -566,63 +578,46 @@ has degree $\delta_u=k+2$.
      from $P$ onto $f$ and we are done.
 
      \item $R$ contains a face $f$ of $\dual{T}$ that is pinched by $C$ and that shares
-     at least one edge with $P$.  We consider three subcases:
+     at least one edge with $P$.  We consider three subcases, each illustrated in \figref{discharging}:
      \begin{enumerate}
 	\item $f$ contains neither endpoint of $P$. In this case,
 	$R\setminus f$ has at least three connected components, $A$, $B$,
-	and $X_1,\ldots,X_k$, where $A$ and $B$ each contain an endpoint
-	of $P$ and each $X_i$ has a chord path $P_i$ in common
+	and $X_1,\ldots,X_k$, where $k\ge 1$, $A$ and $B$ each contain an endpoint
+	of $P$, and each $X_i$ has a chord path $P_i$ in common
 	with $f$.  We recurse on each of these components so that each
 	of these components takes the place of $R$ in the recursion. When
 	recursing on $A$ we take one unit of charge from $P$ (if needed)
 	and place it on $A$'s chord path.  When recursing on $B$ we take
 	the second unit of charge from $P$ (if needed) and place it on
-	$B$'s chord path.  When recursing on $X_1$ we move the unit of
-	charge from $f$ to $P_1$.  When recursing on $X_2,\ldots,X_k$
-	we use no charge on $P_2,\ldots,P_k$.
+	$B$'s chord path.
 
-	\item $f$ contains exactly one endpoint of $P$.  In this case,
-	$R\setminus f$ has one connected component $A$ that contains
-	an endpoint of $P$ and one or more connected components
-	$X_1,\ldots,X_k$ where each $X_i$ has a chord path $P_i$ on the
-	boundary of $f$.
-	The path $P$ has a charge $c\le 2$.  When recursing on $X_1$
-	we assign all of $P$'s charge to the chord path $P_1$, which is
-	contained in the single pinched face $f$.
+    The recursive call on $A$ satisfies (Pre1) because the path $P_A$ used in this recursive call is contained in the boundary of $f$ and $P$. In particular each face of $\dual{T}$ contained in $u\setminus A$ that is incident to $P_A$ is either a face of $L$ incident to $P$ or is the face $f$.  The latter faces are pinched by (Pre1) and $f$ is pinched by definition.  The recursive call on $A$ also satisifies (Pre2) since, in this call, $c\le 1$.  The same argument shows that the recursive call on $B$ satisfies (Pre1) and (Pre2).
+
+    When recursing on $X_1$ we move the unit of	charge from $f$ to $P_1$.  When recursing on $X_2,\ldots,X_k$ we use no charge on $P_2,\ldots,P_k$.  Each recursive call satisifes (Pre1) because $f$ is pinched and satisfies (Pre2) because the value of $c$ in the recursive call is at most 1.
+
+	\item $f$ contains exactly one endpoint of $P$.  In this case, $R\setminus f$ has one connected component $A$ that contains an endpoint of $P$ and one or more connected components $X_1,\ldots,X_k$ where each $X_i$ has a chord path $P_i$ on the boundary of $f$.	The path $P$ has a charge $c\le 2$.  When recursing on $X_1$ we assign all of $P$'s charge to the chord path $P_1$, which is contained in the single pinched face $f$.
+    This recursive call satisfies (Pre1) because $f$ is pinched and it satisfies (Pre2) because $P_1$ is entirely contained in $f$.
+
+    When recursing on each of $X_2,\ldots,X_k$ we recursive with the value $c=0$.  These recursive calls also satisfy (Pre1) and (Pre2).
+
 	When recursing on $A$ we move the single unit of charge from $f$
-	to the chord path of $A$.
+	to the chord path of $A$.  This satisfies (Pre1) and (Pre2) for the same reasons outlined in the previous case.
 
-        \item $f$ contains both endpoints of $P$.  We claim that,
-        in this case, $P$ must be on the boundary of more than one
-        pinched face in $L$, otherwise $P$ would be a keeper path.
-        To see this, observe that the face $f$ contains both the first
-        edge $e_1$ and last edge $e_2$ of $P$. If $e_1=e_2$ because $P$
-        is a single edge, then it is certainly a keeper, which is not
-        possible. Otherwise, by
-        \lemref{one-shared-edge}, $e_1$ and $e_2$ are on the boundary of
-        two different faces in $L$.  By assumption, both of these faces
-        are pinched by $C$.
+    \item $f$ contains both endpoints of $P$.  We claim that, in this case, $P$ must be on the boundary of more than one pinched face in $L$, otherwise $P$ would be a keeper path. To see this, observe that the face $f$ contains both the first edge $e_1$ and last edge $e_2$ of $P$. If $e_1=e_2$ because $P$ is a single edge, then it is certainly a keeper, which is not possible. Otherwise, by \lemref{one-shared-edge}, $e_1$ and $e_2$ are on the boundary of two different faces in $L$.
+    % By (Pre1), both of these faces are pinched by $C$.
 
-        Therefore $P$ has at most one unit of charge assigned to it.
-        Now, $R\setminus f$ has one or more connected components
-        $X_1,\ldots,X_k$ sharing chord paths $P_1,\ldots,P_k$ with $f$
-        on which we recurse.  When recursing on $X_1$ we move the charge
-        from $P$ and the charge from $f$ to $P_1$.  When recursing on
-        the remaining $X_i$, $i\in\{2,\ldots,k\}$ we assign no charge
-        to $P_i$.
+    Therefore, by (Pre2) $P$ has at most one unit of charge assigned to it. Now, $R\setminus f$ has one or more connected components $X_1,\ldots,X_k$ sharing chord paths $P_1,\ldots,P_k$ with $f$ on which we recurse.  When recursing on $X_1$ we move the charge from $P$ and the charge from $f$ to $P_1$.  This satisfies (Pre1) because $f$ is pinched and satisfies (Pre2) because $P_1$ is contained on the boundary of $f$.
+
+    When recursing on the remaining $X_i$, $i\in\{2,\ldots,k\}$ we assign no charge to $P_i$.  These recursive calls satisfy (Pre1) because $f$ is pinched and satisfy (Pre2) because, in each call $c=0$.
   \end{enumerate}
-  \item $R$ contains at least one pinched face of $\dual{T}$, but no pinched face in $R$ shares an edge with $P$.  We claim that there is a single face $g$ of $H$, contained in $R$, that contains all of $P$ on its boundary. Indeed, edges of $\dual{T}$ not in $C$ are included in $H$ only if they are on the boundary of some pinched face of $\dual{T}$.  Since no pinched face of $\dual{T}$ in $R$ shares an edge with $P$, all of $P$ must be contained in the boundary of a single face $g$ of $H$ that is contained in $R$.
+  \item $R$ contains at least one pinched face of $\dual{T}$, but no pinched face in $R$ shares an edge with $P$.  We claim that there is a single face, $g$ of $H$, contained in $R$, that contains all of $P$ on its boundary.
+  Indeed, edges of $\dual{T}$ not in $C$ are in $H$ only if they are on the boundary of some pinched face of $\dual{T}$.  Since no pinched face of $\dual{T}$ in $R$ shares an edge with $P$, none of the edges incident to internal vertices of $P$ and contained in $R$ are part of $H$.  Therefore, $P$ is on the boundary of a single face of $H$ that is contained in $R$.
 
-  Let $f$ be the face of $\dual{T}$ that is contained in $R$ and that contains the first endpoint of $P$.  Then $f$ also contains the first edge of $P$ and is therefore caressed by $C$.  We move the $c$ units of charge from $P$ onto $f$.
+  Let $f$ be the face of $\dual{T}$ that is contained in $R$ and that contains the first edge of $P$.  The face $f$ is touched by $C$ but not pinched, so it must be caressed.  We move the $c$ units of charge from $P$ onto $f$.
 
-  Now, $R$ still contains one or more pinched faces
-  $f_1,\ldots,f_k$, such that each $f_i$ shares part of a chord path $P_i$ with
-  $g$.  On each such face $f_i$, we run the initialization procedure described
-  above except that we recurse only on the chord paths of $f_i$ that
-  do not share edges with $g$. i.e., we do not recurse on the chord
-  path $P_i$.
+  Now, $R$ still contains one or more pinched faces  $f_1,\ldots,f_k$, such that each $f_i$ shares part of a chord path $P_i$ with $g$.  Consider one such $f_i$ and observe that $u\setminus f_i$ has $r_i\ge 2$ components $R_{i,1},\ldots,R_{i,r_i}$. For each $j\in\{1,\ldots,r_i\}$, let $P_{i,j}$ be the chord path that separates $R_{i,j}$ from $f_i$.  We use the convention that $P_{i,1}=P_i$ so that $R_{i,1}$ is the component of $u\setminus f_i$ that contains $g$.   On each such face $f_i$, we run the initialization procedure and this reorganizes the charges in $u\setminus R_{i,1}$ so that they satisfy (Post1)--(Post3).  Doing this for each $i\in\{1,\ldots,k\}$ completes the description of the discharging procedure.
 \end{enumerate}
-   This completes the description of the discharging procedure, and the proof.
+  To complete the proof, first observe that if $u$ contains no pinched faces then the result is trivially true. Otherwise $u$ contains a pinched face $f$ such that one of the components $R_1$ of $u\setminus f$ contains no pinched faces.  (The existence of such an $f$ is established by choosing $f$ so that the minimum number of faces in any component of $u\setminus f$ is minimum over all pinched faces $f$ in $u$.)  Since $R_1$ contains no pinched faces, it contains no charges, so it already satisfies (Post1)--(Post3). Running the initialization procedure on $f$ will then redistribute charges so that they satisfy (Post1)--(Post3) for all faces and keeper paths in $u$.
 \end{proof}
 
 
@@ -832,10 +827,7 @@ in $T_1$ share at most one edge of $C$.
 \end{lem}
 
 \begin{proof}
-   By \lemref{common-face}, $u$ and $w$ have the first edge of $P$ in
-   common and the last edge of $P$ in common.  \lemref{one-shared-edge}
-   therefore implies that the first and last edge of $P$ are the same,
-   so $P$ has only one edge.
+   By \lemref{common-face}, there is one face $f$ of $\dual{T}$ contained in $u$ that contains both the first and last edge of $P$ and there is one face $g$ of $\dual{T}$ contained in $w$ that contains both the first and last edge of $P$.  By \lemref{one-shared-edge}, $f$ and $g$ have only one edge in common so the first and last edge of $P$ must be the same, i.e., $P$ consists of a single edge.
 \end{proof}
 
 \subsection{Really Bad Nodes}
