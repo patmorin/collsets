@@ -14,8 +14,8 @@
     \thanks{This work was partly funded by NSERC and MRI.}}
 
 \author{Vida Dujmovi\'c%
-        \thanks{School of Computer Science and Electrical Engineering, 
-                University of Ottawa}\,\, and 
+        \thanks{School of Computer Science and Electrical Engineering,
+                University of Ottawa}\,\, and
         Pat Morin%
         \thanks{School of Computer Science, Carleton University}}
 
@@ -89,7 +89,7 @@ confirmed this conjecture with $\alpha=\log_2(1+\sqrt{5})-1 > 0.6942$.
 Billinksi \etal\ \cite{bilinksi.jackson.ea:circumference} improved
 this to the solution of $4^{1/\alpha}-3^{1/\alpha}=2$, which implies
 $\alpha>0.7532$.  The current record is held by Liu, Yu, and Zhang
-\cite{liu.yu.zhang:circumference} who show that $\alpha>0.8$.  
+\cite{liu.yu.zhang:circumference} who show that $\alpha>0.8$.
 
 It is known that any planar graph of maximum degree $\Delta$ can be
 triangulated so that the resulting triangulation has maximum degree
@@ -165,9 +165,8 @@ $\Omega(n^{0.25})$ was the best previously-known lower bound.
 Our work opens two avenues for further progress:
 
 \begin{enumerate}
-   \item Lower bounds on the circumference of 
-      3-connected cubic graphs are an active area of research. Indeed,
-      the $\Omega(n^{0.8})$ lower bound of Liu, Yu, and Zhang
+   \item Lower bounds on the circumference of
+      3-connected cubic graphs are an active area of research. At the time of writing, the $\Omega(n^{0.8})$ lower bound of Liu, Yu, and Zhang
       \cite{liu.yu.zhang:circumference} is less than a year old.  Any
       further progress on these lower bounds will translate immediately
       to an improved bound in \corref{main} and all its applications.
@@ -252,7 +251,7 @@ Refer to \figref{touched-pinched-caressed} for the following definitions.
 We say that a face $f$ of $\dual{T}$
 \begin{enumerate}
   \item is \emph{touched} by $C$ if $f\cap C\neq \emptyset$;
-  \item is \emph{pinched} by $C$ if $f\cap C$ is a cycle or has more than 
+  \item is \emph{pinched} by $C$ if $f\cap C$ is a cycle or has more than
     one connected component; and
   \item is \emph{caressed} by $C$ if it is touched but not pinched by $C$.
 \end{enumerate}
@@ -319,7 +318,7 @@ caressed, we have the identity $\tau = \rho + \kappa$.
 
   After performing this local modification for each $u\in F'$ we have
   a curve $C'$ that contains every vertex $u\in F'$.  All that remains
-  is verify that $C'$ is good and proper for $T$. That $C'$ is good for
+  is to verify that $C'$ is good and proper for $T$. That $C'$ is good for
   $T$ is obvious.  That $C'$ is proper for $T$ follows from the following two
   observations: (i)~$C'$ does not contain any two adjacent vertices (since
   $F'$ is an independent set); and (ii)~if $C'$ contains a vertex $u$,
@@ -349,8 +348,7 @@ contained in the interior of $C$ and a similar structure, $T_1$ on groups
 of faces in the exterior of $C$.  We will then show that every leaf of
 $T_0$ or $T_1$ contains a face caressed by $C$. In \figref{few-caressed},
 the tree $T_0$ is the path $f_0,\ldots,f_k$ and, indeed, the leaves $f_0$
-and $f_k$ of this tree are caressed by $C$.  After a non-trivial amount
-of analysis of the trees $T_0$ and $T_1$, we will eventually show that,
+and $f_k$ of this tree are caressed by $C$.  After a non-trivial analysis of the trees $T_0$ and $T_1$, we will eventually show that,
 if $C$ does not caress many faces, then $T_0$ and $T_1$ have many nodes,
 but few leaves.  Therefore $T_0$ and $T_1$ have many degree-2 nodes.
 This abundance of degree-2 nodes makes it possible to perform a surgery
@@ -358,7 +356,7 @@ on $C$ that increases the number of caressed faces.  Performing this
 surgery repeatedly will then produce a curve $C$ that caresses many faces.
 
 %The following useful lemma shows that the example in \figref{few-caressed}
-%is tight.  
+%is tight.
 A path $P=v_1,\ldots,v_r$ in $\dual{T}$ is a \emph{chord
 path} (for $C$) if $v_1,v_r\in V(C)$ and $v_2,\ldots,v_{r-1}\not\in
 V(C)$.  Note that this definition implies that the interior vertices
@@ -367,7 +365,7 @@ $C$ or all contained in the exterior of $C$.
 
 \begin{lem}\lemlabel{one-caressed}
    Let $P$ be a chord path for $C$ and let $L$ and $R$ be the two faces
-   of $P\cup C$ that each contain $P$ in their boundary. Then $R$
+   of the graph formed by $P$ and $C$ that each contain $P$ in their boundary. Then $R$
    contains at least one face of $\dual{T}$ that is caressed by $C$.
 \end{lem}
 
@@ -400,7 +398,7 @@ $C$ or all contained in the exterior of $C$.
 Refer to \figref{auxilliary}. Consider the auxilliary
 graph $H$ with vertex set $V(H)\subseteq V(\dual{T})$ and whose edge set
 consist of the edges of $C$ plus those edges of $\dual{T}$ that belong
-to any face pinched by $C$. Let $v_0,\ldots,v_{r-1}$ be the clockwise cyclic sequence of vertices on some face $f$ of $\dual{T}$ that is pinched by $C$.  
+to any face pinched by $C$. Let $v_0,\ldots,v_{r-1}$ be the clockwise cyclic sequence of vertices on some face $f$ of $\dual{T}$ that is pinched by $C$.
 We identify three kinds of vertices that are \emph{special} with respect to $f$:
 \begin{enumerate}
   \item A vertex $v_i$ is special of \emph{Type~A} if $v_{i-1}v_i$ is an edge of $C$ and $v_iv_{i+1}$ is not an edge of $C$.
@@ -413,7 +411,7 @@ We identify three kinds of vertices that are \emph{special} with respect to $f$:
 		\includegraphics[width=.45\textwidth]{figs/t0t1-2} &
 		\includegraphics[width=.45\textwidth]{figs/t0t1-3} \\
                 (a) & (b) \\[1em]
-		\includegraphics[width=.45\textwidth]{figs/t0t1-4} & 
+		\includegraphics[width=.45\textwidth]{figs/t0t1-4} &
 		\includegraphics[width=.45\textwidth]{figs/t0t1-5} \\
                 (c) & (d)
      \end{tabular}\end{center}
@@ -451,7 +449,7 @@ exactly those in $B\cup E_i$ is outerplanar, since all vertices of $H_i$
 are on a single face, whose boundary is $C$.  Let $\dual{H_i}$ be dual
 of $H_i$ and let $T_i$ be the subgraph of $\dual{H_i}$ whose edges are
 all those dual to the edges of $E_i$. From the outerplanarity of $H_i$,
-it follows that $T_i$ is a tree.  
+it follows that $T_i$ is a tree.
 
 Each vertex of $T_i$ corresponds to a face of $\tilde{H}$.  From this
 point onwards, we will refer to the vertices of $T_i$ as \emph{nodes}
@@ -481,7 +479,7 @@ We will make use of the following well-known property of
 3-connected plane graphs.
 
 \begin{lem}\lemlabel{one-shared-edge}
-   If $T$ has $n\ge 4$ vertices then any two faces of $\dual{T}$ share at 
+   If $T$ has $n\ge 4$ vertices then any two faces of $\dual{T}$ share at
    most one edge.
 \end{lem}
 
@@ -516,7 +514,7 @@ has degree $\delta_u=k+2$.
 \end{figure}
 
 \begin{proof}
-   The proof is a discharging argument.  We assign each pinched face in 
+   The proof is a discharging argument.  We assign each pinched face in
    $u$ a single unit of charge, so that the total charge is $\rho_u$.
    We then describe a discharging procedure that preserves the total
    charge.  After executing this procedure, pinched faces in $u$
@@ -552,7 +550,7 @@ has degree $\delta_u=k+2$.
 			 2.a & 2.b \\[1.5em]
 			\includegraphics{figs/discharge-4} &
 			\includegraphics{figs/discharge-5} \\
-			 2.c & 3 
+			 2.c & 3
 		\end{tabular}
 		\end{center}
 		\caption{Discharging steps in the proof of
@@ -614,11 +612,11 @@ has degree $\delta_u=k+2$.
         to $P_i$.
   \end{enumerate}
   \item $R$ contains at least one pinched face of $\dual{T}$, but no pinched face in $R$ shares an edge with $P$.  We claim that there is a single face $g$ of $H$, contained in $R$, that contains all of $P$ on its boundary. Indeed, edges of $\dual{T}$ not in $C$ are included in $H$ only if they are on the boundary of some pinched face of $\dual{T}$.  Since no pinched face of $\dual{T}$ in $R$ shares an edge with $P$, all of $P$ must be contained in the boundary of a single face $g$ of $H$ that is contained in $R$.
-  
+
   Let $f$ be the face of $\dual{T}$ that is contained in $R$ and that contains the first endpoint of $P$.  Then $f$ also contains the first edge of $P$ and is therefore caressed by $C$.  We move the $c$ units of charge from $P$ onto $f$.
 
   Now, $R$ still contains one or more pinched faces
-  $f_1,\ldots,f_k$, such that each $f_i$ shares part of a chord path $P_i$ with 
+  $f_1,\ldots,f_k$, such that each $f_i$ shares part of a chord path $P_i$ with
   $g$.  On each such face $f_i$, we run the initialization procedure described
   above except that we recurse only on the chord paths of $f_i$ that
   do not share edges with $g$. i.e., we do not recurse on the chord
@@ -645,7 +643,7 @@ has degree $\delta_u=k+2$.
 %  \begin{equation}
 %       \kappa_u + \rho_u = \tau_u \enspace . \eqlabel{tpc}
 %  \end{equation}
-%  From \lemref{many-caressed-or-high-degree}, we have 
+%  From \lemref{many-caressed-or-high-degree}, we have
 %  \[
 %      2(\kappa_u+\delta_u) \ge \rho_u \enspace .
 %  \]
@@ -657,7 +655,7 @@ has degree $\delta_u=k+2$.
 %  The total number of edges in $T_0$
 %  and $T_1$ is $\delta/2$ and therefore the total number, $m$,
 %  of nodes in $T_0$ and $T_1$ is $\delta/2+1$. Using the inequality
-%  $2m\ge \delta$ in \eqref{tpc-a} we obtain 
+%  $2m\ge \delta$ in \eqref{tpc-a} we obtain
 %  \begin{equation}
 %       3\kappa + 4m \ge \tau \enspace .  \eqlabel{tpc-b}
 %  \end{equation}
@@ -695,7 +693,7 @@ from studying individual nodes of $T_0$ and $T_1$ to studying global
 quantities associated with $T_0$ and $T_1$.  From this point on, for
 each $i\in\{0,1\}$,
 \begin{enumerate}
-  \item $\tau_i$, $\rho_i$, and $\kappa_i$ refer the total numbers of faces contained in nodes of $T_i$ that are touched, pinched, and caressed by $C$, respectively; 
+  \item $\tau_i$, $\rho_i$, and $\kappa_i$ refer the total numbers of faces contained in nodes of $T_i$ that are touched, pinched, and caressed by $C$, respectively;
   \item $n_i$ refers to the number of nodes of $T_i$;
   \item $\delta_i = 2(n_i-1)$ is the total degree of all nodes in $T_i$; and
   \item $b_i$ is the number of bad nodes in $T_i$.
@@ -713,8 +711,8 @@ each $i\in\{0,1\}$,
 	From \lemref{many-caressed-or-high-degree} we know $\rho_i \le 2(\kappa_i+\delta_i)$, so
   \[
   \tau_i  = \kappa_i + \rho_i
-     \le 3\kappa_i + 2\delta_i 
-     = 3\kappa_i + 4(n_i-1) 
+     \le 3\kappa_i + 2\delta_i
+     = 3\kappa_i + 4(n_i-1)
      \le \tau_i/2 + 4n_i \enspace ,
   \]
   and reorganizing the left- and right-hand sides gives the desired result.
@@ -722,7 +720,7 @@ each $i\in\{0,1\}$,
 
 \begin{lem}\lemlabel{most-nodes-are-bad}
 %   Let $n_i$ and $b_i$ denote the number of nodes and bad nodes in
-%   $T_i$. 
+%   $T_i$.
    For any $0<\epsilon < 1$, if $b_i \le (1-\epsilon)n_i$, then
    $\kappa_i = \Omega(\epsilon\tau_i)$.
 \end{lem}
@@ -738,16 +736,16 @@ each $i\in\{0,1\}$,
    \begin{align*}
      b_i & = n_i - |N_1|- |N_{\ge 3}|-|N_2| \\
 	   & > n_i - 2|N_1|-|N_2| & \text{since $|N_1|> |N_{\ge 3}|$} \\
-         & \ge  n_i - 2\kappa_i -|N_2| 
+         & \ge  n_i - 2\kappa_i -|N_2|
 	   & \text{(since, by \lemref{one-caressed-leaf}, $\kappa_i\ge |N_1|$)} \\
-           & \ge  n_i - 3\kappa_i 
+           & \ge  n_i - 3\kappa_i
            & \text{(since each node in $N_2$ contains a caressed face)}
     \end{align*}
     Thus, we have
     \[
           n_i-3\kappa_i \le b_i \le (1-\epsilon)n_i
     \]
-    and rewriting gives 
+    and rewriting gives
     \begin{equation}
       \kappa_i \ge \epsilon n_i/3 \enspace . \eqlabel{blech}
     \end{equation}
@@ -850,7 +848,7 @@ on its boundary.
 
 \begin{obs}\obslabel{degree-touched}
   If $T$ has maximum degree $\Delta$ and $C$ has length $\ell$, then
-  the number of faces $\tau$ of $\dual{T}$ touched by $C$ is at least 
+  the number of faces $\tau$ of $\dual{T}$ touched by $C$ is at least
   $2\ell/\Delta$.  At least $\ell/\Delta$ of these faces are in
   the interior of $C$ and at least $\ell/\Delta$ of these faces are
   in the exterior of $C$.
@@ -873,7 +871,7 @@ nodes of $T_{1-i}$ with which $u$ shares an edge of $C$.  We say that
 a node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
 
 \begin{lem}\lemlabel{lots-of-really-bad}
-  For every sufficiently small $0<\alpha < 1/2$,  
+  For every sufficiently small $0<\alpha < 1/2$,
   if $T$ has maximum degree $\Delta$, $C$ has length $\ell$, and the number
   $\kappa$, of faces caressed by $C$ is at most $\alpha\ell/\Delta^2$, then
   the number of really bad nodes in $T_0$ is at least $n_0-O(\alpha n_0)$.
@@ -885,13 +883,13 @@ a node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
   $\kappa_0\le\kappa\le \alpha\ell/\Delta^2 < \tau_0/6$
   so, by \lemref{few-caressed-implies-many-nodes}, $n_0 \ge
   \tau_0/8=\Omega(\ell/\Delta)$.
-  
+
   Let $\epsilon=a\alpha/\Delta$ for some $a>0$ to be discussed shortly.
   By \lemref{most-nodes-are-bad}, if $b_0 < (1-\epsilon) n_0$, then
-  \[ 
+  \[
       \kappa \ge \kappa_0 = \Omega(\epsilon\tau_0)
                = \Omega(\epsilon\ell/\Delta)
-               = \Omega(a\alpha\ell/\Delta^2) 
+               = \Omega(a\alpha\ell/\Delta^2)
                \enspace .
   \]
   For sufficiently large, constant, $a$ this violates our assumption
@@ -909,12 +907,12 @@ a node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
 		|A_1| = 2 + \sum_{w\in A_3}(\delta_w-2) \ge \sum_{w\in A_3}(\delta_w-2)
 		\ge \sum_{w\in A_3}\delta_w/3 \enspace ,  \eqlabel{triple}
 	\end{equation}
-  which is true because $x-2\ge x/3$ for all $x\ge 3$. 
-  Now we have 
+  which is true because $x-2\ge x/3$ for all $x\ge 3$.
+  Now we have
   \begin{align*}
-   \sum_{w\in A}\delta_w 
-    & = \sum_{w\in A_1}\delta_w 
-         + \sum_{w\in A_2}\delta_w 
+   \sum_{w\in A}\delta_w
+    & = \sum_{w\in A_1}\delta_w
+         + \sum_{w\in A_2}\delta_w
          + \sum_{w\in A_{\ge 3}}\delta_w \\
 	  & \le |A_1| + 2|A_2| + 3|A_1| & \text{(by \eqref{triple})}\\
     & \le 6\kappa & \text{(since $\kappa_w\ge 1$ for each $w\in A_1\cup A_2$)}\\
@@ -929,7 +927,7 @@ a node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
   nodes $u$ in $T_0$ and $w$ in $T_1$,  $w\in N(u)$ if and only if $w$
   and $u$ share an edge of $C$.  The number of edges of $C$ incident to a node $w$ is at most $(\Delta-1)\tau_w < \Delta\tau_w$.  Therefore, we can upper bound the number of bad nodes in $T_0$ that are prevented from being really bad by some node in $T_1$ as
   \begin{align*}
-   \sum_{w\in A'}\Delta \tau_w  
+   \sum_{w\in A'}\Delta \tau_w
     & \le  \sum_{w\in A'}2\Delta(\kappa_w + \delta_w) & \text{(by \lemref{many-caressed-or-high-degree})} \\
     & \le  2\Delta\kappa + \sum_{w\in A'}2\Delta\delta_w \\
     & < 2\Delta\kappa + 12\Delta\kappa & \text{(by the same argument as above)}\\
@@ -950,7 +948,7 @@ $N^r(u)$ are bad.  The proof of the following lemma is a straightforward
 generalization of the proof of \lemref{lots-of-really-bad}.
 
 \begin{lem}\lemlabel{lots-of-really-i-bad}
-  For any constant $i\in\N$ and every sufficiently small $0<\alpha < 1/2$,  
+  For any constant $i\in\N$ and every sufficiently small $0<\alpha < 1/2$,
   if $T$ has maximum degree $\Delta$, $C$ has length $\ell$, and the number,
   $\kappa$, of faces caressed by $C$ is at most $\alpha\ell/\Delta^{i+1}$, then
   the number of really$^i$ bad nodes in $T_0$ is at least $n_0-O(\alpha n_0)$.
@@ -965,17 +963,17 @@ We summarize the situation so far.  We are left with the case where
 $C$ has length $\ell$ and therefore touches $\Omega(\ell/\Delta)$
 faces.  To complete the proof of \thmref{main} we must deal with
 the situation where $C$ caresses $o(\ell/\Delta^4)$ faces and
-therefore each of $T_0$ and $T_1$ has $o(\ell/\Delta^4)$ leaves 
+therefore each of $T_0$ and $T_1$ has $o(\ell/\Delta^4)$ leaves
 (\lemref{one-caressed-leaf}),
 $\Omega(\ell/\Delta)$ nodes (\lemref{few-caressed-implies-many-nodes}),
 and the fraction of really really bad nodes in $T_0$ and $T_1$ is
-$1-O(1/\Delta^2)$ (\lemref{lots-of-really-i-bad}). 
+$1-O(1/\Delta^2)$ (\lemref{lots-of-really-i-bad}).
 
 
 %\figref{few-caressed}
 %illustrates an extreme example of this, in which $C$ caresses only 4
 %faces of $\dual{T}$, and $T_0$ and $T_1$ each have only 2 non-bad nodes,
-%X non-really bad nodes, and Y non-really$^2$ bad nodes.  
+%X non-really bad nodes, and Y non-really$^2$ bad nodes.
 
 To handle cases like these, the only option is to perform surgery on
 the cycle $C$ to increase the number of caressed nodes. In particular,
@@ -1026,11 +1024,11 @@ $C$ caresses $\Omega(\ell/\Delta^4)$ faces of $\dual{T}$ and we are done.
 
 In the latter case, consider the forest obtained by removing all
 nodes of $T_0$ that are not really really bad.  This forest has
-$(1-O(\epsilon/\Delta))n_0$ nodes.  We claim that it also has 
+$(1-O(\epsilon/\Delta))n_0$ nodes.  We claim that it also has
 $O(\epsilon n_0/\Delta)$
 components.  To see why this is so, let $L$ be the set of leaves in $T_i$
 and let $S$ be the set of non-leaf nodes in $T_i$ that are not really
-really bad.  Observe that it is sufficient to upper bound the number, 
+really bad.  Observe that it is sufficient to upper bound the number,
 $k$, of components in $T_i-S$.
 
 We have
@@ -1041,7 +1039,7 @@ Furthermore,
     O(\epsilon n_0/\Delta) \ge |L| \ge \sum_{u\in S}(\deg_{T_i}(u)-2)
      = |S| + \sum_{u\in S}(\deg_{T_i}(u)-1) = |S| + k \enspace .
 \]
-Therefore $k\le |S|+k =  O(\epsilon n_0/\Delta)$, as claimed. 
+Therefore $k\le |S|+k =  O(\epsilon n_0/\Delta)$, as claimed.
 
 Thus the forest obtained by removing all really really bad nodes from
 $T_i$ has at most $O(\epsilon n_0/\Delta)$ components, each of which is
@@ -1077,7 +1075,7 @@ Let $x_0=u$. We now describe some of the nodes in the vicinity of $u$ (refer to 
   \item some really bad node $a_1$ of $T_1$ shares an edge with each of
     $x_0,\ldots,x_i$ for some $i\in\{1,\ldots,\Delta-4\}$.
   \item some really bad node $a_2$ of $T_1$ shares an edge with $a_1$ and
-    and edge with $x_0$. 
+    and edge with $x_0$.
   \item some really bad node $a_0$ of $T_1$ shares an edge with $a_1$ and
     with each of $x_i,\ldots,x_{i+j}$ for some $j\in\{0,\ldots,\Delta-4\}$.
 \end{enumerate}
@@ -1149,7 +1147,7 @@ two major cases (see \figref{main-cases}):
      \begin{center}
        \begin{tabular}{cc}
          \includegraphics{figs/surgery-1} &
-         \includegraphics{figs/surgery-2} 
+         \includegraphics{figs/surgery-2}
        \end{tabular}
      \end{center}
      \caption{Performing surgery on $C$ to obtain $C'$ that caresses $a_0$.}
@@ -1227,7 +1225,7 @@ two major cases (see \figref{main-cases}):
      former part of this path is shared with nodes in $T_1'$, so these
      edges are not in $C'$.  The latter part of this path is shared with
      nodes in $T_y$, which are all contained contained in $T_0'$.
-  \end{enumerate} 
+  \end{enumerate}
   Therefore the intersection $C'\cap a_0$ consists of one connected
   component so $a_0$ is caressed by $C'$. \qedhere
 \end{enumerate}
@@ -1236,7 +1234,7 @@ two major cases (see \figref{main-cases}):
 %adjacent to $a_r$; (iii)~$b_0$ adjacent to $b_1$; (iv)~$b_{s+1}$ adjacent
 %  to $b_s$; (v)~the path $x_1,\ldots,x_{2\Delta}$ in $T_0$ that does not contain $u$; and (vi)~the
 %  path $y_1,\ldots,y_{2\Delta}$ in $T_0$ that does not contain $u$.
-%  
+%
 %Observe that the path $x_{2\Delta},\ldots,x_1,u,y_1,\ldots,y_{2\Delta}$
 %consists entirely of really really bad nodes. The four nodes $a_0$, $a_{r+1}$,
 %$b_0$, and $b_{s+1}$ are really bad because they are adjacent to at least
@@ -1276,10 +1274,10 @@ two major cases (see \figref{main-cases}):
 %     is really really bad, $a_1\in N(u)$ and $z_1,\ldots,z_t\in N(a_1)$. We
 %     order $z_1,\ldots,z_t$ so that $z_1\in N(a_0)$.  Finally, let
 %     $z_0,z_{t+1}\not\in\{z_1,\ldots,z_t\}$ be the two nodes of $T_0$
-%     adjacent to $z_1$ and $z_t$, respectively. 
+%     adjacent to $z_1$ and $z_t$, respectively.
 %     %\note{PM}{This is not
 %     %completely unambiguous in the case $t=1$, but it doesn't matter for
-%     %what comes next.}  
+%     %what comes next.}
 %     Note that $z_0$ and $z_{t+1}$ are not necessarily
 %     bad nodes.
 %
@@ -1294,7 +1292,7 @@ two major cases (see \figref{main-cases}):
 %     $T_0$ restores a path in $T_0$ from $y$ to $x$ (through $z_t$).
 %     We call the new cycle that results from this operation $C'$ and
 %     the resulting trees $T_0'$ and $T_1'$.
-%     
+%
 %     \begin{clm}
 %       Every node of $T_0$ and $T_1$ is also present in $T_0'$ and $T_1'$,
 %       respectively, except possibly for the following bad nodes: $u$,
@@ -1305,7 +1303,7 @@ two major cases (see \figref{main-cases}):
 %     \begin{proof}[Proof of Claim]
 %     For most nodes $v$ in $T_0$ or $T_1$, this claim follows immediately
 %     from \lemref{survivors} since, for most nodes $v\cap C=v\cap C'$
-%     and $w\cap C=w\cap C'$ for every $w\in N(v)$.  The only nodes requiring 
+%     and $w\cap C=w\cap C'$ for every $w\in N(v)$.  The only nodes requiring
 %     special consideration are the following:
 %     \begin{enumerate}
 %       \item[$z_0$:]  For this node $z_0\cap C=z_0\cap C'$ and $w\cap
@@ -1337,8 +1335,8 @@ two major cases (see \figref{main-cases}):
 %      faces of $\dual{T}$. The node $y_2$ is pinched by $C'$, therefore
 %      the edge $e$ common to $y_1$ and $y_2$ is a keeper. Therefore all
 %      edges of $y_1$ are in $C'\cup e$, so $y_1$ is a node of $T_0'$.
-%         
-%        
+%
+%
 %    \item[$x_\Delta$:] That $x_\Delta$ is a node of $T_0'$ follows from
 %    the fact that $x_{\Delta-1},x_{\Delta},x_{\Delta+1}$ is a path of
 %         bad nodes in $T_0$ and $x_{\Delta}\cap C=x_{\Delta}\cap C'$.
@@ -1352,7 +1350,7 @@ two major cases (see \figref{main-cases}):
 %     \end{proof}
 %     The key point to take from all of this is that every node of $T_0$
 %     and $T_1$ that is not bad is also present in $T_0'$ and $T_1'$.
-%     %Furthermore, every non-bad node $w$ in $T_i$ has the same degree in $T_i$ and in $T_i'$.  
+%     %Furthermore, every non-bad node $w$ in $T_i$ has the same degree in $T_i$ and in $T_i'$.
 %     Furthermore, the nodes $y_0$ and $a_0$, which were bad nodes in
 %     $T_0$ and $T_1$ are now leaves of $T_0'$ and $T_1'$.  Therefore,
 %     for each $i\in\{0,1\}$, the number of leaves in $T_i'$ is greater
@@ -1410,7 +1408,7 @@ is to resolve the following conjecture:
 \begin{conj}
   If $T$ is a triangulation whose dual $\dual{T}$ has a cycle of length
   $\ell$, then $\dual{T}$ has a cycle that caresses $\Omega(\ell)$
-  faces. (Therefore, by \lemref{cycle-to-curve} and \thmref{dalozzo}, 
+  faces. (Therefore, by \lemref{cycle-to-curve} and \thmref{dalozzo},
   $T$ has a collinear set of size $\Omega(\ell)$.)
 \end{conj}
 
