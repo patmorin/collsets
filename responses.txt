@@ -37,24 +37,58 @@ A: We have greatly expanded the exposition of this proof, being careful to separ
 --
 R: 13 (proof of Lemma 8) - I needed an illustration for the case distinction. Please add one to the paper.
 
-A: TODO
+A: We have added an illustration to this proof.
 --
 R: 13,45: "By Lemma 8, u and w have the first edge of P in common..." This sentence does not make sense to me. By the statement of Lemma 10, u and w share the path P. For me this sounds like they share all of its edges. Please elaborate.
 
 A: Indeed, this was badly worded and has been fixed.
 --
 
-14,22: \alpha\ell/\delta^2<\tau_0/6 - what implies this inequality?
+R: 14,22: \alpha\ell/\delta^2<\tau_0/6 - what implies this inequality?
 
-14,46: since k_w>=1 - is k_w defined?
+A: Here we were being lazy and using the statement (included in the lemma) that alpha is "sufficiently small"
 
-14,46: <=6k, since k_w>=1 for each w\in A_1\cup A_2 - how and from which Lemma does this follow?
+Since every face has size at most Delta and C has size \ell, C touches \tau_0 >= \ell/Delta faces in its interior.  So,
 
-14,57: is \tau_w defined?
+\tau_0/6 >= \ell/6\Delta > \ell/6\Delta^2 >= \alpha\ell/\Delta^2
 
-15,13: (by the same argument as above) -this is a very vague explanation. Please elaborate.
+for alpha <= 1/6.
 
-15, Lemma 12: Does this Lemma also hold for T_1?
+To help clarify this, we've explicitly upper-bounded alpha by 1/6 in the statement of the lemma and removed the phrase "sufficiently small"
+--
+
+R: 14,46: since k_w>=1 - is k_w defined?
+
+A: This is \kappa_w, the number of faces of T* contained in w and caressed by C.  This notation (as well as \rho_w and \tau_w) is introduced in the statement of Lemma 5 and used thereafter.
+--
+
+R: 14,46: <=6k, since k_w>=1 for each w\in A_1\cup A_2 - how and from which Lemma does this follow?
+
+A:
+- A_1 contains leaves of T_0 and each leaf of T_0 contains a caressed face (Lemma 3).  Therefore |A_1|<=\kappa
+
+- A_2 contains degree-2 nodes of T_0 that are not bad.  If a node has degree-2 and contains no caressed face, then it is bad. Therefore each node in A_2 contains a caressed face (otherwise it would be bad, and not in A_2). Thereore |A_2|<=\kappa.
+
+- Therefore |A_1|+2|A_2|+3|A_1| <= 6\kappa
+
+We have added this argument to the paper.
+--
+R: 14,57: is \tau_w defined?
+
+A: This notation was introduced in the statement of Lemma 5 and used thereafter.
+--
+
+R: 15,13: (by the same argument as above) -this is a very vague explanation. Please elaborate.
+
+A: This really is the same argument as above. We would split A' into three sets A'_1, A'_2, and A'_\ge 3 and use the exactly the same argument we have already expanded upon.
+
+Here we just elaborated on the parenthesized note, as follows:
+(by defining A_1, A_2, A_{\ge 3}, and arguing as above)
+--
+R: 15, Lemma 12: Does this Lemma also hold for T_1?
+
+A: Yes, there is no difference between T_0 and T_1. Here we focus on T_0 since, ultimately, we have to pick one or the other on which to perform transformations that increase the number of leaves.
+--
 
 15,36-41: This a nice discussion explaining the current state of the proof. However, it was not so easy to follow. I generally suggest to expand it. For instance you could recall what you want to prove first and then recall Lemma 1. The last two implications, the one of Lemma 6 and of Lemma 12, are also hard to grasp. A small expansion on this would greatly help the reader.
 
