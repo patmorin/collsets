@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.18">
-<info created="D:20200824150933" modified="D:20200824152512"/>
+<info created="D:20200824150933" modified="D:20200826145021"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -338,11 +338,13 @@ h
 <layer name="case-2"/>
 <layer name="case-3"/>
 <layer name="case-4"/>
-<view layers="common case-1" active="common"/>
-<view layers="common case-2" active="case-1"/>
-<view layers="common case-3" active="case-2"/>
-<view layers="common case-4" active="case-3"/>
-<view layers="common case-4" active="case-4"/>
+<layer name="end-case"/>
+<layer name="f"/>
+<view layers="common case-1 f" active="common"/>
+<view layers="common case-2 f" active="case-1"/>
+<view layers="common case-3 f" active="case-2"/>
+<view layers="common case-4 f" active="case-3"/>
+<view layers="common end-case" active="end-case"/>
 <path layer="common" fill="brew8">
 208 768 m
 208 704 l
@@ -350,12 +352,15 @@ h
 304 768 l
 h
 </path>
-<path stroke="brew4" pen="ultrafat">
-192 704 m
-320 704 l
+<path layer="end-case" fill="brew3">
+208 768 m
+208 704 l
+304 704 l
+304 768 l
+h
 </path>
-<text matrix="1 0 0 1 1 2" transformations="translations" pos="254.32 734.274" stroke="black" type="label" width="5.95" height="6.926" depth="1.93" halign="center" valign="center" style="math">f</text>
-<text matrix="1 0 0 1 0 3" transformations="translations" pos="252.562 762.751" stroke="black" type="label" width="11.59" height="6.812" depth="1.49" halign="center" valign="top" style="math">C_1</text>
+<text layer="f" matrix="1 0 0 1 1 2" transformations="translations" pos="254.32 734.274" stroke="black" type="label" width="5.95" height="6.926" depth="1.93" halign="center" valign="center" style="math">f</text>
+<text layer="common" matrix="1 0 0 1 0 3" transformations="translations" pos="252.562 762.751" stroke="black" type="label" width="11.59" height="6.812" depth="1.49" halign="center" valign="top" style="math">C_1</text>
 <text matrix="1 0 0 1 3.46073 -56.5037" transformations="translations" pos="252.562 762.751" stroke="black" type="label" width="11.59" height="6.812" depth="1.49" halign="center" valign="bottom" style="math">C_2</text>
 <text matrix="1 0 0 1 8 0" transformations="translations" pos="199.125 735.681" stroke="black" type="label" width="10.866" height="6.812" depth="1.49" halign="right" valign="baseline" style="math">P_1</text>
 <text transformations="translations" pos="305.472 735.505" stroke="black" type="label" width="10.866" height="6.812" depth="1.49" valign="baseline" style="math">P_2</text>
@@ -438,11 +443,7 @@ h
 239.027 750.446
 240.082 768 c
 </path>
-<path layer="common" stroke="brew4" pen="ultrafat">
-192 768 m
-320 768 l
-</path>
-<use layer="case-4" name="mark/disk(sx)" pos="297.034 768" size="normal" stroke="brew4"/>
+<use name="mark/disk(sx)" pos="297.034 768" size="normal" stroke="brew4"/>
 <use name="mark/disk(sx)" pos="304 768" size="normal" stroke="brew4"/>
 <use name="mark/disk(sx)" pos="284.906 768" size="normal" stroke="gray"/>
 <use name="mark/disk(sx)" pos="220.57 768" size="normal" stroke="brew4"/>
@@ -459,5 +460,112 @@ h
 <use name="mark/disk(sx)" pos="208 768" size="normal" stroke="brew4"/>
 <use name="mark/disk(sx)" pos="208 752.028" size="normal" stroke="brew4"/>
 <use name="mark/disk(sx)" pos="274.007 704" size="normal" stroke="gray"/>
+<path layer="end-case" stroke="black" fill="brew8">
+208 754.519 m
+221.257 754.519
+224.449 744.707
+208 743.288 c
+</path>
+<path stroke="black" fill="brew8">
+208 731.82 m
+228.941 731.939
+228.35 719.525
+208 718.698 c
+</path>
+<path stroke="black" fill="brew8">
+304 760.548 m
+284.387 757.593
+282.614 747.189
+304 746.244 c
+</path>
+<path stroke="black" fill="brew8">
+304 738.559 m
+288.17 738.204
+285.333 730.52
+304 726.264 c
+</path>
+<path stroke="black" fill="brew8">
+304 718.58 m
+288.998 721.18
+285.806 716.097
+304 709.831 c
+</path>
+<path stroke="black" fill="brew8">
+208 768 m
+208 704 l
+</path>
+<path stroke="black" fill="brew8">
+304 768 m
+304 704 l
+</path>
+<path stroke="brew7" fill="brew8" pen="ultrafat" cap="1">
+208 768 m
+208 754.519 l
+</path>
+<path matrix="1 0 0 1 0 0.00008087" stroke="brew7" pen="ultrafat">
+208 754.519 m
+221.257 754.519
+224.449 744.707
+208 743.288 c
+</path>
+<path stroke="brew7" pen="ultrafat" cap="1">
+208 743.288 m
+208 731.82 l
+</path>
+<path stroke="brew7" pen="ultrafat" cap="1">
+208 718.698 m
+208 704 l
+</path>
+<path matrix="1 0 0 1 0 0.00043719" stroke="brew7" pen="ultrafat">
+208 731.82 m
+228.941 731.939
+228.35 719.525
+208 718.698 c
+</path>
+<text matrix="1 0 0 1 -4 -4" transformations="translations" pos="221.02 739.032" stroke="brew7" type="label" width="10.866" height="7.493" depth="2.47" valign="baseline" style="math">P_1&apos;</text>
+<path stroke="brew7" pen="ultrafat" cap="1">
+304 768 m
+304 760.548 l
+</path>
+<path stroke="brew7" pen="ultrafat" cap="1">
+304 746.244 m
+304 738.559 l
+</path>
+<path stroke="brew7" pen="ultrafat" cap="1">
+304 726.264 m
+304 718.58 l
+</path>
+<path stroke="brew7" pen="ultrafat" cap="1">
+304 709.831 m
+304 704 l
+</path>
+<path matrix="1 0 0 1 0 0.0004081" stroke="brew7" pen="ultrafat">
+304 760.548 m
+284.387 757.593
+282.614 747.189
+304 746.244 c
+</path>
+<path matrix="1 0 0 1 0 0.00009703" stroke="brew7" pen="ultrafat">
+304 738.559 m
+288.17 738.204
+285.333 730.52
+304 726.264 c
+</path>
+<path matrix="1 0 0 1 0 -0.00043829" stroke="brew7" pen="ultrafat">
+304 718.58 m
+288.998 721.18
+285.806 716.097
+304 709.831 c
+</path>
+<path layer="common" stroke="brew4" pen="ultrafat">
+192 704 m
+320 704 l
+</path>
+<path matrix="1 0 0 1 -0.118222 -0.118222" stroke="brew4" pen="ultrafat">
+192 768 m
+320 768 l
+</path>
+<text layer="end-case" matrix="1 0 0 1 1 2" transformations="translations" pos="288.17 732.648" stroke="brew7" type="label" width="10.866" height="7.493" depth="2.47" halign="right" valign="baseline" style="math">P_2&apos;</text>
+<text transformations="translations" pos="255.186 734.894" stroke="black" type="label" width="5.109" height="4.297" depth="1.93" halign="center" valign="baseline" style="math">g</text>
 </page>
 </ipe>

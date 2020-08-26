@@ -761,19 +761,15 @@ to study interactions between bad nodes of $T_0$ and bad nodes of $T_1$.
 
 
 \begin{lem}\lemlabel{common_face}
-   If $u$ is a bad node then there is a single face $f$ of $\dual{T}$
-   that is contained in $u$ and that contains all edges of $C\cap u$.
+   If $u$ is a bad node then $u$ is a face of $\dual{T}$.
+   % there is a single face $f$ of $\dual{T}$ that is contained in $u$ and that contains all edges of $C\cap u$.
 \end{lem}
 
 \begin{proof}
-   First observe that, since $u$ has degree 2, $C\cap u$ has exactly
-   two connected components $C_1$ and $C_2$. Thus $u$'s boundary
+   First observe that, since $u$ is bad, it has degree 2, so $C\cap u$ has exactly two connected components $C_1$ and $C_2$. Thus $u$'s boundary
    consists of $C_1$, $C_2$ and two chord paths $P_1$ and $P_2$.
 
-   If $C\cap u$ is not contained in a single face of $\dual{T}$, then
-   some path $P$ with endpoints on the boundary of $u$ and internal
-   vertices in the interior of $u$ separates two edges of $E(C)$ on the
-   boundary of $u$.  There are a few cases to rule out (see \figref{common_face}):
+   We first argue that there is a single face $g$ of $\dual{T}$ that contains $C_1\cup C_2$.  There are a few cases to rule out (see \figref{common_face}):
    \begin{figure}
        \begin{center}
            \centering{
@@ -784,8 +780,8 @@ to study interactions between bad nodes of $T_0$ and bad nodes of $T_1$.
                \includegraphics{figs/common-face-3} &
                \includegraphics{figs/common-face-4} \\
                Case 3 & Case 4 \\[1ex]
-
-           \end{tabular}
+               \multicolumn{2}{c}{\includegraphics{figs/common-face-5}}
+          \end{tabular}
            }
            \caption{Cases in the proof of \lemref{common_face}}
            \figlabel{common_face}
@@ -820,7 +816,16 @@ to study interactions between bad nodes of $T_0$ and bad nodes of $T_1$.
        in $u$, with both endpoints on $C_1$ or both endpoints on $C_2$,
        contradicting the assumption that $u$ is a bad node.
 \end{enumerate}
+    The preceding 4 cases already establish that $C_1\cup C_2$ is contained in the boundary of a single face $g$ of $\dual{T}$.  The boundary of $g$ contains two disjoint paths $P_1'$ and $P_2'$ joining $C_1$ and $C_2$.  We claim that $P_i'$ is a keeper path, for each $i\in\{1,2\}$.  Indeed, each internal $x$ vertex of $P_i'$ is either a vertex of $P_j$ or is on the boundary of three faces: $g$ and two faces that are not touched by $C$.  In either case, $x$ is not special of Type~Y.  Therefore $P_i'$ has endpoints that are special of Type~A and Type~B and has no internal vertices that are special of Type~Y, so $P_i'$ is a keeper.  Therefore $\{P_1',P_2'\}=\{P_1,P_2\}$ since, otherwise $f$ would not be a face of $\tilde{H}$.  Therefore $g=f$ so $f$ is a face of $\dual{T}$.
 \end{proof}
+
+       %
+       % \item $P$ has both endpoints on $P_i$ for some $i\in\{1,2\}$.  By choosing such a $P$ that minimizes the area of the bounded region formed by $P\cup P_i$, we may assume that this bounded region is a face of $\dual{T}$.  Let $x_1$ and $x_2$ be the two endpoints of $P$.  There are two subcases to consider:
+       % \begin{enumerate}
+       %     \item $P$ has more than 2 vertices.  In this case, let $S_1$ be the set of internal vertices of $P$ and let $S_2$ be the vertices on the boundary of $u$ and argue as above.
+       %
+       %     \item $P$ consists of a single edge.  In this case, the path, in $P_i$ from $x_1$ to $x_2$ has more than 2 vertices.  In this case, the path $P_i'$ from $C_i$ to $C_2$ obtained by ``shortcutting'' $P_i$ using the edge $x_1x_2$ must be a keeper. Indeed, the analysis of Cases~1--4 already implies that the first and last vertex of this path are on the same face $g$ of $\dual{T}$.  The face $g$ is pinched by $C$ and
+
 
 The following lemma shows that a bad node $u$ in $T_0$ and a bad node $w$
 in $T_1$ share at most one edge of $C$.
@@ -831,11 +836,7 @@ in $T_1$ share at most one edge of $C$.
 \end{lem}
 
 \begin{proof}
-   Suppose $u$ and $w$ share two edges $e_1$ and $e_2$ of $C$.  Then,
-   by \lemref{common_face}, there is a common face $f_u$ in $u$ that
-   contains $e_1$ and $e_2$, Similarly, there is a common face $f_w$
-   contained in $w$ that contains both $e_1$ and $e_2$.  But this
-   contradicts \lemref{one_shared_edge}.
+    By \lemref{common_face} $u$ and $w$ are each faces of $\dual{T}$. Therefore, by \lemref{one_shared_edge}, $u$ and $w$ share at most one edge of $C$.
 \end{proof}
 
 
@@ -845,7 +846,7 @@ in $T_1$ share at most one edge of $C$.
 \end{lem}
 
 \begin{proof}
-   By \lemref{common_face}, there is one face $f$ of $\dual{T}$ contained in $u$ that contains both the first and last edge of $P$ and there is one face $g$ of $\dual{T}$ contained in $w$ that contains both the first and last edge of $P$.  By \lemref{one_shared_edge}, $f$ and $g$ have only one edge in common so the first and last edge of $P$ must be the same, i.e., $P$ consists of a single edge.
+   By \lemref{common_face}, $u$ and $w$ are each faces of $\dual{T}$ that share the edges of $P$. By \lemref{one_shared_edge} $P$ must therefore consist of a single edge.
 \end{proof}
 
 \subsection{Really Bad Nodes}
@@ -877,7 +878,18 @@ on its boundary.
 For each node $u$ of $T_i$, we define $N(u)$ as the set of nodes in $T_0$
 and $T_1$ (excluding $u$) that share an edge of $\dual{T}$ with $u$.
 Note that $N(u)$ contains the neighbours of $u$ in $T_i$ as well as
-nodes of $T_{1-i}$ with which $u$ shares an edge of $C$.  We say that
+nodes of $T_{1-i}$ with which $u$ shares an edge of $C$.
+
+
+The following lemma follows immediately from \lemref{common_face}, \lemref{one_edge_between}, and \lemref{one_shared_edge} that, for any bad node $w$, $|N(w)|\le\Delta$.
+
+\begin{lem}\lemlabel{n_u_size}
+    For any bad node $u$, $|N(u)|\le\Delta$.
+\end{lem}
+
+
+
+We say that
 a node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
 
 \begin{lem}\lemlabel{lots_of_really_bad}
@@ -962,9 +974,7 @@ We say that a node $u$ is \emph{really really bad} if all the nodes in $N(u)$ ar
 \end{lem}
 
 \begin{proof}
-    A node $u$ is a \emph{fringe node} if it is really bad but not really really bad. A node $u$ is a \emph{critical node} if it is bad but not really bad.  Observe that every fringe node $u$ is in $N(w)$ for some critical node $w$. To bound the number of fringe nodes, it therefore suffices to bound $\sum_{w}|N(w)|$ where the sum is over all critical nodes.
-
-    By \lemref{common_face}, for each critical node $w$ there is a single face $f$ of $\dual{T}$ whose boundary contains $C\cap w$. Since $w$ is bad, $C\cap w$ contains exactly two components and therefore at least two edges of $f$ are not contained in $C\cap w$.  Therefore the number of edges of $\dual{T}$ in $C\cap w$ is at most $\Delta-2$.  Therefore $N(w)$ contains exactly two nodes of $T_i$ and at most $\Delta-2$ nodes of $T_{1-i}$.  Therefore $|N(w)|\le \Delta$ for each critical node $w$.
+    A node $u$ is a \emph{fringe node} if it is really bad but not really really bad. A node $u$ is a \emph{critical node} if it is bad but not really bad.  Observe that every fringe node $u$ is in $N(w)$ for some critical node $w$.  To bound the number of fringe nodes, it therefore suffices to bound $\sum_{w}|N(w)|\le\sum_{w}\Delta$ where the sum is over all critical nodes and the inequality is due to \lemref{n_u_size} and the fact that any fringe node is bad.
 
     By \lemref{lots_of_really_bad}, the number of nodes that are not really bad, and hence the number of critical nodes, is at most $192\alpha n_i$.  Therefore, the number of fringe nodes is at most $192\Delta\alpha n_i$.
     Any node that is not really really bad is either a fringe node or is a node that is not really bad.  Therefore, the number of nodes that are really really bad is at least
@@ -986,9 +996,11 @@ We say that a node $u$ is \emph{really really bad} if all the nodes in $N(u)$ ar
 
 \subsection{Tree/Cycle Surgery}
 
-We summarize the situation so far.  By \lemref{cycle_to_curve}, finding a large collinear set is equivalent to finding a cycle in $\dual{T}$ that caresses many faces.  By existing results on the circumference of cubic triconnected graphs, $\dual{T}$ has a cycle $C_0$ of length $\ell=\Omega(n^{\alpha})$ for some $\alpha > 0.8$.  Thus we assume that $\dual{T}$ has a cycle $C_0$ of length $\ell$ and we want to show the existence of a cycle $C$ that caresses $\Omega(\ell/\Delta^4)$ faces.
+We summarize the situation so far.  By \lemref{cycle_to_curve}, finding a large collinear set is equivalent to finding a cycle in $\dual{T}$ that caresses many faces.  By existing results on the circumference of cubic triconnected graphs, $\dual{T}$ has a cycle $C_0$ of length $\ell=\Omega(n^{\alpha})$ for some $\alpha > 0.8$.  Thus we assume that $\dual{T}$ has a cycle $C_0$ of length $\ell$ and we want to show the existence of a cycle $C$ that caresses $\Omega(\ell/\Delta^3)$ faces.
 
-Because each face of $\dual{T}$ has at most $\Delta$ edges, $C_0$ touches $\Omega(\ell/\Delta)$ faces (\obsref).  To complete the proof of \thmref{main} we must deal with the situation where $C_0$ caresses $o(\ell/\Delta^4)$ faces and therefore each of $T_0$ and $T_1$ has $o(\ell/\Delta^4)$ leaves (\lemref{one_caressed_leaf}), $\Omega(\ell/\Delta)$ nodes (\lemref{few_caressed_implies_many_nodes}), and the fraction of really really bad nodes in $T_0$ and $T_1$ is $1-O(1/\Delta^2)$ (\lemref{lots_of_really_really_bad}).  \figref{few_caressed_ii} illustrates an extreme example of this.  To handle cases like these, the only option is to perform surgery on the cycle $C$ to increase the number of caressed faces. To complete the proof we will show that such a surgery is always possible.
+Because each face of $\dual{T}$ has at most $\Delta$ edges, $C_0$ touches $\Omega(\ell/\Delta)$ faces (\obsref{degree_touched}).  To complete the proof of \thmref{main} we must deal with the situation where $C_0$ caresses $o(\ell/\Delta^3)$ faces and therefore each of $T_0$ and $T_1$ has $o(\ell/\Delta^3)$ leaves (\lemref{one_caressed_leaf}), $\Omega(\ell/\Delta)$ nodes (\lemref{few_caressed_implies_many_nodes}), and the fraction of really really bad nodes in $T_0$ and $T_1$ is $1-O(1/\Delta)$ (\lemref{lots_of_really_really_bad}).
+
+\figref{few_caressed_ii} illustrates an extreme example of this situation.  To handle cases like these, the only option is to perform surgery on the cycle $C$ to increase the number of caressed faces.  We achieve this indirectly by performing a surgery that increases the number of leaves in $T_0$.  The overabundance of really really bad nodes allows us to choose a particular really really bad node $u$ for which we have a good enough understanding of the faces of $\tilde{H}$ surrounding $u$ so that we can make a local modification of $C$ around $N(u)$ that increases the number of leaves in $T_0$.
 
 \begin{figure}
     \centering{
@@ -1037,19 +1049,17 @@ Because each face of $\dual{T}$ has at most $\Delta$ edges, $C_0$ touches $\Omeg
 % At this point we are ready to complete the proof of \thmref{main}.
 
 \begin{proof}[Proof of \thmref{main}]
-By \lemref{cycle_to_curve}, it suffices to prove the existence of a cycle $C$ in $\dual{T}$ that caresses $\Omega(\ell/\Delta^3)$ faces.  We begin by applying \lemref{lots_of_really_really_bad} with $\alpha = \epsilon/\Delta^2$.  For sufficiently small, but constant, $\epsilon$, \lemref{lots_of_really_i_bad} implies that $\kappa = \Omega(\ell/\Delta^3)$ or the number of nodes in $T_0$ that are not really really bad is at most $O(\epsilon n_0/\Delta)$.  In the former case, $C$ caresses $\Omega(\ell/\Delta^3)$ faces of $\dual{T}$ and we are done.
+By \lemref{cycle_to_curve}, it suffices to prove the existence of a cycle $C$ in $\dual{T}$ that caresses $\Omega(\ell/\Delta^3)$ faces.  We begin by applying \lemref{lots_of_really_really_bad} with $\alpha = \epsilon/\Delta^2$.  For sufficiently small, but constant, $\epsilon$, \lemref{lots_of_really_really_bad} implies that $\kappa = \Omega(\ell/\Delta^3)$ or the number of nodes in $T_0$ that are not really really bad is at most $O(\epsilon n_0/\Delta)$.  In the former case, $C$ caresses $\Omega(\ell/\Delta^3)$ faces of $\dual{T}$ and we are done.
 
 In the latter case, consider the forest obtained by removing all nodes of $T_0$ that are not really really bad.  This forest has $(1-O(\epsilon/\Delta))n_0$ nodes.  We claim that it also has $O(\epsilon n_0/\Delta)$ components.  To see why this is so, let $L$ be the set of leaves in $T_0$ and let $S$ be the set of non-leaf nodes in $T_0$ that are not really really bad.  Observe that it is sufficient to upper bound the number, $k$, of components in $T_0-S$.
 
-We have
-$|L|\le |S|+|L|=  O(\epsilon n_0/\Delta)$ and
-$k=\sum_{u\in S}(\deg_{T_0}(u)-1)$.
-Furthermore,
+Since removing a degree $d$ vertex from a graph increases the number of components by at most $d-1$, we have $k \le \sum_{u\in S}(\deg_{T_0}(u)-1)$. Since $(S,L)$ is a partition of the nodes of $T_0$ that are not really really bad, we have $|L|\le |S|+|L|=  O(\epsilon n_0/\Delta)$.  Recall that a standard fact about trees is that the number of leaves in a tree $T$ is exactly $2+\sum_{u}(\deg_T(u)-2$, where the sum runs over all non-leaf nodes $u$ of $T$. Therefore,
 \[
-    O(\epsilon n_0/\Delta) \ge |L| \ge \sum_{u\in S}(\deg_{T_0}(u)-2)
-     = |S| + \sum_{u\in S}(\deg_{T_0}(u)-1) = |S| + k \enspace .
+    % O(\epsilon n_0/\Delta) \ge
+    |L| \ge \sum_{u\in S}(\deg_{T_0}(u)-2)
+     = \sum_{u\in S}(\deg_{T_0}(u)-1) - |S| = k - |S|  \enspace .
 \]
-Therefore $k\le |S|+k =  O(\epsilon n_0/\Delta)$, as claimed.
+Therefore $k\le |S| + |L| = O(\epsilon n_0/\Delta)$, as claimed.
 
 Thus the forest induced by all really really bad nodes of
 $T_i$ has at most $O(\epsilon n_0/\Delta)$ components, each of which is
@@ -1066,18 +1076,19 @@ one of these components, $X$, has at least $5\Delta$ nodes.
 %each node $u$ in $X$ consists of a single face of $\dual{T}$.
 
 Consider some node $u$ in $X$, and let $C_a$ and $C_b$ be the
-two components of $u\cap C$. Observe that $T_1[N(u)]$ consists
-of two paths $a_1,\ldots,a_r$ and $b_1,\ldots,b_s$ of bad nodes
+two components of $u\cap C$. Since $u$ is really really bad, the subgraph of $T_1$ induced by $N(u)$ consists
+of two paths $a_1,\ldots,a_r$ and $b_1,\ldots,b_s$ of really bad nodes
 where each $a_1,\ldots,a_r$ contains an edge of $C_a$ and each of
 $b_1,\ldots,b_r$ contains an edge of $C_b$. Note that it is
 possible that $a_i=b_j$ for some values of $i$ and $j$, but everything
-stated thus far, and subsequently, is still true. It follows from
-\lemref{bad_one_shared_edge} that among any sequence of $\Delta$
+stated thus far, and subsequently, is still true.
+
+It follows from \lemref{bad_one_shared_edge} that among any sequence of $\Delta$
 consecutive nodes in $X$, at least one node has $r\ge 2$ and therefore $|N(u)|\ge 5$.  Let $u$ be any such node that is not among the first $2\Delta$
 or last $2\Delta$ nodes of $X$.  Such a $u$ always exists because $X$
 contains at least $5\Delta$ nodes.
 
-Let $x_0=u$. We now describe some of the nodes in the vicinity of $u$ (refer to \figref{rrbad}):
+Let $x_0=u$. We now define notations for some of the nodes in the vicinity of $u$ (refer to \figref{rrbad}):
 \begin{enumerate}
   \item there is a path
     $x_{2\Delta},\ldots,x_1,x_0,y_1,\ldots,y_{2\Delta}$
@@ -1119,10 +1130,10 @@ two major cases (see \figref{main_cases}):
    \figlabel{main_cases}
 \end{figure}
 \begin{enumerate}
-   \item $q\subset C_x$.  In this case, we punt to Case~2. By
+   \item $q\subset C_x$.  In this case, we punt to Case~2. TODO!
    \lemref{one_edge_between} $a_1-C$ consists of two edges and exactly
    one of these edges, $e$, is not incident to $u$. Instead, $e$ is
-   incident to    $x_i$.  We set $u'=x_i$, $x_1'=x_{i-1}$, $y_1'=x_{i+1}$,
+   incident to $x_i$.  We set $u'=x_i$, $x_1'=x_{i-1}$, $y_1'=x_{i+1}$,
    and $a_1'=a_1$. Observe that $a_1'$ connects the two components of
    $T_0-u'$ and shares edges with $u'$ and $x_1'$. This is exactly the
    situation considered in Case~2, next.
@@ -1190,10 +1201,9 @@ two major cases (see \figref{main_cases}):
    $\ell/(4\Delta^2)$ times before the length of $C$ decreases
    to less than $\ell'=\ell/2$. If at some point during this process,
    we are no longer able to perform this operation, it is because
-   $C$ caresses $\Omega(\ell'/\Delta^4)=\Omega(\ell/\Delta^4)$
-   faces of $\dual{T}$ and we are done.  By the end of this
-   process, the number of faces caressed by $C$ is at least
-   $\ell/(4\Delta^2)\in\Omega(\ell/\Delta^2)\subset\Omega(\ell/\Delta^4)$
+   $C$ caresses $\Omega(\ell'/\Delta^3)=\Omega(\ell/\Delta^3)$
+   faces of $\dual{T}$ and we are done.  If the process runs to completion, then by its end, the number of faces caressed by $C$ is at least
+   $\ell/(4\Delta^2)\in\Omega(\ell/\Delta^2)\subset\Omega(\ell/\Delta^3)$
    and we are also done.
 
    Thus, all that remains is to prove \clmref{only_bad} and
@@ -1216,7 +1226,7 @@ two major cases (see \figref{main_cases}):
      \item A path of edges shared with $x_i,\ldots,x_{i+j}$.
       The nodes $x_i,\ldots,x_{i+j}$ are in $T_0$ and are distinct from
       $x_0,\ldots,x_{i-1}$, so these nodes are in $T_0'$.
-      Therefore, this part of the bounary of $a_0$ is contained in $C'$.
+      Therefore, this part of the boundary of $a_0$ is contained in $C'$.
 
      \item An edge shared between $a_0$ and another node $a_{-1}\neq
      a_1$ of $T_1$. The faces of $a_{-1}$ are in $T_1'$ because $a_1$

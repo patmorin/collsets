@@ -102,21 +102,49 @@ A: The second sentence is now gone (as part of the revision adressing the previo
 
 R: 16,6: |S| + |L|=O(en_0/\Delta) - please explain how this holds?
 
-A: This paragraph begins with the sentence "In the latter case" where the latter case is when the number of nodes of T_0 that are not really really bad is at most O(en_0/\Delta).
+A: (S,L) is a partition of the set of nodes in T_0 that are not really really bad.  This paragraph begins with the sentence "In the latter case" where the latter case is when the number of nodes of T_0 that are not really really bad is at most O(en_0/\Delta).
 ----------------------------------------------------------------
 
+R: 16,8: The second inequality: |L|>\summ... - explain how it holds, in particular the "-2" in the summ
 
-16,8: The second inequality: |L|>\summ... - explain how it holds, in particular the "-2" in the summ
+A: We have now explained this in the paragraph leading up to this sum.
+----------------------------------------------------------------
 
-16,8: the next equality: \sum...=|S|+\sum..., should not this be -|S|?
+R: 16,8: the next equality: \sum...=|S|+\sum..., should not this be -|S|?
 
-16,19: T_1[N(u)] - probably the square brockets mean "induced by" -the notation which was used in the beginning of the paper in some proof. But please better explain it here.
+A: Indeed, this was an embarrassing mistake that is now fixed.
+----------------------------------------------------------------
 
-16,19-20: The sentence "Observe that T_1[N(u)] consists of two paths ... and ... of bad nodes where each ... contains and edge of C_a and each of ... contains an edge of C_b" - I do not understand why this holds.
+R: 16,19: T_1[N(u)] - probably the square brockets mean "induced by" -the notation which was used in the beginning of the paper in some proof. But please better explain it here.
+
+A: We have changed this to "the subgraph of T induced by N(u)"
+----------------------------------------------------------------
+
+R: 16,19-20: The sentence "Observe that T_1[N(u)] consists of two paths ... and ... of bad nodes where each ... contains and edge of C_a and each of ... contains an edge of C_b" - I do not understand why this holds.
+
+A:
+First, since u is bad, the boundary of u intersected with C has two parts that we call C_a and C_b.
+
+Every node in T_1[N(u)] shares an edge of C with u (by definition), so this defines two node sets {a_1,..,a_r} and {b_1,...,b_s}.  The first set consists of nodes that share an edge with C_a and the second with nodes that share an edge with C_b.  (These sets are not necessarily disjoint.)
+
+Why do a_1,..,a_r form a path in T_1?  Recall that \hat{H}, the graph whose faces are the nodes of T_0 and T_1 is 3-regular. Now imagine walking along C_a one edge at a time so that T_1 is on the right side and T_0 is on the left side.  The first edge has u to its left and some a_i to its right, so call that a_1.  The second edge is also on the boundary of some a_j and, actually a_j!=a_1 since the vertex in common between the first and second edge of C_a has a third edge that separates a_i from a_j.  So we call this second edge a_2, and so on.
+
+The same reasoning shows that b_1,...,b_s is also a path of bad nodes.
+----------------------------------------------------------------
 
 16,22-23: "It follows from Lemma 9 that among any sequence of \Delta consecutive nodes in X, at least one node has r>=2 and therefore |N(u)|>=5" why does this hold?
 
-16,27-38: I could not understand how the authors came to the conclusion that this is the remaining configuration.
+This follows from 3-regularity again. As we walk along C each vertex has a third edge that either goes to the left of C (separating two nodes T_0) or into the right of C (separating two nodes of T_1).  If we take t consecutive steps along C and all the vertices we see have their third edge leading to the left (into T_0) then all those t vertices are on a common face of \hat{H}. This face is in a bad node in T_1 and Lemma 9 states that this face is then actually a face of T*.  But faces of T* have at most Delta vertices on their boundary so, after at most Delta (actually Delta-3) steps we will see a vertex v whose third edge goes to the right of C (into T_1).  This vertex v is on the boundary of a node u in T_0 that has two edges of incident to u on its boundary. Opposite those two edges are two nodes a_1,a_2 that share edges of C with u.
+
+----------------------------------------------------------------
+R: 16,27-38: I could not understand how the authors came to the conclusion that this is the remaining configuration.
+
+A: Perhaps the wording was confusing here. These lines just assign names to the nodes in the vicinity of u. We have changed the wording to "We now define notations for some of the nodes in the vicinity of u (refer to
+Figure 11):"
+
+Besides this, the reasoning outlined in response to the previous previous question explains why each of x_0,...,x_{2\Delta}; x_0,y_1,\ldots,y_{2\Delta}; a_{-1},...,a_r; and b_1,...,b_s are paths. 
+
+
 
 16,42: "At least of these components" -> "at least one of these components"
 
