@@ -525,7 +525,15 @@ has degree $\delta_u=k+2$.
   \figlabel{tight}
 \end{figure}
 
-\begin{proof}
+We also note the following useful corollary that follows immediately from \lemref{many-caressed-or-high-degree} and the identity $\tau_u=\rho_u+\kappa_u$.
+\begin{cor}\corlabel{many-caressed-or-high-degree}
+   Let $u$ be a node of $T_i$ and let $\tau_u$, $\rho_u$, $\kappa_u$, and $\delta_u$ denote the number of touched faces of $\dual{T}$ in $u$, the number of pinched faces of $\dual{T}$ in $u$, the number of caressed faces of $\dual{T}$ in $u$, and the degree of $u$ in $T_i$, respectively.  Then $\tau_u \le 3\kappa_u + 2\delta_u$.
+\end{cor}
+
+
+
+
+\begin{proof}[Proof of \lemref{many-caressed-or-high-degree}]
    The proof is a discharging argument.  We assign each pinched face in
    $u$ a single unit of charge, so that the total charge is $\rho_u$.
    We then describe a discharging procedure that preserves the total
@@ -714,7 +722,7 @@ each $i\in\{0,1\}$,
 %   Let $n_i$ and $b_i$ denote the number of nodes and bad nodes in
 %   $T_i$.
    For any $0<\epsilon < 1$, if $b_i \le (1-\epsilon)n_i$, then
-   $\kappa_i = \Omega(\epsilon\tau_i)$.
+   $\kappa_i \ge \epsilon\tau_i/24$.
 \end{lem}
 
 \begin{proof}
@@ -741,9 +749,9 @@ each $i\in\{0,1\}$,
     \begin{equation}
       \kappa_i \ge \epsilon n_i/3 \enspace . \eqlabel{blech}
     \end{equation}
-    If $\kappa_i \ge \tau_i/6$, then the proof is complete.  On the other hand, if $\kappa_i \le \tau_i/6$ then, by \lemref{few-caressed-implies-many-nodes}, $n_i \ge \tau_i/8$. Combining this with \eqref{blech}  gives
+    If $\kappa_i \ge \tau_i/6$, then the proof is complete since $\tau_i/6>\tau_i/24$.  On the other hand, if $\kappa_i \le \tau_i/6$ then, by \lemref{few-caressed-implies-many-nodes}, $n_i \ge \tau_i/8$. Combining this with \eqref{blech}  gives
     \[
-      \kappa_i \ge \epsilon n_i/3 \ge \epsilon\tau_i/24 = \Omega(\epsilon \tau_i) \enspace . \qedhere
+      \kappa_i \ge \epsilon n_i/3 \ge \epsilon\tau_i/24  \enspace . \qedhere
     \]
 \end{proof}
 
@@ -877,44 +885,34 @@ nodes of $T_{1-i}$ with which $u$ shares an edge of $C$.  We say that
 a node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
 
 \begin{lem}\lemlabel{lots-of-really-bad}
-  For every $0<\alpha < 1/6$,
+  For each $i\in\{0,1\}$ and each $0<\alpha < 1/24$,
   if $T$ has maximum degree $\Delta$, $C$ has length $\ell$, and the number
-  $\kappa$, of faces caressed by $C$ is at most $\alpha\ell/\Delta^2$, then
-  the number of really bad nodes in $T_0$ is at least $n_0-O(\alpha n_0)$.
+  $\kappa$, of faces of $\dual{T}$ caressed by $C$ is at most $\alpha\ell/\Delta$, then the number $b_i$ of really bad nodes in $T_i$ is at least $n_i - 192\alpha n_i$.
 \end{lem}
 
 \begin{proof}
-  First consider the tree $T_0$.  From \obsref{degree-touched},
-  we know that $\tau_0\ge \ell/\Delta$.  By assumption,
-  $\kappa_0\le\kappa\le \alpha\ell/\Delta^2 < \tau_0/6$
-  so, by \lemref{few-caressed-implies-many-nodes}, $n_0 \ge
-  \tau_0/8=\Omega(\ell/\Delta)$.
+  Without loss of generality, let $i=0$. From \obsref{degree-touched}, we know that $\tau_0\ge \ell/\Delta$.  Therefore, $\kappa_0\le\kappa\le \alpha\ell/\Delta \le \tau_0/6$ so, by \lemref{few-caressed-implies-many-nodes}, $n_0 \ge
+  \tau_0/8$.
 
-  Let $\epsilon=a\alpha/\Delta$ for some $a>0$ to be discussed shortly.
-  By \lemref{most-nodes-are-bad}, if $b_0 < (1-\epsilon) n_0$, then
+  By \lemref{most-nodes-are-bad}, if $b_0 < (1-24\alpha)n_0$, then
   \[
-      \kappa \ge \kappa_0 = \Omega(\epsilon\tau_0)
-               = \Omega(\epsilon\ell/\Delta)
-               = \Omega(a\alpha\ell/\Delta^2)
-               \enspace .
+      \kappa > \kappa_0 \ge \alpha\tau_0
+      \ge \alpha\ell/\Delta
+      % \ge \alpha\ell/\Delta2
+      \enspace .
   \]
-  For sufficiently large, constant, $a$ this violates our assumption
-  that $\kappa \le \alpha\ell/\Delta^2$.
-  Therefore, we may assume that $b_0\ge (1-\epsilon)n_0$, i.e., most nodes
-  of $T_0$ are bad.
+  This violates our assumption that $\kappa \le \alpha\ell/\Delta$.
+  Therefore, we may assume that $b_0\ge (1-24\alpha)n_0$.
 
-  We now want to study how many of the bad nodes in $T_0$ are really bad.
-  Each node $w$ of $T_0$ is in $N(u)$ for at most $\delta_w$ bad nodes
-  $u$ in $T_0$.  Let $A$ be the set of nodes in $T_0$ that are not
-  bad and partition $A$ into $A_1$ (leaves), $A_2$ (degree-2 nodes)
-  and $A_{\ge 3}$ (nodes of degree at least 3).  We make use of the
+  We now want to study how many of the bad nodes in $T_0$ are really bad. Let $A$ be the set of nodes in $T_0$ that are not bad and partition $A$ into $A_1$ (leaves), $A_2$ (degree-2 nodes) and $A_{\ge 3}$ (nodes of degree at least 3).  We make use of the
   following inequality:
 	\begin{equation}
-		|A_1| = 2 + \sum_{w\in A_3}(\delta_w-2) \ge \sum_{w\in A_3}(\delta_w-2)
-		\ge \sum_{w\in A_3}\delta_w/3 \enspace ,  \eqlabel{triple}
+		|A_1| = 2 + \sum_{w\in A_{\ge 3}}(\delta_w-2) \ge \sum_{w\in A_{\ge 3}}(\delta_w-2)
+		\ge \sum_{w\in A_{\ge 3}}\delta_w/3 \enspace ,  \eqlabel{triple}
 	\end{equation}
   which is true because $x-2\ge x/3$ for all $x\ge 3$.
-  Now we have
+
+  Now each node $w$ in $A$ can prevent at most $\delta_w$ bad nodes of $T_0$ from being really bad.  We count this as follows:
   \[
    \sum_{w\in A}\delta_w
      = \sum_{w\in A_1}\delta_w
@@ -923,77 +921,92 @@ a node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
 	   \le |A_1| + 2|A_2| + 3|A_1| \enspace .
   \]
   Now, $A_1$ contains leaves of $T_0$ and, by \lemref{one-caressed-leaf}, each leaf of $T_0$ contains a caressed face.  Therefore $|A_1|\le\kappa$.
-  Next, $A_2$ contains degree-2 nodes of $T_0$ that are not bad.  If a node has degree-$2$ and contains no caressed face, then it is bad. Therefore each node in $A_2$ contains a caressed face. Therefore $|A_2|\le \kappa$, so $|A_1|+2|A_2|+3|A_1| <= 6\kappa$.  Picking up where we left off:
-
+  Next, $A_2$ contains degree-2 nodes of $T_0$ that are not bad.  If a node has degree-$2$ and contains no caressed face, then it is bad. Therefore each node in $A_2$ contains a caressed face. Therefore $|A_2|\le \kappa$, so $|A_1|+2|A_2|+3|A_1| \le 6\kappa$.  Picking up where we left off:
   \[
-      \sum_{w\in A}\delta_w
+      \sum_{w\in A}\delta_w \le |A_1|+2|A_2|+3|A_1|
        \le 6\kappa
-     \le 6\alpha\ell/\Delta^2
+     \le 6\alpha\ell/\Delta \le 48\alpha n_0 \enspace ,
      % & \text{(by assumption)}\\
-    = O(\alpha n_0/\Delta)
+    % = O(\alpha n_0/\Delta)
     % & \text{(since $n_0=\Omega(\ell/\Delta)$)}\enspace .
   \]
-  since $n_0=\Omega(\ell/\Delta)$.
-  That is, the set of non-bad nodes in $T_0$ prevents at most $O(\alpha
-  n_0/\Delta)$ bad nodes of $T_0$ from being really bad. Next we account
-  for how nodes in $T_1$ prevent bad nodes in $T_0$ from being really bad.
+  where the last inequality uses the fact that $n_0 \ge
+  \tau_0/8 \ge \ell/(8\Delta)$.
+  % since $n_0=\Omega(\ell/\Delta)$.
+  That is, the set $A$ of non-bad nodes in $T_0$ prevents at most $48\alpha n_0$ bad nodes in $T_0$ from being really bad.  Next we account
+  for nodes in $T_1$ that prevent bad nodes in $T_0$ from being really bad.
 
-  Let $A'$ be the set of non-bad nodes in $T_1$.  For two
+  Let $A'$ be the set of nodes in $T_1$ that are not bad.  For two
   nodes $u$ in $T_0$ and $w$ in $T_1$,  $w\in N(u)$ if and only if $w$
-  and $u$ share an edge of $C$.  The number of edges of $C$ incident to a node $w$ is at most $(\Delta-1)\tau_w < \Delta\tau_w$.  Therefore, we can upper bound the number of bad nodes in $T_0$ that are prevented from being really bad by some node in $T_1$ as
+  and $u$ share an edge of $C$.  The number of edges of $C$ incident to a node $w$ is at most $\Delta\tau_w$.  Therefore, we can upper bound the number of bad nodes in $T_0$ that are prevented from being really bad by some node in $T_1$ as
   \begin{align*}
    \sum_{w\in A'}\Delta \tau_w
-    & \le  \sum_{w\in A'}2\Delta(\kappa_w + \delta_w) & \text{(by \lemref{many-caressed-or-high-degree})} \\
-    & \le  2\Delta\kappa + \sum_{w\in A'}2\Delta\delta_w \\
-    & < 2\Delta\kappa + 12\Delta\kappa & \text{(by defining $A'_1$, $A'_2$, $A'_{\ge 3}$ and arguing as above)}\\
-    & = 14\Delta\kappa \\
-    & \le 14\alpha\ell/\Delta & \text{(by assumption)}\\
-    & = O(\alpha n_0) & \text{(since $n_0=\Omega(\ell/\Delta)$)}
+    & \le  \sum_{w\in A'}(3\Delta\kappa_w + 2\delta_w) & \text{(by \corref{many-caressed-or-high-degree})} \\
+    & \le  3\Delta\kappa + \sum_{w\in A'}2\Delta\delta_w \\
+    & < 3\Delta\kappa + 12\Delta\kappa & \text{(by defining $A'_1$, $A'_2$, $A'_{\ge 3}$ and arguing as above)}\\
+    & = 15\Delta\kappa \\
+    & \le 15\alpha\ell/\Delta & \text{(since $\kappa\le\ell/\Delta$, by assumption)} \\
+    & \le 120\alpha n_0 & \text{(since $n_0\ge \tau_0/8\ge \ell/(8\Delta)$)}
+    % & = O(\alpha n_0) & \text{(since $n_0=\Omega(\ell/\Delta)$)}
   \end{align*}
-  Therefore, the number of bad nodes in $T_0$ is at least
-  $(1-\epsilon)n_0$ and the number of these that are really bad is
-  at least $(1-\epsilon)n_0 - O(\alpha n_0) = n_0-O(\alpha n_0)$,
-  as required.
+  Therefore, the number of bad nodes in $T_0$ is $b_0$ and the number of these that are really bad is at least
+  \[
+     b_0 - 48\alpha n_0 - 120\alpha n_0 =
+     b_0 - 168\alpha n_0 \ge
+     n_0 - 192\alpha n_0 \enspace . \qedhere
+  \]
 \end{proof}
 
-For a node $u$ of $T_i$, we define $N^0(u) = \{u\}$ and, for any $r\in\N$,
-we define $N^{r}(u)=\bigcup_{w\in N^{r-1}(u)} N(w)$.   We say that a node
-$u$ in $T_i$ is \emph{really$^{r}$ bad} if $u$ is bad and all nodes in
-$N^r(u)$ are bad.  The proof of the following lemma is a straightforward
-generalization of the proof of \lemref{lots-of-really-bad}.
+We say that a node $u$ is \emph{really really bad} if all the nodes in $N(u)$ are really bad.  (Note that this implies that $u$ is bad.)  The following lemma extends \lemref{lots-of-really-bad} to really really bad nodes:
 
-\begin{lem}\lemlabel{lots-of-really-i-bad}
-  For any constant $i\in\N$ and every sufficiently small $0<\alpha < 1/2$,
-  if $T$ has maximum degree $\Delta$, $C$ has length $\ell$, and the number,
-  $\kappa$, of faces caressed by $C$ is at most $\alpha\ell/\Delta^{i+1}$, then
-  the number of really$^i$ bad nodes in $T_0$ is at least $n_0-O(\alpha n_0)$.
+\begin{lem}\lemlabel{lots-of-really-really-bad}
+  For each $i\in\{0,1\}$ and each $0<\alpha < 1/24$,
+  if $T$ has maximum degree $\Delta$, $C$ has length $\ell$, and the number
+  $\kappa$, of faces of $\dual{T}$ caressed by $C$ is at most $\alpha\ell/\Delta$, then the number $b_i$ of really really bad nodes in $T_i$ is at least $n_i - 192(\Delta+1)\alpha n_i$.
 \end{lem}
 
-For our purposes, it will be sufficient to work with bad ($i=0$), really
-bad $(i=1$), and really really bad ($i=2$) nodes.
+\begin{proof}
+    A node $u$ is a \emph{fringe node} if it is really bad but not really really bad. A node $u$ is a \emph{critical node} if it is bad but not really bad.  Observe that every fringe node $u$ is in $N(w)$ for some critical node $w$. To bound the number of fringe nodes, it therefore suffices to bound $\sum_{w}|N(w)|$ where the sum is over all critical nodes.
+
+    By \lemref{common-face}, for each critical node $w$ there is a single face $f$ of $\dual{T}$ whose boundary contains $C\cap w$. Since $w$ is bad, $C\cap w$ contains exactly two components and therefore at least two edges of $f$ are not contained in $C\cap w$.  Therefore the number of edges of $\dual{T}$ in $C\cap w$ is at most $\Delta-2$.  Therefore $N(w)$ contains exactly two nodes of $T_i$ and at most $\Delta-2$ nodes of $T_{1-i}$.  Therefore $|N(w)|\le \Delta$ for each critical node $w$.
+
+    By \lemref{lots-of-really-bad}, the number of nodes that are not really bad, and hence the number of critical nodes, is at most $192\alpha n_i$.  Therefore, the number of fringe nodes is at most $192\Delta\alpha n_i$.
+    Any node that is not really really bad is either a fringe node or is a node that is not really bad.  Therefore, the number of nodes that are really really bad is at least
+    \[
+        n_i - 192\alpha n_i - 192\Delta\alpha n_i = 192(\Delta+1)\alpha n_i \enspace . \qedhere
+    \]
+\end{proof}
+
+
+
+%
+% \begin{lem}\lemlabel{lots-of-really-i-bad}
+%   For any constant $i\in\N$ and every sufficiently small $0<\alpha < 1/2$,
+%   if $T$ has maximum degree $\Delta$, $C$ has length $\ell$, and the number,
+%   $\kappa$, of faces caressed by $C$ is at most $\alpha\ell/\Delta^{i+1}$, then
+%   the number of really$^i$ bad nodes in $T_0$ is at least $n_0-O(\alpha n_0)$.
+% \end{lem}
+
 
 \subsection{Tree/Cycle Surgery}
 
-We summarize the situation so far.  We are left with the case where
-$C$ has length $\ell$ and therefore touches $\Omega(\ell/\Delta)$
-faces.  To complete the proof of \thmref{main} we must deal with
-the situation where $C$ caresses $o(\ell/\Delta^4)$ faces and
-therefore each of $T_0$ and $T_1$ has $o(\ell/\Delta^4)$ leaves
-(\lemref{one-caressed-leaf}),
-$\Omega(\ell/\Delta)$ nodes (\lemref{few-caressed-implies-many-nodes}),
-and the fraction of really really bad nodes in $T_0$ and $T_1$ is
-$1-O(1/\Delta^2)$ (\lemref{lots-of-really-i-bad}).
+We summarize the situation so far.  By \lemref{cycle-to-curve}, finding a large collinear set is equivalent to finding a cycle in $\dual{T}$ that caresses many faces.  By existing results on the circumference of cubic triconnected graphs, $\dual{T}$ has a cycle $C_0$ of length $\ell=\Omega(n^{\alpha})$ for some $\alpha > 0.8$.  Thus we assume that $\dual{T}$ has a cycle $C_0$ of length $\ell$ and we want to show the existence of a cycle $C$ that caresses $\Omega(\ell/\Delta^4)$ faces.
 
+Because each face of $\dual{T}$ has at most $\Delta$ edges, $C_0$ touches $\Omega(\ell/\Delta)$ faces (\obsref{many-touched}).  To complete the proof of \thmref{main} we must deal with the situation where $C_0$ caresses $o(\ell/\Delta^4)$ faces and therefore each of $T_0$ and $T_1$ has $o(\ell/\Delta^4)$ leaves (\lemref{one-caressed-leaf}), $\Omega(\ell/\Delta)$ nodes (\lemref{few-caressed-implies-many-nodes}), and the fraction of really really bad nodes in $T_0$ and $T_1$ is $1-O(1/\Delta^2)$ (\lemref{lots-of-really-i-bad}).  \figref{few-caressed-ii} illustrates an extreme example of this.  To handle cases like these, the only option is to perform surgery on the cycle $C$ to increase the number of caressed faces. To complete the proof we will show that such a surgery is always possible.
 
-%\figref{few-caressed}
-%illustrates an extreme example of this, in which $C$ caresses only 4
-%faces of $\dual{T}$, and $T_0$ and $T_1$ each have only 2 non-bad nodes,
-%X non-really bad nodes, and Y non-really$^2$ bad nodes.
-
-To handle cases like these, the only option is to perform surgery on
-the cycle $C$ to increase the number of caressed nodes. In particular,
-our strategy is to perform modifications to $C$ that increase the number
-of faces caressed by $C$.
+\begin{figure}
+    \centering{
+        \includegraphics{figs/two-caressed-2}
+    }
+    \caption{An example in which $C$ caresses only 4 faces of $\dual{T}$, $T_0$ has only 2 non-bad nodes (in teal), 2 non-really bad nodes (in light pink), and 2 non-really really bad nodes (in pink).}
+    \figlabel{few-caressed-ii}
+\end{figure}
+%
+%
+%
+% In particular,
+% our strategy is to perform modifications to $C$ that increase the number
+% of faces caressed by $C$.
 %Before finishing up, we need a final
 %lemma that describes which nodes of $T_0$ and $T_1$ survive when the
 %cycle $C$ is modified:
@@ -1025,7 +1038,7 @@ of faces caressed by $C$.
 %   pinched by $C'$.  Therefore $P$ is a keeper path in $C$ if and only
 %   if it is a keeper path in $C'$.
 %\end{proof}
-At this point we are ready to complete the proof of \thmref{main}.
+% At this point we are ready to complete the proof of \thmref{main}.
 
 \begin{proof}[Proof of \thmref{main}]
 By \lemref{cycle-to-curve}, it suffices to prove the existence of
@@ -1041,22 +1054,22 @@ In the latter case, consider the forest obtained by removing all
 nodes of $T_0$ that are not really really bad.  This forest has
 $(1-O(\epsilon/\Delta))n_0$ nodes.  We claim that it also has
 $O(\epsilon n_0/\Delta)$
-components.  To see why this is so, let $L$ be the set of leaves in $T_i$
-and let $S$ be the set of non-leaf nodes in $T_i$ that are not really
+components.  To see why this is so, let $L$ be the set of leaves in $T_0$
+and let $S$ be the set of non-leaf nodes in $T_0$ that are not really
 really bad.  Observe that it is sufficient to upper bound the number,
-$k$, of components in $T_i-S$.
+$k$, of components in $T_0-S$.
 
 We have
 $|L|\le |S|+|L|=  O(\epsilon n_0/\Delta)$ and
-$k=\sum_{u\in S}(\deg_{T_i}(u)-1)$.
+$k=\sum_{u\in S}(\deg_{T_0}(u)-1)$.
 Furthermore,
 \[
-    O(\epsilon n_0/\Delta) \ge |L| \ge \sum_{u\in S}(\deg_{T_i}(u)-2)
-     = |S| + \sum_{u\in S}(\deg_{T_i}(u)-1) = |S| + k \enspace .
+    O(\epsilon n_0/\Delta) \ge |L| \ge \sum_{u\in S}(\deg_{T_0}(u)-2)
+     = |S| + \sum_{u\in S}(\deg_{T_0}(u)-1) = |S| + k \enspace .
 \]
 Therefore $k\le |S|+k =  O(\epsilon n_0/\Delta)$, as claimed.
 
-Thus the forest obtained by removing all really really bad nodes from
+Thus the forest induced by all really really bad nodes of
 $T_i$ has at most $O(\epsilon n_0/\Delta)$ components, each of which is
 a path.  At least one of these paths contains $\Omega(\Delta/\epsilon)$
 nodes. In particular, for a sufficiently small constant $\epsilon$,

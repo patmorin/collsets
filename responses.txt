@@ -1,30 +1,30 @@
 We would like to thank Reviewer #1 for their careful reading, editing, and constructive criticism.  Below are the reviwer's comments along with our replies.
 
---
+----------------------------------------------------------------
 R: 2,59: "is less than a year old" - please change to fit the publication time, or better state it in a time-independent way
 
 A: We have prefixed this with "At the time of writing"
---
+----------------------------------------------------------------
 R: 5,37: "All that remains is verify" - "to" is missing
 
 A: This has been corrected.
---
+----------------------------------------------------------------
 R: 5,56: "After a non-trivial amount of analysis"  - I would drop the "amount"
 
 A: This change has been implemented.
---
+----------------------------------------------------------------
 R: 6,42: "two faces of P\cap C" - I suggest to add "the graph formed by P and C", otherwise may not be immediately clear
 
 A: This change has been implemented.
---
+----------------------------------------------------------------
 R: 7,36: "with keeper paths  highlighted" - I think highlighting the keeper paths in red, while also having the cycle C in red does not help the perception
 
 A: We have changed the colour to black.
---
+----------------------------------------------------------------
 R: 7,39-46: I needed to sketch to understand the case distinction and the definition of the keeper path - so I suggest to include such an illustration into the paper
 
 A: We have added such a figure.
---
+----------------------------------------------------------------
 R: (proof of Lemma 5) In general I had difficulties understanding the proof. While the intuition on page 8 is excellent, the proof itself is not clearly written. I will try to point out places that could be improved, but I suggest the authors do a thorough work on making the proof simpler and clearer.
 
 R:  9,20-21: "We require as a precondition that there are m>=1 pinched faces..." - why does this hold? Is it an invariant? Please clarify.
@@ -34,15 +34,15 @@ R: 9,25-33: I realize that this paragraph explain in which order the faces are p
 R: 9,43-... please refer to the subfigures in the case distinction
 
 A: We have greatly expanded the exposition of this proof, being careful to separate the "initialization procedure" and the "recursive procedure" and also carefully spelling out the preconditions and postconditions of the recursive procedure.  This has made the proof somewhat longer but hopefully easier to understand.
---
+----------------------------------------------------------------
 R: 13 (proof of Lemma 8) - I needed an illustration for the case distinction. Please add one to the paper.
 
 A: We have added an illustration to this proof.
---
+----------------------------------------------------------------
 R: 13,45: "By Lemma 8, u and w have the first edge of P in common..." This sentence does not make sense to me. By the statement of Lemma 10, u and w share the path P. For me this sounds like they share all of its edges. Please elaborate.
 
 A: Indeed, this was badly worded and has been fixed.
---
+----------------------------------------------------------------
 
 R: 14,22: \alpha\ell/\delta^2<\tau_0/6 - what implies this inequality?
 
@@ -54,29 +54,29 @@ Since every face has size at most Delta and C has size \ell, C touches \tau_0 >=
 
 for alpha <= 1/6.
 
-To help clarify this, we've explicitly upper-bounded alpha by 1/6 in the statement of the lemma and removed the phrase "sufficiently small"
---
+To help clarify this, we've explicitly upper-bounded alpha by 1/6 in the statement of the lemma rather than relying on the phrase "sufficiently small"
+----------------------------------------------------------------
 
 R: 14,46: since k_w>=1 - is k_w defined?
 
 A: This is \kappa_w, the number of faces of T* contained in w and caressed by C.  This notation (as well as \rho_w and \tau_w) is introduced in the statement of Lemma 5 and used thereafter.
---
+----------------------------------------------------------------
 
 R: 14,46: <=6k, since k_w>=1 for each w\in A_1\cup A_2 - how and from which Lemma does this follow?
 
 A:
 - A_1 contains leaves of T_0 and each leaf of T_0 contains a caressed face (Lemma 3).  Therefore |A_1|<=\kappa
 
-- A_2 contains degree-2 nodes of T_0 that are not bad.  If a node has degree-2 and contains no caressed face, then it is bad. Therefore each node in A_2 contains a caressed face (otherwise it would be bad, and not in A_2). Thereore |A_2|<=\kappa.
+- A_2 contains degree-2 nodes of T_0 that are not bad.  If a node has degree-2 and contains no caressed face, then it is bad. Therefore each node in A_2 contains a caressed face (otherwise it would be bad, and not in A_2). Therefore |A_2|<=\kappa.
 
 - Therefore |A_1|+2|A_2|+3|A_1| <= 6\kappa
 
 We have added this argument to the paper.
---
+----------------------------------------------------------------
 R: 14,57: is \tau_w defined?
 
 A: This notation was introduced in the statement of Lemma 5 and used thereafter.
---
+----------------------------------------------------------------
 
 R: 15,13: (by the same argument as above) -this is a very vague explanation. Please elaborate.
 
@@ -84,17 +84,27 @@ A: This really is the same argument as above. We would split A' into three sets 
 
 Here we just elaborated on the parenthesized note, as follows:
 (by defining A_1, A_2, A_{\ge 3}, and arguing as above)
---
+----------------------------------------------------------------
 R: 15, Lemma 12: Does this Lemma also hold for T_1?
 
 A: Yes, there is no difference between T_0 and T_1. Here we focus on T_0 since, ultimately, we have to pick one or the other on which to perform transformations that increase the number of leaves.
---
+----------------------------------------------------------------
 
-15,36-41: This a nice discussion explaining the current state of the proof. However, it was not so easy to follow. I generally suggest to expand it. For instance you could recall what you want to prove first and then recall Lemma 1. The last two implications, the one of Lemma 6 and of Lemma 12, are also hard to grasp. A small expansion on this would greatly help the reader.
+R: 15,36-41: This a nice discussion explaining the current state of the proof. However, it was not so easy to follow. I generally suggest to expand it. For instance you could recall what you want to prove first and then recall Lemma 1. The last two implications, the one of Lemma 6 and of Lemma 12, are also hard to grasp. A small expansion on this would greatly help the reader.
 
-15, 42-46: the sentences "to handle cases like this..." and "in particular, our strategy ...." seem to partially repeat each other.
+A: We have revised this discussion so that it recaps the argument right back to Lemma 1.
+----------------------------------------------------------------
 
-16,6: |S| + |L|=O(en_0/\Delta) - please explain how this holds?
+R: 15, 42-46: the sentences "to handle cases like this..." and "in particular, our strategy ...." seem to partially repeat each other.
+
+A: The second sentence is now gone (as part of the revision adressing the previous comment)
+----------------------------------------------------------------
+
+R: 16,6: |S| + |L|=O(en_0/\Delta) - please explain how this holds?
+
+A:
+----------------------------------------------------------------
+
 
 16,8: The second inequality: |L|>\summ... - explain how it holds, in particular the "-2" in the summ
 
