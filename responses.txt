@@ -75,19 +75,19 @@ We have added this argument to the paper.
 ----------------------------------------------------------------
 R: 14,57: is \tau_w defined?
 
-A: This notation was introduced in the statement of Lemma 5 and used thereafter.
+A: The reviewer is correct.  The statement of Lemma 5 introduces \delta_w, \kappa_w and \rho_w, but not \tau_w.  We have added a Lemma 6 (for a different reason that requires and defines \tau_w.
 ----------------------------------------------------------------
 
 R: 15,13: (by the same argument as above) -this is a very vague explanation. Please elaborate.
 
-A: This really is the same argument as above. We would split A' into three sets A'_1, A'_2, and A'_\ge 3 and use the exactly the same argument we have already expanded upon.
+A: This really is the same argument as above. We split A' into three sets A'_1, A'_2, and A'_\ge 3 and use the exactly the same argument we have already expanded upon by addressing the reviewer's other comment.
 
-Here we just elaborated on the parenthesized note, as follows:
-(by defining A_1, A_2, A_{\ge 3}, and arguing as above)
+Since this is part of the same proof, rather than repeat this argument we just elaborated within the parenthesized note, as follows:
+(by defining A_1', A_2', A_{\ge 3}', and arguing as above)
 ----------------------------------------------------------------
 R: 15, Lemma 12: Does this Lemma also hold for T_1?
 
-A: Yes, there is no difference between T_0 and T_1. Here we focus on T_0 since, ultimately, we have to pick one or the other on which to perform transformations that increase the number of leaves.
+A: Yes, we've changed to $T_i$ for each $i\in\{0,1\}$.
 ----------------------------------------------------------------
 
 R: 15,36-41: This a nice discussion explaining the current state of the proof. However, it was not so easy to follow. I generally suggest to expand it. For instance you could recall what you want to prove first and then recall Lemma 1. The last two implications, the one of Lemma 6 and of Lemma 12, are also hard to grasp. A small expansion on this would greatly help the reader.
@@ -102,7 +102,7 @@ A: The second sentence is now gone (as part of the revision adressing the previo
 
 R: 16,6: |S| + |L|=O(en_0/\Delta) - please explain how this holds?
 
-A:
+A: This paragraph begins with the sentence "In the latter case" where the latter case is when the number of nodes of T_0 that are not really really bad is at most O(en_0/\Delta).
 ----------------------------------------------------------------
 
 
