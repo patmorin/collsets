@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20181004123132" modified="D:20190523160915"/>
+<ipe version="70218" creator="Ipe 7.2.18">
+<info created="D:20181004123132" modified="D:20200827103502"/>
 <preamble>\usepackage{kpfonts}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -191,8 +191,8 @@ h
 <arrowsize name="small" value="5"/>
 <arrowsize name="tiny" value="3"/>
 <color name="red" value="1 0 0"/>
-<color name="green" value="0 1 0"/>
 <color name="blue" value="0 0 1"/>
+<color name="green" value="0 1 0"/>
 <color name="yellow" value="1 1 0"/>
 <color name="orange" value="1 0.647 0"/>
 <color name="gold" value="1 0.843 0"/>
@@ -216,8 +216,8 @@ h
 <color name="lightgray" value="0.827"/>
 <color name="lightgreen" value="0.565 0.933 0.565"/>
 <color name="lightyellow" value="1 1 0.878"/>
-<dashstyle name="dashed" value="[4] 0"/>
 <dashstyle name="dotted" value="[1 3] 0"/>
+<dashstyle name="dashed" value="[4] 0"/>
 <dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
 <dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
 <textsize name="large" value="\large"/>
@@ -273,10 +273,162 @@ h
 <layer name="beta"/>
 <layer name="C"/>
 <layer name="pq"/>
+<layer name="gamma"/>
 <view layers="alpha beta" active="alpha"/>
 <view layers="alpha case1 C pq" active="pq"/>
 <view layers="alpha case2-C case2 pq" active="case2-C"/>
 <view layers="alpha case2 case2-surgery pq" active="case2-surgery"/>
+<view layers="gamma" active="gamma"/>
+<path layer="gamma" fill="brew5">
+304 816 m
+304 520 l
+432 520 l
+432 816 l
+h
+</path>
+<path fill="brew8">
+368 776 m
+368 560 l
+400 560 l
+400 776 l
+h
+</path>
+<path fill="brew5">
+368 728 m
+368 744 l
+336 744 l
+336 728 l
+h
+</path>
+<path fill="brew5">
+360 784 m
+360 736 l
+368 736 l
+368 784 l
+h
+</path>
+<path fill="brew5">
+336 688 m
+336 632 l
+368 632 l
+368 688 l
+h
+</path>
+<path fill="brew5">
+336 728 m
+336 688 l
+368 688 l
+368 728 l
+h
+</path>
+<path stroke="black">
+368 640 m
+368 624 l
+400 624 l
+400 640 l
+h
+</path>
+<path stroke="black">
+368 656 m
+368 640 l
+400 640 l
+400 656 l
+h
+</path>
+<path stroke="black">
+368 624 m
+368 608 l
+400 608 l
+400 624 l
+h
+</path>
+<path stroke="black">
+368 576 m
+368 560 l
+400 560 l
+400 576 l
+h
+</path>
+<path matrix="1 0 0 1 0 -8" stroke="black">
+368 704 m
+368 688 l
+400 688 l
+400 704 l
+h
+</path>
+<path matrix="1 0 0 1 0 32" stroke="black">
+368 704 m
+368 688 l
+400 688 l
+400 704 l
+h
+</path>
+<path stroke="black">
+368 688 m
+336 688 l
+</path>
+<path stroke="black" dash="dotted">
+368 720 m
+368 696 l
+</path>
+<path stroke="black" dash="dotted">
+400 720 m
+400 696 l
+</path>
+<path stroke="black" dash="dotted">
+368 680 m
+368 656 l
+</path>
+<path stroke="black" dash="dotted">
+400 680 m
+400 656 l
+</path>
+<path stroke="black">
+368 608 m
+368 576 l
+</path>
+<path stroke="black">
+400 608 m
+400 576 l
+</path>
+<path fill="brew5">
+336 632 m
+336 616 l
+368 616 l
+368 632 l
+h
+</path>
+<path matrix="1 0 0 1 0 72" stroke="black">
+368 704 m
+368 688 l
+400 688 l
+400 704 l
+h
+</path>
+<text matrix="1 0 0 1 -32 41" transformations="translations" pos="384 648" stroke="black" type="label" width="9.496" height="7.615" depth="3.24" halign="center" valign="bottom" style="math">a_2&apos;</text>
+<text matrix="1 0 0 1 -32 -18" transformations="translations" pos="384 648" stroke="black" type="label" width="9.496" height="7.615" depth="3.24" halign="center" valign="top" style="math">a_{0}&apos;</text>
+<path stroke="black" dash="dotted">
+368 736 m
+368 760 l
+</path>
+<path stroke="black" dash="dotted">
+400 736 m
+400 760 l
+</path>
+<text matrix="1 0 0 1 0 63" transformations="translations" pos="384 648" stroke="black" type="label" width="9.476" height="7.615" depth="3.24" halign="center" valign="center" style="math">y_1&apos;</text>
+<text matrix="1 0 0 1 0 23" transformations="translations" pos="384 648" stroke="black" type="label" width="9.706" height="7.615" depth="3.24" halign="center" valign="center" style="math">x_1&apos;</text>
+<path fill="white">
+368 640 m
+368 624 l
+400 624 l
+400 640 l
+h
+</path>
+<text matrix="1 0 0 1 -32 12" transformations="translations" pos="384 648" stroke="black" type="label" width="9.496" height="7.615" depth="3.24" halign="center" valign="center" style="math">a_1&apos;</text>
+<path stroke="black">
+368 632 m
+336 632 l
+</path>
 <path layer="alpha" fill="brew5">
 304 816 m
 304 520 l
@@ -671,5 +823,71 @@ h
 </path>
 <text matrix="1 0 0 1 5 0" transformations="translations" pos="328.338 662.098" stroke="darkgreen" type="label" width="5.141" height="4.563" depth="2.59" halign="right" valign="baseline" style="math">q</text>
 <text matrix="1 0 0 1 36.8228 10.1524" transformations="translations" pos="328.338 662.098" stroke="darkgreen" type="label" width="5.579" height="4.563" depth="2.59" halign="right" valign="baseline" style="math">p</text>
+<path layer="gamma" fill="brew8">
+368 560 m
+368 552 l
+344 552 l
+344 528 l
+424 528 l
+424 560 l
+h
+</path>
+<path fill="brew8">
+368 776 m
+368 784 l
+336 784 l
+336 624 l
+312 624 l
+312 800 l
+416 800 l
+424 800 l
+424 776 l
+400 776 l
+h
+</path>
+<path stroke="black" cap="1">
+400 640 m
+400 776 l
+424 776 l
+424 800 l
+312 800 l
+312 624 l
+336 624 l
+336 784 l
+368 784 l
+368 640 l
+</path>
+<path stroke="black" fill="brew8">
+368 640 m
+368 624 l
+400 624 l
+400 640 l
+h
+</path>
+<path fill="white">
+368 696 m
+368 680 l
+400 680 l
+400 696 l
+h
+</path>
+<text matrix="1 0 0 1 0 40" transformations="translations" pos="384 648" stroke="black" type="label" width="29.752" height="7.615" depth="3.24" halign="center" valign="center" style="math">u&apos;=x_0&apos;</text>
+<path stroke="brew7" pen="fattyfatfat" opacity="10%" stroke-opacity="opaque">
+336 632 m
+336 688 l
+</path>
+<path stroke="brew7" pen="fattyfatfat" opacity="10%" stroke-opacity="opaque">
+368 632 m
+368 688 l
+</path>
+<path stroke="black" opacity="10%" stroke-opacity="opaque">
+368 560 m
+368 552 l
+344 552 l
+344 528 l
+424 528 l
+424 560 l
+h
+</path>
 </page>
 </ipe>

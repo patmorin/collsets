@@ -983,6 +983,21 @@ We say that a node $u$ is \emph{really really bad} if all the nodes in $N(u)$ ar
     \]
 \end{proof}
 
+The following observation, illustrated in \figref{three-paths}, follows from the fact that all the nodes it considers are bad and that $\tilde{H}$ is a cubic graph, so each vertex of $\tilde{H}$ is on the boundary of 3 faces. The second part of the figure shows an example in which $\{a_1,\ldots,a_r\}$ and $\{b_1,\ldots,b_s\}$ are not disjoint. (In this example $b_1=a_3$.)
+
+\begin{figure}
+    \centering{
+        \includegraphics{figs/three-paths} \\[2em]
+        \includegraphics{figs/three-paths-weird}
+    }
+    \caption{Two illustrations of \obsref{three-paths}}
+    \figlabel{three-paths}
+\end{figure}
+
+
+\begin{obs}\obslabel{three-paths}
+    Let $x_1,\ldots,x_t$, $t\ge 1$ be a path in $T_0$ consisting entirely of really bad nodes.  Then $C\cap\bigcup_{i=1}^t x_i$ consists of two paths $C_a$ and $C_b$ each having at least one edge and the subgraph of $T_1$ induced by $\bigcup_{i=1}^t N(x_i)$ is contained in two (not necessarily disjoint) paths $a_1,\ldots,a_r$ and $b_1,\ldots,b_s$, $r,s\ge 1$ where $a_i$ contains an edge of $C_a$ for each $i\in\{1,\ldots,r\}$ and $b_i$ contains an edge of $C_b$ for each $i\in\{1,\ldots,s\}$.
+\end{obs}
 
 
 %
@@ -1076,12 +1091,13 @@ one of these components, $X$, has at least $5\Delta$ nodes.
 %each node $u$ in $X$ consists of a single face of $\dual{T}$.
 
 Consider some node $u$ in $X$, and let $C_a$ and $C_b$ be the
-two components of $u\cap C$. Since $u$ is really really bad, the subgraph of $T_1$ induced by $N(u)$ consists
+two components of $u\cap C$. By \obsref{three-paths}, the subgraph of $T_1$ induced by $N(u)$ consists
 of two paths $a_1,\ldots,a_r$ and $b_1,\ldots,b_s$ of really bad nodes
 where each $a_1,\ldots,a_r$ contains an edge of $C_a$ and each of
-$b_1,\ldots,b_r$ contains an edge of $C_b$. Note that it is
-possible that $a_i=b_j$ for some values of $i$ and $j$, but everything
-stated thus far, and subsequently, is still true.
+$b_1,\ldots,b_r$ contains an edge of $C_b$.
+% Note that it is
+% possible that $a_i=b_j$ for some values of $i$ and $j$, but everything
+% stated thus far, and subsequently, is still true.
 
 It follows from \lemref{bad_one_shared_edge} that among any sequence of $\Delta$
 consecutive nodes in $X$, at least one node has $r\ge 2$ and therefore $|N(u)|\ge 5$.  Let $u$ be any such node that is not among the first $2\Delta$
@@ -1130,24 +1146,9 @@ two major cases (see \figref{main_cases}):
    \figlabel{main_cases}
 \end{figure}
 \begin{enumerate}
-   \item $q\subset C_x$.  In this case, we punt to Case~2. TODO!
-   \lemref{one_edge_between} $a_1-C$ consists of two edges and exactly
-   one of these edges, $e$, is not incident to $u$. Instead, $e$ is
-   incident to $x_i$.  We set $u'=x_i$, $x_1'=x_{i-1}$, $y_1'=x_{i+1}$,
-   and $a_1'=a_1$. Observe that $a_1'$ connects the two components of
-   $T_0-u'$ and shares edges with $u'$ and $x_1'$. This is exactly the
-   situation considered in Case~2, next.
+   \item $q\subset C_x$.  By \lemref{one_edge_between} $a_1-C$ consists of two edges and exactly one of these edges, $e$, is not incident to $u$. Instead, $e$ is incident to $x_i$.  We set $u'=x_i$, $x_1'=x_{i-1}$, $y_1'=x_{i+1}$, and $a_1'=a_1$. Observe that $a_1'$ connects the two components of $T_0-u'$ and shares edges with $u'$ and $x_1'$. This is exactly the situation considered in Case~2, next.
 
-   \item $q\subset C_y$.  At this point it is helpful to think of
-   $T_0$, $T_1$, and $C$ as a partition of $\R^2$, where nodes of $T_0$
-   are coloured red, nodes of $T_1$ are coloured blue and $C$ is the
-   (purple) boundary between red and blue.  To describe our modifications
-   of $C$, we imagine changing the colours of nodes.  The effect that
-   such a recolouring has on $C$ is immediately obvious: It produces a
-   1-dimensional set $C'$ that contains every (purple) edge contained in
-   the red-blue boundary. The set $C'$ is a collection of vertices and
-   edges of $\dual{T}$. Therefore, if $C'$ is a simple cycle, then $C'$
-   defines a new pair of trees $T_0'$ and $T_1'$.
+   \item $q\subset C_y$.  At this point it is helpful to think of $T_0$, $T_1$, and $C$ as a partition of $\R^2$, where nodes of $T_0$ are coloured red, nodes of $T_1$ are coloured blue and $C$ is the (purple) boundary between red and blue.  To describe our modifications of $C$, we imagine changing the colours of nodes.  The effect that such a recolouring has on $C$ is immediately obvious: It produces a 1-dimensional set $C'$ that contains every (purple) edge contained in the red-blue boundary. The set $C'$ is a collection of vertices and edges of $\dual{T}$. Therefore, if $C'$ is a simple cycle, then $C'$ defines a new pair of trees $T_0'$ and $T_1'$.
 
 %   The relationship between $(T_0,T_1)$ and $(T_0',T_1')$
 %   takes more effort to understand.  This difficulty comes from the fact
@@ -1220,34 +1221,22 @@ two major cases (see \figref{main_cases}):
    $a_0$ of $T^*$ after the recolouring operation.  This boundary
    consists of, in cyclic order:
    \begin{enumerate}
-     \item  An edge shared between $a_0$ and $a_1$.  This edge is in
-       $C'$ since $a_0$ is in $T_1'$ and $a_1$ is in $T_0'$.
+     \item  An edge $p_0p_1$ shared between $a_0$ and $a_1$.  This edge is in
+       $C'$ since $a_0$ is in $T_1'$ and $a_1$ is in $T_0'$. This edge has one endpoint, $p_0$, on the boundary of $x_i$ ($p_0$ is also an endpoint of $p$).
 
-     \item A path of edges shared with $x_i,\ldots,x_{i+j}$.
-      The nodes $x_i,\ldots,x_{i+j}$ are in $T_0$ and are distinct from
-      $x_0,\ldots,x_{i-1}$, so these nodes are in $T_0'$.
-      Therefore, this part of the boundary of $a_0$ is contained in $C'$.
+     \item A path $p_1,\ldots,p_\mu$ whose edges are shared with $x_i,\ldots,x_{i+j}$.  The nodes $x_i,\ldots,x_{i+j}$ are in $T_0$ and are distinct from $x_0,\ldots,x_{i-1}$, so these nodes are in $T_0'$.
+     Therefore, $p_1,\ldots,p_\mu$ is also contained in $C'$.
 
-     \item An edge shared between $a_0$ and another node $a_{-1}\neq
+     \item An edge $p_\mu p_{\mu+1}$ shared between $a_0$ and another node $a_{-1}\neq
      a_1$ of $T_1$. The faces of $a_{-1}$ are in $T_1'$ because $a_1$
      is the only face that moves from $T_1$ to $T_0'$. ($a_1$ is the
-     only face whose colour goes from blue to red.)  This edge is therefore not contained in $C'$.
+     only face whose colour goes from blue to red.)  The edge $p_\mu p_{\mu+1}$ is therefore not contained in $C'$.
 
-     \item A path of edges that contains at least one edge of $C_y$. If
-     we fix an embedding in which the outer face is some face of $T_1$
-     other than $a_0$, then this path contains a portion of $C$ that
-     is traversed in clockwise order. By \lemref{bad_one_shared_edge}
-     This path does not contain any edge of $x_i$.  Furthermore, this
-     path does not contain any edges of $x_0,x_1,\ldots,x_{i-1}$ that
-     are not on the outer face of $T_0\cup a_1$.  Therefore, this path
-     consists of a (possibly empty) sequence of edges that are shared with
-     $x_0,\ldots,x_{i-1}$ followed by a sequence of edges from $C_y$. The
-     former part of this path is shared with nodes in $T_1'$, so these
-     edges are not in $C'$.  The latter part of this path is shared with
-     nodes in $T_y$, which are all contained contained in $T_0'$.
+     \item A path $p_{\mu+1},\ldots,p_\nu$ with $p_\nu=p_0$ that is contained in $C$. Let $C_x'$ be the path obtained by removing all edges on the boundary of $x_1,\ldots,x_{i-1}$ from $C_x$.  Thus, the boundary of $C$ is partitioned into four paths: $C_y$; a path $P_1$ that contains $p$; $C_x'$; and a path $P_2$ that does not contain $p$.  Without loss of generality, assume that these four paths occur in the order $C_y,P_1,C_x',P_2$ when traversing $C$ clockwise.
+
+     The path $p_{\mu+1},\ldots,p_{\nu}$ ends at $p_\nu=p_0$, which is contained in $C_y$. This path must therefore either begin in $P_2$ or be entirely contained in $C_y$ since, otherwise it would contain an edge of $x_i$, contradicting \lemref{one_edge_between}.  The edges of $P_2$ are not in $C'$. Therefore $p_{\mu+1},\ldots,p_{\nu}$ begins with a (possibly empty) sequence of edges $p_{\mu+1},\ldots,p_{\mu+k}$ not contained in $C'$ followed by a non-empty sequence $p_{\mu+k},\ldots,p_\nu$ of edges that are contained in $C'$.
   \end{enumerate}
-  Therefore the intersection $C'\cap a_0$ consists of one connected
-  component so $a_0$ is caressed by $C'$. \qedhere
+  Therefore the intersection $C'\cap a_0$ is a path $p_{\mu+k},\ldots,p_\nu,p_1,\ldots,p_{\mu}$ so $a_0$ is caressed by $C'$. \qedhere
 \end{enumerate}
 %We also
 %name some other nodes of $T_1$: (i)~$a_0$ adjacent to $a_1$; (ii)~$a_{r+1}$
