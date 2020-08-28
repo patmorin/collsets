@@ -28,19 +28,20 @@
 
 
 \begin{abstract}
-   We show that, if an $n$-vertex triangulation $T$ of maximum degree
-   $\Delta$ has a dual that contains a cycle of length $\ell$, then $T$
+   We show that, if an $n$-vertex triangulation $G$ of maximum degree
+   $\Delta$ has a dual that contains a cycle of length $\ell$, then $G$
    has a non-crossing straight-line drawing in which some set, called
-   a \emph{collinear set}, of $\Omega(\ell/\Delta^4)$ vertices lie on
+   a \emph{collinear set}, of $\Omega(\ell/\Delta^3)$ vertices lie on
    a line.  Using the current lower bounds on the length of longest cycles
-   in 3-regular 3-connected graphs, this implies that every $n$-vertex
+   in cubic 3-connected graphs, this implies that every $n$-vertex
    planar graph of maximum degree $\Delta$ has a collinear set of size
-   $\Omega(n^{0.8}/\Delta^4)$.  Very recently, Dujmovi\'c \etal\ (SODA
-   2019) showed that, if $S$ is a collinear set in a triangulation $T$
-   then, for any point set $X\subset\R^2$ with $|X|=|S|$, $T$ has a
-   non-crossing straight-line drawing in which the vertices of $S$ are
-   drawn on the points in $X$.  Because of this, collinear sets have
-   numerous applications in graph drawing and related areas.
+   $\Omega(n^{0.8}/\Delta^3)$.
+   % Very recently, Dujmovi\'c \etal\ (SODA
+   % 2019) showed that, if $S$ is a collinear set in a triangulation $G$
+   % then, for any point set $X\subset\R^2$ with $|X|=|S|$, $G$ has a
+   % non-crossing straight-line drawing in which the vertices of $S$ are
+   % drawn on the points in $X$.  Because of this, collinear sets have
+   % numerous applications in graph drawing and related areas.
 \end{abstract}
 
 \section{Introduction}
@@ -58,9 +59,9 @@ is the length of the longest cycle in $G$. In \secref{proof}, we prove
 the following theorem:
 
 \begin{thm}\thmlabel{main}
-  Let $T$ be a triangulation of maximum degree $\Delta$ whose dual
-  $\dual{T}$ has circumference $\ell$. Then $T$ has a collinear set of
-  size $\Omega(\ell/\Delta^4)$.
+  Let $G$ be a triangulation of maximum degree $\Delta$ whose dual
+  $\dual{G}$ has circumference $\ell$. Then $G$ has a collinear set of
+  size $\Omega(\ell/\Delta^3)$.
 \end{thm}
 
 The dual of a triangulation is a 3-connected cubic planar graph.
@@ -100,7 +101,7 @@ fact, together with \thmref{main} and the result of Liu, Yu, and Zhang
 
 \begin{cor}\corlabel{main}
   Every $n$-vertex planar graph of maximum degree $\Delta$ contains a
-  collinear set of size $\Omega(n^{0.8}/\Delta^4)$.
+  collinear set of size $\Omega(n^{0.8}/\Delta^3)$.
 \end{cor}
 
 %A longstanding open problem on circumference is \emph{Barnette's
@@ -117,7 +118,7 @@ It is known that every planar graph $G$ has a collinear set of size
 $\Omega(\sqrt{n})$ \cite{bose.dujmovic.ea:polynomial,dujmovic:utility}
 . \corref{main} therefore improves on this bound for bounded-degree planar
 graphs and, indeed for the family of $n$-vertex planar graphs of maximum
-degree $\Delta\in O(n^{\delta})$, with $\delta < 0.075$.  For example,
+degree $\Delta\in O(n^{\delta})$, with $\delta < 0.1$.  For example,
 the triangulations dual to Gr\"unbaum and Walther's construction have
 maximum degree $\Delta \in O(\log n)$.  As discussed below, this implies
 that there exists $n$-vertex triangulations of maximum degree $O(\log
@@ -142,7 +143,7 @@ drawings~\cite{evans.kusters.ea:column,barba.hoffmann.ea:column,angelini.evans.e
 the reader is referred to Dujmovi\'c \cite{dujmovic:utility}
 and Dujmovi\'c \etal\ \cite[Section~1.1]{dujmovic.frati.ea:every}.
 \corref{main} gives improved bounds for all of these problems for planar
-graphs of maximum $\Delta\in o(n^{0.075})$.
+graphs of maximum $\Delta\in o(n^{0.1})$.
 
 For example, it is known that every $n$-vertex planar geometric graph
 can be untangled while keeping some set of $\Omega(n^{0.25})$ vertices
@@ -216,40 +217,40 @@ curves define collinear sets:
   and only if there is a proper good curve for $G$ that contains $S$.
 \end{thm}
 
-For a triangulation $T$, let $v(T)$ denote the size of a largest
-collinear set in $T$.  We will show that, for any triangulation $T$
+For a triangulation $G$, let $v(G)$ denote the size of a largest
+collinear set in $G$.  We will show that, for any triangulation $G$
 of maximum degree $\Delta$
-whose dual is $\dual{T}$, $v(T)=\Theta(c(\dual{T})/\Delta^4)$ by relating proper good curves in $T$ to cycles in $\dual{T}$.
+whose dual is $\dual{G}$, $v(G)=\Theta(c(\dual{G})/\Delta^3)$ by relating proper good curves in $G$ to cycles in $\dual{G}$.
 
 As shown by Ravsky and Verbitsky
-\cite{ravsky.verbitsky:on,ravsky.verbitsky:on-arxiv}, the inequality $v(T)
-\le c(\dual{T})$ is easy: If $T$ is a triangulation that has a proper
+\cite{ravsky.verbitsky:on,ravsky.verbitsky:on-arxiv}, the inequality $v(G)
+\le c(\dual{G})$ is easy: If $G$ is a triangulation that has a proper
 good curve $C$ containing $k$ vertices, then a slight deformation of
 $C$ produces a proper good curve that contains no vertices. This curve
-intersects a cyclic sequence of faces $f_0,\ldots,f_{k'-1}$ of $T$
+intersects a cyclic sequence of faces $f_0,\ldots,f_{k'-1}$ of $G$
 with $k'\ge k$.  In this sequence, $f_i$ and $f_{(i+1)\bmod k'}$ share
 an edge, for every $i\in\{0,\ldots,k'-1\}$, so this sequence is a closed
-walk in the dual $\dual{T}$ of $T$.  The properness of the original curve
-and the fact that each face of $T$ is a triangle ensures that $f_i\neq
-f_j$ for any $i\neq j$, so this sequence is a cycle in $\dual{T}$ of
-length $k'\ge k$.  Therefore, $c(\dual{T})\ge v(T)$. From the result
+walk in the dual $\dual{G}$ of $G$.  The properness of the original curve
+and the fact that each face of $G$ is a triangle ensures that $f_i\neq
+f_j$ for any $i\neq j$, so this sequence is a cycle in $\dual{G}$ of
+length $k'\ge k$.  Therefore, $c(\dual{G})\ge v(G)$. From the result
 of Gr\"unbaum and Walther described above, this implies that there are
-$n$-vertex triangulations $T$ such that $v(T) = O(n^{0.9859})$.
+$n$-vertex triangulations $G$ such that $v(G) = O(n^{0.9859})$.
 
-The other direction, lower-bounding $v(T)$ in terms $c(\dual{T})$
-is more difficult. Not every cycle $C$ of length $\ell$ in $\dual{T}$
+The other direction, lower-bounding $v(G)$ in terms $c(\dual{G})$
+is more difficult. Not every cycle $C$ of length $\ell$ in $\dual{G}$
 can be easily transformed into a proper good curve containing a similar
 number of vertices in $C$.  In the next section, we describe three
-parameters $\tau$, $\rho$, and $\kappa$ of a cycle $C$ in $\dual{T}$
+parameters $\tau$, $\rho$, and $\kappa$ of a cycle $C$ in $\dual{G}$
 and show that $C$ can always be transformed into a proper good curve
-containing $\Omega(\kappa)$ vertices of $T$.
+containing $\Omega(\kappa)$ vertices of $G$.
 
 \subsection{Faces that are Touched, Pinched, and Caressed}
 
-Throughout the remainder of this section, $T$ is a triangulation
-whose dual is $\dual{T}$ and $C$ is a cycle in $\dual{T}$.
+Throughout the remainder of this paper, $G$ is a triangulation
+whose dual is $\dual{G}$ and $C$ is a cycle in $\dual{G}$.
 Refer to \figref{touched_pinched_caressed} for the following definitions.
-We say that a face $f$ of $\dual{T}$
+We say that a face $f$ of $\dual{G}$
 \begin{enumerate}
   \item is \emph{touched} by $C$ if $f\cap C\neq \emptyset$;
   \item is \emph{pinched} by $C$ if $f\cap C$ is a cycle or has more than
@@ -261,38 +262,38 @@ We say that a face $f$ of $\dual{T}$
   \begin{center}
     \includegraphics{figs/t0t1-2}
   \end{center}
-  \caption{Faces of $\dual{T}$ that are pinched and caressed by $C$. $C$
+  \caption{Faces of $\dual{G}$ that are pinched and caressed by $C$. $C$
   is bold, caressed faces are teal, pinched faces are pink, and untouched
   faces are unshaded.} \figlabel{touched_pinched_caressed}
 \end{figure}
 
 
 Since $C$ is almost always the cycle of interest, we will usually say
-that a face $f$ of $\dual{T}$ is touched, pinched, or caressed, without
+that a face $f$ of $\dual{G}$ is touched, pinched, or caressed, without
 specifically mentioning $C$.  We will frequently use the values $\tau$,
-$\rho$, and $\kappa$ to denote the number of faces of $\dual{T}$ in
+$\rho$, and $\kappa$ to denote the number of faces of $\dual{G}$ in
 some region that are $\tau$ouched, $\rho$inched or $\kappa$aressed.
 Observe that, since every face that is touched is either pinched or
 caressed, we have the identity $\tau = \rho + \kappa$.
 
 \begin{lem}\lemlabel{cycle_to_curve}
-   If $C$ caresses $\kappa$ faces of $\dual{T}$ then $T$ has a proper
+   If $C$ caresses $\kappa$ faces of $\dual{G}$ then $G$ has a proper
    good curve that contains at least $\kappa/4$ vertices so, by
-   \thmref{dalozzo}, $v(T)\ge \kappa/4$.
+   \thmref{dalozzo}, $v(G)\ge \kappa/4$.
 \end{lem}
 
 \begin{proof}
-  Let $F$ be the set of faces in $\dual{T}$ that are caressed by $C$. Each
-  element $u\in F$ corresponds to a vertex of $T$ so we will treat $F$ as
-  a set of vertices in $T$.  Consider the subgraph $T[F]$ of $T$ induced
-  by $F$.  The graph $T[F]$ is planar and has $\kappa$ vertices. Therefore,
-  by the 4-Colour Theorem \cite{robertson.seymour.ea:four-colour}, $T[F]$
+  Let $F$ be the set of faces in $\dual{G}$ that are caressed by $C$. Each
+  element $u\in F$ corresponds to a vertex of $G$ so we will treat $F$ as
+  a set of vertices in $G$.  Consider the subgraph $G[F]$ of $G$ induced
+  by $F$.  The graph $G[F]$ is planar and has $\kappa$ vertices. Therefore,
+  by the 4-Colour Theorem \cite{robertson.seymour.ea:four-colour}, $G[F]$
   contains an independent set $F'\subseteq F$ of size at least $\kappa/4$.
 
-  We claim that there is a proper good curve for $T$ that contains all
+  We claim that there is a proper good curve for $G$ that contains all
   the vertices in $F'$.  To see this, first observe that the cycle $C$ in
-  $\dual{T}$ already defines a proper good curve (that does not contain
-  any vertices of $T$) that we also call $C$.  We perform
+  $\dual{G}$ already defines a proper good curve (that does not contain
+  any vertices of $G$) that we also call $C$.  We perform
   local modifications on $C$ so that it contains all the vertices in $F'$.
 
   For any vertex $u\in F'$, let $w_0,\ldots,w_{d-1}$ denote the neighbours
@@ -303,7 +304,7 @@ caressed, we have the identity $\tau = \rho + \kappa$.
   crosses $uw_i,\ldots,uw_j$, and then crosses the edge $w_j w_{j+1}$.
   We modify $C$ by removing the portion between the first and last of
   these crossings and replacing it with a curve that contains $u$ and is
-  contained in the two triangles $w_{i-1}uw_i$ and $w_juw_{j+1}$. (See
+  contained in the two faces $w_{i-1}uw_i$ and $w_juw_{j+1}$. (See
   \figref{cycle_to_curve}.)
 
   \begin{figure}
@@ -319,18 +320,18 @@ caressed, we have the identity $\tau = \rho + \kappa$.
 
   After performing this local modification for each $u\in F'$ we have
   a curve $C'$ that contains every vertex $u\in F'$.  All that remains
-  is to verify that $C'$ is good and proper for $T$. That $C'$ is good for
-  $T$ is obvious.  That $C'$ is proper for $T$ follows from the following two
+  is to verify that $C'$ is good and proper for $G$. That $C'$ is good for
+  $G$ is obvious.  That $C'$ is proper for $G$ follows from the following two
   observations: (i)~$C'$ does not contain any two adjacent vertices (since
   $F'$ is an independent set); and (ii)~if $C'$ contains a vertex $u$,
   then it does not intersect the interior of any edge incident to $u$.
 \end{proof}
 
 \lemref{cycle_to_curve} reduces our problem to finding a cycle in
-$\dual{T}$ that caresses many faces.  It is tempting to hope that
-any sufficiently long cycle in $\dual{T}$ caresses many faces, but
+$\dual{G}$ that caresses many faces.  It is tempting to hope that
+any sufficiently long cycle in $\dual{G}$ caresses many faces, but
 this is not true; \figref{few_caressed} shows that even a Hamiltonian
-cycle $C$ in $\dual{T}$ may caress only four faces, two inside $C$ and
+cycle $C$ in $\dual{G}$ may caress only four faces, two inside $C$ and
 two outside of $C$.  In this example, there is an obvious sequence of
 faces $f_0,\ldots,f_k$, all contained in the interior of $C$ where $f_i$
 shares an edge with $f_{i+1}$ for each $i\in\{0,\ldots,k-1\}$.  The only
@@ -340,7 +341,7 @@ caressed faces in the interior of $C$ are the endpoints $f_0$ and $f_k$ of this 
    \begin{center}
        \includegraphics{figs/two-caressed}
    \end{center}
-   \caption{A Hamiltonian cycle $C$ in $\dual{T}$ that caresses only four faces.}
+   \caption{A Hamiltonian cycle $C$ in $\dual{G}$ that caresses only four faces.}
    \figlabel{few_caressed}
 \end{figure}
 
@@ -352,13 +353,13 @@ the tree $T_0$ is the path $f_0,\ldots,f_k$ and, indeed, the leaves $f_0$
 and $f_k$ of this tree are caressed by $C$.  After a non-trivial analysis of the trees $T_0$ and $T_1$, we will eventually show that,
 if $C$ does not caress many faces, then $T_0$ and $T_1$ have many nodes,
 but few leaves.  Therefore $T_0$ and $T_1$ have many degree-2 nodes.
-This abundance of degree-2 nodes makes it possible to perform a surgery
+This abundance of degree-2 nodes makes it possible to perform a \emph{surgery}
 on $C$ that increases the number of caressed faces.  Performing this
 surgery repeatedly will then produce a curve $C$ that caresses many faces.
 
 %The following useful lemma shows that the example in \figref{few_caressed}
 %is tight.
-A path $P=v_1,\ldots,v_r$ in $\dual{T}$ is a \emph{chord
+A path $P=v_1,\ldots,v_r$ in $\dual{G}$ is a \emph{chord
 path} (for $C$) if $v_1,v_r\in V(C)$ and $v_2,\ldots,v_{r-1}\not\in
 V(C)$.  Note that this definition implies that the interior vertices
 $v_2,\ldots,v_{r-1}$ of $P$ are either all contained in the interior of
@@ -366,16 +367,16 @@ $C$ or all contained in the exterior of $C$.
 
 \begin{lem}\lemlabel{one_caressed}
    Let $P$ be a chord path for $C$ and let $L$ and $R$ be the two faces
-   of the graph formed by $P$ and $C$ that each contain $P$ in their boundary. Then $R$
-   contains at least one face of $\dual{T}$ that is caressed by $C$.
+   of the graph formed by $P\cup C$ that each contain $P$ in their boundary. Then $R$
+   contains at least one face of $\dual{G}$ that is caressed by $C$.
 \end{lem}
 
 \begin{proof}
    The proof is by
-   induction on the number, $t$, of faces of $\dual{T}$ contained in $R$.
-   If $t=1$, then $R$ is a face of $\dual{T}$ and it is caressed by $C$.
+   induction on the number, $t$, of faces of $\dual{G}$ contained in $R$.
+   If $t=1$, then $R$ is a face of $\dual{G}$ and it is caressed by $C$.
 
-   If $t>1$, then consider the face $f$ of $\dual{T}$ that is contained
+   If $t>1$, then consider the face $f$ of $\dual{G}$ that is contained
    in $R$ and has the first edge of $P$ on its boundary.  Refer to
    \figref{one_caressed}. Since $t>1$, $X=R\setminus f$ is non-empty. The
    set $X$ may have several connected components $X_1,\ldots,X_k$, but
@@ -397,9 +398,9 @@ $C$ or all contained in the exterior of $C$.
 \subsection{Auxilliary Graphs and Trees: $H$, $\tilde{H}$, $T_0$, and $T_1$}
 
 Refer to \figref{auxilliary}. Consider the auxilliary
-graph $H$ with vertex set $V(H)\subseteq V(\dual{T})$ and whose edge set
-consist of the edges of $C$ plus those edges of $\dual{T}$ that belong
-to any face pinched by $C$. Let $v_0,\ldots,v_{r-1}$ be the clockwise cyclic sequence of vertices on some face $f$ of $\dual{T}$ that is pinched by $C$.
+graph $H$ with vertex set $V(H)\subseteq V(\dual{G})$ and whose edge set
+consist of the edges of $C$ plus those edges of $\dual{G}$ that belong
+to any face pinched by $C$. Let $v_0,\ldots,v_{r-1}$ be the clockwise cyclic sequence of vertices on some face $f$ of $\dual{G}$ that is pinched by $C$.
 We identify three kinds of vertices that are \emph{special} with respect to $f$:
 (see \figref{keepers}).
 \begin{enumerate}
@@ -417,25 +418,25 @@ We identify three kinds of vertices that are \emph{special} with respect to $f$:
 		\includegraphics[width=.45\textwidth]{figs/t0t1-5} \\
                 (c) & (d)
      \end{tabular}\end{center}
-	  \caption{(a)~the cycle $C$ in $\dual{T}$ with faces classified as pinched or caressed; (b)~the auxilliary graph $H$; (c)~the auxilliary graph $\tilde{H}$ with keeper paths highlighted; (d)~the trees $T_0$ and $T_1$.}
+	  \caption{(a)~the cycle $C$ in $\dual{G}$ with faces classified as pinched or caressed; (b)~the auxilliary graph $H$; (c)~the auxilliary graph $\tilde{H}$ with keeper paths highlighted; (d)~the trees $T_0$ and $T_1$.}
 	  \figlabel{auxilliary}
   \end{figure}
 
-We say that a chord path $v_i,\ldots,v_j$ is a \emph{keeper} with respect to $f$ if $v_i$ is special of Type~A, $v_j$ is special of Type~B, and none of $v_{i+1},\ldots,v_{j-1}$ are special.  We let $\tilde{H}$ denote the subgraph of $H$ containing all the edges of $C$ and all the edges of all paths that are keepers with respect to some pinched face $f$ of $\dual{T}$.
+We say that a chord path $v_i,\ldots,v_j$ is a \emph{keeper} with respect to $f$ if $v_i$ is special of Type~A, $v_j$ is special of Type~B, and none of $v_{i+1},\ldots,v_{j-1}$ are special.  We let $\tilde{H}$ denote the subgraph of $H$ containing all the edges of $C$ and all the edges of all paths that are keepers with respect to some pinched face $f$ of $\dual{G}$.
 
 \begin{figure}
    \begin{center}\begin{tabular}{ccc}
         \includegraphics{figs/keepers-1} &
         \includegraphics{figs/keepers-2} &
         \includegraphics{figs/keepers-3} \\
-        $\dual{T}$ & $H$ & $\tilde{H}$
+        $\dual{G}$ & $H$ & $\tilde{H}$
    \end{tabular}\end{center}
-    \caption{The graphs $\dual{T}$, $H$, and $\hat{H}$ and the classification of special vertices of types $A$, $B$, and $Y$.}
+    \caption{The graphs $\dual{G}$, $H$, and $\hat{H}$ and the classification of special vertices of types $A$, $B$, and $Y$.}
     \figlabel{keepers}
 \end{figure}
 
 It is worth emphasizing at this point that, by definition, every keeper is
-entirely contained in the boundary of at least one face $f$ of $\dual{T}$.
+entirely contained in the boundary of at least one face $f$ of $\dual{G}$.
 This property will be useful shortly.
 
 Let $\tilde{H}'$ denote the graph that is homeormophic to $\tilde{H}$
@@ -464,7 +465,7 @@ point onwards, we will refer to the vertices of $T_i$ as \emph{nodes}
 to highlight this fact, so that a node $u$ of $T_i$ is synonymous with
 the subset of $\R^2$ contained in the corresponding face of $\tilde{H}$.
 In the following, when we say that a node $u$ of $T_i$ contains a face $f$
-of $\dual{T}$ we mean that $f$ is one of the faces of $\dual{T}$ whose
+of $\dual{G}$ we mean that $f$ is one of the faces of $\dual{G}$ whose
 union makes up $u$.  The degree, $\delta_u$ of any node $u$ in $T_i$
 is exactly equal to the number of keeper paths on the boundary of $u$.
 
@@ -473,7 +474,7 @@ The following lemma allows us to direct our effort towards proving that
 one of $T_0$ or $T_1$ has many leaves.
 
 \begin{lem}\lemlabel{one_caressed_leaf}
-   Each leaf $u$ of $T_i$ contains at least one face of $\dual{T}$
+   Each leaf $u$ of $T_i$ contains at least one face of $\dual{G}$
    that is caressed by $C$.
 \end{lem}
 
@@ -488,31 +489,31 @@ We will make use of the following well-known property of
 3-connected plane graphs.
 
 \begin{lem}\lemlabel{one_shared_edge}
-   If $T$ has $n\ge 4$ vertices then any two faces of $\dual{T}$ share at
+   If $G$ has $n\ge 4$ vertices then any two faces of $\dual{G}$ share at
    most one edge.
 \end{lem}
 
 \begin{proof}
    Suppose that two faces $f$ and $g$ share two edges $e_1$ and
-   $e_2$. Then $e_1$ and $e_2$ form an edge cutset of $\dual{T}$.
-   If $\dual{T}$ contains at least four vertices, then two of the
-   endpoints of $e_1$ and $e_2$ form a vertex cutset of $\dual{T}$
-   of size 2, contradicting the fact that $\dual{T}$ is 3-connected.
-   That $\dual{T}$ contains at least four vertices follows from Euler's
-   Formula, which gives the number of vertices in $\dual{T}$ as $2n-4\ge
+   $e_2$. Then $e_1$ and $e_2$ form an edge cutset of $\dual{G}$.
+   If $\dual{G}$ contains at least four vertices, then two of the
+   endpoints of $e_1$ and $e_2$ form a vertex cutset of $\dual{G}$
+   of size 2, contradicting the fact that $\dual{G}$ is 3-connected.
+   That $\dual{G}$ contains at least four vertices follows from Euler's
+   Formula, which gives the number of vertices in $\dual{G}$ as $2n-4\ge
    4$ for all $n\ge 4$.
 \end{proof}
 
-Note that, as should be evident from \figref{keepers}, the number of faces in $\tilde{H}$ is not lower bounded by any function of the number of faces in $H$ and therefore the number of nodes in $T_0$ and $T_1$ is not lower bounded by any function of $\ell$.  Indeed, a single face of $\tilde{H}$ may contain arbitrarily many faces of $\dual{T}$ that are touched by $C$.  The following important lemma shows that, when this happens, the corresponding node in $T_0$ or $T_1$ either has high degree or contains many faces of $\dual{T}$ that are caressed by $C$.  The latter case is obviously good for our purposes. The former case is good because a vertex of degree $\delta$ in any tree creates $\delta-2$ leaves and, by \lemref{one_caressed_leaf}, each leaf contains at least one caressed face.
+Note that, as should be evident from \figref{keepers}, the number of faces in $\tilde{H}$ is not lower bounded by any function of the number of faces in $H$ and therefore the number of nodes in $T_0$ and $T_1$ is not lower bounded by any function of $\ell$.  Indeed, a single face of $\tilde{H}$ may contain arbitrarily many faces of $\dual{G}$ that are touched by $C$.  The following important lemma shows that, when this happens, the corresponding node in $T_0$ or $T_1$ either has high degree or contains many faces of $\dual{G}$ that are caressed by $C$.  The latter case is obviously good for our purposes. The former case is also good because a vertex of degree $\delta$ in any tree creates $\delta-2$ leaves and, by \lemref{one_caressed_leaf}, each leaf contains at least one caressed face.
 
 
 \begin{lem}\lemlabel{many_caressed_or_high_degree}
-   Let $u$ be a node of $T_i$ and let $\rho_u$, $\kappa_u$, and $\delta_u$ denote the number of pinched faces of $\dual{T}$ in $u$, the number of caressed faces of $\dual{T}$ in $u$, and the degree of $u$ in $T_i$, respectively.  Then $\rho_u \le 2(\kappa_u+\delta_u)$.
+   Let $u$ be a node of $T_i$ and let $\rho_u$, $\kappa_u$, and $\delta_u$ denote the number of pinched faces of $\dual{G}$ in $u$, the number of caressed faces of $\dual{G}$ in $u$, and the degree of $u$ in $T_i$, respectively.  Then $\rho_u \le 2(\kappa_u+\delta_u)$.
 \end{lem}
 
 Before proving \lemref{many_caressed_or_high_degree}, we point out that
 the leading constant 2 is tight. \figref{tight} shows an example in
-which all $\rho_u=2k+1$ pinched faces of $\dual{T}$ are contained in a
+which all $\rho_u=2k+1$ pinched faces of $\dual{G}$ are contained in a
 single (pink) node $u$ of $T_0$ that contains $\kappa_u=0$ caressed faces and
 has degree $\delta_u=k+2$.
 
@@ -524,10 +525,10 @@ has degree $\delta_u=k+2$.
   \figlabel{tight}
 \end{figure}
 
-We also note the following useful corollary that follows immediately from \lemref{many_caressed_or_high_degree} and the identity $\tau_u=\rho_u+\kappa_u$.
-\begin{cor}\corlabel{many_caressed_or_high_degree}
-   Let $u$ be a node of $T_i$ and let $\tau_u$, $\rho_u$, $\kappa_u$, and $\delta_u$ denote the number of touched faces of $\dual{T}$ in $u$, the number of pinched faces of $\dual{T}$ in $u$, the number of caressed faces of $\dual{T}$ in $u$, and the degree of $u$ in $T_i$, respectively.  Then $\tau_u \le 3\kappa_u + 2\delta_u$.
-\end{cor}
+% We also note the following useful corollary that follows immediately from \lemref{many_caressed_or_high_degree} and the identity $\tau_u=\rho_u+\kappa_u$.
+% \begin{cor}\corlabel{many_caressed_or_high_degree}
+%    Let $u$ be a node of $T_i$ and let $\tau_u$, $\rho_u$, $\kappa_u$, and $\delta_u$ denote the number of touched faces of $\dual{G}$ in $u$, the number of pinched faces of $\dual{G}$ in $u$, the number of caressed faces of $\dual{G}$ in $u$, and the degree of $u$ in $T_i$, respectively.  Then $\tau_u \le 3\kappa_u + 2\delta_u$.
+% \end{cor}
 
 \begin{proof}[Proof of \lemref{many_caressed_or_high_degree}]
    The proof is a discharging argument.  We assign each pinched face in
@@ -541,20 +542,20 @@ We also note the following useful corollary that follows immediately from \lemre
     \end{compactenum}
     Since there is a bijection between keeper paths in $u$ and edges of $T_i$ incident to $u$, this proves the result.
 
-    The discharging procedure is made up of two routines, an \emph{initialization procedure} and a \emph{recursive procedure}.  The recursive procedure takes inputs $(L,R,P,c)$, where $P$ is a chord path, $L,R\subseteq u$, $L\cap R=P$, $L$ contains at least one face of $\dual{T}$, and $0\le c\le 2$ is a charge that we think of as resting on $P$.  The input $(L,R,P,c)$ must satisfy the following conditions:
+    The discharging procedure is made up of two routines, an \emph{initialization procedure} and a \emph{recursive procedure}.  The recursive procedure takes inputs $(L,R,P,c)$, where $P$ is a chord path, $L,R\subseteq u$, $L\cap R=P$, $L$ contains at least one face of $\dual{G}$, and $0\le c\le 2$ is a charge that we think of as resting on $P$.  The input $(L,R,P,c)$ must satisfy the following conditions:
    \begin{compactenum}[(Pre1)]
-        \item Each face of $\dual{T}$ in $L$ that shares an edge with $P$
+        \item Each face of $\dual{G}$ in $L$ that shares an edge with $P$
         is pinched.
-        \item If $c>1$ then $P$ is contained in the boundary of a single face of $\dual{T}$ that is contained in $L$.
+        \item If $c>1$ then $P$ is contained in the boundary of a single face of $\dual{G}$ that is contained in $L$.
     \end{compactenum}
     The procedure guarantees that, after its completion, the charge of $c$ that was resting on $P$ has been moved into $R$, any other charges in $L$ are undisturbed, and the faces contained in $R$ satisfy (Post1)--(Post3).
 
     Before defining the recursive procedure itself, we will show how it is used by the initialization procedure.  This initialization procedure takes an arbitrary pinched face $f$ contained in $u$.  Since $f$ is pinched, it has $r\ge 2$ chord paths $P_1,\ldots,P_r$ on its boundary. For each $i\in\{1,\ldots,r\}$, let $L_i^-$ be the component of $u\setminus P_i$ that contains $f$, let $L_i=L_i^-\cup P_i$, and let $R_i=u\setminus L_{i^-}$.
     This initialization procedure guarantees that, after it runs, all the faces and chord paths in $u\setminus R_1$ satisfy (Post1)--(Post3) but does not modify charges on faces and keeper paths in $R_1$.
 
-    The initialization procedure works as follows: Since $f$ is pinched it has a charge of 1 so we move the charge from $f$ onto $P_2$ and apply the recursive procedure to $(L_2,R_2,P_2,1)$.  Since $f$ is pinched, this satisifies (Pre1) and since the final argument $c=1$ this satisfies (Pre2).  Once the recursive procedure is complete conditions (Post1)--(Post2) are satisfied for all faces in $f\cup R_2$.
+    The initialization procedure works as follows: Since $f$ is pinched it has a charge of 1 so we move the charge from $f$ onto $P_2$ and apply the recursive procedure to $(L_2,R_2,P_2,1)$.  Since $f$ is pinched, this satisifies (Pre1) and since the final argument $c=1$ this satisfies (Pre2).  Once these recursive procedures are complete conditions (Post1)--(Post2) are satisfied for all faces in $f\cup R_2$.
 
-    Next, we apply the recursive procedure on $(L_i,R_i,P_i,0)$ for each $i\in\{3,\ldots,r\}$.  Since $f$ is a pinched face, this satisifies (Pre1) and since the final argument $c=0$ this satisfies (Pre2).  Once the recursive procedure is complete conditions (Post1)--(Post2) are satisfied for all faces in $f\cup R_i$.
+    Next, we apply the recursive procedure on $(L_i,R_i,P_i,0)$ for each $i\in\{3,\ldots,r\}$.  Since $f$ is a pinched face, this satisifies (Pre1) and since the final argument $c=0$ this satisfies (Pre2).  Once the recursive procedure is complete conditions (Post1)--(Post2) are satisfied for all faces in $f\cup R_i$ and does affect any charges in $R_1$.
 
     Since every face and keeper path contained in $u$ is contained in $R_i$ for at most one $i$, the initialization procedure produces a distribution of charges that satisifies (Post1)--(Post3) for $u\setminus R_1$, as required.
 
@@ -575,48 +576,49 @@ We also note the following useful corollary that follows immediately from \lemre
 		\figlabel{discharging}
 	\end{figure}
   \begin{enumerate}
-     \item $R$ contains no face of $\dual{T}$ that is pinched by $C$.
-     If $R$ contains no face of $\dual{T}$ at all, then $R=P$ is a keeper path,
+     \item $R$ contains no face of $\dual{G}$ that is pinched by $C$.
+     If $R$ contains no face of $\dual{G}$ at all, then $R=P$ is a keeper path,
      in which case we leave a charge of $c$ on it and we are done.
-     Otherwise $R$ contains at least one face of $\dual{T}$ and \lemref{one_caressed}  ensures that $R$ contains at least one caressed face $f$.  We move the charge from $P$ onto $f$ and we are done.
+     Otherwise $R$ contains at least one face of $\dual{G}$ and \lemref{one_caressed}  ensures that $R$ contains at least one caressed face $f$.  We move the charge from $P$ onto $f$ and we are done.
 
-     \item $R$ contains a face $f$ of $\dual{T}$ that is pinched by $C$ and that shares
+     \item $R$ contains a face $f$ of $\dual{G}$ that is pinched by $C$ and that shares
      at least one edge with $P$.  We consider three subcases, each illustrated in \figref{discharging}:
      \begin{enumerate}
 	\item $f$ contains neither endpoint of $P$. In this case,
-	$R\setminus f$ has two distinct components, $R_1^-$ and $R_2^-$ each containing a distinct endpoint of $P$.  For each $i\in\{1,2\}$, let $P_i$ be the chord path that separates $R_i^-$ from $u\setminus R_i^-$.  Since $f$ is pinched, $R\setminus(A\cup B)$ contains $r\ge 3$ chord paths $P_1,\ldots,P_{r}$.  Indeed, if $P_1$ and $P_2$ were the only chord paths on $f$, then $f$ would be caressed.  For each $i\in\{1,\ldots,r\}$, let $L_i^-=u\setminus P_i$, let $L_i=L_i^-\cup P_i$, and let $R_i=u\setminus L_i^-$.
+	$R\setminus f$ has two distinct components, $R_1^-$ and $R_2^-$ each containing a distinct endpoint of $P$.  For each $i\in\{1,2\}$, let $P_i$ be the chord path that separates $R_i^-$ from $u\setminus R_i^-$.  Since $f$ is pinched, $f$ contains $r\ge 3$ chord paths $P_1,\ldots,P_{r}$.  Indeed, if $P_1$ and $P_2$ were the only chord paths on $f$, then $f$ would be caressed.  For each $i\in\{1,\ldots,r\}$, let $L_i^-=u\setminus P_i$, let $L_i=L_i^-\cup P_i$, and let $R_i=u\setminus L_i^-$.
 
     We split the charge $c$ on $P$ evenly between $P_1$ and $P_2$ and apply the recursive procedure on $(L_i,R_i,P_i,c/2)$ for each $i\in\{1,2\}$. Next, we move the charge on $f$ to $P_3$ and apply the recursive procedure on $(L_3,R_3,P_3,1)$.  Finally, we apply the recursive procedure on $(L_i,R_i,P_i,0)$ for each $i\in\{4,\ldots,r\}$.
 
-    The recursive call $(L_1,R_1,P_1,c/2)$ satisfies (Pre1) because the path $P_1$ used in this recursive call is contained in the boundary of $f$ and $P$. In particular each face of $\dual{T}$ contained in $u\setminus R_1$ that is incident to $P_1$ is either a face of $L$ incident to $P$ or is the face $f$.  The latter faces are pinched by (Pre1) and $f$ is pinched by definition.  The recursive call on $R_1$ also satisifies (Pre2) since $c\le 2$, so $c/2\le 1$.  The same argument shows that the recursive call on $B$ satisfies (Pre1) and (Pre2).
+    The recursive call $(L_1,R_1,P_1,c/2)$ satisfies (Pre1) because the path $P_1$ used in this recursive call is contained in the boundary of $f$ and $P$. In particular each face of $\dual{G}$ contained in $u\setminus R_1$ that is incident to $P_1$ is either in $L$ and incident to $P$ or is the face $f$.  The latter faces are pinched by (Pre1) and $f$ is pinched by definition.  The recursive call on $(L_1,R_1,P_1,c/2)$ also satisifies (Pre2) since $c\le 2$, so $c/2\le 1$.  The same argument shows that the recursive call on $(L_2,R_2,P_2,c/2)$ satisfies (Pre1) and (Pre2).
 
-    For each $i\in\{3,\ldots,r\}$, the recursive call on $(L_i,R_i,P_i,\star)$ satisifies (Pre1) because $P_i$ is contained in $f$ and $f$ is pinched and satisfies (Pre2) because the final argument is $1$ when $i=3$ and $0$ otherwise.
+    For each $i\in\{3,\ldots,r\}$, the recursive call on $(L_i,R_i,P_i,\star)$ satisifies (Pre1) because $P_i$ is contained in $f$ and $f$ is pinched and satisfies (Pre2) because the final argument is $1$ for $i=3$ and $0$ for $i\in\{4,\ldots,r\}$.
 
-	\item $f$ contains exactly one endpoint of $P$.  In this case, $R\setminus f$ has one connected component $R_1$ that contains an endpoint of $P$.  Since $f$ is pinched, $f$ has $r\ge 2$ chord paths $P_1,\ldots,P_r$ on its boundary, where $P_1$ separates $R_1$ from $u\setminus R_1$. Define $L_1,\ldots,L_r$ and $P_2,\ldots,P_r$ as in the previous case.
+	\item $f$ contains exactly one endpoint of $P$.  In this case, $R\setminus f$ has one connected component $R_1^-$ that contains an endpoint of $P$.  Since $f$ is pinched, $f$ has $r\ge 2$ chord paths $P_1,\ldots,P_r$ on its boundary, where $P_1$ separates $R_1^-$ from $u\setminus R_1$. Define $L_1,\ldots,L_r$, $R_1,\ldots,R_r$, and $P_2,\ldots,P_r$ as in the previous case.
 
-    Because $f$ is pinched, it has one unit of charge on it, which move onto $P_1$ before calling the recursive procedure on $(L_1,R_1,P_1,1)$. This satisfies (Pre1) for the same reasons described in the previous case and satisfies (Pre2) because the final argument is $1$.
+    Because $f$ is pinched, it has one unit of charge on it, that we move onto $P_1$ before calling the recursive procedure on $(L_1,R_1,P_1,1)$. This satisfies (Pre1) for the same reasons described in the previous case and satisfies (Pre2) because the final argument is $1$.
 
     The path $P$ has a charge $c\le 2$ which we move onto $P_2$ and call the recursive procedure on $(L_2,R_2,P_2,c)$.  This recursive call satisfies (Pre1) because $f$ is pinched and it satisfies (Pre2) because $P_2$ is entirely contained in the boundary of $f$.
 
     Finally, for each $i\in\{3,\ldots,r\}$, we call the recursive procedure on $(L_i,R_i,P_i,0)$. Clearly each of these calls also satisfies (Pre1) and (Pre2).
 
-    \item $f$ contains both endpoints of $P$.  We claim that, in this case, $P$ must be on the boundary of more than one pinched face in $L$, otherwise $P$ would be a keeper path. To see this, observe that the face $f$ contains both the first edge $e_1$ and last edge $e_2$ of $P$. If $e_1=e_2$ because $P$ is a single edge, then it is certainly a keeper, which is not possible since $P$ is in the interior of $u$. Otherwise, by \lemref{one_shared_edge}, $e_1$ and $e_2$ are on the boundary of two different faces in $L$.  By (Pre2), this implies that $c\le 1$.
+    \item $f$ contains both endpoints of $P$.  We claim that, in this case, $P$ must be on the boundary of more than one face in $L$, otherwise $P$ would be a keeper path. To see this, observe that the face $f$ contains both the first edge $e_1$ and last edge $e_2$ of $P$. If $e_1=e_2$ because $P$ is a single edge, then it is certainly a keeper, which is not possible since $P$ is in the interior of $u$. Otherwise, by \lemref{one_shared_edge}, $e_1$ and $e_2$ are on the boundary of two different faces in $L$.
+    % By (Pre2), this implies that $c\le 1$.
     % By (Pre1), both of these faces are pinched by $C$.
 
-    Therefore, by (Pre2) $P$ has at most one unit of charge assigned to it.
-    Now, since $f$ is pinched, it has $r\ge 1$ keeper paths $P_1,\ldots,P_r$, other than $P$ on its boundary.  Define $L_1,\ldots,L_r$ and $R_1,\ldots,R_r$ as in the previous two cases.  Now, $P$ has a charge $c\le 1$ and, since it is pinched, $f$ has a charge of 1.  We move these $c+1$ units of charge from $P$ and $f$ onto $P_1$ and call the recursive procedure on $(L_1,R_1,P_1,c+1)$.  This satisfies (Pre1) since $f$ is pinched and satisifies (Pre2) since $P_1$ is entirely contained in the boundary of $f$.
+    Therefore, by (Pre2) $P$ has $c\le 1$ units of charge assigned to it.
+    Now, since $f$ is pinched, it has $r\ge 1$ chord paths $P_1,\ldots,P_r$, other than $P$ on its boundary.  Define $L_1,\ldots,L_r$ and $R_1,\ldots,R_r$ as in the previous two cases.  Now, $P$ has a charge $c\le 1$ and, since it is pinched, $f$ has a charge of 1.  We move these $c+1$ units of charge from $P$ and $f$ onto $P_1$ and call the recursive procedure on $(L_1,R_1,P_1,c+1)$.  This satisfies (Pre1) since $f$ is pinched and satisifies (Pre2) since $P_1$ is entirely contained in the boundary of $f$.
 
     For each $i\in\{2,\ldots,r\}$ we then call the recursive procedure on $(L_i,R_i,P_1,0)$. Clearly each of these calls satisfies (Pre1) and (Pre2).
 
   \end{enumerate}
-  \item $R$ contains at least one pinched face of $\dual{T}$, but no pinched face in $R$ shares an edge with $P$.  We claim that there is a single face, $g$ of $H$, contained in $R$, that contains all of $P$ on its boundary.
-  Indeed, edges of $\dual{T}$ not in $C$ are in $H$ only if they are on the boundary of some pinched face of $\dual{T}$.  Since no pinched face of $\dual{T}$ in $R$ shares an edge with $P$, none of the edges incident to internal vertices of $P$ and contained in $R$ are part of $H$.  Therefore, $P$ is on the boundary of a single face of $H$ that is contained in $R$.
+  \item $R$ contains at least one pinched face of $\dual{G}$, but no pinched face in $R$ shares an edge with $P$.  We claim that there is a single face, $g$ of $H$, contained in $R$, that contains all of $P$ on its boundary.
+  Indeed, edges of $\dual{G}$ not in $C$ are in $H$ only if they are on the boundary of some pinched face of $\dual{G}$.  Since no pinched face of $\dual{G}$ in $R$ shares an edge with $P$, none of the edges incident to internal vertices of $P$ and contained in $R$ are part of $H$.  Therefore, $P$ is on the boundary of a single face of $H$ that is contained in $R$.
 
-  Let $f$ be the face of $\dual{T}$ that is contained in $R$ and that contains the first edge of $P$.  The face $f$ is touched by $C$ but not pinched, so it must be caressed.  We move the $c$ units of charge from $P$ onto $f$.
+  Let $f$ be the face of $\dual{G}$ that is contained in $R$ and that contains the first edge of $P$.  The face $f$ is touched by $C$ but not pinched, so it must be caressed.  We move the $c$ units of charge from $P$ onto $f$.
 
   Now, $R$ still contains one or more pinched faces  $f_1,\ldots,f_k$, such that each $f_i$ shares part of a chord path $P_i$ with $g$.  Consider one such $f_i$ and observe that $u\setminus f_i$ has $r_i\ge 2$ chord paths $P_{i,1},\ldots,P_{i,r_i}$ on its boundary and use the convention that $P_{i,1}=P_i$.  Define $L_{i,1},\ldots,L_{i,r_i}$ and $R_{i,1},\ldots,R_{i,r_i}$ in a manner analagous to $L_1,\ldots,L_r$ and $R_1,\ldots,R_r$ in the previous cases.
 
-  On each such face $f_i$, we run the \emph{initialization} procedure and this reorganizes the charges in $u\setminus R_{i,1}$ so that they satisfy (Post1)--(Post3).  Doing this for each $i\in\{1,\ldots,k\}$ completes the description of the discharging procedure.
+  On each such face $f_i$, we run the \emph{initialization} procedure and this reorganizes the charges in $u\setminus R_{i,1}$ so that they satisfy (Post1)--(Post3) and does not modify charges in $L\cup g$.  Doing this for each $i\in\{1,\ldots,k\}$ completes the description of the discharging procedure.
 \end{enumerate}
   To complete the proof, first observe that if $u$ contains no pinched faces then the result is trivially true. Otherwise $u$ contains a pinched face $f$ such that one of the components $R_1$ of $u\setminus f$ contains no pinched faces.  (The existence of such an $f$ is established by choosing $f$ so that the minimum number of faces in any component of $u\setminus f$ is minimum over all pinched faces $f$ in $u$.)  Since $R_1$ contains no pinched faces, it contains no charges, so it already satisfies (Post1)--(Post3). Running the initialization procedure on $f$ will then redistribute charges so that they satisfy (Post1)--(Post3) for all faces and keeper paths in $u$.
 \end{proof}
@@ -634,7 +636,7 @@ We also note the following useful corollary that follows immediately from \lemre
 %\end{lem}
 %
 %\begin{proof}
-%  Since every face of $\dual{T}$ touched by $C$ is either pinched or
+%  Since every face of $\dual{G}$ touched by $C$ is either pinched or
 %  caressed, for any node $u$ of $T_0$ or $T_1$, we have
 %  \begin{equation}
 %       \kappa_u + \rho_u = \tau_u \enspace . \eqlabel{tpc}
@@ -684,7 +686,7 @@ We also note the following useful corollary that follows immediately from \lemre
 %nodes are degree-2. \note{PM}{\lemref{many-caressed-or-many-degree-2} is only ever used in this paragraph. Delete it?}
 
 We say that a node of $T_i$ is \emph{bad} if it has degree 2 and
-contains no face of $\dual{T}$ that is caressed by $C$.  We now move
+contains no face of $\dual{G}$ that is caressed by $C$.  We now move
 from studying individual nodes of $T_0$ and $T_1$ to studying global
 quantities associated with $T_0$ and $T_1$.  From this point on, for
 each $i\in\{0,1\}$,
@@ -698,7 +700,7 @@ each $i\in\{0,1\}$,
 
 \begin{lem}\lemlabel{few_caressed_implies_many_nodes}
 %  Let $\tau_i$, $\rho_i$, and $\kappa_i$ denote the number of faces
-%  in $\dual{T}$ contained in nodes of $T_i$ that are touched, pinched,
+%  in $\dual{G}$ contained in nodes of $T_i$ that are touched, pinched,
 %  and caressed by $C$ and let $n_i$ denote the number of nodes of $T_i$.
   If $\kappa_i \le \tau_i/6$ then $n_i\ge \tau_i/8$.
 \end{lem}
@@ -729,6 +731,7 @@ each $i\in\{0,1\}$,
        \item the set $N_{\ge 3}$ of nodes having degree at least 3;
        \item the set $N_2$ of nodes having degree 2 that are not bad.
    \end{enumerate}
+   Then
    \begin{align*}
      b_i & = n_i - |N_1|- |N_{\ge 3}|-|N_2| \\
 	   & > n_i - 2|N_1|-|N_2| & \text{since $|N_1|> |N_{\ge 3}|$} \\
@@ -761,15 +764,13 @@ to study interactions between bad nodes of $T_0$ and bad nodes of $T_1$.
 
 
 \begin{lem}\lemlabel{common_face}
-   If $u$ is a bad node then $u$ is a face of $\dual{T}$.
-   % there is a single face $f$ of $\dual{T}$ that is contained in $u$ and that contains all edges of $C\cap u$.
+   If $u$ is a bad node then $u$ is a face of $\dual{G}$.
+   % there is a single face $f$ of $\dual{G}$ that is contained in $u$ and that contains all edges of $C\cap u$.
 \end{lem}
 
 \begin{proof}
    First observe that, since $u$ is bad, it has degree 2, so $C\cap u$ has exactly two connected components $C_1$ and $C_2$. Thus $u$'s boundary
-   consists of $C_1$, $C_2$ and two chord paths $P_1$ and $P_2$.
-
-   We first argue that there is a single face $g$ of $\dual{T}$ that contains $C_1\cup C_2$.  There are a few cases to rule out (see \figref{common_face}):
+   consists of $C_1$, $C_2$ and two chord paths $P_1$ and $P_2$.  We first argue that there is a single face $g$ of $\dual{G}$ that contains $C_1\cup C_2$.  If not, then $\dual{G}$ must contain a path $P$ whose interior is in $u$ and has both endpoints on the boundary of $u$.  There are a few cases to consider:
    \begin{figure}
        \begin{center}
            \centering{
@@ -808,58 +809,57 @@ to study interactions between bad nodes of $T_0$ and bad nodes of $T_1$.
        into two nodes.	Therefore, it must be the case that $P$ contains
        an internal vertex.  Let $S_1$ be the set of internal vertices
        of $P$ and let $S_2$ be the set of vertices on the boundary
-       of $u$, not including the endpoints of $P$.  Since $\dual{T}$
+       of $u$, not including the endpoints of $P$.  Since $\dual{G}$
        is 3-connected, there is a path from $S_1$ to $S_2$ that does
-       not contain any endpoint of $P$.  The shortest such path, $P'$,
+       not contain either endpoint of $P$.  The shortest such path, $P'$,
        does not contain any edges of $P$.  Again, using portions of $P$,
        $P_1$, $P_2$, and $P'$ we can construct a chord path, contained
        in $u$, with both endpoints on $C_1$ or both endpoints on $C_2$,
        contradicting the assumption that $u$ is a bad node.
 \end{enumerate}
-    The preceding 4 cases already establish that $C_1\cup C_2$ is contained in the boundary of a single face $g$ of $\dual{T}$.  The boundary of $g$ contains two disjoint paths $P_1'$ and $P_2'$ joining $C_1$ and $C_2$.  We claim that $P_i'$ is a keeper path, for each $i\in\{1,2\}$.  Indeed, each internal $x$ vertex of $P_i'$ is either a vertex of $P_j$ or is on the boundary of three faces: $g$ and two faces that are not touched by $C$.  In either case, $x$ is not special of Type~Y.  Therefore $P_i'$ has endpoints that are special of Type~A and Type~B and has no internal vertices that are special of Type~Y, so $P_i'$ is a keeper.  Therefore $\{P_1',P_2'\}=\{P_1,P_2\}$ since, otherwise $f$ would not be a face of $\tilde{H}$.  Therefore $g=f$ so $f$ is a face of $\dual{T}$.
+    This establishes that $C_1\cup C_2$ is contained in the boundary of a single face $g$ of $\dual{G}$.  The boundary of $g$ contains two disjoint paths $P_1'$ and $P_2'$ joining $C_1$ and $C_2$.  We claim that $P_i'$ is a keeper path, for each $i\in\{1,2\}$.  Indeed, each internal $x$ vertex of $P_i'$ is either a vertex of $P_j$ or is on the boundary of three faces: $g$ and two faces that are not touched by $C$.  In either case, $x$ is not special of Type~Y.  Therefore $P_i'$ has endpoints that are special of Type~A and Type~B with respect to the pinched face $g$ and has no internal vertices that are special of Type~Y, so $P_i'$ is a keeper.  Therefore $\{P_1',P_2'\}=\{P_1,P_2\}$ since, otherwise $f$ would not be a face of $\tilde{H}$.  Therefore $g=f$ so $f$ is a face of $\dual{G}$.
 \end{proof}
 
        %
-       % \item $P$ has both endpoints on $P_i$ for some $i\in\{1,2\}$.  By choosing such a $P$ that minimizes the area of the bounded region formed by $P\cup P_i$, we may assume that this bounded region is a face of $\dual{T}$.  Let $x_1$ and $x_2$ be the two endpoints of $P$.  There are two subcases to consider:
+       % \item $P$ has both endpoints on $P_i$ for some $i\in\{1,2\}$.  By choosing such a $P$ that minimizes the area of the bounded region formed by $P\cup P_i$, we may assume that this bounded region is a face of $\dual{G}$.  Let $x_1$ and $x_2$ be the two endpoints of $P$.  There are two subcases to consider:
        % \begin{enumerate}
        %     \item $P$ has more than 2 vertices.  In this case, let $S_1$ be the set of internal vertices of $P$ and let $S_2$ be the vertices on the boundary of $u$ and argue as above.
        %
-       %     \item $P$ consists of a single edge.  In this case, the path, in $P_i$ from $x_1$ to $x_2$ has more than 2 vertices.  In this case, the path $P_i'$ from $C_i$ to $C_2$ obtained by ``shortcutting'' $P_i$ using the edge $x_1x_2$ must be a keeper. Indeed, the analysis of Cases~1--4 already implies that the first and last vertex of this path are on the same face $g$ of $\dual{T}$.  The face $g$ is pinched by $C$ and
+       %     \item $P$ consists of a single edge.  In this case, the path, in $P_i$ from $x_1$ to $x_2$ has more than 2 vertices.  In this case, the path $P_i'$ from $C_i$ to $C_2$ obtained by ``shortcutting'' $P_i$ using the edge $x_1x_2$ must be a keeper. Indeed, the analysis of Cases~1--4 already implies that the first and last vertex of this path are on the same face $g$ of $\dual{G}$.  The face $g$ is pinched by $C$ and
 
 
 The following lemma shows that a bad node $u$ in $T_0$ and a bad node $w$
 in $T_1$ share at most one edge of $C$.
 
 \begin{lem}\lemlabel{bad_one_shared_edge}
-   If nodes $u$ in $T_0$ and $w$ in $T_1$ are bad nodes that share at
-   least one edge of $C$, then $u$ and $w$ share exactly one edge of $C$.
+   Any two bad nodes $u$ of $T_i$ and $w$ of $T_j$ have at most one edge in common.
 \end{lem}
 
 \begin{proof}
-    By \lemref{common_face} $u$ and $w$ are each faces of $\dual{T}$. Therefore, by \lemref{one_shared_edge}, $u$ and $w$ share at most one edge of $C$.
+    By \lemref{common_face} $u$ and $w$ are each faces of $\dual{G}$. Therefore, by \lemref{one_shared_edge}, $u$ and $w$ share at most one edge.
 \end{proof}
 
-
-\begin{lem}\lemlabel{one_edge_between}
-   If $u$ and $w$ are bad nodes of $T_i$ sharing a common chord path $P$,
-   then $P$ is a single edge.
-\end{lem}
-
-\begin{proof}
-   By \lemref{common_face}, $u$ and $w$ are each faces of $\dual{T}$ that share the edges of $P$. By \lemref{one_shared_edge} $P$ must therefore consist of a single edge.
-\end{proof}
+%
+% \begin{lem}\lemlabel{one_shared_edge}
+%    If $u$ and $w$ are bad nodes of $T_i$ sharing a common chord path $P$,
+%    then $P$ is a single edge.
+% \end{lem}
+%
+% \begin{proof}
+%    By \lemref{common_face}, $u$ and $w$ are each faces of $\dual{G}$ that share the edges of $P$. By \lemref{one_shared_edge} $P$ must therefore consist of a single edge.
+% \end{proof}
 
 \subsection{Really Bad Nodes}
 
 
 At this point we will start making use of the assumption that the
-triangulation $T$ has maximum degree $\Delta$, which is equivalent to
-the assumption that each face of $\dual{T}$ has at most $\Delta$ edges
+triangulation $G$ has maximum degree $\Delta$, which is equivalent to
+the assumption that each face of $\dual{G}$ has at most $\Delta$ edges
 on its boundary.
 
 \begin{obs}\obslabel{degree_touched}
-  If $T$ has maximum degree $\Delta$ and $C$ has length $\ell$, then
-  the number of faces $\tau$ of $\dual{T}$ touched by $C$ is at least
+  If $G$ has maximum degree $\Delta$ and $C$ has length $\ell$, then
+  the number of faces $\tau$ of $\dual{G}$ touched by $C$ is at least
   $2\ell/\Delta$.  At least $\ell/\Delta$ of these faces are in
   the interior of $C$ and at least $\ell/\Delta$ of these faces are
   in the exterior of $C$.
@@ -867,39 +867,38 @@ on its boundary.
 
 \begin{proof}
   Orient the edges of $C$ counterclockwise so that, for each edge
-  $e$ of $C$, the face of $\dual{T}$ to the left of $e$ is in $C$'s
-  interior and the face of $\dual{T}$ to the right of $e$ is in $C$'s
-  exterior.  Each face of $\dual{T}$ has at most $\Delta$ edges.
+  $e$ of $C$, the face of $\dual{G}$ to the left of $e$ is in $C$'s
+  interior and the face of $\dual{G}$ to the right of $e$ is in $C$'s
+  exterior.  Each face of $\dual{G}$ has at most $\Delta$ edges.
   Therefore, the number of faces to the right of edges in $C$ is
   at least $\ell/\Delta$. The same is true for the number of faces
-  of $\dual{T}$ to the left of edges in $C$.
+  of $\dual{G}$ to the left of edges in $C$.
 \end{proof}
 
 For each node $u$ of $T_i$, we define $N(u)$ as the set of nodes in $T_0$
-and $T_1$ (excluding $u$) that share an edge of $\dual{T}$ with $u$.
+and $T_1$ (excluding $u$) that share an edge of $\dual{G}$ with $u$.
 Note that $N(u)$ contains the neighbours of $u$ in $T_i$ as well as
 nodes of $T_{1-i}$ with which $u$ shares an edge of $C$.
 
 
-The following lemma follows immediately from \lemref{common_face}, \lemref{one_edge_between}, and \lemref{one_shared_edge} that, for any bad node $w$, $|N(w)|\le\Delta$.
+% The following lemma follows immediately from \lemref{common_face}.
+%
+% \begin{lem}\lemlabel{n_u_size}
+%     For any bad node $u$, $|N(u)|\le\Delta$.
+% \end{lem}
 
-\begin{lem}\lemlabel{n_u_size}
-    For any bad node $u$, $|N(u)|\le\Delta$.
-\end{lem}
 
 
-
-We say that
-a node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
+We say that a node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
 
 \begin{lem}\lemlabel{lots_of_really_bad}
   For each $i\in\{0,1\}$ and each $0<\alpha < 1/24$,
-  if $T$ has maximum degree $\Delta$, $C$ has length $\ell$, and the number
-  $\kappa$, of faces of $\dual{T}$ caressed by $C$ is at most $\alpha\ell/\Delta$, then the number $b_i$ of really bad nodes in $T_i$ is at least $n_i - 192\alpha n_i$.
+  if $G$ has maximum degree $\Delta$, $C$ has length $\ell$, and the number
+  $\kappa$, of faces of $\dual{G}$ caressed by $C$ is at most $\alpha\ell/\Delta$, then the number $b_i$ of really bad nodes in $T_i$ is at least $n_i - 192\alpha n_i$.
 \end{lem}
 
 \begin{proof}
-  Without loss of generality, let $i=0$. From \obsref{degree_touched}, we know that $\tau_0\ge \ell/\Delta$.  Therefore, $\kappa_0\le\kappa\le \alpha\ell/\Delta \le \tau_0/6$ so, by \lemref{few_caressed_implies_many_nodes}, $n_0 \ge
+  Without loss of generality, let $i=0$. From \obsref{degree_touched}, we know that $\tau_0\ge \ell/\Delta$.  Therefore, $\kappa_0\le\kappa\le \alpha\ell/\Delta \le \alpha\tau_0 \le \tau_0/6$ so, by \lemref{few_caressed_implies_many_nodes}, $n_0 \ge
   \tau_0/8$.
 
   By \lemref{most_nodes_are_bad}, if $b_0 < (1-24\alpha)n_0$, then
@@ -948,8 +947,10 @@ a node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are bad.
   nodes $u$ in $T_0$ and $w$ in $T_1$,  $w\in N(u)$ if and only if $w$
   and $u$ share an edge of $C$.  The number of edges of $C$ incident to a node $w$ is at most $\Delta\tau_w$.  Therefore, we can upper bound the number of bad nodes in $T_0$ that are prevented from being really bad by some node in $T_1$ as
   \begin{align*}
-   \sum_{w\in A'}\Delta \tau_w
-    & \le  \sum_{w\in A'}(3\Delta\kappa_w + 2\delta_w) & \text{(by \corref{many_caressed_or_high_degree})} \\
+   \sum_{w\in A'}\Delta \tau_w \\
+    & = \sum_{w\in A'}\Delta (\rho_w+\kappa_w)
+    & \text{(since $\tau_w=\rho_w+\kappa_w$)} \\
+    & \le  \sum_{w\in A'}(3\Delta\kappa_w + 2\Delta\delta_w) & \text{(by \lemref{many_caressed_or_high_degree})} \\
     & \le  3\Delta\kappa + \sum_{w\in A'}2\Delta\delta_w \\
     & < 3\Delta\kappa + 12\Delta\kappa & \text{(by defining $A'_1$, $A'_2$, $A'_{\ge 3}$ and arguing as above)}\\
     & = 15\Delta\kappa \\
@@ -969,15 +970,15 @@ We say that a node $u$ is \emph{really really bad} if all the nodes in $N(u)$ ar
 
 \begin{lem}\lemlabel{lots_of_really_really_bad}
   For each $i\in\{0,1\}$ and each $0<\alpha < 1/24$,
-  if $T$ has maximum degree $\Delta$, $C$ has length $\ell$, and the number
-  $\kappa$, of faces of $\dual{T}$ caressed by $C$ is at most $\alpha\ell/\Delta$, then the number $b_i$ of really really bad nodes in $T_i$ is at least $n_i - 192(\Delta+1)\alpha n_i$.
+  if $G$ has maximum degree $\Delta$, $C$ has length $\ell$, and the number
+  $\kappa$, of faces of $\dual{G}$ caressed by $C$ is at most $\alpha\ell/\Delta$, then the number $b_i$ of really really bad nodes in $T_i$ is at least $n_i - 192(\Delta+1)\alpha n_i$.
 \end{lem}
 
 \begin{proof}
-    A node $u$ is a \emph{fringe node} if it is really bad but not really really bad. A node $u$ is a \emph{critical node} if it is bad but not really bad.  Observe that every fringe node $u$ is in $N(w)$ for some critical node $w$.  To bound the number of fringe nodes, it therefore suffices to bound $\sum_{w}|N(w)|\le\sum_{w}\Delta$ where the sum is over all critical nodes and the inequality is due to \lemref{n_u_size} and the fact that any fringe node is bad.
+    A node $u$ is a \emph{fringe node} if it is really bad but not really really bad. A node $u$ is a \emph{critical node} if it is bad but not really bad.  Observe that every fringe node $u$ is in $N(w)$ for some critical node $w$.  To bound the number of fringe nodes, it therefore suffices to bound $\sum_{w}|N(w)|\le\sum_{w}\Delta$ where the sum is over all critical nodes and the inequality is due to \lemref{common_face}, so $|N(w)|\le\Delta$ for any bad node $w$.
 
     By \lemref{lots_of_really_bad}, the number of nodes that are not really bad, and hence the number of critical nodes, is at most $192\alpha n_i$.  Therefore, the number of fringe nodes is at most $192\Delta\alpha n_i$.
-    Any node that is not really really bad is either a fringe node or is a node that is not really bad.  Therefore, the number of nodes that are really really bad is at least
+    Any node that is not really really bad is either a fringe node or is not really bad.  Therefore, the number of nodes that are really really bad is at least
     \[
         n_i - 192\alpha n_i - 192\Delta\alpha n_i = 192(\Delta+1)\alpha n_i \enspace . \qedhere
     \]
@@ -1003,7 +1004,7 @@ The following observation, illustrated in \figref{three-paths}, follows from the
 %
 % \begin{lem}\lemlabel{lots_of_really_i_bad}
 %   For any constant $i\in\N$ and every sufficiently small $0<\alpha < 1/2$,
-%   if $T$ has maximum degree $\Delta$, $C$ has length $\ell$, and the number,
+%   if $G$ has maximum degree $\Delta$, $C$ has length $\ell$, and the number,
 %   $\kappa$, of faces caressed by $C$ is at most $\alpha\ell/\Delta^{i+1}$, then
 %   the number of really$^i$ bad nodes in $T_0$ is at least $n_0-O(\alpha n_0)$.
 % \end{lem}
@@ -1011,17 +1012,17 @@ The following observation, illustrated in \figref{three-paths}, follows from the
 
 \subsection{Tree/Cycle Surgery}
 
-We summarize the situation so far.  By \lemref{cycle_to_curve}, finding a large collinear set is equivalent to finding a cycle in $\dual{T}$ that caresses many faces.  By existing results on the circumference of cubic triconnected graphs, $\dual{T}$ has a cycle $C_0$ of length $\ell=\Omega(n^{\alpha})$ for some $\alpha > 0.8$.  Thus we assume that $\dual{T}$ has a cycle $C_0$ of length $\ell$ and we want to show the existence of a cycle $C$ that caresses $\Omega(\ell/\Delta^3)$ faces.
+We summarize the situation so far.  By \lemref{cycle_to_curve}, finding a large collinear set is equivalent to finding a cycle in $\dual{G}$ that caresses many faces.  By existing results on the circumference of cubic triconnected graphs, $\dual{G}$ has a cycle $C_0$ of length $\ell=\Omega(n^{\alpha})$ for some $\alpha > 0.8$.  Thus we assume that $\dual{G}$ has a cycle $C_0$ of length $\ell$ and we want to show the existence of a cycle $C$ that caresses $\Omega(\ell/\Delta^3)$ faces.
 
-Because each face of $\dual{T}$ has at most $\Delta$ edges, $C_0$ touches $\Omega(\ell/\Delta)$ faces (\obsref{degree_touched}).  To complete the proof of \thmref{main} we must deal with the situation where $C_0$ caresses $o(\ell/\Delta^3)$ faces and therefore each of $T_0$ and $T_1$ has $o(\ell/\Delta^3)$ leaves (\lemref{one_caressed_leaf}), $\Omega(\ell/\Delta)$ nodes (\lemref{few_caressed_implies_many_nodes}), and the fraction of really really bad nodes in $T_0$ and $T_1$ is $1-O(1/\Delta)$ (\lemref{lots_of_really_really_bad}).
+Because each face of $\dual{G}$ has at most $\Delta$ edges, $C_0$ touches $\Omega(\ell/\Delta)$ faces (\obsref{degree_touched}).  To complete the proof of \thmref{main} we must deal with the situation where $C_0$ caresses $o(\ell/\Delta^3)$ faces and therefore each of $T_0$ and $T_1$ has $o(\ell/\Delta^3)$ leaves (\lemref{one_caressed_leaf}), $\Omega(\ell/\Delta)$ nodes (\lemref{few_caressed_implies_many_nodes}), and the fraction of really really bad nodes in $T_0$ and $T_1$ is $1-o(1/\Delta)$ (\lemref{lots_of_really_really_bad}).
 
-\figref{few_caressed_ii} illustrates an extreme example of this situation.  To handle cases like these, the only option is to perform surgery on the cycle $C$ to increase the number of caressed faces.  We achieve this indirectly by performing a surgery that increases the number of leaves in $T_0$.  The overabundance of really really bad nodes allows us to choose a particular really really bad node $u$ for which we have a good enough understanding of the faces of $\tilde{H}$ surrounding $u$ so that we can make a local modification of $C$ around $N(u)$ that increases the number of leaves in $T_0$.
+\figref{few_caressed_ii} illustrates an extreme example of this situation.  To handle cases like these, the only option is to perform surgery on the cycle $C$ to increase the number of caressed faces.  We achieve this by performing a surgery that increases the number of leaves in $T_1$. This surgery is quite delicate and requires a particular node $u$ for which we have a good enough understanding of the faces of $\tilde{H}$ surrounding $u$ so that we can make a local modification of $C$ around $N(u)$ that is guaranteed to stricly increase the number of caressed faces.
 
 \begin{figure}
     \centering{
         \includegraphics{figs/two-caressed-2}
     }
-    \caption{An example in which $C$ caresses only 4 faces of $\dual{T}$, $T_0$ has only 2 non-bad nodes (in teal), 2 non-really bad nodes (in light pink), and 2 non-really really bad nodes (in pink).}
+    \caption{An example in which $C$ caresses only 4 faces of $\dual{G}$, $T_0$ has only 2 non-bad nodes (in teal), 2 non-really bad nodes (in light pink), and 2 non-really really bad nodes (in pink).}
     \figlabel{few_caressed_ii}
 \end{figure}
 %
@@ -1035,10 +1036,10 @@ Because each face of $\dual{T}$ has at most $\Delta$ edges, $C_0$ touches $\Omeg
 %cycle $C$ is modified:
 %
 %\begin{lem}\lemlabel{survivors}
-%   Let $C$ and $C'$ be two cycles in $\dual{T}$ and, for each $i\in\{0,1\}$, let $T_i$ and $T_i'$ be the resulting trees.  Then a node $u$ in $T_i$ appears in $T_i'$ if the following conditions are satisfied:
+%   Let $C$ and $C'$ be two cycles in $\dual{G}$ and, for each $i\in\{0,1\}$, let $T_i$ and $T_i'$ be the resulting trees.  Then a node $u$ in $T_i$ appears in $T_i'$ if the following conditions are satisfied:
 %  \begin{compactenum}
 %     \item $u\cap C = u\cap C'$; and
-%     \item for every node $w$ adjacent to $u$ in $T_i$ and every face $f$ of $\dual{T}$ in $w$, $f$ is pinched by $C$ if and only if $f$ is pinched by $C'$.
+%     \item for every node $w$ adjacent to $u$ in $T_i$ and every face $f$ of $\dual{G}$ in $w$, $f$ is pinched by $C$ if and only if $f$ is pinched by $C'$.
 % \end{compactenum}
 %\end{lem}
 %
@@ -1049,14 +1050,14 @@ Because each face of $\dual{T}$ has at most $\Delta$ edges, $C_0$ touches $\Omeg
 %   (ii)~there is no keeper path for $C'$ that contains edges in the
 %   interior of $u$.  The latter condition is satisified, since a keeper
 %   path is always contained in a single pinched face and, since $u\cap
-%   C=u\cap C'$, the set of faces of $\dual{T}$ contained in $u$ that are
+%   C=u\cap C'$, the set of faces of $\dual{G}$ contained in $u$ that are
 %   pinched by $C$ is exactly the same as the set of faces contained in
 %   $u$ that are pinched by $C'$.
 %
 %   Thus, all we need to verify is that the keeper paths for $C$ on the
 %   boundary of $u$ are also keeper paths for $C'$.  Every such keeper path
 %   $P$ is on the boundary of $u$ and some neighbour $w$ of $u$ in $T_i$.
-%   Conditions 1 and 2 of the lemma ensure that every face of $\dual{T}$
+%   Conditions 1 and 2 of the lemma ensure that every face of $\dual{G}$
 %   that shares an edge with $P$ is pinched by $C$ if and only if it is
 %   pinched by $C'$.  Therefore $P$ is a keeper path in $C$ if and only
 %   if it is a keeper path in $C'$.
@@ -1064,11 +1065,11 @@ Because each face of $\dual{T}$ has at most $\Delta$ edges, $C_0$ touches $\Omeg
 % At this point we are ready to complete the proof of \thmref{main}.
 
 \begin{proof}[Proof of \thmref{main}]
-By \lemref{cycle_to_curve}, it suffices to prove the existence of a cycle $C$ in $\dual{T}$ that caresses $\Omega(\ell/\Delta^3)$ faces.  We begin by applying \lemref{lots_of_really_really_bad} with $\alpha = \epsilon/\Delta^2$.  For sufficiently small, but constant, $\epsilon$, \lemref{lots_of_really_really_bad} implies that $\kappa = \Omega(\ell/\Delta^3)$ or the number of nodes in $T_0$ that are not really really bad is at most $O(\epsilon n_0/\Delta)$.  In the former case, $C$ caresses $\Omega(\ell/\Delta^3)$ faces of $\dual{T}$ and we are done.
+By \lemref{cycle_to_curve}, it suffices to prove the existence of a cycle $C$ in $\dual{G}$ that caresses $\Omega(\ell/\Delta^3)$ faces.  We begin by applying \lemref{lots_of_really_really_bad} with $\alpha = \epsilon/\Delta^2$.  For sufficiently small, but constant, $\epsilon$, \lemref{lots_of_really_really_bad} implies that $\kappa = \Omega(\ell/\Delta^3)$ or the number of nodes in $T_0$ that are not really really bad is at most $O(\epsilon n_0/\Delta)$.  In the former case, $C$ caresses $\Omega(\ell/\Delta^3)$ faces of $\dual{G}$ and we are done.
 
 In the latter case, consider the forest obtained by removing all nodes of $T_0$ that are not really really bad.  This forest has $(1-O(\epsilon/\Delta))n_0$ nodes.  We claim that it also has $O(\epsilon n_0/\Delta)$ components.  To see why this is so, let $L$ be the set of leaves in $T_0$ and let $S$ be the set of non-leaf nodes in $T_0$ that are not really really bad.  Observe that it is sufficient to upper bound the number, $k$, of components in $T_0-S$.
 
-Since removing a degree $d$ vertex from a graph increases the number of components by at most $d-1$, we have $k \le \sum_{u\in S}(\deg_{T_0}(u)-1)$. Since $(S,L)$ is a partition of the nodes of $T_0$ that are not really really bad, we have $|L|\le |S|+|L|=  O(\epsilon n_0/\Delta)$.  Recall that a standard fact about trees is that the number of leaves in a tree $T$ is exactly $2+\sum_{u}(\deg_T(u)-2$, where the sum runs over all non-leaf nodes $u$ of $T$. Therefore,
+Since removing a degree $d$ vertex from a graph increases the number of components by at most $d-1$, we have $k \le \sum_{u\in S}(\deg_{T_0}(u)-1)$. Since $(S,L)$ is a partition of the nodes of $T_0$ that are not really really bad, we have $|L|\le |S|+|L|=  O(\epsilon n_0/\Delta)$.  Recall that a standard fact about trees is that the number of leaves in a tree $G$ is exactly $2+\sum_{u}(\deg_T(u)-2$, where the sum runs over all non-leaf nodes $u$ of $G$. Therefore,
 \[
     % O(\epsilon n_0/\Delta) \ge
     |L| \ge \sum_{u\in S}(\deg_{T_0}(u)-2)
@@ -1084,11 +1085,11 @@ one of these components, $X$, has at least $5\Delta$ nodes.
 
 %The nodes in the path $X$ have a particularly simple structure. Each
 %node $u$ in $X$ is bad and is adjacent, in $T_0$ to two bad nodes so,
-%by \lemref{one_edge_between}, $u$ has exactly two edges $e_1$ and $e_2$
+%by \lemref{one_shared_edge}, $u$ has exactly two edges $e_1$ and $e_2$
 %that are not in $C$.  Furthermore, by \lemref{common_face}, all four
 %endpoints of $e_1$, and hence $e_1$ and $e_2$ belong to a common face
-%of $\dual{T}$ that also contains all edges of $u\cap C$.  Therefore,
-%each node $u$ in $X$ consists of a single face of $\dual{T}$.
+%of $\dual{G}$ that also contains all edges of $u\cap C$.  Therefore,
+%each node $u$ in $X$ consists of a single face of $\dual{G}$.
 
 Consider some node $u$ in $X$, and let $C_a$ and $C_b$ be the
 two components of $u\cap C$. By \obsref{three-paths}, the subgraph of $T_1$ induced by $N(u)$ consists
@@ -1113,7 +1114,7 @@ Let $x_0=u$. We now define notations for some of the nodes in the vicinity of $u
     $x_0,\ldots,x_i$ for some $i\in\{1,\ldots,\Delta-4\}$.
   \item some really bad node $a_2$ of $T_1$ shares an edge with $a_1$ and
     and edge with $x_0$.
-  \item some really bad node $a_0$ of $T_1$ shares an edge with $a_1$ and
+  \item some really bad node $a_0\neq a_2$ of $T_1$ shares an edge with $a_1$ and
     with each of $x_i,\ldots,x_{i+j}$ for some $j\in\{0,\ldots,\Delta-4\}$.
 \end{enumerate}
 
@@ -1124,14 +1125,13 @@ Let $x_0=u$. We now define notations for some of the nodes in the vicinity of $u
 \end{figure}
 
 The surgery we perform focuses on the nodes $u$ and $a_1$.  Consider
-the two components of $C\cap a_1$. At least of these components, $p$, shares
+the two components of $C\cap a_1$. At least one of these components, $p$, shares
 an edge with $u$.  By \lemref{bad_one_shared_edge}, the other component,
 $q$, does not share an edge with $u$.  Imagine removing $u$ from $T_0$,
 thereby separating $T_0$ into a component $T_x$ containing $x_1$ and a
 component $T_y$ containing $y_1$.  Equivalently, one can think of removing
 the edges of $u$ from $C$ separating $C$ into two paths $C_x$ and $C_y$
-on the boundary of $T_x$ and $T_y$, respectively.  We distinguish between
-two major cases (see \figref{main_cases}):
+on the boundary of $T_x$ and $T_y$, respectively.  Since $q$ does not share an edge with $u$, $q\subseteq C_x$ or $q\subseteq C_y$.  We treat these cases separately:
 
 \begin{figure}
    \begin{center}
@@ -1146,9 +1146,9 @@ two major cases (see \figref{main_cases}):
    \figlabel{main_cases}
 \end{figure}
 \begin{enumerate}
-   \item $q\subset C_x$.  By \lemref{one_edge_between} $a_1-C$ consists of two edges and exactly one of these edges, $e$, is not incident to $u$. Instead, $e$ is incident to $x_i$.  We set $u'=x_i$, $x_1'=x_{i-1}$, $y_1'=x_{i+1}$, and $a_1'=a_1$. Observe that $a_1'$ connects the two components of $T_0-u'$ and shares edges with $u'$ and $x_1'$. This is exactly the situation considered in Case~2, next.
+   \item $q\subset C_x$.  We transform this into Case~2, by redefinining $u$, $x_1$, $y_1$ and $a_1$ as follows:  By \lemref{one_shared_edge} $a_1\setminus C$ contains exactly two edges of $\dual{G}$ and exactly one of these edges, $e$, is not incident to $u$. Instead, $e$ is incident to $x_i$.  We set $u'=x_i$, $x_1'=x_{i-1}$, $y_1'=x_{i+1}$, and $a_1'=a_1$. Observe that $a_1'$ connects the two components of $T_0-u'$ and shares edges with $u'$ and $x_1'$. This is exactly the situation considered in Case~2, next.
 
-   \item $q\subset C_y$.  At this point it is helpful to think of $T_0$, $T_1$, and $C$ as a partition of $\R^2$, where nodes of $T_0$ are coloured red, nodes of $T_1$ are coloured blue and $C$ is the (purple) boundary between red and blue.  To describe our modifications of $C$, we imagine changing the colours of nodes.  The effect that such a recolouring has on $C$ is immediately obvious: It produces a 1-dimensional set $C'$ that contains every (purple) edge contained in the red-blue boundary. The set $C'$ is a collection of vertices and edges of $\dual{T}$. Therefore, if $C'$ is a simple cycle, then $C'$ defines a new pair of trees $T_0'$ and $T_1'$.
+   \item $q\subset C_y$.  At this point it is helpful to think of $T_0$, $T_1$, and $C$ as a partition of $\R^2$, where nodes of $T_0$ are coloured red, nodes of $T_1$ are coloured blue and $C$ is the (purple) boundary between red and blue.  To describe our modifications of $C$, we imagine changing the colours of nodes.  The effect that such a recolouring has on $C$ is immediately obvious: It produces a 1-dimensional set $C'$ that contains every (purple) edge contained in the red-blue boundary. The set $C'$ is a collection of vertices and edges of $\dual{G}$. Therefore, if $C'$ is a simple cycle, then $C'$ defines a new pair of trees $T_0'$ and $T_1'$.
 
 %   The relationship between $(T_0,T_1)$ and $(T_0',T_1')$
 %   takes more effort to understand.  This difficulty comes from the fact
@@ -1160,8 +1160,7 @@ two major cases (see \figref{main_cases}):
    refer to \figref{recolouring}.  The surgery we perform recolours
    $x_0,x_1,\ldots,x_{i-1}$ blue and recolours $a_1$ red.  Observe that,
    because $q\subset C_y$ and $p$ contain an edge of $x_i$, this implies
-   that the red subset of $\R^2$ is simply-connected and its boundary $C'$
-   is a simple cycle consisting of edges of $T^*$.  The new trees $T_0'$
+   that the red subset of $\R^2$ is connected. Similarly, one can verify that $T_1-\{a_1\}$ contains two components, one containing $a_2$ and one containing $a_0$ and $b_1$.  The blue subset of $\R^2$ is connected because it contains a path from $a_2$ through $u$ to $b_1$.  Therefore the red and blue subsets of $\R^2$ are each connected and their common boundary $C'$ is a simple cycle consisting of edges of $\dual{G}$.  The new trees $T_0'$
    and $T_1'$ are therefore well defined.  We now make two claims that
    will complete our proof.
 
@@ -1177,8 +1176,8 @@ two major cases (see \figref{main_cases}):
    \end{figure}
 
    \begin{clm}\clmlabel{only_bad}
-      For each $i\in\{0,1\}$, and every node of $w$ $T_i$ that is not bad,
-      $C\cap w=C'\cap w$.  (Equivalently, for every face $f$ of $\dual{T}$
+      For each $i\in\{0,1\}$, and each node $w$ of $T_i$ that is not bad,
+      $C\cap w=C'\cap w$.  (Equivalently, for every face $f$ of $\dual{G}$
       that is not a bad node of $T_0$ or $T_1$, $C\cap f=C'\cap f$.)
    \end{clm}
 
@@ -1186,14 +1185,7 @@ two major cases (see \figref{main_cases}):
       The face $a_0$ is caressed by $C'$.
    \end{clm}
 
-   These two claims complete the proof because, together,
-   they imply that $C'$ caresses one more node than $C$.  Indeed, by
-   definition, $C$ did not caress any faces belonging to bad nodes.
-   Therefore, the first claim implies that the faces of $\dual{T}$
-   caressed by $C'$ are a superset of those caressed by $C$.  The face
-   $a_0$ is a bad node of $T_i$ so it is not caressed by $C$ but the
-   second claim states that it is caressed by $C'$.  Therefore $C'$
-   caresses at least one more face than $C$.
+   These two claims complete the proof because, together, they imply that $C'$ caresses at least one more face of $\dual{G}$ than $C$.  Indeed, by definition, $C$ did not caress any faces belonging to bad nodes. Therefore, the first claim implies that the faces of $\dual{G}$ caressed by $C'$ are a superset of those caressed by $C$.  The face $a_1$ is a bad node of $T_i$ so it is not caressed by $C$ but the second claim states that it is caressed by $C'$.  Therefore $C'$ caresses at least one more face than $C$.
 
    This surgery recolours at most $\Delta-2\le \Delta$ nodes of $T_0$
    and $T_1$, so the difference in length between $C$ and $C'$
@@ -1203,7 +1195,7 @@ two major cases (see \figref{main_cases}):
    to less than $\ell'=\ell/2$. If at some point during this process,
    we are no longer able to perform this operation, it is because
    $C$ caresses $\Omega(\ell'/\Delta^3)=\Omega(\ell/\Delta^3)$
-   faces of $\dual{T}$ and we are done.  If the process runs to completion, then by its end, the number of faces caressed by $C$ is at least
+   faces of $\dual{G}$ and we are done.  If the process runs to completion, then by its end, the number of faces caressed by $C$ is at least
    $\ell/(4\Delta^2)\in\Omega(\ell/\Delta^2)\subset\Omega(\ell/\Delta^3)$
    and we are also done.
 
@@ -1218,7 +1210,7 @@ two major cases (see \figref{main_cases}):
    node in $R$ is therefore bad, as required.
 
    To prove \clmref{a0_caressed} we consider the boundary of the face
-   $a_0$ of $T^*$ after the recolouring operation.  This boundary
+   $a_0$ of $\dual{G}$ after the recolouring operation.  This boundary
    consists of, in cyclic order:
    \begin{enumerate}
      \item  An edge $p_0p_1$ shared between $a_0$ and $a_1$.  This edge is in
@@ -1234,7 +1226,7 @@ two major cases (see \figref{main_cases}):
 
      \item A path $p_{\mu+1},\ldots,p_\nu$ with $p_\nu=p_0$ that is contained in $C$. Let $C_x'$ be the path obtained by removing all edges on the boundary of $x_1,\ldots,x_{i-1}$ from $C_x$.  Thus, the boundary of $C$ is partitioned into four paths: $C_y$; a path $P_1$ that contains $p$; $C_x'$; and a path $P_2$ that does not contain $p$.  Without loss of generality, assume that these four paths occur in the order $C_y,P_1,C_x',P_2$ when traversing $C$ clockwise.
 
-     The path $p_{\mu+1},\ldots,p_{\nu}$ ends at $p_\nu=p_0$, which is contained in $C_y$. This path must therefore either begin in $P_2$ or be entirely contained in $C_y$ since, otherwise it would contain an edge of $x_i$, contradicting \lemref{one_edge_between}.  The edges of $P_2$ are not in $C'$. Therefore $p_{\mu+1},\ldots,p_{\nu}$ begins with a (possibly empty) sequence of edges $p_{\mu+1},\ldots,p_{\mu+k}$ not contained in $C'$ followed by a non-empty sequence $p_{\mu+k},\ldots,p_\nu$ of edges that are contained in $C'$.
+     The path $p_{\mu+1},\ldots,p_{\nu}$ ends at $p_\nu=p_0$, which is contained in $C_y$. This path must therefore either begin in $P_2$ or be entirely contained in $C_y$ since, otherwise it would contain an edge of $x_i$, contradicting \lemref{one_shared_edge}.  The edges of $P_2$ are not in $C'$. Therefore $p_{\mu+1},\ldots,p_{\nu}$ begins with a (possibly empty) sequence of edges $p_{\mu+1},\ldots,p_{\mu+k}$ not contained in $C'$ followed by a non-empty sequence $p_{\mu+k},\ldots,p_\nu$ of edges that are contained in $C'$.
   \end{enumerate}
   Therefore the intersection $C'\cap a_0$ is a path $p_{\mu+k},\ldots,p_\nu,p_1,\ldots,p_{\mu}$ so $a_0$ is caressed by $C'$. \qedhere
 \end{enumerate}
@@ -1320,10 +1312,10 @@ two major cases (see \figref{main_cases}):
 %       question is whether the chord path $P$ separating $z_0$ and $z_1$
 %       is a keeper for $C'$.
 %
-%       We claim that $z_1$ contains a single face of $\dual{T}$.  By
-%       \lemref{common_face}, there is a single face $f$ of $\dual{T}$ in
-%       $z_1$ that contains $z_1\cap C$ and, by \lemref{one_edge_between},
-%       this face also contains the single edge of $\dual{T}$ separating
+%       We claim that $z_1$ contains a single face of $\dual{G}$.  By
+%       \lemref{common_face}, there is a single face $f$ of $\dual{G}$ in
+%       $z_1$ that contains $z_1\cap C$ and, by \lemref{one_shared_edge},
+%       this face also contains the single edge of $\dual{G}$ separating
 %       $z_1$ and $z_2$.  Suppose now, for the sake of contradiction,
 %       that $f$ does not contain the chord path $P$ separating $z_0$
 %       and $z_1$.  The face $f$ must, however, contain the first and last
@@ -1341,7 +1333,7 @@ two major cases (see \figref{main_cases}):
 %
 %      \item[$y_1$:] The path $u,y_1,y_2,y_3$ consists entire of bad
 %      nodes. Therefore, $y_1$ and $y_2$ are
-%      faces of $\dual{T}$. The node $y_2$ is pinched by $C'$, therefore
+%      faces of $\dual{G}$. The node $y_2$ is pinched by $C'$, therefore
 %      the edge $e$ common to $y_1$ and $y_2$ is a keeper. Therefore all
 %      edges of $y_1$ are in $C'\cup e$, so $y_1$ is a node of $T_0'$.
 %
@@ -1396,7 +1388,7 @@ two major cases (see \figref{main_cases}):
 %$C$ decreases to less than $\ell'=\ell/2$. If at some point during
 %this process, we are no longer able to perform this operation, it is
 %because $C$ caresses $\Omega(\ell'/\Delta^4)=\Omega(\ell/\Delta^4)$
-%faces of $\dual{T}$ and we are done.  By the end of this process,
+%faces of $\dual{G}$ and we are done.  By the end of this process,
 %the number of leaves in each of $T_0$ and $T_1$ is at least
 %$\ell/(2\Delta)\in\Omega(\ell/\Delta)\subset\Omega(\ell/\Delta^4)$ and we
 %are also done.  This completes the proof of \thmref{main}.
@@ -1411,14 +1403,14 @@ two major cases (see \figref{main_cases}):
 %\note{PM}{Add a discussion here about the implications.}
 
 It remains an open problem to eliminate the dependence of our results
-on the maximum degree, $\Delta$, of $T$.  The next significant step
+on the maximum degree, $\Delta$, of $G$.  The next significant step
 is to resolve the following conjecture:
 
 \begin{conj}
-  If $T$ is a triangulation whose dual $\dual{T}$ has a cycle of length
-  $\ell$, then $\dual{T}$ has a cycle that caresses $\Omega(\ell)$
+  If $G$ is a triangulation whose dual $\dual{G}$ has a cycle of length
+  $\ell$, then $\dual{G}$ has a cycle that caresses $\Omega(\ell)$
   faces. (Therefore, by \lemref{cycle_to_curve} and \thmref{dalozzo},
-  $T$ has a collinear set of size $\Omega(\ell)$.)
+  $G$ has a collinear set of size $\Omega(\ell)$.)
 \end{conj}
 
 
