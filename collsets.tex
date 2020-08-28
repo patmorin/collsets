@@ -31,11 +31,11 @@
    We show that, if an $n$-vertex triangulation $G$ of maximum degree
    $\Delta$ has a dual that contains a cycle of length $\ell$, then $G$
    has a non-crossing straight-line drawing in which some set, called
-   a \emph{collinear set}, of $\Omega(\ell/\Delta^3)$ vertices lie on
+   a \emph{collinear set}, of $\Omega(\ell/\Delta^4)$ vertices lie on
    a line.  Using the current lower bounds on the length of longest cycles
    in cubic 3-connected graphs, this implies that every $n$-vertex
    planar graph of maximum degree $\Delta$ has a collinear set of size
-   $\Omega(n^{0.8}/\Delta^3)$.
+   $\Omega(n^{0.8}/\Delta^4)$.
    % Very recently, Dujmovi\'c \etal\ (SODA
    % 2019) showed that, if $S$ is a collinear set in a triangulation $G$
    % then, for any point set $X\subset\R^2$ with $|X|=|S|$, $G$ has a
@@ -61,7 +61,7 @@ the following theorem:
 \begin{thm}\thmlabel{main}
   Let $G$ be a triangulation of maximum degree $\Delta$ whose dual
   $\dual{G}$ has circumference $\ell$. Then $G$ has a collinear set of
-  size $\Omega(\ell/\Delta^3)$.
+  size $\Omega(\ell/\Delta^4)$.
 \end{thm}
 
 The dual of a triangulation is a 3-connected cubic planar graph.
@@ -101,7 +101,7 @@ fact, together with \thmref{main} and the result of Liu, Yu, and Zhang
 
 \begin{cor}\corlabel{main}
   Every $n$-vertex planar graph of maximum degree $\Delta$ contains a
-  collinear set of size $\Omega(n^{0.8}/\Delta^3)$.
+  collinear set of size $\Omega(n^{0.8}/\Delta^4)$.
 \end{cor}
 
 %A longstanding open problem on circumference is \emph{Barnette's
@@ -118,7 +118,7 @@ It is known that every planar graph $G$ has a collinear set of size
 $\Omega(\sqrt{n})$ \cite{bose.dujmovic.ea:polynomial,dujmovic:utility}
 . \corref{main} therefore improves on this bound for bounded-degree planar
 graphs and, indeed for the family of $n$-vertex planar graphs of maximum
-degree $\Delta\in O(n^{\delta})$, with $\delta < 0.1$.  For example,
+degree $\Delta\in O(n^{\delta})$, with $\delta < 0.075$.  For example,
 the triangulations dual to Gr\"unbaum and Walther's construction have
 maximum degree $\Delta \in O(\log n)$.  As discussed below, this implies
 that there exists $n$-vertex triangulations of maximum degree $O(\log
@@ -143,7 +143,7 @@ drawings~\cite{evans.kusters.ea:column,barba.hoffmann.ea:column,angelini.evans.e
 the reader is referred to Dujmovi\'c \cite{dujmovic:utility}
 and Dujmovi\'c \etal\ \cite[Section~1.1]{dujmovic.frati.ea:every}.
 \corref{main} gives improved bounds for all of these problems for planar
-graphs of maximum $\Delta\in o(n^{0.1})$.
+graphs of maximum $\Delta\in o(n^{0.075})$.
 
 For example, it is known that every $n$-vertex planar geometric graph
 can be untangled while keeping some set of $\Omega(n^{0.25})$ vertices
@@ -220,7 +220,7 @@ curves define collinear sets:
 For a triangulation $G$, let $v(G)$ denote the size of a largest
 collinear set in $G$.  We will show that, for any triangulation $G$
 of maximum degree $\Delta$
-whose dual is $\dual{G}$, $v(G)=\Theta(c(\dual{G})/\Delta^3)$ by relating proper good curves in $G$ to cycles in $\dual{G}$.
+whose dual is $\dual{G}$, $v(G)=\Theta(c(\dual{G})/\Delta^4)$ by relating proper good curves in $G$ to cycles in $\dual{G}$.
 
 As shown by Ravsky and Verbitsky
 \cite{ravsky.verbitsky:on,ravsky.verbitsky:on-arxiv}, the inequality $v(G)
@@ -895,7 +895,7 @@ We say that a node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are b
 \begin{lem}\lemlabel{lots_of_really_bad}
   For each $i\in\{0,1\}$ and each $0<\alpha < 1/24$,
   if $G$ has maximum degree $\Delta$, $C$ has length $\ell$, and the number
-  $\kappa$, of faces of $\dual{G}$ caressed by $C$ is at most $\alpha\ell/\Delta$, then the number $b_i$ of really bad nodes in $T_i$ is at least $n_i - 192\alpha n_i$.
+  $\kappa$, of faces of $\dual{G}$ caressed by $C$ is at most $\alpha\ell/\Delta$, then the number $b_i$ of really bad nodes in $T_i$ is at least $n_i - \alpha(120\Delta+72) n_i$.
 \end{lem}
 
 \begin{proof}
@@ -955,15 +955,15 @@ We say that a node $u$ is \emph{really bad} if $u$ and all nodes in $N(u)$ are b
     & \le  3\Delta\kappa + \sum_{w\in A'}2\Delta\delta_w \\
     & < 3\Delta\kappa + 12\Delta\kappa & \text{(by defining $A'_1$, $A'_2$, $A'_{\ge 3}$ and arguing as above)}\\
     & = 15\Delta\kappa \\
-    & \le 15\alpha\ell/\Delta & \text{(since $\kappa\le\ell/\Delta$, by assumption)} \\
-    & \le 120\alpha n_0 & \text{(since $n_0\ge \tau_0/8\ge \ell/(8\Delta)$)}
+    & \le 15\alpha\ell & \text{(since $\kappa\le\alpha\ell/\Delta$, by assumption)} \\
+    & \le 120\alpha\Delta n_0 & \text{(since $n_0\ge \tau_0/8\ge \ell/(8\Delta)$)}
     % & = O(\alpha n_0) & \text{(since $n_0=\Omega(\ell/\Delta)$)}
   \end{align*}
   Therefore, the number of bad nodes in $T_0$ is $b_0$ and the number of these that are really bad is at least
   \[
-     b_0 - 48\alpha n_0 - 120\alpha n_0 =
-     b_0 - 168\alpha n_0 \ge
-     n_0 - 192\alpha n_0 \enspace . \qedhere
+     b_0 - \alpha(120\Delta + 48)n_0 \ge
+     % b_0 - 168\alpha n_0 \ge
+     n_0 - \alpha(120\Delta + 72)n_0 \enspace . \qedhere
   \]
 \end{proof}
 
@@ -972,16 +972,16 @@ We say that a node $u$ is \emph{really really bad} if all the nodes in $N(u)$ ar
 \begin{lem}\lemlabel{lots_of_really_really_bad}
   For each $i\in\{0,1\}$ and each $0<\alpha < 1/24$,
   if $G$ has maximum degree $\Delta$, $C$ has length $\ell$, and the number
-  $\kappa$, of faces of $\dual{G}$ caressed by $C$ is at most $\alpha\ell/\Delta$, then the number $b_i$ of really really bad nodes in $T_i$ is at least $n_i - 192(\Delta+1)\alpha n_i$.
+  $\kappa$, of faces of $\dual{G}$ caressed by $C$ is at most $\alpha\ell/\Delta$, then the number $b_i$ of really really bad nodes in $T_i$ is at least $n_i - \alpha(\Delta+1)(120\Delta+72) n_i= n_i - O(\alpha\Delta^2)$.
 \end{lem}
 
 \begin{proof}
     A node $u$ is a \emph{fringe node} if it is really bad but not really really bad. A node $u$ is a \emph{critical node} if it is bad but not really bad.  Observe that every fringe node $u$ is in $N(w)$ for some critical node $w$.  To bound the number of fringe nodes, it therefore suffices to bound $\sum_{w}|N(w)|\le\sum_{w}\Delta$ where the sum is over all critical nodes and the inequality is due to \lemref{common_face}, so $|N(w)|\le\Delta$ for any bad node $w$.
 
-    By \lemref{lots_of_really_bad}, the number of nodes that are not really bad, and hence the number of critical nodes, is at most $192\alpha n_i$.  Therefore, the number of fringe nodes is at most $192\Delta\alpha n_i$.
+    By \lemref{lots_of_really_bad}, the number of nodes that are not really bad, and hence the number of critical nodes, is at most $\alpha(120\Delta+72) n_i$.  Therefore, the number of fringe nodes is at most $\alpha\Delta(120\Delta+72) n_i$.
     Any node that is not really really bad is either a fringe node or is not really bad.  Therefore, the number of nodes that are really really bad is at least
     \[
-        n_i - 192\alpha n_i - 192\Delta\alpha n_i = 192(\Delta+1)\alpha n_i \enspace . \qedhere
+        n_i - \alpha(\Delta+1)(120\Delta+72) n_i \enspace . \qedhere
     \]
 \end{proof}
 
@@ -1013,9 +1013,9 @@ The following observation, illustrated in \figref{three-paths}, follows from the
 
 \subsection{Tree/Cycle Surgery}
 
-We summarize the situation so far.  By \lemref{cycle_to_curve}, finding a large collinear set is equivalent to finding a cycle in $\dual{G}$ that caresses many faces.  By existing results on the circumference of cubic triconnected graphs, $\dual{G}$ has a cycle $C_0$ of length $\ell=\Omega(n^{\alpha})$ for some $\alpha > 0.8$.  Thus we assume that $\dual{G}$ has a cycle $C_0$ of length $\ell$ and we want to show the existence of a cycle $C$ that caresses $\Omega(\ell/\Delta^3)$ faces.
+We summarize the situation so far.  By \lemref{cycle_to_curve}, finding a large collinear set is equivalent to finding a cycle in $\dual{G}$ that caresses many faces.  By existing results on the circumference of cubic triconnected graphs, $\dual{G}$ has a cycle $C_0$ of length $\ell=\Omega(n^{\alpha})$ for some $\alpha > 0.8$.  Thus we assume that $\dual{G}$ has a cycle $C_0$ of length $\ell$ and we want to show the existence of a cycle $C$ that caresses $\Omega(\ell/\Delta^4)$ faces.
 
-Because each face of $\dual{G}$ has at most $\Delta$ edges, $C_0$ touches $\Omega(\ell/\Delta)$ faces (\obsref{degree_touched}).  To complete the proof of \thmref{main} we must deal with the situation where $C_0$ caresses $o(\ell/\Delta^3)$ faces and therefore each of $T_0$ and $T_1$ has $o(\ell/\Delta^3)$ leaves (\lemref{one_caressed_leaf}), $\Omega(\ell/\Delta)$ nodes (\lemref{few_caressed_implies_many_nodes}), and the fraction of really really bad nodes in $T_0$ and $T_1$ is $1-o(1/\Delta)$ (\lemref{lots_of_really_really_bad}).
+Because each face of $\dual{G}$ has at most $\Delta$ edges, $C_0$ touches $\Omega(\ell/\Delta)$ faces (\obsref{degree_touched}).  To complete the proof of \thmref{main} we must deal with the situation where $C_0$ caresses $o(\ell/\Delta^4)$ faces and therefore each of $T_0$ and $T_1$ has $o(\ell/\Delta^4)$ leaves (\lemref{one_caressed_leaf}), $\Omega(\ell/\Delta)$ nodes (\lemref{few_caressed_implies_many_nodes}), and the fraction of really really bad nodes in $T_0$ and $T_1$ is $1-o(1/\Delta)$ (\lemref{lots_of_really_really_bad}).
 
 \figref{few_caressed_ii} illustrates an extreme example of this situation.  To handle cases like these, the only option is to perform surgery on the cycle $C$ to increase the number of caressed faces.  We achieve this by performing a surgery that increases the number of leaves in $T_1$. This surgery is quite delicate and requires a particular node $u$ for which we have a good enough understanding of the faces of $\tilde{H}$ surrounding $u$ so that we can make a local modification of $C$ around $N(u)$ that is guaranteed to stricly increase the number of caressed faces.
 
@@ -1066,7 +1066,7 @@ Because each face of $\dual{G}$ has at most $\Delta$ edges, $C_0$ touches $\Omeg
 % At this point we are ready to complete the proof of \thmref{main}.
 
 \begin{proof}[Proof of \thmref{main}]
-By \lemref{cycle_to_curve}, it suffices to prove the existence of a cycle $C$ in $\dual{G}$ that caresses $\Omega(\ell/\Delta^3)$ faces.  We begin by applying \lemref{lots_of_really_really_bad} with $\alpha = \epsilon/\Delta^2$.  For sufficiently small, but constant, $\epsilon$, \lemref{lots_of_really_really_bad} implies that $\kappa = \Omega(\ell/\Delta^3)$ or the number of nodes in $T_0$ that are not really really bad is at most $O(\epsilon n_0/\Delta)$.  In the former case, $C$ caresses $\Omega(\ell/\Delta^3)$ faces of $\dual{G}$ and we are done.
+By \lemref{cycle_to_curve}, it suffices to prove the existence of a cycle $C$ in $\dual{G}$ that caresses $\Omega(\ell/\Delta^4)$ faces.  We begin by applying \lemref{lots_of_really_really_bad} with $\alpha = \epsilon/\Delta^3$.  For sufficiently small, but constant, $\epsilon$, \lemref{lots_of_really_really_bad} implies that $\kappa = \Omega(\ell/\Delta^4)$ or the number of nodes in $T_0$ that are not really really bad is at most $O(\epsilon n_0/\Delta)$.  In the former case, $C$ caresses $\Omega(\ell/\Delta^4)$ faces of $\dual{G}$ and we are done.
 
 In the latter case, consider the forest obtained by removing all nodes of $T_0$ that are not really really bad.  This forest has $(1-O(\epsilon/\Delta))n_0$ nodes.  We claim that it also has $O(\epsilon n_0/\Delta)$ components.  To see why this is so, let $L$ be the set of leaves in $T_0$ and let $S$ be the set of non-leaf nodes in $T_0$ that are not really really bad.  Observe that it is sufficient to upper bound the number, $k$, of components in $T_0-S$.
 
@@ -1195,9 +1195,9 @@ on the boundary of $T_x$ and $T_y$, respectively.  Since $q$ does not share an e
    $\ell/(4\Delta^2)$ times before the length of $C$ decreases
    to less than $\ell'=\ell/2$. If at some point during this process,
    we are no longer able to perform this operation, it is because
-   $C$ caresses $\Omega(\ell'/\Delta^3)=\Omega(\ell/\Delta^3)$
+   $C$ caresses $\Omega(\ell'/\Delta^4)=\Omega(\ell/\Delta^4)$
    faces of $\dual{G}$ and we are done.  If the process runs to completion, then by its end, the number of faces caressed by $C$ is at least
-   $\ell/(4\Delta^2)\in\Omega(\ell/\Delta^2)\subset\Omega(\ell/\Delta^3)$
+   $\ell/(4\Delta^2)\in\Omega(\ell/\Delta^2)\subset\Omega(\ell/\Delta^4)$
    and we are also done.
 
    Thus, all that remains is to prove \clmref{only_bad} and
