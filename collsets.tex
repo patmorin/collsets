@@ -506,9 +506,10 @@ We will make use of the following well-known property of
 
 Note that, as should be evident from \figref{keepers}, the number of faces in $\tilde{H}$ is not lower bounded by any function of the number of faces in $H$ and therefore the number of nodes in $T_0$ and $T_1$ is not lower bounded by any function of $\ell$.  Indeed, a single face of $\tilde{H}$ may contain arbitrarily many faces of $\dual{G}$ that are touched by $C$.  The following important lemma shows that, when this happens, the corresponding node in $T_0$ or $T_1$ either has high degree or contains many faces of $\dual{G}$ that are caressed by $C$.  The latter case is obviously good for our purposes. The former case is also good because a vertex of degree $\delta$ in any tree creates $\delta-2$ leaves and, by \lemref{one_caressed_leaf}, each leaf contains at least one caressed face.
 
+For a node $u$ of $T_i$, we let $\tau_u$, $\rho_u$, $\kappa_u$, and $\delta_u$ denote the number of touched face of $\dual{T}$ in $u$, pinched faces of $\dual{G}$ in $u$, the number of caressed faces of $\dual{G}$ in $u$, and the degree of $u$ in $T_i$, respectively.
 
 \begin{lem}\lemlabel{many_caressed_or_high_degree}
-   Let $u$ be a node of $T_i$ and let $\rho_u$, $\kappa_u$, and $\delta_u$ denote the number of pinched faces of $\dual{G}$ in $u$, the number of caressed faces of $\dual{G}$ in $u$, and the degree of $u$ in $T_i$, respectively.  Then $\rho_u \le 2(\kappa_u+\delta_u)$.
+   For any node $u$ of $T_i$, $\rho_u \le 2(\kappa_u+\delta_u)$.
 \end{lem}
 
 Before proving \lemref{many_caressed_or_high_degree}, we point out that
@@ -1202,7 +1203,7 @@ on the boundary of $T_x$ and $T_y$, respectively.  Since $q$ does not share an e
    Thus, all that remains is to prove \clmref{only_bad} and
    \clmref{a0_caressed}.
 
-   To prove \clmref{only_bad} we observe that $C$ and $C'$ differ only on
+   To prove \clmref{only_bad}, we observe that $C$ and $C'$ differ only on
    the boundaries of nodes that are recoloured.  Thus, it is sufficient
    to show that all nodes in $R=\cup\{N(v): v\in\{x_0,\ldots,x_{i-1},a_1\}$
    are bad.  But this is immediate since $x_0,\ldots,x_{i-1}$ are really

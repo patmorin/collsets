@@ -1,4 +1,4 @@
-We would like to thank Reviewer #1 for their careful reading, editing, and constructive criticism.  Below are the reviwer's comments along with our replies.
+We would like to thank Reviewer #1 for their careful reading, editing, and constructive criticism.  Below are the reviewer's comments along with our responses.
 
 ----------------------------------------------------------------
 R: 2,59: "is less than a year old" - please change to fit the publication time, or better state it in a time-independent way
@@ -48,13 +48,8 @@ R: 14,22: \alpha\ell/\delta^2<\tau_0/6 - what implies this inequality?
 
 A: Here we were being lazy and using the statement (included in the lemma) that alpha is "sufficiently small"
 
-Since every face has size at most Delta and C has size \ell, C touches \tau_0 >= \ell/Delta faces in its interior.  So,
+In any case, this proof has been revised so that it no longer uses asymptotic notation and therefore provides an explicit constant.
 
-\tau_0/6 >= \ell/6\Delta > \ell/6\Delta^2 >= \alpha\ell/\Delta^2
-
-for alpha <= 1/6.
-
-To help clarify this, we've explicitly upper-bounded alpha by 1/6 in the statement of the lemma rather than relying on the phrase "sufficiently small"
 ----------------------------------------------------------------
 
 R: 14,46: since k_w>=1 - is k_w defined?
@@ -75,7 +70,7 @@ We have added this argument to the paper.
 ----------------------------------------------------------------
 R: 14,57: is \tau_w defined?
 
-A: The reviewer is correct.  The statement of Lemma 5 introduces \delta_w, \kappa_w and \rho_w, but not \tau_w.  We have added a Lemma 6 (for a different reason that requires and defines \tau_w.
+A: The reviewer is correct.  The statement of Lemma 5 introduces \delta_w, \kappa_w and \rho_w, but not \tau_w.  We have added this (and moved the definitions outside of, but immediately before) Lemma 5.
 ----------------------------------------------------------------
 
 R: 15,13: (by the same argument as above) -this is a very vague explanation. Please elaborate.
@@ -85,9 +80,10 @@ A: This really is the same argument as above. We split A' into three sets A'_1, 
 Since this is part of the same proof, rather than repeat this argument we just elaborated within the parenthesized note, as follows:
 (by defining A_1', A_2', A_{\ge 3}', and arguing as above)
 ----------------------------------------------------------------
+
 R: 15, Lemma 12: Does this Lemma also hold for T_1?
 
-A: Yes, we've changed to $T_i$ for each $i\in\{0,1\}$.
+A: Yes, we've changed it to $T_i$ for each $i\in\{0,1\}$.  (Though later we only use it for T_0)
 ----------------------------------------------------------------
 
 R: 15,36-41: This a nice discussion explaining the current state of the proof. However, it was not so easy to follow. I generally suggest to expand it. For instance you could recall what you want to prove first and then recall Lemma 1. The last two implications, the one of Lemma 6 and of Lemma 12, are also hard to grasp. A small expansion on this would greatly help the reader.
@@ -115,7 +111,7 @@ R: 16,8: the next equality: \sum...=|S|+\sum..., should not this be -|S|?
 A: Indeed, this was an embarrassing mistake that is now fixed.
 ----------------------------------------------------------------
 
-R: 16,19: T_1[N(u)] - probably the square brockets mean "induced by" -the notation which was used in the beginning of the paper in some proof. But please better explain it here.
+R: 16,19: T_1[N(u)] - probably the square brackets mean "induced by" -the notation which was used in the beginning of the paper in some proof. But please better explain it here.
 
 A: We have changed this to "the subgraph of T induced by N(u)"
 ----------------------------------------------------------------
@@ -130,6 +126,8 @@ Every node in T_1[N(u)] shares an edge of C with u (by definition), so this defi
 Why do a_1,..,a_r form a path in T_1?  Recall that \hat{H}, the graph whose faces are the nodes of T_0 and T_1 is 3-regular. Now imagine walking along C_a one edge at a time so that T_1 is on the right side and T_0 is on the left side.  The first edge has u to its left and some a_i to its right, so call that a_1.  The second edge is also on the boundary of some a_j and, actually a_j!=a_1 since the vertex in common between the first and second edge of C_a has a third edge that separates a_i from a_j.  So we call this second edge a_2, and so on.
 
 The same reasoning shows that b_1,...,b_s is also a path of bad nodes.
+
+We have added this, earlier on, as an observation about paths of really bad nodes.
 ----------------------------------------------------------------
 
 16,22-23: "It follows from Lemma 9 that among any sequence of \Delta consecutive nodes in X, at least one node has r>=2 and therefore |N(u)|>=5" why does this hold?
@@ -137,23 +135,43 @@ The same reasoning shows that b_1,...,b_s is also a path of bad nodes.
 This follows from 3-regularity again. As we walk along C each vertex has a third edge that either goes to the left of C (separating two nodes T_0) or into the right of C (separating two nodes of T_1).  If we take t consecutive steps along C and all the vertices we see have their third edge leading to the left (into T_0) then all those t vertices are on a common face of \hat{H}. This face is in a bad node in T_1 and Lemma 9 states that this face is then actually a face of T*.  But faces of T* have at most Delta vertices on their boundary so, after at most Delta (actually Delta-3) steps we will see a vertex v whose third edge goes to the right of C (into T_1).  This vertex v is on the boundary of a node u in T_0 that has two edges of incident to u on its boundary. Opposite those two edges are two nodes a_1,a_2 that share edges of C with u.
 
 ----------------------------------------------------------------
+
 R: 16,27-38: I could not understand how the authors came to the conclusion that this is the remaining configuration.
 
 A: Perhaps the wording was confusing here. These lines just assign names to the nodes in the vicinity of u. We have changed the wording to "We now define notations for some of the nodes in the vicinity of u (refer to
 Figure 11):"
 
-Besides this, the reasoning outlined in response to the previous previous question explains why each of x_0,...,x_{2\Delta}; x_0,y_1,\ldots,y_{2\Delta}; a_{-1},...,a_r; and b_1,...,b_s are paths. 
+Besides this, the reasoning outlined in response to the previous previous question explains why each of x_0,...,x_{2\Delta}; x_0,y_1,\ldots,y_{2\Delta}; a_{-1},...,a_r; and b_1,...,b_s are paths.
 
+Again, this is now covered by a new Observation included earlier on, when really bad nodes are introduced.
+----------------------------------------------------------------
 
+R: 16,42: "At least of these components" -> "at least one of these components"
 
-16,42: "At least of these components" -> "at least one of these components"
+A: We have implemented this change.
 
-16,50: "punt" - could you please substitute by a more common word?
+----------------------------------------------------------------
 
-17,Claim 1: "every node of w T_i" - probably you have meant "every node w of T_i"
+R: 16,50: "punt" - could you please substitute by a more common word?
 
-20,14 : maybe add comma after "To prove Claim 1", same on line 20.
+A: We have changed this to "e transform this into Case 2, by redefinining u, x 1 , y 1 and a 1 as follows:"
 
-20,36: "By Lemma 9 This path" - change "This" to "this" and I would add comma after "Lemma 9"
+----------------------------------------------------------------
 
-__
+R: 17,Claim 1: "every node of w T_i" - probably you have meant "every node w of T_i"
+
+A: Yes, we have corrected this.
+
+----------------------------------------------------------------
+
+R: 20,14 : maybe add comma after "To prove Claim 1", same on line 20.
+
+A: We have implemented this.
+
+----------------------------------------------------------------
+
+R: 20,36: "By Lemma 9 This path" - change "This" to "this" and I would add comma after "Lemma 9"
+
+A: As part this revision, we have rewritten this argument to (hopefully) make it clearer, so this section of text is now gone.
+
+----------------------------------------------------------------
